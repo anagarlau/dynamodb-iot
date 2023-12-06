@@ -55,10 +55,6 @@ map_with_polygon.save("map_with_polygon.html")
 
 
 
-
-
-
-
 # Calculate Area for test purposes. Google: 3.32 sq km
 
 # Create a GeoDataFrame
@@ -79,32 +75,33 @@ area_sqkm = area_sqm / 1e6  # Convert to square kilometers
 print("Area of the polygon in square meters:", round(area_sqkm,2))
 
 #MAP
-# Get the bounding box of the polygon
-minx, miny, maxx, maxy = polygon.bounds
+def get_geohashes_from_polygon(polygon, precision=8):
+    minx, miny, maxx, maxy = polygon.bounds
+    step = precision *50
+    geohashes = set()
+    lat_step = (maxy - miny) / step
+    lon_step = (maxx - minx) / step
+    current_lat = miny
+    while current_lat <= maxy:
+        current_lon = minx
+        while current_lon <= maxx:
+            geohash = gh.encode(current_lat, current_lon, precision)
+            geohashes.add(geohash)
+            current_lon += lon_step
+        current_lat += lat_step
 
-precision = 7
-step = precision *50
-geohashes = set()
-lat_step = (maxy - miny) / step
-lon_step = (maxx - minx) / step
-current_lat = miny
-while current_lat <= maxy:
-    current_lon = minx
-    while current_lon <= maxx:
-        geohash = gh.encode(current_lat, current_lon, precision)
-        geohashes.add(geohash)
-        current_lon += lon_step
-    current_lat += lat_step
+    # filtered
+    filtered_geohashes = set()
+    for geohash in geohashes:
+        lat, lon, lat_err, lon_err = gh.decode_exactly(geohash)
+        geohash_box = box(lon - lon_err, lat - lat_err, lon + lon_err, lat + lat_err)
+        if geohash_box.intersects(polygon):
+            filtered_geohashes.add(geohash)
+    print(filtered_geohashes)
+    print(len(filtered_geohashes))
+    return filtered_geohashes
 
-# Filter geohashes based on intersection with the polygon
-filtered_geohashes = set()
-for geohash in geohashes:
-    lat, lon, lat_err, lon_err = gh.decode_exactly(geohash)
-    geohash_box = box(lon - lon_err, lat - lat_err, lon + lon_err, lat + lat_err)
-    if geohash_box.intersects(polygon):
-        filtered_geohashes.add(geohash)
-
-# Function to add geohashes to the map
+# add geohashes to map
 def add_geohash_to_map(geohash, map_obj):
     lat_centroid, lon_centroid, lat_err, lon_err = gh.decode_exactly(geohash)
     south_west = (lat_centroid - lat_err, lon_centroid - lon_err)
@@ -116,18 +113,34 @@ def add_geohash_to_map(geohash, map_obj):
         fill_opacity=0.4,
     ).add_to(map_obj)
 
-# Create a map
-if geohashes:
-    first_geohash = list(filtered_geohashes)[0]
-    lat, lon = gh.decode(first_geohash)
-    m = folium.Map(location=[lat, lon], zoom_start=12)
+def create_map_from_geohash_set(geohash_set, name_of_map):
+    if geohash_set:
+        first_geohash = list(geohash_set)[0]
+        lat, lon = gh.decode(first_geohash)
+        m = folium.Map(location=[lat, lon], zoom_start=12)
 
-    # Add each geohash to the map
-    for geohash in filtered_geohashes:
-        add_geohash_to_map(geohash, m)
+        # Add each geohash to the map
+        for geohash in geohash_set:
+            add_geohash_to_map(geohash, m)
 
-    print(filtered_geohashes)
-    print(geohashes)
-    m.save('geohash_map.html')
-else:
-    print("No geohashes were generated within the polygon.")
+        m.save(f'{name_of_map}.html')
+    else:
+        print("No geohashes were generated within the polygon.")
+
+def get_from_max_precision(higher_precision, geohashes_list):
+    s = set()
+    for str in geohashes_list:
+        s.add(str[0:higher_precision])
+    return s
+
+
+
+
+filtered_geohashes = get_geohashes_from_polygon(polygon)
+create_map_from_geohash_set(geohash_set=filtered_geohashes, name_of_map='geohash_map')
+
+refiltered = get_from_max_precision(higher_precision=6, geohashes_list=filtered_geohashes)
+print("Refiltered")
+print(refiltered)
+create_map_from_geohash_set(geohash_set=refiltered, name_of_map='geohash_map_6')
+
