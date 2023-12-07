@@ -4,12 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="71e11198-e2ae-44f7-8201-b5a06e44ffbb" name="Changes" comment="add crop parcels and unit test">
+    <list default="true" id="71e11198-e2ae-44f7-8201-b5a06e44ffbb" name="Changes" comment="refactoring">
       <change afterPath="$PROJECT_DIR$/table_scripts.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/field_parcels.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/geohash_map.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/geohash_map_6.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/geomapping.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/geomapping.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/map_with_polygon.html" beforeDir="false" afterPath="$PROJECT_DIR$/utils/map_with_polygon.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/map_with_polygon.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +84,7 @@
       <recent name="C:\Users\ana\PycharmProjects\dynamodb" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python tests.Python tests in unittests.py">
     <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="dynamodb" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -202,8 +205,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.main" />
         <item itemvalue="Python tests.Python tests in unittests.py" />
+        <item itemvalue="Python.main" />
         <item itemvalue="Python tests.Python tests for unittests.TestGeohashAssignment.test_unique_geohash8_count" />
         <item itemvalue="Python.draft" />
         <item itemvalue="Python.app" />
@@ -230,7 +233,7 @@
       <workItem from="1701879818250" duration="1595000" />
       <workItem from="1701881459765" duration="9175000" />
       <workItem from="1701890758478" duration="23000" />
-      <workItem from="1701939347344" duration="24787000" />
+      <workItem from="1701939347344" duration="25280000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -272,7 +275,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701974994880</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="refactoring">
+      <option name="closed" value="true" />
+      <created>1701976140560</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1701976140560</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -281,15 +292,15 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
     <MESSAGE value="geomapping changes" />
-    <MESSAGE value="refactoring" />
     <MESSAGE value="init parcel logic" />
     <MESSAGE value="add crop parcels and unit test" />
-    <option name="LAST_COMMIT_MESSAGE" value="add crop parcels and unit test" />
+    <MESSAGE value="refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactoring" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/dynamodb$draft.coverage" NAME="draft Coverage Results" MODIFIED="1701964090134" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
-    <SUITE FILE_PATH="coverage/dynamodb$.coverage" NAME=" Coverage Results" MODIFIED="1701975208452" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
-    <SUITE FILE_PATH="coverage/dynamodb$main.coverage" NAME="main Coverage Results" MODIFIED="1701975612458" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/dynamodb$main.coverage" NAME="main Coverage Results" MODIFIED="1701975849098" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/dynamodb$.coverage" NAME=" Coverage Results" MODIFIED="1701976108136" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/dynamodb$geomapping.coverage" NAME="geomapping Coverage Results" MODIFIED="1701975192635" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
     <SUITE FILE_PATH="coverage/dynamodb$app.coverage" NAME="app Coverage Results" MODIFIED="1701882694390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend" />
   </component>
