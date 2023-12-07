@@ -97,8 +97,8 @@ def get_geohashes_from_polygon(polygon, precision=8):
         geohash_box = box(lon - lon_err, lat - lat_err, lon + lon_err, lat + lat_err)
         if geohash_box.intersects(polygon):
             filtered_geohashes.add(geohash)
-    print(filtered_geohashes)
-    print(len(filtered_geohashes))
+    #print(filtered_geohashes)
+    #print(len(filtered_geohashes))
     return filtered_geohashes
 
 # add geohashes to map
@@ -133,14 +133,50 @@ def get_from_max_precision(higher_precision, geohashes_list):
         s.add(str[0:higher_precision])
     return s
 
+def assign_geohashes_to_parcels(list_precision_7_parcels, list_precision_8_parcels, polygon):
+    #sort list to always get the same parcels
+    list_precision_7_parcels = sorted(list_precision_7_parcels)
+    list_precision_8_parcels= sorted(list_precision_8_parcels)
 
+    level_7_to_8_mapping = {parcel_7: [parcel_8 for parcel_8 in list_precision_8_parcels if parcel_8.startswith(parcel_7)]
+                            for parcel_7 in list_precision_7_parcels}
+    print(level_7_to_8_mapping)
+
+    crop_assignment = {}
+    for i, (parcel_6, parcels_8) in enumerate(level_7_to_8_mapping.items()):
+        crop = 'Chickpeas' if i % 2 == 0 else 'Grapevine'
+        for parcel_8 in parcels_8:
+            crop_assignment[parcel_8] = crop
+    first_geohash = list(list_precision_8_parcels)[0]
+
+    lat, lon = gh.decode(first_geohash)
+    # Visualization (using Folium)
+    map = folium.Map(location=[lat, lon],
+                     zoom_start=12)  # Set field_lat, field_lon to your field's location
+    for parcel in crop_assignment:
+        # Add each parcel to the map with a popup showing the crop
+        # Decode the geohash to get the bounding box
+        lat_centroid, lon_centroid, lat_err, lon_err = gh.decode_exactly(parcel)
+        south_west = (lat_centroid - lat_err, lon_centroid - lon_err)
+        north_east = (lat_centroid + lat_err, lon_centroid + lon_err)
+        folium.Rectangle(
+            bounds=[south_west, north_east],
+            color="#ff7800" if crop_assignment[parcel] == 'Chickpeas' else "#0000ff",
+            fill=True,
+            fill_opacity=0.4,
+            popup=crop_assignment[parcel]
+        ).add_to(map)
+
+    # Save or display the map
+    map.save('field_parcels.html')
 
 
 filtered_geohashes = get_geohashes_from_polygon(polygon)
 create_map_from_geohash_set(geohash_set=filtered_geohashes, name_of_map='geohash_map')
-
-refiltered = get_from_max_precision(higher_precision=6, geohashes_list=filtered_geohashes)
-print("Refiltered")
-print(refiltered)
+#print(f'Total of {len(filtered_geohashes)} precision 8 geohashes')
+refiltered = get_from_max_precision(higher_precision=7, geohashes_list=filtered_geohashes)
+#print("Refiltered")
+#print(refiltered)
 create_map_from_geohash_set(geohash_set=refiltered, name_of_map='geohash_map_6')
 
+assign_geohashes_to_parcels(list_precision_7_parcels=list(refiltered), list_precision_8_parcels=list(filtered_geohashes), polygon=polygon)
