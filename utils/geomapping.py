@@ -45,16 +45,12 @@ def create_map_with_polygon(coordinates):
         fill_color='pink',
         fill_opacity=0.3
     ).add_to(folium_map)
-
+    folium_map.save("maps/map_with_polygon.html")
     return folium_map
 
 
 
-# Create the map with the polygon
-map_with_polygon = create_map_with_polygon(coordinates)
 
-# Display the map
-map_with_polygon.save("map_with_polygon.html")
 
 
 
@@ -126,7 +122,7 @@ def create_map_from_geohash_set(geohash_set, name_of_map):
         for geohash in geohash_set:
             add_geohash_to_map(geohash, m)
 
-        m.save(f'{name_of_map}.html')
+        m.save(f'maps/{name_of_map}.html')
     else:
         print("No geohashes were generated within the polygon.")
 
@@ -215,7 +211,7 @@ def draw_map_parcels_with_crop(list_precision_8_parcels,crop_assignment):
             popup=crop_assignment[parcel]
         ).add_to(map)
 
-    map.save('field_parcels.html')
+    map.save('maps/field_parcels.html')
 
 def build_dictionaries_from_crop_assignment(crop_assignment):
     plant_type_to_geohashes = {'Chickpeas': {}, 'Grapevine': {}}
@@ -239,14 +235,4 @@ def build_dictionaries_from_crop_assignment(crop_assignment):
     return plant_type_to_geohashes, geohash6_info
 
 
-filtered_geohashes = get_geohashes_from_polygon(polygon)
-create_map_from_geohash_set(geohash_set=filtered_geohashes, name_of_map='geohash_map')
-refiltered = get_from_max_precision(higher_precision=7, geohashes_list=filtered_geohashes)
-create_map_from_geohash_set(geohash_set=refiltered, name_of_map='geohash_map_6')
 
-dict = assign_geohashes_to_parcels(list_precision_7_parcels=list(refiltered), list_precision_8_parcels=list(filtered_geohashes))
-dictTuple = build_dictionaries_from_crop_assignment(crop_assignment=dict)
-draw_map_parcels_with_crop(list_precision_8_parcels=list(filtered_geohashes),crop_assignment=dict)
-#print(dict)
-#print(dictTuple[0])
-#print(dictTuple[1])

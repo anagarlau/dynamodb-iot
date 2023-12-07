@@ -1,143 +1,38 @@
-import boto3
-from boto3.dynamodb.types import TypeSerializer
-from botocore.exceptions import ClientError
+from shapely import Polygon
 
-
-ERROR_HELP_STRINGS = {
-    # Common Errors
-    'InternalServerError': 'Internal Server Error, generally safe to retry with exponential back-off',
-    'ProvisionedThroughputExceededException': 'Request rate is too high. If you\'re using a custom retry strategy make sure to retry with exponential back-off.' +
-                                              'Otherwise consider reducing frequency of requests or increasing provisioned capacity for your table or secondary index',
-    'ResourceNotFoundException': 'One of the tables was not found, verify table exists before retrying',
-    'ServiceUnavailable': 'Had trouble reaching DynamoDB. generally safe to retry with exponential back-off',
-    'ThrottlingException': 'Request denied due to throttling, generally safe to retry with exponential back-off',
-    'UnrecognizedClientException': 'The request signature is incorrect most likely due to an invalid AWS access key ID or secret key, fix before retrying',
-    'ValidationException': 'The input fails to satisfy the constraints specified by DynamoDB, fix input before retrying',
-    'RequestLimitExceeded': 'Throughput exceeds the current throughput limit for your account, increase account level throughput before retrying',
-}
-
-
-def create_dynamodb_client(local=False):
-    return boto3.client("dynamodb", region_name="localhost", endpoint_url="http://localhost:8000",
-                        aws_access_key_id="fakeMyKeyId", aws_secret_access_key="fakeSecretAccessKey`")
-
-
-def create_get_item_input():
-    return {
-        "TableName": "Employee",
-        "Key": {
-            "LoginAlias": {"S": "johns"}
-        }
-    }
-
-
-def execute_get_item(dynamodb_client, input):
-    try:
-        response = dynamodb_client.get_item(**input)
-        print("Successfully get item.")
-        print(response)
-        # Handle response
-    except ClientError as error:
-        handle_error(error)
-        # except BaseException as error:
-        print("Unknown error while getting item: ")
-        handle_error(error)
-
-
-def handle_error(error):
-    error_code = error.response['Error']['Code']
-
-    error_message = error.response['Error']['Message']
-
-    error_help_string = ERROR_HELP_STRINGS[error_code]
-
-    print('[{error_code}] {help_string}. Error message: {error_message}'
-          .format(error_code=error.response,
-                  help_string=error_help_string,
-                  error_message=error.response))
-
-
-def create_table(dynamodb):
-    try:
-        table = dynamodb.create_table(
-            TableName='Student',
-            KeySchema=[
-                {
-                    'AttributeName': 'PK',
-                    'KeyType': 'HASH'  # Partition key
-                },
-                {
-                    'AttributeName': 'SK',
-                    'KeyType': 'RANGE'  # Sort key
-                }
-            ],
-            AttributeDefinitions=[
-                {
-                    'AttributeName': 'PK',
-                    'AttributeType': 'S'
-                },
-                {
-                    'AttributeName': 'SK',
-                    'AttributeType': 'S'
-                }
-            ],
-            ProvisionedThroughput={
-                'ReadCapacityUnits': 10,
-                'WriteCapacityUnits': 10
-            }
-        )
-        dynamodb.get_waiter('table_exists').wait(
-            TableName='Student',
-            WaiterConfig={
-                'Delay': 11,
-                'MaxAttempts': 3
-            }
-        )
-        # used to pause the execution of your script until the specified DynamoDB table has been created
-        print("Successfully created table student")
-    except ClientError as e:
-        # Check if the error is because the table already exists
-        if e.response['Error']['Code'] == 'ResourceInUseException':
-            print(f"Table 'Student' already exists.")
-        else:
-            # Handle other possible exceptions
-            raise
-    # SCHEMALESS except for primary key schema => other attributes are added as you go,
-    # no set schema. just add an entry
-
-    # Add an item with a string set attribute
-    serializer = TypeSerializer()
-
-    # Serialize the set
-    courses_set = serializer.serialize(set(['English', 'Math', 'Physics']))['SS']
-    try:
-        # Put the item
-        response = dynamodb.put_item(
-            TableName="Student",
-            Item={
-                'PK': {'S': 'patata@gmail.com'},
-                'SK': {'S': "John van Patata"},
-                'grade': {'N': '12'},
-                'courses': {'SS': courses_set}  # string set
-            },
-            ConditionExpression='attribute_not_exists(PK)'
-        )
-        print("Item added successfully.")
-    except ClientError as e:
-        if e.response['Error']['Code'] == 'ConditionalCheckFailedException':
-            print(f"Failure for Conditional Check {e.response}")
+from utils.geomapping import get_geohashes_from_polygon, get_from_max_precision, create_map_from_geohash_set, \
+    assign_geohashes_to_parcels, build_dictionaries_from_crop_assignment, draw_map_parcels_with_crop, \
+    create_map_with_polygon
 
 
 def main():
-    # Create the DynamoDB Client with the region you want
-    dynamodb_client = create_dynamodb_client()
 
-    # Create the dictionary containing arguments for get_item call
-    get_item_input = create_get_item_input()
+    coordinates = [
+        (28.1250063, 46.6334964),
+        (28.1334177, 46.6175812),
+        (28.1556478, 46.6224742),
+        (28.1456915, 46.638609),
+        (28.1250063, 46.6334964)  # Closing the loop
+    ]
 
-    # Call DynamoDB's get_item API
-    execute_get_item(dynamodb_client, get_item_input)
-    create_table(dynamodb_client)
+    polygon = Polygon(coordinates)
+    # Create the map with the polygon
+    map_with_polygon = create_map_with_polygon(coordinates)
+
+    # Display the map
+
+    filtered_geohashes = get_geohashes_from_polygon(polygon)
+    create_map_from_geohash_set(geohash_set=filtered_geohashes, name_of_map='geohash_map')
+    refiltered = get_from_max_precision(higher_precision=7, geohashes_list=filtered_geohashes)
+    create_map_from_geohash_set(geohash_set=refiltered, name_of_map='geohash_map_7')
+
+    dict = assign_geohashes_to_parcels(list_precision_7_parcels=list(refiltered),
+                                       list_precision_8_parcels=list(filtered_geohashes))
+    dictTuple = build_dictionaries_from_crop_assignment(crop_assignment=dict)
+    draw_map_parcels_with_crop(list_precision_8_parcels=list(filtered_geohashes), crop_assignment=dict)
+    # print(dict)
+    # print(dictTuple[0])
+    # print(dictTuple[1])
 
 
 if __name__ == "__main__":
