@@ -7,8 +7,11 @@ from shapely.geometry import Polygon,box
 import shapely.geometry
 #import geohash as gh
 import geohash2 as gh
+import hashlib
 
 import matplotlib.pyplot as plt
+
+import geohash
 
 #https://medium.com/bukalapak-data/geolocation-search-optimization-5b2ff11f013b
 # Define your polygon coordinates
@@ -133,20 +136,65 @@ def get_from_max_precision(higher_precision, geohashes_list):
         s.add(str[0:higher_precision])
     return s
 
-def assign_geohashes_to_parcels(list_precision_7_parcels, list_precision_8_parcels, polygon):
+
+def find_neighbors(ghash):
+    neighbors = {
+        'N': geohash.neighbors(ghash)[0],
+        'NE': geohash.neighbors(geohash.neighbors(ghash)[0])[1],
+        'E': geohash.neighbors(ghash)[1],
+        'SE': geohash.neighbors(geohash.neighbors(ghash)[2])[1],
+        'S': geohash.neighbors(ghash)[2],
+        'SW': geohash.neighbors(geohash.neighbors(ghash)[2])[3],
+        'W': geohash.neighbors(ghash)[3],
+        'NW': geohash.neighbors(geohash.neighbors(ghash)[0])[3]
+    }
+    return list(neighbors.values())
+
+def assign_geohashes_to_parcels(list_precision_7_parcels, list_precision_8_parcels, testing=False):
     #sort list to always get the same parcels
+    #print('Length of prec 8', len(list_precision_8_parcels))
     list_precision_7_parcels = sorted(list_precision_7_parcels)
     list_precision_8_parcels= sorted(list_precision_8_parcels)
 
+
     level_7_to_8_mapping = {parcel_7: [parcel_8 for parcel_8 in list_precision_8_parcels if parcel_8.startswith(parcel_7)]
                             for parcel_7 in list_precision_7_parcels}
-    print(level_7_to_8_mapping)
-
     crop_assignment = {}
-    for i, (parcel_6, parcels_8) in enumerate(level_7_to_8_mapping.items()):
-        crop = 'Chickpeas' if i % 2 == 0 else 'Grapevine'
+    small_area_buffer = {}
+
+    # initial asignment, save smallest for later or draw rows
+    for i, (parcel_7, parcels_8) in enumerate(level_7_to_8_mapping.items()):
+        if len(parcels_8) <= 30:
+            #print(f'{parcel_7} has less than 30 geohashes, precision 8... Adding to buffer')
+            small_area_buffer[parcel_7] = parcels_8
+        else:
+            crop = 'Chickpeas' if i % 2 == 0 else 'Grapevine'
+            for parcel_8 in parcels_8:
+                crop_assignment[parcel_8] = crop
+
+    # for smaller areas find neighbours
+    for parcel_7, parcels_8 in small_area_buffer.items():
+        neighbors_7 = find_neighbors(parcel_7)
+        # Collect crops for neighboring parcels
+        neighbor_crops = []
+        for n in neighbors_7:
+            neighbor_crops.extend([crop_assignment.get(p8) for p8 in level_7_to_8_mapping.get(n, [])])
+        # Filter out None values
+        neighbor_crops = [crop for crop in neighbor_crops if crop is not None]
+        # join with smallest crop in the vicinity
+        # or assign a default if no neighbors have been assigned
+        if neighbor_crops:
+            majority_crop = min(set(neighbor_crops), key=neighbor_crops.count)
+        else:
+            # default crop
+            majority_crop = 'Chickpeas'
+
         for parcel_8 in parcels_8:
-            crop_assignment[parcel_8] = crop
+            crop_assignment[parcel_8] = majority_crop
+    #print(crop_assignment)
+    return crop_assignment
+
+def draw_map_parcels_with_crop(list_precision_8_parcels,crop_assignment):
     first_geohash = list(list_precision_8_parcels)[0]
 
     lat, lon = gh.decode(first_geohash)
@@ -167,16 +215,38 @@ def assign_geohashes_to_parcels(list_precision_7_parcels, list_precision_8_parce
             popup=crop_assignment[parcel]
         ).add_to(map)
 
-    # Save or display the map
     map.save('field_parcels.html')
+
+def build_dictionaries_from_crop_assignment(crop_assignment):
+    plant_type_to_geohashes = {'Chickpeas': {}, 'Grapevine': {}}
+    geohash6_info = {}
+
+    for geohash8, plant in crop_assignment.items():
+        geohash6 = geohash8[:6]
+
+
+        if geohash6 not in plant_type_to_geohashes[plant]:
+            plant_type_to_geohashes[plant][geohash6] = [geohash8]
+        elif geohash8 not in plant_type_to_geohashes[plant][geohash6]:
+            plant_type_to_geohashes[plant][geohash6].append(geohash8)
+
+
+        if geohash6 not in geohash6_info:
+            geohash6_info[geohash6] = {'plant': plant, 'geohash8': [geohash8]}
+        elif geohash8 not in geohash6_info[geohash6]['geohash8']:
+            geohash6_info[geohash6]['geohash8'].append(geohash8)
+
+    return plant_type_to_geohashes, geohash6_info
 
 
 filtered_geohashes = get_geohashes_from_polygon(polygon)
 create_map_from_geohash_set(geohash_set=filtered_geohashes, name_of_map='geohash_map')
-#print(f'Total of {len(filtered_geohashes)} precision 8 geohashes')
 refiltered = get_from_max_precision(higher_precision=7, geohashes_list=filtered_geohashes)
-#print("Refiltered")
-#print(refiltered)
 create_map_from_geohash_set(geohash_set=refiltered, name_of_map='geohash_map_6')
 
-assign_geohashes_to_parcels(list_precision_7_parcels=list(refiltered), list_precision_8_parcels=list(filtered_geohashes), polygon=polygon)
+dict = assign_geohashes_to_parcels(list_precision_7_parcels=list(refiltered), list_precision_8_parcels=list(filtered_geohashes))
+dictTuple = build_dictionaries_from_crop_assignment(crop_assignment=dict)
+draw_map_parcels_with_crop(list_precision_8_parcels=list(filtered_geohashes),crop_assignment=dict)
+#print(dict)
+#print(dictTuple[0])
+#print(dictTuple[1])
