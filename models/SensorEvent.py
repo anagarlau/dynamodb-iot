@@ -7,11 +7,11 @@ class SensorStatus(Enum):
     MAINTENANCE = 'maintenance'
 
 class DataType(Enum):
-    TEMP = 'TEMP'
-    LIGHT = 'LIGHT'
-    SOILMOISTURE = 'SOILMOISTURE'
-    HUMIDITY = 'HUMIDITY'
-    RAIN = 'RAIN'
+    TEMP = 'Temperature'
+    LIGHT = 'Light'
+    SOILMOISTURE = 'SoilMoisture'
+    HUMIDITY = 'Humidity'
+    RAIN = 'rain'
     SOIL_PH = 'SoilPH'
 
 #Sensor Event

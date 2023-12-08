@@ -194,15 +194,17 @@ def draw_map_parcels_with_crop(list_precision_8_parcels,crop_assignment):
         lat_centroid, lon_centroid, lat_err, lon_err = gh.decode_exactly(parcel)
         south_west = (lat_centroid - lat_err, lon_centroid - lon_err)
         north_east = (lat_centroid + lat_err, lon_centroid + lon_err)
+        popup_text = f"Crop:{crop_assignment[parcel]}<br>Geohash8:{parcel}"
         folium.Rectangle(
             bounds=[south_west, north_east],
             color="#ff7800" if crop_assignment[parcel] == 'Chickpeas' else "#0000ff",
             fill=True,
             fill_opacity=0.4,
-            popup=crop_assignment[parcel]
+            popup=popup_text
         ).add_to(map)
 
     map.save('maps/field_parcels.html')
+    return map
 
 def build_dictionaries_from_crop_assignment(crop_assignment):
     # Plant specs
