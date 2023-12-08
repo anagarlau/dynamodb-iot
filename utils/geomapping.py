@@ -8,22 +8,13 @@ import shapely.geometry
 #import geohash as gh
 import geohash2 as gh
 import hashlib
-
+#from utils.polygon_def import polygon,coordinates
 import matplotlib.pyplot as plt
 
 import geohash
 
 #https://medium.com/bukalapak-data/geolocation-search-optimization-5b2ff11f013b
-# Define your polygon coordinates
-coordinates = [
-    (28.1250063, 46.6334964),
-    (28.1334177, 46.6175812),
-    (28.1556478, 46.6224742),
-    (28.1456915, 46.638609),
-    (28.1250063, 46.6334964)  # Closing the loop
-]
 
-polygon = Polygon(coordinates)
 
 def create_map_with_polygon(coordinates):
     # Folium requires coordinates in (latitude, longitude) format
@@ -57,21 +48,21 @@ def create_map_with_polygon(coordinates):
 # Calculate Area for test purposes. Google: 3.32 sq km
 
 # Create a GeoDataFrame
-gdf = gpd.GeoDataFrame(index=[0], crs='EPSG:4326', geometry=[polygon])
-# With CRS utm
-utm_crs = CRS(f'EPSG:326{int((30 + coordinates[0][0]) // 6) + 1}')
-gdf_projected = gdf.to_crs(utm_crs)
-area_utm = gdf_projected.geometry.area[0] / 1e6
-
-print("Area of the polygon in square meters:", round(area_utm,2))
-
-albers_crs = CRS.from_proj4("+proj=aea +lat_1=45 +lat_2=55 +lon_0=28")
-#  Albers Equal Area
-gdf_projected = gdf.to_crs(albers_crs)
-area_sqm = gdf_projected.geometry.area[0]
-area_sqkm = area_sqm / 1e6  # Convert to square kilometers
-
-print("Area of the polygon in square meters:", round(area_sqkm,2))
+# gdf = gpd.GeoDataFrame(index=[0], crs='EPSG:4326', geometry=[polygon])
+# # With CRS utm
+# utm_crs = CRS(f'EPSG:326{int((30 + coordinates[0][0]) // 6) + 1}')
+# gdf_projected = gdf.to_crs(utm_crs)
+# area_utm = gdf_projected.geometry.area[0] / 1e6
+#
+# print("Area of the polygon in square meters:", round(area_utm,2))
+#
+# albers_crs = CRS.from_proj4("+proj=aea +lat_1=45 +lat_2=55 +lon_0=28")
+# #  Albers Equal Area
+# gdf_projected = gdf.to_crs(albers_crs)
+# area_sqm = gdf_projected.geometry.area[0]
+# area_sqkm = area_sqm / 1e6  # Convert to square kilometers
+#
+# print("Area of the polygon in square meters:", round(area_sqkm,2))
 
 #MAP
 def get_geohashes_from_polygon(polygon, precision=8):
@@ -214,24 +205,47 @@ def draw_map_parcels_with_crop(list_precision_8_parcels,crop_assignment):
     map.save('maps/field_parcels.html')
 
 def build_dictionaries_from_crop_assignment(crop_assignment):
+    # Plant specs
+    plant_specs = {
+        'Chickpeas': {
+            'latin_name': 'Cicer arietinum',
+            'family': 'Fabaceae',
+            'optimal_temperature': (20, 25),  # degrees Celsius
+            'optimal_humidity': (30, 50),     # percentage
+            'optimal_soil_ph': (6.0, 7.0),
+            'water_requirements_mm_per_week': 25,  # mm per week
+            'sunlight_requirements_hours_per_day': 8,  # hours per day
+        },
+        'Grapevine': {
+            'latin_name': 'Vitis vinifera',
+            'family': 'Vitaceae',
+            'optimal_temperature': (15, 22),
+            'optimal_humidity': (50, 70),
+            'optimal_soil_ph': (5.5, 6.5),
+            'water_requirements_mm_per_week': 20,
+            'sunlight_requirements_hours_per_day': 6,
+        }
+    }
+
     plant_type_to_geohashes = {'Chickpeas': {}, 'Grapevine': {}}
     geohash6_info = {}
 
     for geohash8, plant in crop_assignment.items():
         geohash6 = geohash8[:6]
 
-
+        # Append geohashes and plant specs to plant_type_to_geohashes dictionary
         if geohash6 not in plant_type_to_geohashes[plant]:
-            plant_type_to_geohashes[plant][geohash6] = [geohash8]
-        elif geohash8 not in plant_type_to_geohashes[plant][geohash6]:
-            plant_type_to_geohashes[plant][geohash6].append(geohash8)
+            plant_type_to_geohashes[plant][geohash6] = {'specs': plant_specs[plant], 'geohash8': [geohash8]}
+        else:
+            if geohash8 not in plant_type_to_geohashes[plant][geohash6]['geohash8']:
+                plant_type_to_geohashes[plant][geohash6]['geohash8'].append(geohash8)
 
-
+        # Append geohashes and plant specs to geohash6_info dictionary
         if geohash6 not in geohash6_info:
-            geohash6_info[geohash6] = {'plant': plant, 'geohash8': [geohash8]}
-        elif geohash8 not in geohash6_info[geohash6]['geohash8']:
-            geohash6_info[geohash6]['geohash8'].append(geohash8)
-
+            geohash6_info[geohash6] = {'plant': plant, 'specs': plant_specs[plant], 'geohash8': [geohash8]}
+        else:
+            if geohash8 not in geohash6_info[geohash6]['geohash8']:
+                geohash6_info[geohash6]['geohash8'].append(geohash8)
     return plant_type_to_geohashes, geohash6_info
 
 

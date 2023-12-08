@@ -1,5 +1,7 @@
 from shapely import Polygon
 
+from utils.csv_util import export_geohash_dictionaries_to_csv
+from utils.polygon_def import polygon,coordinates
 from utils.geomapping import get_geohashes_from_polygon, get_from_max_precision, create_map_from_geohash_set, \
     assign_geohashes_to_parcels, build_dictionaries_from_crop_assignment, draw_map_parcels_with_crop, \
     create_map_with_polygon
@@ -7,15 +9,7 @@ from utils.geomapping import get_geohashes_from_polygon, get_from_max_precision,
 
 def main():
 
-    coordinates = [
-        (28.1250063, 46.6334964),
-        (28.1334177, 46.6175812),
-        (28.1556478, 46.6224742),
-        (28.1456915, 46.638609),
-        (28.1250063, 46.6334964)  # Closing the loop
-    ]
 
-    polygon = Polygon(coordinates)
     # Create the map with the polygon
     map_with_polygon = create_map_with_polygon(coordinates)
 
@@ -30,9 +24,10 @@ def main():
                                        list_precision_8_parcels=list(filtered_geohashes))
     dictTuple = build_dictionaries_from_crop_assignment(crop_assignment=dict)
     draw_map_parcels_with_crop(list_precision_8_parcels=list(filtered_geohashes), crop_assignment=dict)
-    # print(dict)
-    # print(dictTuple[0])
-    # print(dictTuple[1])
+    #print(dict)
+    #print(dictTuple[0]['Grapevine'])
+    #print(dictTuple[1])
+    export_geohash_dictionaries_to_csv(plant_type_to_geohashes=dictTuple[0], geohash6_info=dictTuple[1])
 
 
 if __name__ == "__main__":

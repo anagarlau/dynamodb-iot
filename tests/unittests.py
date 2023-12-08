@@ -5,20 +5,13 @@ from shapely import Polygon
 
 from utils.geomapping import get_geohashes_from_polygon, get_from_max_precision, \
     build_dictionaries_from_crop_assignment, assign_geohashes_to_parcels
+from utils.polygon_def import polygon
 
 
 class TestGeohashAssignment(unittest.TestCase):
     def setUp(self):
-        coordinates = [
-            (28.1250063, 46.6334964),
-            (28.1334177, 46.6175812),
-            (28.1556478, 46.6224742),
-            (28.1456915, 46.638609),
-            (28.1250063, 46.6334964)
-        ]
 
-        self.polygon = Polygon(coordinates)
-        self.filtered_geohashes = get_geohashes_from_polygon(self.polygon)
+        self.filtered_geohashes = get_geohashes_from_polygon(polygon)
 
         self.list_precision_7_parcels = get_from_max_precision(higher_precision=7, geohashes_list=self.filtered_geohashes)
 
@@ -33,34 +26,33 @@ class TestGeohashAssignment(unittest.TestCase):
         self.dictTuple = build_dictionaries_from_crop_assignment(self.crop_assignment)
 
     def test_unique_geohash8_count(self):
-        # Check for duplicates in crop_assignment
-        unique_assignment_geohashes = set(self.crop_assignment.keys())
-        self.assertEqual(len(unique_assignment_geohashes), len(self.crop_assignment),
-                         "There are duplicate geohashes in crop_assignment.")
-
-        # Gather all unique geohashes from dictTuple[0] and dictTuple[1]
-        unique_geohashes1 = set()
-        unique_geohashes2 = set()
+        # Gather all unique geohashes from dictTuple[0] (plant_type_to_geohashes) and dictTuple[1] (geohash6_info)
+        unique_geohashes1 = list()
+        unique_geohashes2 = list()
         for plant_type, geohashes in self.dictTuple[0].items():
-            for gh6, gh8_list in geohashes.items():
-                unique_geohashes1.update(gh8_list)
+            for gh6, data in geohashes.items():
+                unique_geohashes1.extend(data['geohash8'])
 
         for gh6, info in self.dictTuple[1].items():
-            unique_geohashes2.update(info['geohash8'])
+            unique_geohashes2.extend(info['geohash8'])
 
         # Check if the length of filtered_geohashes is the same as the number of unique geohashes
         self.assertEqual(len(self.filtered_geohashes), len(unique_geohashes1),
-                         f"1. The number of unique precision 8 geohashes in the dictionaries should match the length of filtered_geohashes: {len(self.filtered_geohashes)}")
+                         "The number of unique precision 8 geohashes in plant_type_to_geohashes should match the length of filtered_geohashes")
         self.assertEqual(len(self.filtered_geohashes), len(unique_geohashes2),
-                         f"2. The number of unique precision 8 geohashes in the dictionaries should match the length of filtered_geohashes: {len(self.filtered_geohashes)}")
+                         "The number of unique precision 8 geohashes in geohash6_info should match the length of filtered_geohashes")
 
-        # Identify missing geohashes
-        missing_geohashes = set(self.filtered_geohashes) - unique_geohashes1
-        if missing_geohashes:
-            print("Missing geohashes:", missing_geohashes)
+        # Identify missing geohashes (optional, for additional verification)
+        # missing_geohashes1 = set(self.filtered_geohashes) - unique_geohashes1
+        # missing_geohashes2 = set(self.filtered_geohashes) - unique_geohashes2
+        # if missing_geohashes1:
+        #     print("Missing geohashes in plant_type_to_geohashes:", missing_geohashes1)
+        # if missing_geohashes2:
+        #     print("Missing geohashes in geohash6_info:", missing_geohashes2)
         print(len(self.filtered_geohashes))
         print(len(unique_geohashes2))
         print(len(unique_geohashes1))
+        #print(self.dictTuple[0])
 
 
 if __name__ == '__main__':
