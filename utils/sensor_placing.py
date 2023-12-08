@@ -40,7 +40,7 @@ def create_uniform_sensor_grid(polygon, precision=8):
                 sensor_type = weighted_sensors.pop()  # Randomly get a sensor type
                 geohash = gh.encode(current_lat, current_lon, precision)
                 sensor_locations.append(
-                    {'sensorId': uuid.uuid4(),
+                    {'sensor_id': uuid.uuid4(),
                      'sensor_type': sensor_type,
                      'geohash8': geohash,
                      'coordinates': (current_lat, current_lon)})

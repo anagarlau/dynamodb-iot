@@ -4,16 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="71e11198-e2ae-44f7-8201-b5a06e44ffbb" name="Changes" comment="added csv generation for plants">
-      <change afterPath="$PROJECT_DIR$/utils/sensor_placing.py" afterDir="false" />
+    <list default="true" id="71e11198-e2ae-44f7-8201-b5a06e44ffbb" name="Changes" comment="added random sensor placement including map">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/maps/field_parcels.html" beforeDir="false" afterPath="$PROJECT_DIR$/maps/field_parcels.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/maps/geohash_map.html" beforeDir="false" afterPath="$PROJECT_DIR$/maps/geohash_map.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/maps/geohash_map_7.html" beforeDir="false" afterPath="$PROJECT_DIR$/maps/geohash_map_7.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/maps/map_with_polygon.html" beforeDir="false" afterPath="$PROJECT_DIR$/maps/map_with_polygon.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/SensorEvent.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/SensorEvent.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/geomapping.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/geomapping.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maps/sensor_map.html" beforeDir="false" afterPath="$PROJECT_DIR$/maps/sensor_map.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/csv_util.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/csv_util.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/sensor_placing.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/sensor_placing.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -237,7 +237,7 @@
       <workItem from="1701939347344" duration="26198000" />
       <workItem from="1701978583103" duration="5000" />
       <workItem from="1702020592182" duration="10746000" />
-      <workItem from="1702044811758" duration="5573000" />
+      <workItem from="1702044811758" duration="8122000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -303,7 +303,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702035806592</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="added random sensor placement including map">
+      <option name="closed" value="true" />
+      <created>1702051354222</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1702051354222</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -316,13 +324,14 @@
     <MESSAGE value="add crop parcels and unit test" />
     <MESSAGE value="refactoring" />
     <MESSAGE value="added csv generation for plants" />
-    <option name="LAST_COMMIT_MESSAGE" value="added csv generation for plants" />
+    <MESSAGE value="added random sensor placement including map" />
+    <option name="LAST_COMMIT_MESSAGE" value="added random sensor placement including map" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/dynamodb$draft.coverage" NAME="draft Coverage Results" MODIFIED="1701964090134" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
     <SUITE FILE_PATH="coverage/dynamodb$sensor_placing.coverage" NAME="sensor_placing Coverage Results" MODIFIED="1702044040193" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
-    <SUITE FILE_PATH="coverage/dynamodb$.coverage" NAME=" Coverage Results" MODIFIED="1702044934055" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
-    <SUITE FILE_PATH="coverage/dynamodb$main.coverage" NAME="main Coverage Results" MODIFIED="1702050877056" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/dynamodb$.coverage" NAME=" Coverage Results" MODIFIED="1702051268549" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/dynamodb$main.coverage" NAME="main Coverage Results" MODIFIED="1702057420883" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/dynamodb$geomapping.coverage" NAME="geomapping Coverage Results" MODIFIED="1701975192635" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
     <SUITE FILE_PATH="coverage/dynamodb$app.coverage" NAME="app Coverage Results" MODIFIED="1701882694390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend" />
   </component>
