@@ -29,9 +29,9 @@ def main():
     #print(dictTuple[0]['Grapevine'])
     #print(dictTuple[1])
 
-    sensor_grid = create_uniform_sensor_grid(polygon, precision=8)
-    updated_map = visualize_sensor_locations_on_existing_map(sensor_grid, crop_map)
-    export_data_to_csv(plant_type_to_geohashes=dictTuple[0], geohash6_info=dictTuple[1], list_sensors=sensor_grid)
-    #print(updated_map)
+    # sensor_grid = create_uniform_sensor_grid(polygon, precision=8)
+    # updated_map = visualize_sensor_locations_on_existing_map(sensor_grid, crop_map)
+    # export_data_to_csv(plant_type_to_geohashes=dictTuple[0], geohash6_info=dictTuple[1], list_sensors=sensor_grid)
+    # #print(updated_map)
 if __name__ == "__main__":
     main()

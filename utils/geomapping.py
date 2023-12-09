@@ -1,7 +1,9 @@
+import geohash2
 import geopandas as gpd
 import folium
 import matplotlib.pyplot as plt
 import pygeohash
+from geopy.distance import great_circle
 from pyproj import CRS
 from shapely.geometry import Polygon,box
 import shapely.geometry
@@ -36,7 +38,7 @@ def create_map_with_polygon(coordinates):
         fill_color='pink',
         fill_opacity=0.3
     ).add_to(folium_map)
-    folium_map.save("maps/map_with_polygon.html")
+    #folium_map.save("maps/map_with_polygon.html")
     return folium_map
 
 
@@ -65,12 +67,12 @@ def create_map_with_polygon(coordinates):
 # print("Area of the polygon in square meters:", round(area_sqkm,2))
 
 #MAP
-def get_geohashes_from_polygon(polygon, precision=8):
+def get_geohashes_from_polygon(polygon,additionalPolygon=None, circle=None,precision=8):
     minx, miny, maxx, maxy = polygon.bounds
     step = precision *50
     geohashes = set()
-    lat_step = (maxy - miny) / step
-    lon_step = (maxx - minx) / step
+    lat_step = 0.0001
+    lon_step = 0.0001
     current_lat = miny
     while current_lat <= maxy:
         current_lon = minx
@@ -85,23 +87,32 @@ def get_geohashes_from_polygon(polygon, precision=8):
     for geohash in geohashes:
         lat, lon, lat_err, lon_err = gh.decode_exactly(geohash)
         geohash_box = box(lon - lon_err, lat - lat_err, lon + lon_err, lat + lat_err)
-        if geohash_box.intersects(polygon):
-            filtered_geohashes.add(geohash)
+        if additionalPolygon is None:
+            print("")
+            if geohash_box.intersects(polygon):
+                filtered_geohashes.add(geohash)
+        else:
+            if geohash_box.intersects(polygon) and geohash_box.intersects(additionalPolygon) and circle and geohash_box.intersects(circle):
+                filtered_geohashes.add(geohash)
+            if geohash_box.intersects(polygon) and geohash_box.intersects(additionalPolygon) and circle is None:
+                filtered_geohashes.add(geohash)
     #print(filtered_geohashes)
     #print(len(filtered_geohashes))
     return filtered_geohashes
 
 # add geohashes to map
-def add_geohash_to_map(geohash, map_obj):
+def add_geohash_to_map(geohash, map_obj, color='#ff7800'):
     lat_centroid, lon_centroid, lat_err, lon_err = gh.decode_exactly(geohash)
     south_west = (lat_centroid - lat_err, lon_centroid - lon_err)
     north_east = (lat_centroid + lat_err, lon_centroid + lon_err)
     folium.Rectangle(
         bounds=[south_west, north_east],
-        color='#ff7800',
+        color=color,
         fill=True,
         fill_opacity=0.4,
+        popup=f"{geohash}"
     ).add_to(map_obj)
+
 
 def create_map_from_geohash_set(geohash_set, name_of_map):
     if geohash_set:
@@ -203,7 +214,7 @@ def draw_map_parcels_with_crop(list_precision_8_parcels,crop_assignment):
             popup=popup_text
         ).add_to(map)
 
-    map.save('maps/field_parcels.html')
+    #map.save('maps/field_parcels.html')
     return map
 
 def build_dictionaries_from_crop_assignment(crop_assignment):
@@ -252,3 +263,21 @@ def build_dictionaries_from_crop_assignment(crop_assignment):
 
 
 
+def calculate_geohash_area(geohash):
+    # Decode the geohash to get the center point and error margins
+    lat, lon, lat_err, lon_err = geohash2.decode_exactly(geohash)
+
+    # Calculate the corner points of the geohash
+    sw_point = (lat - lat_err, lon - lon_err)
+    se_point = (lat - lat_err, lon + lon_err)
+    nw_point = (lat + lat_err, lon - lon_err)
+    ne_point = (lat + lat_err, lon + lon_err)
+
+    # Calculate distances between the corner points
+    width = great_circle(sw_point, se_point).meters
+    height = great_circle(sw_point, nw_point).meters
+
+    # Area of the geohash is width * height
+    area = width * height
+    print(f"{geohash} as width {width} and height {height}")
+    return area
