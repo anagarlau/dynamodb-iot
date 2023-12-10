@@ -4,26 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="71e11198-e2ae-44f7-8201-b5a06e44ffbb" name="Changes" comment="latest pre-migration functional state">
-      <change afterPath="$PROJECT_DIR$/sensors_new/sensors.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="71e11198-e2ae-44f7-8201-b5a06e44ffbb" name="Changes" comment="added dynamogeo library, added sensors, query for sensors in radius">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dynamodb_scripts/crud.py" beforeDir="false" afterPath="$PROJECT_DIR$/dynamodb_scripts/crud.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dynamodb_scripts/neighbours-test.html" beforeDir="false" afterPath="$PROJECT_DIR$/dynamodb_scripts/neighbours-test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dynamodb_scripts/sensors-radius.html" beforeDir="false" afterPath="$PROJECT_DIR$/dynamodb_scripts/sensors-radius.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dynamodb_scripts/table_creation_batch_inserts.py" beforeDir="false" afterPath="$PROJECT_DIR$/dynamodb_scripts/table_creation_batch_inserts.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dynamodb_scripts/test-range.html" beforeDir="false" afterPath="$PROJECT_DIR$/dynamodb_scripts/test-range.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dynamodb_scripts/test_map.html" beforeDir="false" afterPath="$PROJECT_DIR$/dynamodb_scripts/test_map.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dynamodbgeo/dynamodbgeo/DynamoDBManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/dynamodbgeo/dynamodbgeo/DynamoDBManager.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dynamodbgeo/dynamodbgeo/GeoDataManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/dynamodbgeo/dynamodbgeo/GeoDataManager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dynamodbgeo/dynamodbgeo/model/GeohashRange.py" beforeDir="false" afterPath="$PROJECT_DIR$/dynamodbgeo/dynamodbgeo/model/GeohashRange.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maps/data/sensors_locations.csv" beforeDir="false" afterPath="$PROJECT_DIR$/maps/data/sensors_locations.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maps/field_parcels.html" beforeDir="false" afterPath="$PROJECT_DIR$/maps/field_parcels.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maps/geohash_map.html" beforeDir="false" afterPath="$PROJECT_DIR$/maps/geohash_map.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maps/geohash_map_7.html" beforeDir="false" afterPath="$PROJECT_DIR$/maps/geohash_map_7.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maps/sensor_map.html" beforeDir="false" afterPath="$PROJECT_DIR$/maps/sensor_map.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/csv_to_json.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/csv_to_json.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/geomapping.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/geomapping.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dynamodbgeo/dynamodbgeo/GeoDataManagerConfiguration.py" beforeDir="false" afterPath="$PROJECT_DIR$/dynamodbgeo/dynamodbgeo/GeoDataManagerConfiguration.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dynamodbgeo/dynamodbgeo/util/GeoTableUtil.py" beforeDir="false" afterPath="$PROJECT_DIR$/dynamodbgeo/dynamodbgeo/util/GeoTableUtil.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/polygon_def.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/polygon_def.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,6 +77,7 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "preferences.keymap",
     "vue.rearranger.settings.migration": "true"
   }
@@ -324,7 +314,7 @@
       <workItem from="1702044811758" duration="19177000" />
       <workItem from="1702106758372" duration="42295000" />
       <workItem from="1702191060049" duration="27381000" />
-      <workItem from="1702220669599" duration="4446000" />
+      <workItem from="1702220669599" duration="19970000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -422,7 +412,23 @@
       <option name="project" value="LOCAL" />
       <updated>1702157613560</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="added dynamogeo library, added sensors, query for sensors in radius">
+      <option name="closed" value="true" />
+      <created>1702225533963</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1702225533963</updated>
+    </task>
+    <task id="LOCAL-00014" summary="added dynamogeo library, added sensors, query for sensors in radius">
+      <option name="closed" value="true" />
+      <created>1702225803071</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1702225803071</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -439,22 +445,23 @@
     <MESSAGE value="save sensor placement to csv and csv file" />
     <MESSAGE value="add json utils and init ddb data plane methods" />
     <MESSAGE value="latest pre-migration functional state" />
-    <option name="LAST_COMMIT_MESSAGE" value="latest pre-migration functional state" />
+    <MESSAGE value="added dynamogeo library, added sensors, query for sensors in radius" />
+    <option name="LAST_COMMIT_MESSAGE" value="added dynamogeo library, added sensors, query for sensors in radius" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/dynamodb_scripts/table_creation_batch_inserts.py</url>
-          <line>250</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/dynamodb$draft.coverage" NAME="draft Coverage Results" MODIFIED="1701964090134" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
-    <SUITE FILE_PATH="coverage/dynamodb$table_creation_batch_inserts.coverage" NAME="table_creation_batch_inserts Coverage Results" MODIFIED="1702225389377" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dynamodb_scripts" />
+    <SUITE FILE_PATH="coverage/dynamodb$table_creation_batch_inserts.coverage" NAME="table_creation_batch_inserts Coverage Results" MODIFIED="1702244241596" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dynamodb_scripts" />
     <SUITE FILE_PATH="coverage/dynamodb$sensors.coverage" NAME="sensors Coverage Results" MODIFIED="1702225002462" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sensors_new" />
     <SUITE FILE_PATH="coverage/dynamodb$main.coverage" NAME="main Coverage Results" MODIFIED="1702211588411" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/dynamodb$geomapping.coverage" NAME="geomapping Coverage Results" MODIFIED="1701975192635" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />

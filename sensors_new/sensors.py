@@ -80,7 +80,7 @@ def parse_sensor_data(sensor_data):
                 try:
                     # Convert strings to float
                     latitude, longitude = float(coords[0]), float(coords[1])
-                    print(longitude, latitude)
+                    #print(longitude, latitude)
                     parsed_data.append({
                         'sensor_id': sensor_id,
                         'sensor_type': sensor_type,  # Including sensor type
