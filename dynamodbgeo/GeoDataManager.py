@@ -34,11 +34,14 @@ class GeoDataManager:
         """
         ranges = covering.getGeoHashRanges(self.config.hashKeyLength)
         results = []
+        responses =[]
         for range in ranges:
             hashKey = S2Manager().generateHashKey(range.rangeMin, self.config.hashKeyLength)
-            results.extend(self.dynamoDBManager.queryGeohash(
-                geoQueryInput.QueryInput, hashKey, range))
-        return results
+            res = self.dynamoDBManager.queryGeohash(
+                geoQueryInput.QueryInput, hashKey, range)
+            results.extend(res['data'])
+            responses.append(res['response'])
+        return {'results': results, 'response': responses}
 
     def queryRectangle(self, QueryRectangleInput: 'QueryRectangleRequest'):
         latLngRect = S2Util().latLngRectFromQueryRectangleInput(
@@ -55,7 +58,7 @@ class GeoDataManager:
         covering = Covering(
             self.config.S2RegionCoverer().get_covering(latLngRect))
         results = self.dispatchQueries(covering, QueryRadiusInput)
-        filtered_results = self.filterByRadius(results, QueryRadiusInput)
+        filtered_results = self.filterByRadius(results['results'], QueryRadiusInput)
         if QueryRadiusInput.sort == True:
             # Tuples list (distance to the center point, the point data returned from dynamoDB)
             tuples = []
@@ -72,7 +75,7 @@ class GeoDataManager:
             tuples.sort(key=lambda x: x[0])  # Sort the list by distance (x [0] is the distance)
             return [item[1] for item in tuples]
         else:
-            return filtered_results
+            return {'results': filtered_results, 'response': results['response']}
 
     def filterByRadius(self, ItemList: 'points retrieved from dynamoDB', QueryRadiusInput: 'QueryRadiusRequest'):
         centerLatLng = S2LatLng.from_degrees(QueryRadiusInput.getCenterPoint(

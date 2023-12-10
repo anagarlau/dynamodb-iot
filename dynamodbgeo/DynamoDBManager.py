@@ -20,7 +20,7 @@ class DynamoDBManager:
 
         params['TableName']=self.config.tableName
         params['IndexName']=self.config.geohashIndexName
-        
+        params['ReturnConsumedCapacity']='INDEXES'
         # As eyConditionExpressions must only contain one condition per key, customer passing KeyConditionExpression will be replaced automatically
         params['KeyConditionExpression']=str(self.config.hashKeyAttributeName) + ' = :hashKey and ' + str(self.config.geohashAttributeName) +' between :geohashMin and :geohashMax'
 
@@ -41,7 +41,7 @@ class DynamoDBManager:
             params['ExclusiveStartKey']=response['LastEvaluatedKey']
             response = self.config.dynamoDBClient.query(**params)
             data.extend(response['Items'])
-        return data
+        return {'data':data, 'response': response}
 
     def put_Point(self, putPointInput: 'PutPointInput'):
         """
