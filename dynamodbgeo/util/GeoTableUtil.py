@@ -31,27 +31,33 @@ class GeoTableUtil:
             'AttributeDefinitions':[
                 { 'AttributeName': self.config.hashKeyAttributeName, 'AttributeType': 'N' },
                 { 'AttributeName': self.config.rangeKeyAttributeName, 'AttributeType': 'S' },
-                { 'AttributeName': self.config.geohashAttributeName, 'AttributeType': 'N' }
+                #{ 'AttributeName': self.config.geohashAttributeName, 'AttributeType': 'N' }
 
-            ],
-            'LocalSecondaryIndexes':[
-                {
-                'IndexName': self.config.geohashIndexName,
-                'KeySchema': [
-                    {
-                    'KeyType': 'HASH',
-                    'AttributeName': self.config.hashKeyAttributeName
-                    },
-                    {
-                    'KeyType': 'RANGE',
-                    'AttributeName': self.config.geohashAttributeName
-                    }
-                ],
-                'Projection': {
-                    'ProjectionType': 'ALL'
-                }
-                }
-            ],
+            ]
+            ,
+            # 'GlobalSecondaryIndexes':[
+            #     {
+            #     'IndexName': self.config.geohashIndexName,
+            #     'KeySchema': [
+            #         {
+            #         'KeyType': 'HASH',
+            #         'AttributeName': self.config.hashKeyAttributeName
+            #         },
+            #         {
+            #         'KeyType': 'RANGE',
+            #         'AttributeName': self.config.geohashAttributeName
+            #         }
+            #     ],
+            #     'Projection': {
+            #         'ProjectionType': 'ALL'
+            #     },
+            #     'ProvisionedThroughput': {
+            #         'ReadCapacityUnits': 10,
+            #         'WriteCapacityUnits': 10
+            #     }
+            #
+            #     }
+            # ],
             'ProvisionedThroughput': {       
                 'ReadCapacityUnits': 10, 
                 'WriteCapacityUnits': 10

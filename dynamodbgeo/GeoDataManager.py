@@ -73,7 +73,7 @@ class GeoDataManager:
                 tuples.append((centerLatLng.get_distance(
                     latLng).radians * EARTH_RADIUS_METERS, item))
             tuples.sort(key=lambda x: x[0])  # Sort the list by distance (x [0] is the distance)
-            return [item[1] for item in tuples]
+            return {'results': [item[1] for item in tuples], 'response': results['response']}
         else:
             return {'results': filtered_results, 'response': results['response']}
 
