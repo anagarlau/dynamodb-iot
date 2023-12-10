@@ -1,3 +1,5 @@
+import boto3
+import dynamodbgeo
 import geohash2
 import geopandas as gpd
 import folium
@@ -16,7 +18,6 @@ import matplotlib.pyplot as plt
 import geohash
 
 #https://medium.com/bukalapak-data/geolocation-search-optimization-5b2ff11f013b
-
 
 def create_map_with_polygon(coordinates):
     # Folium requires coordinates in (latitude, longitude) format
@@ -87,15 +88,8 @@ def get_geohashes_from_polygon(polygon,additionalPolygon=None, circle=None,preci
     for geohash in geohashes:
         lat, lon, lat_err, lon_err = gh.decode_exactly(geohash)
         geohash_box = box(lon - lon_err, lat - lat_err, lon + lon_err, lat + lat_err)
-        if additionalPolygon is None:
-            print("")
-            if geohash_box.intersects(polygon):
-                filtered_geohashes.add(geohash)
-        else:
-            if geohash_box.intersects(polygon) and geohash_box.intersects(additionalPolygon) and circle and geohash_box.intersects(circle):
-                filtered_geohashes.add(geohash)
-            if geohash_box.intersects(polygon) and geohash_box.intersects(additionalPolygon) and circle is None:
-                filtered_geohashes.add(geohash)
+        if geohash_box.intersects(polygon):
+            filtered_geohashes.add(geohash)
     #print(filtered_geohashes)
     #print(len(filtered_geohashes))
     return filtered_geohashes
@@ -105,6 +99,9 @@ def add_geohash_to_map(geohash, map_obj, color='#ff7800'):
     lat_centroid, lon_centroid, lat_err, lon_err = gh.decode_exactly(geohash)
     south_west = (lat_centroid - lat_err, lon_centroid - lon_err)
     north_east = (lat_centroid + lat_err, lon_centroid + lon_err)
+    # print(f"Geohash {geohash}")
+    # print(lat_centroid, lon_centroid, lat_err, lon_err)
+    # print(south_west, north_east)
     folium.Rectangle(
         bounds=[south_west, north_east],
         color=color,
@@ -245,7 +242,10 @@ def build_dictionaries_from_crop_assignment(crop_assignment):
 
     for geohash8, plant in crop_assignment.items():
         geohash6 = geohash8[:6]
-
+        # lat_centroid, lon_centroid, lat_err, lon_err = gh.decode_exactly(geohash8)
+        # lat_centroid, lon_centroid, lat_err, lon_err = gh.decode_exactly(geohash6)
+        # p = dynamodbgeo.GeoPoint(lat_centroid, lon_centroid)
+        # print(f"point {p}")
         # Append geohashes and plant specs to plant_type_to_geohashes dictionary
         if geohash6 not in plant_type_to_geohashes[plant]:
             plant_type_to_geohashes[plant][geohash6] = {'specs': plant_specs[plant], 'geohash8': [geohash8]}

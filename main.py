@@ -22,16 +22,16 @@ def main():
     create_map_from_geohash_set(geohash_set=refiltered, name_of_map='geohash_map_7')
 
     dict = assign_geohashes_to_parcels(list_precision_7_parcels=list(refiltered),
-                                       list_precision_8_parcels=list(filtered_geohashes))
+                                      list_precision_8_parcels=list(filtered_geohashes))
     dictTuple = build_dictionaries_from_crop_assignment(crop_assignment=dict)
     crop_map = draw_map_parcels_with_crop(list_precision_8_parcels=list(filtered_geohashes), crop_assignment=dict)
-    #print(dict)
-    #print(dictTuple[0]['Grapevine'])
-    #print(dictTuple[1])
+    print(dict)
+    print(dictTuple[0]['Grapevine'])
+    print(dictTuple[1])
 
-    # sensor_grid = create_uniform_sensor_grid(polygon, precision=8)
-    # updated_map = visualize_sensor_locations_on_existing_map(sensor_grid, crop_map)
-    # export_data_to_csv(plant_type_to_geohashes=dictTuple[0], geohash6_info=dictTuple[1], list_sensors=sensor_grid)
-    # #print(updated_map)
+    sensor_grid = create_uniform_sensor_grid(polygon, precision=8)
+    updated_map = visualize_sensor_locations_on_existing_map(sensor_grid, crop_map)
+    export_data_to_csv(plant_type_to_geohashes=dictTuple[0], geohash6_info=dictTuple[1], list_sensors=sensor_grid)
+    #print(updated_map)
 if __name__ == "__main__":
     main()

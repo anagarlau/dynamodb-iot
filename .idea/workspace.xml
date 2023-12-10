@@ -5,18 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="71e11198-e2ae-44f7-8201-b5a06e44ffbb" name="Changes" comment="latest pre-migration functional state">
-      <change afterPath="$PROJECT_DIR$/dynamodb_scripts/neighbours-test.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dynamodb_scripts/table_creation_batch_inserts.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dynamodb_scripts/test-range.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dynamodb_scripts/test_map.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/playground.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sensors_new/sensors.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dynamodb_scripts/crud.py" beforeDir="false" afterPath="$PROJECT_DIR$/dynamodb_scripts/crud.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dynamodb_scripts/neighbours-test.html" beforeDir="false" afterPath="$PROJECT_DIR$/dynamodb_scripts/neighbours-test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dynamodb_scripts/table_creation_batch_inserts.py" beforeDir="false" afterPath="$PROJECT_DIR$/dynamodb_scripts/table_creation_batch_inserts.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dynamodb_scripts/test-range.html" beforeDir="false" afterPath="$PROJECT_DIR$/dynamodb_scripts/test-range.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dynamodb_scripts/test_map.html" beforeDir="false" afterPath="$PROJECT_DIR$/dynamodb_scripts/test_map.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dynamodbgeo/dynamodbgeo/DynamoDBManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/dynamodbgeo/dynamodbgeo/DynamoDBManager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dynamodbgeo/dynamodbgeo/GeoDataManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/dynamodbgeo/dynamodbgeo/GeoDataManager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dynamodbgeo/dynamodbgeo/model/GeohashRange.py" beforeDir="false" afterPath="$PROJECT_DIR$/dynamodbgeo/dynamodbgeo/model/GeohashRange.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/maps/data/sensors_locations.csv" beforeDir="false" afterPath="$PROJECT_DIR$/maps/data/sensors_locations.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maps/field_parcels.html" beforeDir="false" afterPath="$PROJECT_DIR$/maps/field_parcels.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/maps/geohash_map.html" beforeDir="false" afterPath="$PROJECT_DIR$/maps/geohash_map.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/maps/geohash_map_7.html" beforeDir="false" afterPath="$PROJECT_DIR$/maps/geohash_map_7.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/maps/sensor_map.html" beforeDir="false" afterPath="$PROJECT_DIR$/maps/sensor_map.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/csv_to_json.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/csv_to_json.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/geomapping.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/geomapping.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,6 +65,9 @@
       </UrlAndAccount>
     </option>
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -89,7 +98,7 @@
       <recent name="C:\Users\ana\PycharmProjects\dynamodb" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.table_creation_batch_inserts">
     <configuration name="Unnamed" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="dynamodb" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -203,6 +212,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="sensors" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="dynamodb" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/sensors_new" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/sensors_new/sensors.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="table_creation_batch_inserts" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="dynamodb" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -217,28 +248,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dynamodb_scripts/table_creation_batch_inserts.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="table_scripts (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="dynamodb" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/table_scripts.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -273,19 +282,19 @@
       <item itemvalue="Python.Unnamed" />
       <item itemvalue="Python.table_scripts" />
       <item itemvalue="Python.crud" />
+      <item itemvalue="Python.sensors" />
       <item itemvalue="Python.playground" />
       <item itemvalue="Python.table_creation_batch_inserts" />
       <item itemvalue="Python.csv_to_json" />
       <item itemvalue="Python.main" />
-      <item itemvalue="Python.table_scripts (1)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.table_creation_batch_inserts" />
+        <item itemvalue="Python.sensors" />
+        <item itemvalue="Python.csv_to_json" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python.playground" />
-        <item itemvalue="Python.table_creation_batch_inserts" />
-        <item itemvalue="Python.csv_to_json" />
-        <item itemvalue="Python.table_scripts (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -313,7 +322,9 @@
       <workItem from="1701978583103" duration="5000" />
       <workItem from="1702020592182" duration="10746000" />
       <workItem from="1702044811758" duration="19177000" />
-      <workItem from="1702106758372" duration="37813000" />
+      <workItem from="1702106758372" duration="42295000" />
+      <workItem from="1702191060049" duration="27381000" />
+      <workItem from="1702220669599" duration="4446000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -403,7 +414,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702070345007</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="latest pre-migration functional state">
+      <option name="closed" value="true" />
+      <created>1702157613559</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1702157613560</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -422,18 +441,30 @@
     <MESSAGE value="latest pre-migration functional state" />
     <option name="LAST_COMMIT_MESSAGE" value="latest pre-migration functional state" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/dynamodb_scripts/table_creation_batch_inserts.py</url>
+          <line>250</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/dynamodb$draft.coverage" NAME="draft Coverage Results" MODIFIED="1701964090134" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
+    <SUITE FILE_PATH="coverage/dynamodb$table_creation_batch_inserts.coverage" NAME="table_creation_batch_inserts Coverage Results" MODIFIED="1702225389377" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dynamodb_scripts" />
+    <SUITE FILE_PATH="coverage/dynamodb$sensors.coverage" NAME="sensors Coverage Results" MODIFIED="1702225002462" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sensors_new" />
+    <SUITE FILE_PATH="coverage/dynamodb$main.coverage" NAME="main Coverage Results" MODIFIED="1702211588411" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/dynamodb$geomapping.coverage" NAME="geomapping Coverage Results" MODIFIED="1701975192635" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
+    <SUITE FILE_PATH="coverage/dynamodb$table_scripts__1_.coverage" NAME="table_scripts (1) Coverage Results" MODIFIED="1702063057943" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/dynamodb$crud.coverage" NAME="crud Coverage Results" MODIFIED="1702214322365" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dynamodb_scripts" />
     <SUITE FILE_PATH="coverage/dynamodb$playground.coverage" NAME="playground Coverage Results" MODIFIED="1702156066789" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/dynamodb$table_scripts.coverage" NAME="table_scripts Coverage Results" MODIFIED="1702058980643" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/dynamodb$table_creation_batch_inserts.coverage" NAME="table_creation_batch_inserts Coverage Results" MODIFIED="1702114248244" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dynamodb_scripts" />
     <SUITE FILE_PATH="coverage/dynamodb$sensor_placing.coverage" NAME="sensor_placing Coverage Results" MODIFIED="1702044040193" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
     <SUITE FILE_PATH="coverage/dynamodb$.coverage" NAME=" Coverage Results" MODIFIED="1702058070957" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
-    <SUITE FILE_PATH="coverage/dynamodb$main.coverage" NAME="main Coverage Results" MODIFIED="1702157066233" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/dynamodb$geomapping.coverage" NAME="geomapping Coverage Results" MODIFIED="1701975192635" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
     <SUITE FILE_PATH="coverage/dynamodb$app.coverage" NAME="app Coverage Results" MODIFIED="1701882694390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend" />
-    <SUITE FILE_PATH="coverage/dynamodb$table_scripts__1_.coverage" NAME="table_scripts (1) Coverage Results" MODIFIED="1702063057943" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/dynamodb$crud.coverage" NAME="crud Coverage Results" MODIFIED="1702156403413" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dynamodb_scripts" />
-    <SUITE FILE_PATH="coverage/dynamodb$csv_to_json.coverage" NAME="csv_to_json Coverage Results" MODIFIED="1702070268775" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
+    <SUITE FILE_PATH="coverage/dynamodb$csv_to_json.coverage" NAME="csv_to_json Coverage Results" MODIFIED="1702211640243" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
   </component>
 </project>

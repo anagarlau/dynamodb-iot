@@ -1,11 +1,33 @@
 import json
 import os
+import uuid
 
 import boto3
 from botocore.exceptions import BotoCoreError, ClientError
+from shapely import Point
 
+from dynamodbgeo.dynamodbgeo import GeoDataManagerConfiguration, GeoDataManager, GeoTableUtil, GeoPoint, \
+    QueryRadiusRequest, PutPointInput
+from sensors_new.sensors import json_to_array, parse_sensor_data, visualize_results
 from table_scripts import handle_error
 
+dynamodb = boto3.client("dynamodb", region_name="localhost", endpoint_url="http://localhost:8000",
+                            aws_access_key_id="fakeMyKeyId", aws_secret_access_key="fakeSecretAccessKey`")
+config = GeoDataManagerConfiguration(dynamodb, 'IoT')
+
+config.hashKeyAttributeName = 'PK'
+config.rangeKeyAttributeName = 'SK'
+geoDataManager = GeoDataManager(config)
+
+# Pick a hashKeyLength appropriate to your usage
+config.hashKeyLength = 6
+
+# Use GeoTableUtil to help construct a CreateTableInput.
+table_util = GeoTableUtil(config)
+create_table_input = table_util.getCreateTableRequest()
+
+# tweaking the base table parameters as a dict
+create_table_input["ProvisionedThroughput"]['ReadCapacityUnits'] = 10
 
 def create_dynamodb_client(local=True):
     return boto3.resource("dynamodb", region_name="localhost", endpoint_url="http://localhost:8000",
@@ -90,13 +112,78 @@ def create_gsi(table_name, gsi_name, gsi_pk, gsi_pk_type='S', gsi_sk=None, gsi_s
             AttributeDefinitions=attribute_definitions,
             GlobalSecondaryIndexUpdates=[gsi]
         )
-
+        print(response)
         return response
     except ClientError as e:
         print(f"Error creating GSI: {e}")
         return None
 
+def insert_plants():
+    dynamodb = boto3.client("dynamodb", region_name="localhost", endpoint_url="http://localhost:8000",
+                            aws_access_key_id="fakeMyKeyId", aws_secret_access_key="fakeSecretAccessKey`")
+    config = GeoDataManagerConfiguration(dynamodb, 'IoT')
 
+    config.hashKeyAttributeName = 'PK'
+    config.rangeKeyAttributeName = 'SK'
+    geoDataManager = GeoDataManager(config)
+
+    # Pick a hashKeyLength appropriate to your usage
+    config.hashKeyLength = 6
+
+    # Use GeoTableUtil to help construct a CreateTableInput.
+    table_util = GeoTableUtil(config)
+    create_table_input = table_util.getCreateTableRequest()
+
+    # tweaking the base table parameters as a dict
+    # create_table_input["ProvisionedThroughput"]['ReadCapacityUnits'] = 10
+
+    # Use GeoTableUtil to create the table
+    table_util.create_table(create_table_input)
+    create_gsi(table_name='IoT',
+               gsi_name='GSI_Area_Plant',
+               gsi_pk='plant_type',
+               gsi_sk='geohash6')
+    #Read Plants
+    JSON_PATH = 'C:\\Users\\ana\\PycharmProjects\\dynamodb\\maps\\data\\to_json.json'
+    f = open(JSON_PATH)
+    items = json.load(f)
+    f.close()
+    for item in items:
+        print(item)
+        PutItemInput = {
+            'TableName': 'IoT',
+            'Item': {
+                'plant_type': {'S': item['PK']},
+                'geohash8': {'S': item['geohash8']},
+                'geohash6': {'S': item['geohash6']},
+                'details': {
+                    'M': {
+                        'latin_name': {'S': item['details']['latin_name']},
+                        'family': {'S': item['details']['family']}
+                    }
+                },
+                'optimal_temperature': {'S': item['optimal_temperature']},
+                'optimal_humidity': {'S': item['optimal_humidity']},
+                'optimal_soil_ph': {'S': item['optimal_soil_ph']},
+                'water_req_mm_per_week': {'S': item['water_req_mm_per_week']},
+                'sunlight_req_h_per_day': {'S': item['sunlight_req_h_per_day']}
+
+            },
+            'ConditionExpression': "attribute_not_exists(hashKey)"
+            # ... Anything else to pass through to `putItem`, eg ConditionExpression
+
+        }
+
+        geoDataManager.put_Point(PutPointInput(
+            GeoPoint(item['SK'][0], item['SK'][1]),  # latitude then latitude longitude
+            str(uuid.uuid4()),  # Use this to ensure uniqueness of the hash/range pairs.
+            PutItemInput  # pass the dict here
+        ))
+    # response = dynamodb.put_item(
+    #     TableName='IoT',
+    #     Item = PutItemInput,
+    #     ConditionExpression='attribute_not_exists(PK)'
+    # )
 def batch_write(client, items, table_name):
     try:
         table = client.Table(table_name)
@@ -112,25 +199,66 @@ def batch_write(client, items, table_name):
         handle_error(e)
     return None
 
+def insert_sensor_points():
+
+    table_util.create_table(create_table_input)
+    # Read Sensors
+    items = json_to_array()
+    for item in items:
+        print(item)
+        PutItemInput = {
+            'TableName': 'IoT',
+            'Item': {
+                'sensor_id': {'S': item['sensor_id']},
+                'sensor_type': {'S':item['sensor_type']},
+                'geohash8': {'S': item['geohash8']},
+                'geohash6': {'S': item['geohash6']}
+
+            },
+            'ConditionExpression': "attribute_not_exists(hashKey)"
+            # ... Anything else to pass through to `putItem`, eg ConditionExpression
+
+        }
+
+        geoDataManager.put_Point(PutPointInput(
+            GeoPoint(item['point_coordinates'][1], item['point_coordinates'][0]),  # latitude then latitude longitude
+            str(uuid.uuid4()),  # Use this to ensure uniqueness of the hash/range pairs.
+            PutItemInput  # pass the dict here
+        ))
+
+
+def get_sensors_in_radius(center_point, radius_meters):
+    # Prepare the filter expression and attribute values
+    lat, lon = center_point.y, center_point.x
+    # query_radius_input = {
+    #     "FilterExpression": "Country = :val1",
+    #     "ExpressionAttributeValues": {
+    #         ":val1": {"S": country_filter},
+    #     }
+    # }
+
+    # Perform the radius query
+    response = geoDataManager.queryRadius(
+        QueryRadiusRequest(
+            GeoPoint(lat, lon),  # center point
+            radius_meters,  # search radius in meters
+           # query_radius_input,  # additional filter input
+            sort=False  # sort by distance from the center point
+        )
+    )
+
+    data = parse_sensor_data(response['results'])
+    map = visualize_results(center_point, radius_meters, data)
+    print(data[:2])
+    map.save("sensors-radius.html")
+    return data
 
 def main():
-    # Create the DynamoDB Client with the region you want
-    dynamodb_client = create_dynamodb_client()
-    table_name = 'IoT'
-    create_table(dynamodb_client, table_name, 'S', 'S')
-    # GSI for Plants in a given area
-    create_gsi(table_name=table_name,
-               gsi_name='GSI_Area_Plant',
-               gsi_pk='geohash6',
-               gsi_sk='SK')
+    #insert_sensor_points()
+    center_point = Point(28.1250063, 46.6334964)
+    get_sensors_in_radius(center_point, 1200)
 
-    #Batch writes using pre-created JSON files
-    JSON_PATH = 'C:\\Users\\ana\\PycharmProjects\\dynamodb\\maps\\json_batch_writes\\plants_batch.json'
-    items = []
-    f = open(JSON_PATH)
-    items = json.load(f)
-    f.close()
-    batch_write(client=dynamodb_client,items=items, table_name=table_name)
+
 
 
 
