@@ -23,7 +23,7 @@ class DynamoDBManager:
 
         pk_name=str(self.config.hashKeyAttributeName)
         sk_name=str(self.config.rangeKeyAttributeName)
-        pk_type='N'
+        pk_type='S'
         sk_type='S'
         hashKeyValue=str(hashKeyValue)
         if 'GSI' in queryInput.keys() and queryInput['GSI']:
@@ -71,7 +71,7 @@ class DynamoDBManager:
         if ('Item' not in putPointInput.ExtraFields.keys()):
             params['Item'] = {}
 
-        params['Item'][self.config.hashKeyAttributeName] = {"N": str(hashKey)}
+        params['Item'][self.config.hashKeyAttributeName] = {"S": str(hashKey)}
         params['Item'][self.config.rangeKeyAttributeName] = {"S": str(geohash)}
         # params['Item'][self.config.geohashAttributeName] ={'N': str(geohash)}
         params['Item'][self.config.geoJsonAttributeName] = {
@@ -95,7 +95,7 @@ class DynamoDBManager:
             response = self.config.dynamoDBClient.get_item(
                 TableName=self.config.tableName,
                 Key={
-                    self.config.hashKeyAttributeName: {"N": str(hashKey)},
+                    self.config.hashKeyAttributeName: {"S": str(hashKey)},
                     self.config.rangeKeyAttributeName: {
                         "S": getPointInput.RangeKeyValue}
                 }

@@ -29,7 +29,7 @@ class GeoTableUtil:
                 { 'AttributeName': self.config.rangeKeyAttributeName, 'KeyType': "RANGE" }   # Sort key
             ],
             'AttributeDefinitions':[
-                { 'AttributeName': self.config.hashKeyAttributeName, 'AttributeType': 'N' },
+                { 'AttributeName': self.config.hashKeyAttributeName, 'AttributeType': 'S' },
                 { 'AttributeName': self.config.rangeKeyAttributeName, 'AttributeType': 'S' },
                 #{ 'AttributeName': self.config.geohashAttributeName, 'AttributeType': 'N' }
 

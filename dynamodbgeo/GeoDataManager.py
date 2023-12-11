@@ -38,7 +38,7 @@ class GeoDataManager:
         for range in ranges:
             hashKey = S2Manager().generateHashKey(range.rangeMin, self.config.hashKeyLength)
             res = self.dynamoDBManager.queryGeohash(
-                geoQueryInput.QueryInput, hashKey, range)
+                geoQueryInput.QueryInput, str(hashKey), range)
             results.extend(res['data'])
             responses.append(res['response'])
         return {'results': results, 'response': responses}
