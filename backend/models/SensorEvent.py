@@ -2,9 +2,9 @@ from enum import Enum
 from datetime import datetime
 #Enums
 class SensorStatus(Enum):
-    BUSY = 'busy'
-    IDLE = 'idle'
-    MAINTENANCE = 'maintenance'
+    BUSY = 'Busy'
+    IDLE = 'Idle'
+    MAINTENANCE = 'Maintenance'
 
 class DataType(Enum):
     TEMP = 'Temperature'

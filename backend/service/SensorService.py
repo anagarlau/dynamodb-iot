@@ -81,5 +81,5 @@ if __name__ == "__main__":
     center_point = Point(28.1250063, 46.6334964)
     sensor_service = SensorService()
     sensor_service.get_all_sensors()
-    sensor_service.get_sensors_in_radius(center_point, 200)
-    sensor_service.get_sensors_in_radius_acc_to_type(center_point, 200, sensor_type='Humidity')
+    #sensor_service.get_sensors_in_radius(center_point, 200)
+    sensor_service.get_sensors_in_radius_acc_to_type(center_point, 200, sensor_type='Temperature')

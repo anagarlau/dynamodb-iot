@@ -1,13 +1,15 @@
 import uuid
 from botocore.exceptions import ClientError
 from dynamodbgeo.dynamodbgeo import GeoDataManagerConfiguration, GeoDataManager, GeoTableUtil, GeoPoint, PutPointInput
-from utils.sensors.sensors import json_to_array
-from table_scripts import handle_error, create_dynamodb_client
+from utils.polygon_def import create_dynamodb_client
+from utils.sensor_events.sensor_events_generation import process_events_for_db
+from utils.sensors.sensors import json_to_array, csv_to_json
+from table_scripts import handle_error
 
 
 class IoTInitService:
     def __init__(self):
-        self.dynamodb = create_dynamodb_client(local=True)
+        self.dynamodb = create_dynamodb_client()
         self.config = GeoDataManagerConfiguration(self.dynamodb, 'IoT')
         self.config.hashKeyAttributeName = 'PK'
         self.config.rangeKeyAttributeName = 'SK'
@@ -18,9 +20,11 @@ class IoTInitService:
         self.table_name='IoT'
         self.table_util = GeoTableUtil(self.config)
 
-    def batch_write(self, items, table_name):
+    def batch_write(self, items):
         try:
-            table = self.dynamodb.Table(table_name)
+            #use resource instead of client for easier batching from json
+            dynamodb = create_dynamodb_client(resource=True)
+            table = dynamodb.Table(self.table_name)
             with table.batch_writer() as batch:
                 for item in items:
                     print(item)
@@ -30,7 +34,7 @@ class IoTInitService:
         except ClientError as e:
             handle_error(e)
         except Exception as e:
-            handle_error(e)
+            print(e)
         return None
 
     def create_gsi(self, gsi_name, gsi_pk, gsi_pk_type='S', gsi_sk=None, gsi_sk_type='S'):
@@ -85,6 +89,8 @@ class IoTInitService:
         create_table_input = self.table_util.getCreateTableRequest()
         create_table_input["ProvisionedThroughput"]['ReadCapacityUnits'] = 10
         self.table_util.create_table(create_table_input)
+        # Read csv into json
+        csv_to_json()
         # Read Sensors from json file
         items = json_to_array()
         for item in items:
@@ -109,7 +115,13 @@ class IoTInitService:
                 PutItemInput  # pass the dict here
             ))
 
+    def insert_sensor_events(self):
+        json_array = process_events_for_db()
+        self.batch_write(items=json_array)
+        print(len(json_array))
+
 if __name__ == "__main__":
     initService = IoTInitService()
     initService.insert_sensor_points()
     initService.create_gsis_for_table()
+    initService.insert_sensor_events()

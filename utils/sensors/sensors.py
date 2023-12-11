@@ -7,7 +7,8 @@ from utils.geomapping import create_map_with_polygon
 from utils.polygon_def import polygon
 
 jsonFilepath='C:\\Users\\ana\\PycharmProjects\\dynamodb\\maps\\data\\sensors_to_json.json'
-def csv_to_json(csv_filepath='C:\\Users\\ana\\PycharmProjects\\dynamodb\\maps\\data\\sensors_locations.csv', json_filepath=jsonFilepath):
+csvFilePath='C:\\Users\\ana\\PycharmProjects\\dynamodb\\maps\\data\\sensors_locations.csv'
+def csv_to_json(csv_filepath=csvFilePath, json_filepath=jsonFilepath):
     # Create a list to store the data
     data_list = []
 

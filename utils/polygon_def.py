@@ -31,7 +31,12 @@ region_name="localhost"
 endpoint_url="http://localhost:8000"
 aws_access_key_id="fakeMyKeyId"
 aws_secret_access_key="fakeSecretAccessKey`"
-print(f"Center: {center_point_field}, Radius: {radius} meters")
-def create_dynamodb_client(local=True):
-    return boto3.client(client, region_name=region_name, endpoint_url=endpoint_url,
+#print(f"Center: {center_point_field}, Radius: {radius} meters")
+hashKeyLength=6
+def create_dynamodb_client(resource=False):
+    if not resource:
+        return boto3.client(client, region_name=region_name, endpoint_url=endpoint_url,
+                                     aws_access_key_id=aws_access_key_id, aws_secret_access_key=aws_secret_access_key)
+    else:
+        return boto3.resource(client, region_name=region_name, endpoint_url=endpoint_url,
                                      aws_access_key_id=aws_access_key_id, aws_secret_access_key=aws_secret_access_key)
