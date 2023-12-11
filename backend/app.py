@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 
-from models.SensorEvent import SensorEvent
+from backend.models.SensorEvent import SensorEvent
 
 app = Flask(__name__)
 

@@ -1,4 +1,3 @@
-from shapely import Polygon
 
 from utils.csv_util import export_data_to_csv
 from utils.polygon_def import polygon,coordinates
