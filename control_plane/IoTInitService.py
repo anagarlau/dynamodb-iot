@@ -1,7 +1,7 @@
 import uuid
 from botocore.exceptions import ClientError
 from dynamodbgeo.dynamodbgeo import GeoDataManagerConfiguration, GeoDataManager, GeoTableUtil, GeoPoint, PutPointInput
-from utils.polygon_def import create_dynamodb_client
+from utils.polygon_def import create_dynamodb_client, hashKeyLength
 from utils.sensor_events.sensor_events_generation import process_events_for_db
 from utils.sensors.sensors import json_to_array, csv_to_json
 from table_scripts import handle_error
@@ -14,7 +14,7 @@ class IoTInitService:
         self.config.hashKeyAttributeName = 'PK'
         self.config.rangeKeyAttributeName = 'SK'
         self.geoDataManager = GeoDataManager(self.config)
-        self.config.hashKeyLength = 6
+        self.config.hashKeyLength = hashKeyLength
         self.table_util = GeoTableUtil(self.config)
         self.create_table_input = self.table_util.getCreateTableRequest()
         self.table_name='IoT'
@@ -27,14 +27,16 @@ class IoTInitService:
             table = dynamodb.Table(self.table_name)
             with table.batch_writer() as batch:
                 for item in items:
-                    print(item)
-                    batch.put_item(
+                    # print("Item in Batch func", item)
+                    # print("Data Point Type:", type(item['data_point']), "Battery Level Type:",
+                    #       type(item['battery_level']))
+                    res = batch.put_item(
                         Item=item
                     )
         except ClientError as e:
             handle_error(e)
         except Exception as e:
-            print(e)
+            print('Exception:',e)
         return None
 
     def create_gsi(self, gsi_name, gsi_pk, gsi_pk_type='S', gsi_sk=None, gsi_sk_type='S'):
@@ -94,15 +96,13 @@ class IoTInitService:
         # Read Sensors from json file
         items = json_to_array()
         for item in items:
-            print(item)
+            #print(item)
             PutItemInput = {
                 'TableName': 'IoT',
                 'Item': {
                     'sensor_id': {'S': item['sensor_id']},
-                    'sensor_type': {'S': item['sensor_type']},
-                    'geohash8': {'S': item['geohash8']},
-                    'geohash6': {'S': item['geohash6']}
-
+                    'sensor_type': {'S': item['sensor_type']}
+                    #TODO add maintenance stuff
                 },
                 'ConditionExpression': "attribute_not_exists(hashKey)"
                 # ... Anything else to pass through to `putItem`, eg ConditionExpression
@@ -114,14 +114,14 @@ class IoTInitService:
                 str(uuid.uuid4()),  # Use this to ensure uniqueness of the hash/range pairs.
                 PutItemInput  # pass the dict here
             ))
-
+        print(f'Number of points: {len(items)}')
     def insert_sensor_events(self):
         json_array = process_events_for_db()
         self.batch_write(items=json_array)
-        print(len(json_array))
+        print(f"Number of Events: {len(json_array)}")
 
 if __name__ == "__main__":
-    initService = IoTInitService()
-    initService.insert_sensor_points()
-    initService.create_gsis_for_table()
-    initService.insert_sensor_events()
+     initService = IoTInitService()
+     initService.insert_sensor_points()
+     initService.create_gsis_for_table()
+     initService.insert_sensor_events()

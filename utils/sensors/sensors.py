@@ -1,5 +1,5 @@
 import csv
-import json
+import simplejson as json
 
 from folium import folium, Marker, Icon, Circle
 

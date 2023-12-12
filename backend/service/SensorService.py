@@ -1,7 +1,8 @@
 from shapely import Point
 from dynamodbgeo.dynamodbgeo import GeoDataManagerConfiguration, GeoDataManager, QueryRadiusRequest, GeoPoint
+from utils.sensor_events.sensor_events_generation import convert_to_unix_epoch
 from utils.sensors.sensors import parse_sensor_data, visualize_results
-from utils.polygon_def import center_point_field, radius, create_dynamodb_client
+from utils.polygon_def import center_point_field, radius, create_dynamodb_client, hashKeyLength
 
 
 class SensorService:
@@ -11,7 +12,7 @@ class SensorService:
         self.config.hashKeyAttributeName = 'PK'
         self.config.rangeKeyAttributeName = 'SK'
         self.geoDataManager = GeoDataManager(self.config)
-        self.config.hashKeyLength = 6
+        self.config.hashKeyLength = hashKeyLength
 
     def get_sensors_in_radius(self, center_point, radius_meters):
         # Prepare the filter expression and attribute values
@@ -76,10 +77,13 @@ class SensorService:
         self.get_sensors_in_radius(center_point=center_point_field, radius_meters=radius)
 
 
+
+
 # Example usage of the class
 if __name__ == "__main__":
     center_point = Point(28.1250063, 46.6334964)
     sensor_service = SensorService()
-    sensor_service.get_all_sensors()
-    #sensor_service.get_sensors_in_radius(center_point, 200)
+    sensor_service.get_all_sensors() #174
+    sensor_service.get_sensors_in_radius(center_point, 200) #2
+    sensor_service.get_sensors_in_radius_acc_to_type(center_point, 200, sensor_type='Humidity')#1
     sensor_service.get_sensors_in_radius_acc_to_type(center_point, 200, sensor_type='Temperature')
