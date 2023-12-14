@@ -47,7 +47,7 @@ class DynamoDBManager:
         else:
             params['ExpressionAttributeValues']={':hashKey': {pk_type: str(hashKeyValue)}, ':geohashMax': {
                     sk_type: str(range.rangeMax)}, ':geohashMin': {sk_type: str(range.rangeMin)}}
-
+        #print(params)
         response = self.config.dynamoDBClient.query(**params)
         data = response['Items']
 

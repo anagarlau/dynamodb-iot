@@ -35,6 +35,7 @@ class GeoDataManager:
         ranges = covering.getGeoHashRanges(self.config.hashKeyLength)
         results = []
         responses =[]
+        #print(f"Currently navigating through {len(ranges)} ranges")
         for range in ranges:
             hashKey = S2Manager().generateHashKey(range.rangeMin, self.config.hashKeyLength)
             res = self.dynamoDBManager.queryGeohash(

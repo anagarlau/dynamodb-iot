@@ -15,6 +15,9 @@ class GeoDataManagerConfiguration:
         self.dynamoDBClient = dynamoDBClient  # dynamodb client taken from aws sdk
         self.tableName = tableName
         self.S2RegionCoverer = S2RegionCoverer  # this is form the s2 library
+        # self.S2RegionCoverer.min_level = 1
+        # self.S2RegionCoverer.max_level = 2
+        # self.S2RegionCoverer.max_cells = 7
         self.hashKeyAttributeName = "hashKey"
         self.rangeKeyAttributeName = "rangeKey"
         #self.geohashAttributeName = "geohash"
