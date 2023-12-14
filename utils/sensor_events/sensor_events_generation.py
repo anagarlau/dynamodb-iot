@@ -1,10 +1,9 @@
-import time
 from decimal import Decimal, getcontext, ROUND_HALF_UP
-
+import time
 import pandas as pd
 import simplejson as json
 import random
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 
 from backend.models.SensorEvent import SensorStatus
 from dynamodbgeo.dynamodbgeo import S2Manager, GeoPoint
@@ -116,13 +115,35 @@ def events_json_to_array():
     sensor_events = json_to_array(json_filepath=jsonFilepath)
     return [convert_floats_to_decimals(event) for event in sensor_events]
 
+def calculate_month_diff(start_time, end_time):
+    start_date = datetime.strptime(start_time, "%Y-%m-%dT%H:%M:%S")
+    end_date = datetime.strptime(end_time, "%Y-%m-%dT%H:%M:%S")
 
+    year_diff = end_date.year - start_date.year
+    month_diff = end_date.month - start_date.month
+
+    return year_diff * 12 + month_diff
+
+
+def get_start_of_month(timestamp_str):
+    timestamp = datetime.strptime(timestamp_str, "%Y-%m-%dT%H:%M:%S")
+    start_of_month = timestamp.replace(day=1, hour=0, minute=0, second=0, microsecond=0)
+    return start_of_month.strftime("%Y-%m-%dT%H:%M:%S")
 def convert_to_unix_epoch(timestamp_str):
     dt = datetime.strptime(timestamp_str, "%Y-%m-%dT%H:%M:%S")
     # Convert to Unix epoch timestamp
     unix_epoch = int(time.mktime(dt.timetuple()))
     return unix_epoch # = continuous count of seconds
 
+def get_first_of_month_as_unix_timestamp(timestamp_str):
+    return convert_to_unix_epoch(get_start_of_month(timestamp_str))
+
+def unix_to_iso(unix_timestamp):
+    offset = time.timezone if (time.localtime().tm_isdst == 0) else time.altzone
+    local_tz = timezone(timedelta(seconds=-offset))
+    timestamp_datetime = datetime.fromtimestamp(unix_timestamp, tz=local_tz)
+    iso_timestamp = timestamp_datetime.isoformat()
+    return iso_timestamp
 
 def process_events_for_db():
     # Read generated json and process for batch writes
@@ -135,26 +156,30 @@ def process_events_for_db():
         geoJson = "{},{}".format(lat, lon)
         geohash = s2_manager.generateGeohash(geopoint)
         hashKey = s2_manager.generateHashKey(geohash, hashKeyLength)
-        sk_formated = "{}#{}".format(
-            f"""{event['data']['dataType']}""",
-            convert_to_unix_epoch(event['data']['timestamp'])
+        timestamp=event['data']['timestamp']
+        start_of_month=get_first_of_month_as_unix_timestamp(timestamp)
+        sk_formated = "{}".format(
+            #f"""{event['data']['dataType']}""",
+            convert_to_unix_epoch(timestamp)
         )
         sensor_event = {
             'PK': event['sensorId'],
             'SK': sk_formated,
+            'month': start_of_month,
             #'sensor_id': event['sensorId'], #AVOID BLOATED GSI for later access patterns, keep it in the main table
             'data_point': event['data']['dataPoint'],
             'geoJson': geoJson,
             'battery_level': event['metadata']['batteryLevel'],
-            'status': event['metadata']['status']
+            'status': event['metadata']['status'],
+            'type': event['data']['dataType']
         }
-        # print(sensor_event)
+        #print(sensor_event)
         database_entries.append(sensor_event)
     return database_entries
 
 
 # Call to generate a new batch of sensor events
 #
-# csv_to_dynamodb_json()
-# # #test
-# process_events_for_db()
+#csv_to_dynamodb_json()
+# #test
+#process_events_for_db()

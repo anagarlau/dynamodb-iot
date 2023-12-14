@@ -1,3 +1,4 @@
+import time
 import uuid
 from botocore.exceptions import ClientError
 from dynamodbgeo.dynamodbgeo import GeoDataManagerConfiguration, GeoDataManager, GeoTableUtil, GeoPoint, PutPointInput
@@ -78,13 +79,25 @@ class IoTInitService:
             print(f"Error creating GSI: {e}")
             return None
 
-    def create_gsis_for_table(self):
-        # Create all GSIs in one go
-        # GSI: sensors in a radiu according to type
-        self.create_gsi(
-                       gsi_name='GSI_SensorType_Radius',
-                       gsi_pk='sensor_type',
-                       gsi_pk_type='S', gsi_sk='SK', gsi_sk_type='S')
+    def custom_gsi_waiter(self, gsi_name):
+        print(f"Waiting for GSI {gsi_name} to become active...")
+        while True:
+            table_description = self.dynamodb.describe_table(TableName=self.table_name)
+            # Find the GSI in the table description
+            gsi_status = None
+            if "GlobalSecondaryIndexes" in table_description["Table"]:
+                for gsi in table_description["Table"]["GlobalSecondaryIndexes"]:
+                    if gsi["IndexName"] == gsi_name:
+                        gsi_status = gsi["IndexStatus"]
+                        break
+
+            # Check if GSI is active
+            if gsi_status == "ACTIVE":
+                print(f"GSI {gsi_name} is now active.")
+                break
+            # Wait for a short period before checking again
+            time.sleep(10)
+
 
     def insert_sensor_points(self):
         # Insert all the sensors from csv/json file
@@ -122,6 +135,18 @@ class IoTInitService:
 
 if __name__ == "__main__":
      initService = IoTInitService()
+
      initService.insert_sensor_points()
-     initService.create_gsis_for_table()
+     gsi_name = 'GSI_SensorType_Radius'
+     initService.create_gsi(
+         gsi_name=gsi_name,
+         gsi_pk='sensor_type',
+         gsi_pk_type='S', gsi_sk='SK', gsi_sk_type='S')
+     initService.custom_gsi_waiter(gsi_name)
      initService.insert_sensor_events()
+     gsi_name = 'GSI_AllSensorEvents_TimeRange'
+     initService.create_gsi(
+         gsi_name=gsi_name,
+         gsi_pk='month',
+         gsi_pk_type='N', gsi_sk='SK', gsi_sk_type='S')
+     # initService.custom_gsi_waiter(gsi_name)

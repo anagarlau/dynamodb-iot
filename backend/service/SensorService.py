@@ -69,6 +69,7 @@ class SensorService:
 
         data = parse_sensor_data(response['results'])
         print(len(data))
+        print(response['response'])
         map = visualize_results(center_point, radius_meters, data)
         map.save("vis_out/sensorservice/sensors-radius-type.html")
         return data
@@ -83,7 +84,7 @@ class SensorService:
 if __name__ == "__main__":
     center_point = Point(28.1250063, 46.6334964)
     sensor_service = SensorService()
-    sensor_service.get_all_sensors() #174
+    #sensor_service.get_all_sensors() #174
     sensor_service.get_sensors_in_radius(center_point, 200) #2
     sensor_service.get_sensors_in_radius_acc_to_type(center_point, 200, sensor_type='Humidity')#1
-    sensor_service.get_sensors_in_radius_acc_to_type(center_point, 200, sensor_type='Temperature')
+    #sensor_service.get_sensors_in_radius_acc_to_type(center_point, 200, sensor_type='Temperature')
