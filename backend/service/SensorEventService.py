@@ -62,92 +62,101 @@ class SensorEventService:
         all_events = list(chain.from_iterable(nested_events))
         return all_events
 
-    #GSi with month as PK, SK design Type#timerange
-    def query_sensorevents_by_type_for_entire_field_in_time_range(self,start_range, end_range, sensor_types):
-        try:
-            pks = calculate_pks(start_range, end_range)
 
-            start_range = convert_to_unix_epoch(start_range)
-            end_range=convert_to_unix_epoch(end_range)
-            partition_key='month'
-            sort_key='SK'
+
+    def query_sensorevents_for_entire_field_in_time_range(self, start_range, end_range, sensor_types_filters=None):
+        try:
+            # Calculate partition keys and convert time ranges to Unix epoch
+            pks = calculate_pks(start_range, end_range)
+            start_range_unix = convert_to_unix_epoch(start_range)
+            end_range_unix = convert_to_unix_epoch(end_range)
+
+            # Query variables
+            partition_key = 'month'
+            sort_key = 'SK'
+            type_key = 'type'
             items = []
-            consumed_capacity=0
-            #["Humidity", "Rain", "Light", "SoilPH", "SoilMoisture", "Temperature"]
-            for sensor in sensor_types:
-                for pk in pks:
-                    partition_val = get_first_of_month_as_unix_timestamp(pk)
-                    print(partition_val)
-                    response = self.dynamodb.query(
-                        TableName=self.table_name,
-                        IndexName='GSI_AllSensorEvents_TimeRange',
-                        KeyConditionExpression=f"#{partition_key} = :pval AND #{sort_key} BETWEEN :sval AND :eval",
-                        ExpressionAttributeNames={
-                            f"#{partition_key}": partition_key,
-                            f"#{sort_key}": sort_key
-                        },
-                        ExpressionAttributeValues={
-                            ':pval': {'N': str(partition_val)},
-                            ':sval': {'S': f'{sensor}#{start_range}'},
-                            ':eval': {'S': f'{sensor}#{end_range}'}
-                        },
-                        ReturnConsumedCapacity='INDEXES'
-                    )
-                    items.append(response.get('Items', []))
-                    print(response.get('ConsumedCapacity'))
-                    consumed_capacity+=response.get('ConsumedCapacity')['CapacityUnits']
+            consumed_capacity = 0
+
+            # Iterate through each partition key (month)
+            for pk in pks:
+                partition_val = get_first_of_month_as_unix_timestamp(pk)
+
+                # Base query params
+                query_params = {
+                    'TableName': self.table_name,
+                    'IndexName': 'GSI_AllSensorEvents_TimeRange',
+                    'KeyConditionExpression': f"#{partition_key} = :pval AND #{sort_key} BETWEEN :sval AND :eval",
+                    'ExpressionAttributeNames': {
+                        f"#{partition_key}": partition_key,
+                        f"#{sort_key}": sort_key
+                    },
+                    'ExpressionAttributeValues': {
+                        ':pval': {'N': str(partition_val)},
+                        ':sval': {'S': f'{start_range_unix}#'},
+                        ':eval': {'S': f'{end_range_unix}#zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz'}
+                    },
+                    'ReturnConsumedCapacity': 'INDEXES'
+                }
+
+                # Filter expression if sensor_type_filters
+                if sensor_types_filters:
+                    type_filter_expressions = []
+                    for i, sensor_type in enumerate(sensor_types_filters):
+                        type_key_placeholder = f":typeval{i}"
+                        query_params['ExpressionAttributeValues'][type_key_placeholder] = {'S': sensor_type}
+                        type_filter_expressions.append(f"#{type_key} = {type_key_placeholder}")
+
+                    query_params['FilterExpression'] = " OR ".join(type_filter_expressions)
+                    query_params['ExpressionAttributeNames'][f"#{type_key}"] = type_key
+
+                # Query
+                response = self.dynamodb.query(**query_params)
+
+                # Collect items and consumed capacity
+                items.extend(response.get('Items', []))
+                consumed_capacity += response.get('ConsumedCapacity')['CapacityUnits']
+            print("Number of queries for range is", len(pks))
         except ClientError as e:
             print("Boto3 client error:", e)
             return [], None
-        return [item for sublist in items for item in sublist], consumed_capacity
+        return items, consumed_capacity
 
-    def query_sensorevents_for_entire_field_in_time_range(self, start_range, end_range, sensor_type):
+    def query_sensorevents_by_sensorid_in_time_range(self, sensor_id, start_range, end_range):
         try:
-            # Calculate partition keys
-            pks = calculate_pks(start_range, end_range)
-
             # Convert time ranges to Unix epoch
             start_range_unix = convert_to_unix_epoch(start_range)
             end_range_unix = convert_to_unix_epoch(end_range)
 
-            # Initialize variables
-            partition_key = 'month'
+            # Query parameters
+            partition_key = 'PK'
             sort_key = 'SK'
             items = []
             consumed_capacity = 0
-            type_key='type'
-            # Iterate through each partition key (month)
-            for pk in pks:
-                # Convert partition key to Unix timestamp format
-                partition_val = get_first_of_month_as_unix_timestamp(pk)
-                print(partition_val)
-                print(start_range_unix)
-                print(end_range_unix)
-                # Query the DynamoDB table
-                response = self.dynamodb.query(
-                    TableName=self.table_name,
-                    IndexName='GSI_AllSensorEvents_TimeRange',
-                    KeyConditionExpression=f"#{partition_key} = :pval AND #{sort_key} BETWEEN :sval AND :eval",
-                    #FilterExpression=f"#{type_key} = :typeval",
-                    ExpressionAttributeNames={
-                        f"#{partition_key}": partition_key,
-                        f"#{sort_key}": sort_key
-                        #,f"#{type_key}": type_key
-                    },
-                    ExpressionAttributeValues={
-                        ':pval': {'N': str(partition_val)},
-                        ':sval': {'S': f'{start_range_unix}'},
-                        ':eval': {'S': f'{end_range_unix}'}
-                        #':typeval': {'S': sensor_type}  # Expression Attribute Value for the filter
-                    },
-                    ReturnConsumedCapacity='INDEXES'
-                )
 
-                # Collect items and consumed capacity
-                items.extend(response.get('Items', []))
-                print(consumed_capacity)
-                consumed_capacity += response.get('ConsumedCapacity')['CapacityUnits']
+            # Construct sort key range for BETWEEN clause
+            lower_bound = f"{start_range_unix}#"
+            upper_bound = f"{end_range_unix}#zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"
 
+            # Query the DynamoDB table
+            response = self.dynamodb.query(
+                TableName=self.table_name,
+                KeyConditionExpression=f"#{partition_key} = :pval AND #{sort_key} BETWEEN :sval AND :eval",
+                ExpressionAttributeNames={
+                    f"#{partition_key}": partition_key,
+                    f"#{sort_key}": sort_key
+                },
+                ExpressionAttributeValues={
+                    ':pval': {'S': sensor_id},
+                    ':sval': {'S': lower_bound},
+                    ':eval': {'S': upper_bound}
+                },
+                ReturnConsumedCapacity='TOTAL'
+            )
+
+            # Collect items and consumed capacity
+            items.extend(response.get('Items', []))
+            consumed_capacity += response.get('ConsumedCapacity')['CapacityUnits']
         except ClientError as e:
             print("Boto3 client error:", e)
             return [], None
@@ -162,13 +171,17 @@ def main():
     #                                                           'Humidity',
     #                                                           '2021-07-02T16:27:30',
     #                                                           '2022-10-16T23:52:35')
-    # events = service.query_sensorevents_by_type_for_entire_field_in_time_range(
-    #     '2020-01-01T04:35:53',
-    #     '2020-02-07T14:56:50',
-    #     ["Humidity", "Rain", "Light", "SoilPH", "SoilMoisture", "Temperature"]) #4 for all depends on nb of data points
     events = service.query_sensorevents_for_entire_field_in_time_range(
         '2020-01-01T04:35:53',
-        '2020-02-07T14:56:50', None) #1.5 for all nb of data points
+        '2020-02-07T14:56:50'#,['Humidity', 'Light', 'Temperature']
+        ) #1.5 for all nb of data points
+    print(len(events[0]))
+    print(events[0])
+    print(events[1])
+    events = service.query_sensorevents_by_sensorid_in_time_range(
+                 '4668573807723616123',
+                        '2020-01-01T04:35:53',
+                        '2020-01-06T03:39:07')
     print(len(events[0]))
     print(events[0])
     print(events[1])

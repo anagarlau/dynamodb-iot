@@ -1,36 +1,37 @@
-
 from utils.csv_util import export_data_to_csv
-from utils.polygon_def import polygon,coordinates
-from utils.geomapping import get_geohashes_from_polygon, get_from_max_precision, create_map_from_geohash_set, \
-    assign_geohashes_to_parcels, build_dictionaries_from_crop_assignment, draw_map_parcels_with_crop, \
-    create_map_with_polygon
-from utils.sensor_placing import create_uniform_sensor_grid, visualize_sensor_locations_on_existing_map
+from utils.polygon_def import polygon, coordinates, split_points
+from utils.parcels.parcels_generation import create_map_with_polygon, plot_polygons_on_map, split_in_parcels
+from utils.sensor_events.sensor_events_generation import generate_sensor_events_from_locations_csv_into_json
+from utils.sensors.sensor_placing_generation import create_uniform_sensor_grid, visualize_sensor_locations_on_existing_map
+from utils.sensors.sensors_from_csv import sanity_check_from_csv
 
 
 def main():
-
-
     # Create the map with the polygon
     map_with_polygon = create_map_with_polygon(coordinates)
+    map_with_polygon.save("maps/map_with_polygon.html")
+    # #CREATE SENSOR GRID and place to CSV
+    sensor_grid = create_uniform_sensor_grid(polygon)
+    #Visualize newly generated sensor_grid
+    updated_map = visualize_sensor_locations_on_existing_map(sensor_grid, map_with_polygon)
 
-    # Display the map
 
-    filtered_geohashes = get_geohashes_from_polygon(polygon)
-    create_map_from_geohash_set(geohash_set=filtered_geohashes, name_of_map='geohash_map')
-    refiltered = get_from_max_precision(higher_precision=7, geohashes_list=filtered_geohashes)
-    create_map_from_geohash_set(geohash_set=refiltered, name_of_map='geohash_map_7')
 
-    dict = assign_geohashes_to_parcels(list_precision_7_parcels=list(refiltered),
-                                      list_precision_8_parcels=list(filtered_geohashes))
-    dictTuple = build_dictionaries_from_crop_assignment(crop_assignment=dict)
-    crop_map = draw_map_parcels_with_crop(list_precision_8_parcels=list(filtered_geohashes), crop_assignment=dict)
-    print(dict)
-    print(dictTuple[0]['Grapevine'])
-    print(dictTuple[1])
+    # Split the polygon into parcels and assign to crop types randomly
+    crop_assignment = split_in_parcels(polygon, split_points)
+    print(polygon)
+    print(len(crop_assignment))
+    print(crop_assignment)
+    map = plot_polygons_on_map( polygon, crop_assignment,map_with_polygon)
+    # Save sensor grid and crop parcels to csv file
+    export_data_to_csv(list_sensors=sensor_grid, list_plants=crop_assignment)
+    # Generate sensor events based on the newly created sensor grid
+    generate_sensor_events_from_locations_csv_into_json()
+    # Sanity check sensor map from csv vs map with parcels and added sensors from csv
+    sanity_check_from_csv(map)
+    map.save("maps/map_with_sensors_and_parcels.html")
 
-    sensor_grid = create_uniform_sensor_grid(polygon, precision=8)
-    updated_map = visualize_sensor_locations_on_existing_map(sensor_grid, crop_map)
-    export_data_to_csv(plant_type_to_geohashes=dictTuple[0], geohash6_info=dictTuple[1], list_sensors=sensor_grid)
-    #print(updated_map)
+
+
 if __name__ == "__main__":
     main()

@@ -8,7 +8,7 @@ from datetime import datetime, timezone, timedelta
 from backend.models.SensorEvent import SensorStatus
 from dynamodbgeo.dynamodbgeo import S2Manager, GeoPoint
 from utils.polygon_def import hashKeyLength
-from utils.sensors.sensors import json_to_array
+from utils.sensors.sensors_from_csv import json_to_array
 
 # Script for generation of the mock data and timestamps
 # Generates mock data for sensors csv
@@ -51,24 +51,30 @@ def generate_random_timestamps(num_events):
     return timestamps
 
 
-def csv_to_dynamodb_json(csv_file_path=csvFilePath, json_file_path=jsonFilepath):
+def generate_sensor_events_from_locations_csv_into_json(csv_file_path=csvFilePath, json_file_path=jsonFilepath):
     df = pd.read_csv(csv_file_path)
     processed_data = []
     excel_data = []
 
     for _, row in df.iterrows():
         # Random number of events per sensor
+        point_str = row['point_coordinates'].replace('POINT (', '').replace(')', '')
+        lon, lat = point_str.split(" ")
+        point = [Decimal(coord.strip()) for coord in point_str.split()]
+        s2_manager = S2Manager()
+        geopoint = GeoPoint(float(lat), float(lon))
+        sensor_id = s2_manager.generateGeohash(geopoint)
         num_events = random.randint(1, 20)
         timestamps = generate_random_timestamps(num_events)
 
+
         for timestamp in timestamps:
-            point_str = row['point_coordinates'].replace('POINT (', '').replace(')', '')
-            point = [Decimal(coord.strip()) for coord in point_str.split()]
+
             battery_level = generate_decimal(0, 100)# Random battery level
             data_point = generate_mock_data(row['sensor_type'])
 
             sensor_event = {
-                "sensorId": row['sensor_id'],
+                "sensorId": str(sensor_id),
                 "metadata": {
                     "location": point,
                     "batteryLevel": battery_level,
@@ -81,7 +87,7 @@ def csv_to_dynamodb_json(csv_file_path=csvFilePath, json_file_path=jsonFilepath)
                 }
             }
             sensor_event_excel = {
-                "sensorId": row['sensor_id'],
+                "sensorId": str(sensor_id),
                 "location": point,
                 "batteryLevel": battery_level,
                 "status": random.choice([SensorStatus.BUSY, SensorStatus.IDLE, SensorStatus.MAINTENANCE]).value,
@@ -158,12 +164,15 @@ def process_events_for_db():
         hashKey = s2_manager.generateHashKey(geohash, hashKeyLength)
         timestamp=event['data']['timestamp']
         start_of_month=get_first_of_month_as_unix_timestamp(timestamp)
-        sk_formated = "{}".format(
+        sk_formated = "{}#{}".format(
             #f"""{event['data']['dataType']}""",
-            convert_to_unix_epoch(timestamp)
+            convert_to_unix_epoch(timestamp),
+            f"""{geohash}"""
+
+            #Issue:not unique if 2 sensors send the same timestamp! i need a unique identifier
         )
         sensor_event = {
-            'PK': event['sensorId'],
+            'PK': str(geohash),#event['sensorId'],
             'SK': sk_formated,
             'month': start_of_month,
             #'sensor_id': event['sensorId'], #AVOID BLOATED GSI for later access patterns, keep it in the main table
@@ -180,6 +189,6 @@ def process_events_for_db():
 
 # Call to generate a new batch of sensor events
 #
-#csv_to_dynamodb_json()
-# #test
-#process_events_for_db()
+# csv_to_dynamodb_json()
+# # #test
+# process_events_for_db()

@@ -1,28 +1,22 @@
 [
     {
-        "sensor_id": "db8ca237-dad7-4ee8-9968-1f7344d99500",
-        "geohash6": "u8k10n",
-        "geohash8": "u8k10nww",
-        "sensor_type": "Light",
+        "sensor_id": "3b206f76-b9db-402f-8af2-383ad51cc405",
+        "sensor_type": "Rain",
         "point_coordinates": [
             28.134018505882352,
             46.618818129411764
         ]
     },
     {
-        "sensor_id": "c0bf90f3-f09a-4515-80ba-327c7b4f2c0d",
-        "geohash6": "u8k10n",
-        "geohash8": "u8k10nxy",
-        "sensor_type": "Temperature",
+        "sensor_id": "629327ad-da94-4b2a-a59f-bebd864da3ce",
+        "sensor_type": "SoilPH",
         "point_coordinates": [
             28.13582094705882,
             46.618818129411764
         ]
     },
     {
-        "sensor_id": "5a10c143-6a91-4101-b4bd-4058ebfd91db",
-        "geohash6": "u8k10q",
-        "geohash8": "u8k10q9n",
+        "sensor_id": "20a89993-192e-47f9-97a8-37c8d1418a46",
         "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.137623388235294,
@@ -30,149 +24,119 @@
         ]
     },
     {
-        "sensor_id": "c1423423-87eb-4369-9fc2-63b06738b9f2",
-        "geohash6": "u8k10n",
-        "geohash8": "u8k10nvm",
-        "sensor_type": "SoilMoisture",
-        "point_coordinates": [
-            28.132216064705883,
-            46.620055058823525
-        ]
-    },
-    {
-        "sensor_id": "7a0b62e1-8f89-4cdb-b50c-b94de06f50cc",
-        "geohash6": "u8k10n",
-        "geohash8": "u8k10nyt",
-        "sensor_type": "Rain",
-        "point_coordinates": [
-            28.134018505882352,
-            46.620055058823525
-        ]
-    },
-    {
-        "sensor_id": "97a083ac-2fba-4ca5-819f-6298fa68c59a",
-        "geohash6": "u8k10n",
-        "geohash8": "u8k10nzv",
-        "sensor_type": "SoilPH",
-        "point_coordinates": [
-            28.13582094705882,
-            46.620055058823525
-        ]
-    },
-    {
-        "sensor_id": "be5e3169-c9cd-435e-a970-97c2b39a7f3b",
-        "geohash6": "u8k10q",
-        "geohash8": "u8k10qcj",
-        "sensor_type": "Rain",
-        "point_coordinates": [
-            28.137623388235294,
-            46.620055058823525
-        ]
-    },
-    {
-        "sensor_id": "04dbc549-9db3-4711-93cb-72ab7d6ffa4c",
-        "geohash6": "u8k10q",
-        "geohash8": "u8k10qft",
-        "sensor_type": "Humidity",
-        "point_coordinates": [
-            28.139425829411763,
-            46.620055058823525
-        ]
-    },
-    {
-        "sensor_id": "19d20323-bb39-453e-ba5a-c48680fa8cdb",
-        "geohash6": "u8k10q",
-        "geohash8": "u8k10qgv",
+        "sensor_id": "8ea73364-cd67-4b06-b0f0-a76775b3a1e1",
         "sensor_type": "Temperature",
         "point_coordinates": [
-            28.141228270588236,
-            46.620055058823525
-        ]
-    },
-    {
-        "sensor_id": "0a7902de-6de1-4b34-9c5d-7ac835858163",
-        "geohash6": "u8k10q",
-        "geohash8": "u8k10qvj",
-        "sensor_type": "SoilPH",
-        "point_coordinates": [
-            28.143030711764705,
-            46.620055058823525
-        ]
-    },
-    {
-        "sensor_id": "d0c59fa3-0472-4a9e-8255-f30454a51e59",
-        "geohash6": "u8k10p",
-        "geohash8": "u8k10pjk",
-        "sensor_type": "Humidity",
-        "point_coordinates": [
             28.132216064705883,
-            46.62129198823529
+            46.620055058823525
         ]
     },
     {
-        "sensor_id": "49620b73-73d2-4fb8-b362-d1872b079a89",
-        "geohash6": "u8k10p",
-        "geohash8": "u8k10pns",
+        "sensor_id": "99ac51a1-35d0-4e6c-a07c-03ae0082a906",
         "sensor_type": "Light",
         "point_coordinates": [
             28.134018505882352,
+            46.620055058823525
+        ]
+    },
+    {
+        "sensor_id": "ec0880cf-1104-42fe-91cf-27767aea8e4c",
+        "sensor_type": "SoilPH",
+        "point_coordinates": [
+            28.13582094705882,
+            46.620055058823525
+        ]
+    },
+    {
+        "sensor_id": "4a916a26-5532-43cb-93e8-1fe002bd49a2",
+        "sensor_type": "Rain",
+        "point_coordinates": [
+            28.137623388235294,
+            46.620055058823525
+        ]
+    },
+    {
+        "sensor_id": "d6e385c4-0809-46cc-b0dc-5bdb15f7c2f0",
+        "sensor_type": "Humidity",
+        "point_coordinates": [
+            28.139425829411763,
+            46.620055058823525
+        ]
+    },
+    {
+        "sensor_id": "b303190d-9676-44ca-9917-7791373c5352",
+        "sensor_type": "Light",
+        "point_coordinates": [
+            28.141228270588236,
+            46.620055058823525
+        ]
+    },
+    {
+        "sensor_id": "2ae5c660-7c27-4763-8cab-c8fd355fdd22",
+        "sensor_type": "Rain",
+        "point_coordinates": [
+            28.143030711764705,
+            46.620055058823525
+        ]
+    },
+    {
+        "sensor_id": "4290892c-fdd0-4dce-abc9-ac36275f8d13",
+        "sensor_type": "Temperature",
+        "point_coordinates": [
+            28.132216064705883,
             46.62129198823529
         ]
     },
     {
-        "sensor_id": "676d55b6-2330-426b-b72f-a8fa0b19df6c",
-        "geohash6": "u8k10p",
-        "geohash8": "u8k10ppu",
+        "sensor_id": "6cac881c-e5c6-4f9b-b274-1083dcffdaea",
         "sensor_type": "SoilPH",
+        "point_coordinates": [
+            28.134018505882352,
+            46.62129198823529
+        ]
+    },
+    {
+        "sensor_id": "47f545f0-8e2d-4acd-b608-a1b391a3256c",
+        "sensor_type": "Rain",
         "point_coordinates": [
             28.13582094705882,
             46.62129198823529
         ]
     },
     {
-        "sensor_id": "4c9c6761-3880-416b-94fd-377d37b720b6",
-        "geohash6": "u8k10r",
-        "geohash8": "u8k10r1h",
-        "sensor_type": "Humidity",
+        "sensor_id": "5b13be38-10bf-4d5c-955e-56e63dfbd14d",
+        "sensor_type": "Light",
         "point_coordinates": [
             28.137623388235294,
             46.62129198823529
         ]
     },
     {
-        "sensor_id": "c6ef496c-0852-49d0-8a65-a53c15fe2e59",
-        "geohash6": "u8k10r",
-        "geohash8": "u8k10r4s",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "b1a57fb7-6b10-4800-9e58-d6e993538509",
+        "sensor_type": "Light",
         "point_coordinates": [
             28.139425829411763,
             46.62129198823529
         ]
     },
     {
-        "sensor_id": "584855c3-6176-48f5-8840-98c79ccfb251",
-        "geohash6": "u8k10r",
-        "geohash8": "u8k10r5u",
-        "sensor_type": "Humidity",
+        "sensor_id": "372b0c11-e2c5-4bbc-80a9-d5fe6c98147c",
+        "sensor_type": "Light",
         "point_coordinates": [
             28.141228270588236,
             46.62129198823529
         ]
     },
     {
-        "sensor_id": "d4aec0f1-7b58-41c6-ba54-69364f79511a",
-        "geohash6": "u8k10r",
-        "geohash8": "u8k10rjh",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "353dc968-4521-4c31-9b75-e3d7ca438db9",
+        "sensor_type": "Rain",
         "point_coordinates": [
             28.143030711764705,
             46.62129198823529
         ]
     },
     {
-        "sensor_id": "2871e113-149b-4595-b9cd-cbf9f665bbd4",
-        "geohash6": "u8k10r",
-        "geohash8": "u8k10rnk",
+        "sensor_id": "c08f657f-08e7-4dab-82c5-2e4cd460a5fa",
         "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.144833152941178,
@@ -180,9 +144,7 @@
         ]
     },
     {
-        "sensor_id": "aa9952bb-c5e8-4cd4-83cd-1a3de6ebebca",
-        "geohash6": "u8k10r",
-        "geohash8": "u8k10rpu",
+        "sensor_id": "79114df5-d8f9-4f10-9d77-6739d6d9113d",
         "sensor_type": "Humidity",
         "point_coordinates": [
             28.146635594117647,
@@ -190,9 +152,7 @@
         ]
     },
     {
-        "sensor_id": "9f33f037-10ce-4106-83c7-c693b0bd32a6",
-        "geohash6": "u8k10x",
-        "geohash8": "u8k10x1h",
+        "sensor_id": "8ff2f2cf-3b68-4441-a602-d06614110a89",
         "sensor_type": "Temperature",
         "point_coordinates": [
             28.148438035294117,
@@ -200,129 +160,103 @@
         ]
     },
     {
-        "sensor_id": "5ee342d2-b9c8-41ba-852e-dd209e7ff4b7",
-        "geohash6": "u8k10x",
-        "geohash8": "u8k10x4k",
-        "sensor_type": "Humidity",
+        "sensor_id": "2874fe14-d403-4351-a31b-eca5b134aa6d",
+        "sensor_type": "Light",
         "point_coordinates": [
             28.15024047647059,
             46.62129198823529
         ]
     },
     {
-        "sensor_id": "3773f4d5-f41b-45a5-923d-ad61e087d728",
-        "geohash6": "u8k10p",
-        "geohash8": "u8k10pm7",
-        "sensor_type": "Temperature",
+        "sensor_id": "362e1f6a-2604-4e7d-9269-8f5de59034e3",
+        "sensor_type": "Rain",
         "point_coordinates": [
             28.132216064705883,
             46.62252891764706
         ]
     },
     {
-        "sensor_id": "beb08e89-dfb0-4fbe-a7b9-e31005291082",
-        "geohash6": "u8k10p",
-        "geohash8": "u8k10pqe",
-        "sensor_type": "Rain",
+        "sensor_id": "6ab2240f-194c-42c6-9ad6-d36c8de0c2bc",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.134018505882352,
             46.62252891764706
         ]
     },
     {
-        "sensor_id": "bf0364a7-1dc3-4ff4-96b0-3e66d521c0ac",
-        "geohash6": "u8k10p",
-        "geohash8": "u8k10prg",
-        "sensor_type": "Rain",
+        "sensor_id": "c5018ac8-3a44-4b34-a0b3-df36c7df1213",
+        "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.13582094705882,
             46.62252891764706
         ]
     },
     {
-        "sensor_id": "213017ff-82ee-4c16-8129-8b3765f7239a",
-        "geohash6": "u8k10r",
-        "geohash8": "u8k10r35",
-        "sensor_type": "Temperature",
+        "sensor_id": "218ce3cb-50d0-460c-9031-5f31782bfcfe",
+        "sensor_type": "Rain",
         "point_coordinates": [
             28.137623388235294,
             46.62252891764706
         ]
     },
     {
-        "sensor_id": "4b45d6e2-b80b-4471-ad5c-7b177cd8efaa",
-        "geohash6": "u8k10r",
-        "geohash8": "u8k10r6e",
-        "sensor_type": "Rain",
+        "sensor_id": "4c965c93-a5bc-412c-ab51-969df3ad6c3f",
+        "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.139425829411763,
             46.62252891764706
         ]
     },
     {
-        "sensor_id": "a6f862ce-37f1-40d5-9955-7f5bfc8cb466",
-        "geohash6": "u8k10r",
-        "geohash8": "u8k10r7g",
-        "sensor_type": "Humidity",
+        "sensor_id": "61685d48-157e-4572-85a0-25de25f231e3",
+        "sensor_type": "Light",
         "point_coordinates": [
             28.141228270588236,
             46.62252891764706
         ]
     },
     {
-        "sensor_id": "cbaf0037-7ff0-4bed-94c9-9adaea44a8e1",
-        "geohash6": "u8k10r",
-        "geohash8": "u8k10rm5",
-        "sensor_type": "Light",
+        "sensor_id": "974900be-a582-4913-96a2-408e4555417d",
+        "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.143030711764705,
             46.62252891764706
         ]
     },
     {
-        "sensor_id": "7d8b77f7-50b0-40a2-bcf7-0fa43d00d616",
-        "geohash6": "u8k10r",
-        "geohash8": "u8k10rq7",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "f55e6ffd-eaa5-43e8-9aec-d1d30c28bd72",
+        "sensor_type": "SoilPH",
         "point_coordinates": [
             28.144833152941178,
             46.62252891764706
         ]
     },
     {
-        "sensor_id": "50b6318c-1822-43b1-a89e-a8e886f33afe",
-        "geohash6": "u8k10r",
-        "geohash8": "u8k10rrg",
-        "sensor_type": "Temperature",
+        "sensor_id": "af6458ce-0707-458f-a553-765496c513fb",
+        "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.146635594117647,
             46.62252891764706
         ]
     },
     {
-        "sensor_id": "821a850f-d7db-486b-b670-2865aade318e",
-        "geohash6": "u8k10x",
-        "geohash8": "u8k10x35",
-        "sensor_type": "SoilPH",
+        "sensor_id": "dd5238a9-24fb-49d2-8a3b-b653b82a0817",
+        "sensor_type": "Rain",
         "point_coordinates": [
             28.148438035294117,
             46.62252891764706
         ]
     },
     {
-        "sensor_id": "cd9065c6-253e-4599-a96b-db68bee24ea6",
-        "geohash6": "u8k10x",
-        "geohash8": "u8k10x67",
-        "sensor_type": "Humidity",
+        "sensor_id": "e2fc1fc8-c191-4cf6-a219-8beea024aaf1",
+        "sensor_type": "Temperature",
         "point_coordinates": [
             28.15024047647059,
             46.62252891764706
         ]
     },
     {
-        "sensor_id": "511c66af-bb93-4651-800e-4f2c72cfa1a1",
-        "geohash6": "u8k10x",
-        "geohash8": "u8k10x7e",
+        "sensor_id": "c2dbea4c-9559-43a4-ac11-577f350eab04",
         "sensor_type": "Humidity",
         "point_coordinates": [
             28.15204291764706,
@@ -330,9 +264,7 @@
         ]
     },
     {
-        "sensor_id": "26cdfe11-cbfb-4160-a42d-1ad78dd41a68",
-        "geohash6": "u8k10x",
-        "geohash8": "u8k10xm5",
+        "sensor_id": "7c3fd171-03aa-4c4e-9621-be15593ff279",
         "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.15384535882353,
@@ -340,49 +272,39 @@
         ]
     },
     {
-        "sensor_id": "87ec8c0f-f266-4941-a3a0-d49c7354ee8a",
-        "geohash6": "u8k10p",
-        "geohash8": "u8k10peg",
-        "sensor_type": "Rain",
+        "sensor_id": "3bdc0bfb-a8e0-48e7-a516-a7fb808f04d6",
+        "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.13041362352941,
             46.62376584705882
         ]
     },
     {
-        "sensor_id": "a07e6294-b338-4d45-9c29-7c6eeae339cb",
-        "geohash6": "u8k10p",
-        "geohash8": "u8k10pt7",
-        "sensor_type": "Light",
+        "sensor_id": "adc10678-7fb6-4ee2-9107-33735f08c00d",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.132216064705883,
             46.62376584705882
         ]
     },
     {
-        "sensor_id": "d923cde5-6762-45d3-ad36-539375144f2a",
-        "geohash6": "u8k10p",
-        "geohash8": "u8k10pwe",
-        "sensor_type": "Humidity",
+        "sensor_id": "2a97bb1b-5aee-41b3-8e23-9014cc1bdb16",
+        "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.134018505882352,
             46.62376584705882
         ]
     },
     {
-        "sensor_id": "8559e59e-5d11-4620-99d0-b65d7cfde540",
-        "geohash6": "u8k10p",
-        "geohash8": "u8k10pxg",
-        "sensor_type": "Rain",
+        "sensor_id": "6dbbee07-5be2-4d7a-8240-1c57283c6ff7",
+        "sensor_type": "SoilPH",
         "point_coordinates": [
             28.13582094705882,
             46.62376584705882
         ]
     },
     {
-        "sensor_id": "def1130c-0d32-48af-9b03-a83b44f46be7",
-        "geohash6": "u8k10r",
-        "geohash8": "u8k10r95",
+        "sensor_id": "139cbf34-1e3a-4564-80fb-8869fb259bec",
         "sensor_type": "Humidity",
         "point_coordinates": [
             28.137623388235294,
@@ -390,49 +312,39 @@
         ]
     },
     {
-        "sensor_id": "74bf43ca-691d-408b-ad39-bd1b712a36f0",
-        "geohash6": "u8k10r",
-        "geohash8": "u8k10rde",
-        "sensor_type": "SoilPH",
+        "sensor_id": "5e8163ab-0c00-497f-81da-c253566aea1e",
+        "sensor_type": "Rain",
         "point_coordinates": [
             28.139425829411763,
             46.62376584705882
         ]
     },
     {
-        "sensor_id": "dd991959-d4dd-4cf5-8469-16df3a8eccef",
-        "geohash6": "u8k10r",
-        "geohash8": "u8k10reg",
-        "sensor_type": "SoilPH",
+        "sensor_id": "5bc4a61e-1c8e-4fe8-9b35-13fff9f5d0c2",
+        "sensor_type": "Rain",
         "point_coordinates": [
             28.141228270588236,
             46.62376584705882
         ]
     },
     {
-        "sensor_id": "5570d8c5-e9c9-45a9-9e66-b410e14e40a5",
-        "geohash6": "u8k10r",
-        "geohash8": "u8k10rt5",
-        "sensor_type": "SoilPH",
+        "sensor_id": "a2e5471a-ea70-4b96-a6a2-73a5bd37825e",
+        "sensor_type": "Temperature",
         "point_coordinates": [
             28.143030711764705,
             46.62376584705882
         ]
     },
     {
-        "sensor_id": "cdb0daee-f3c4-4d24-878e-d4f18084b40f",
-        "geohash6": "u8k10r",
-        "geohash8": "u8k10rw7",
-        "sensor_type": "Rain",
+        "sensor_id": "0ac80d52-179e-41e0-9df0-146fb7fc974d",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.144833152941178,
             46.62376584705882
         ]
     },
     {
-        "sensor_id": "7e2d06ce-e19c-4984-9d93-d9d97c9a194d",
-        "geohash6": "u8k10r",
-        "geohash8": "u8k10rxg",
+        "sensor_id": "085791f8-04bc-4abd-bfea-70b03ae6c0ec",
         "sensor_type": "Rain",
         "point_coordinates": [
             28.146635594117647,
@@ -440,49 +352,39 @@
         ]
     },
     {
-        "sensor_id": "e10ed943-30bd-437b-920a-ae346c85f2d5",
-        "geohash6": "u8k10x",
-        "geohash8": "u8k10x95",
-        "sensor_type": "Rain",
+        "sensor_id": "45db78d2-4421-414f-bec8-d5c68e61c9a2",
+        "sensor_type": "Temperature",
         "point_coordinates": [
             28.148438035294117,
             46.62376584705882
         ]
     },
     {
-        "sensor_id": "d42111a9-4a37-4218-bf3e-4cd154f028f1",
-        "geohash6": "u8k10x",
-        "geohash8": "u8k10xd7",
-        "sensor_type": "Temperature",
+        "sensor_id": "062ac1e8-1235-44f1-a4ba-15981277a6f0",
+        "sensor_type": "SoilPH",
         "point_coordinates": [
             28.15024047647059,
             46.62376584705882
         ]
     },
     {
-        "sensor_id": "7462f8f2-50d0-499f-a630-7cd2f4c4d0d5",
-        "geohash6": "u8k10x",
-        "geohash8": "u8k10xee",
-        "sensor_type": "Humidity",
+        "sensor_id": "c55d63fa-6921-47fe-9927-682ba128381f",
+        "sensor_type": "Light",
         "point_coordinates": [
             28.15204291764706,
             46.62376584705882
         ]
     },
     {
-        "sensor_id": "7432f115-5c9e-447c-bce2-d96875192dcb",
-        "geohash6": "u8k10x",
-        "geohash8": "u8k10xt5",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "76d93779-75d4-4d5c-acf6-8033a400de16",
+        "sensor_type": "Temperature",
         "point_coordinates": [
             28.15384535882353,
             46.62376584705882
         ]
     },
     {
-        "sensor_id": "b8d7f484-0f24-4b7f-b2a1-c97bc490adda",
-        "geohash6": "u8k10p",
-        "geohash8": "u8k10pgf",
+        "sensor_id": "2bd0337e-5ea9-4c93-a0e4-abad69820e99",
         "sensor_type": "Light",
         "point_coordinates": [
             28.13041362352941,
@@ -490,19 +392,15 @@
         ]
     },
     {
-        "sensor_id": "0e508d6f-ecc8-47ac-a710-ab92e4fd03bd",
-        "geohash6": "u8k10p",
-        "geohash8": "u8k10pv6",
-        "sensor_type": "Temperature",
+        "sensor_id": "46183c07-4b87-418f-8f96-aec756c2e54c",
+        "sensor_type": "SoilPH",
         "point_coordinates": [
             28.132216064705883,
             46.62500277647059
         ]
     },
     {
-        "sensor_id": "a8e88963-a67e-43d4-a09d-2014005c6fb7",
-        "geohash6": "u8k10p",
-        "geohash8": "u8k10pyd",
+        "sensor_id": "3404e9b0-c8c1-48da-b3bb-1b1fa4185a3e",
         "sensor_type": "Light",
         "point_coordinates": [
             28.134018505882352,
@@ -510,9 +408,7 @@
         ]
     },
     {
-        "sensor_id": "379b5e49-ba80-4e80-ab9e-20e7716d800c",
-        "geohash6": "u8k10p",
-        "geohash8": "u8k10pzf",
+        "sensor_id": "8566d0ba-1f1c-478c-9354-25658526034c",
         "sensor_type": "SoilPH",
         "point_coordinates": [
             28.13582094705882,
@@ -520,9 +416,7 @@
         ]
     },
     {
-        "sensor_id": "9ab42ada-a09e-4107-9cf2-5b8323388b12",
-        "geohash6": "u8k10r",
-        "geohash8": "u8k10rc4",
+        "sensor_id": "0821ec53-fd9c-4c24-b225-1837c43468b2",
         "sensor_type": "Temperature",
         "point_coordinates": [
             28.137623388235294,
@@ -530,29 +424,23 @@
         ]
     },
     {
-        "sensor_id": "2b165d9d-1974-4d5a-9772-51ac2754ba6a",
-        "geohash6": "u8k10r",
-        "geohash8": "u8k10rfd",
-        "sensor_type": "Temperature",
+        "sensor_id": "05896f06-3197-462b-ae4c-ee8c120a5dbb",
+        "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.139425829411763,
             46.62500277647059
         ]
     },
     {
-        "sensor_id": "6588068c-a01b-4228-aa6e-08347d97c0b1",
-        "geohash6": "u8k10r",
-        "geohash8": "u8k10rgf",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "9ab4aba6-14f6-43a1-999f-239a4323d9b4",
+        "sensor_type": "Rain",
         "point_coordinates": [
             28.141228270588236,
             46.62500277647059
         ]
     },
     {
-        "sensor_id": "bcec2b9a-b045-4629-931b-b2d0004f705d",
-        "geohash6": "u8k10r",
-        "geohash8": "u8k10rv4",
+        "sensor_id": "6ddb01af-5dff-4ecc-9e89-a9af5808e8cd",
         "sensor_type": "SoilPH",
         "point_coordinates": [
             28.143030711764705,
@@ -560,59 +448,47 @@
         ]
     },
     {
-        "sensor_id": "f77ff82f-5bc8-4086-a6a7-3eef9d266ecb",
-        "geohash6": "u8k10r",
-        "geohash8": "u8k10ry6",
-        "sensor_type": "Light",
+        "sensor_id": "41f1d60e-83d0-41c4-8789-7532c1dfce80",
+        "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.144833152941178,
             46.62500277647059
         ]
     },
     {
-        "sensor_id": "7ebe4ba9-df2e-41aa-a027-f31f6a252b37",
-        "geohash6": "u8k10r",
-        "geohash8": "u8k10rzf",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "acfc4668-9405-4ac9-8269-3c24b418b8f4",
+        "sensor_type": "SoilPH",
         "point_coordinates": [
             28.146635594117647,
             46.62500277647059
         ]
     },
     {
-        "sensor_id": "986d49b4-090a-480c-af05-5af38341432d",
-        "geohash6": "u8k10x",
-        "geohash8": "u8k10xc4",
-        "sensor_type": "Temperature",
+        "sensor_id": "986eb764-efdc-4988-9d09-9fb7a0cd42ab",
+        "sensor_type": "SoilPH",
         "point_coordinates": [
             28.148438035294117,
             46.62500277647059
         ]
     },
     {
-        "sensor_id": "ad61f68a-475c-430c-a290-2c9f6f487173",
-        "geohash6": "u8k10x",
-        "geohash8": "u8k10xf6",
-        "sensor_type": "Rain",
+        "sensor_id": "a9e98c63-f1db-4140-9267-2f69175db9d0",
+        "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.15024047647059,
             46.62500277647059
         ]
     },
     {
-        "sensor_id": "a30e7d20-2790-4507-80c4-bae27f78e7e0",
-        "geohash6": "u8k10x",
-        "geohash8": "u8k10xgd",
-        "sensor_type": "Light",
+        "sensor_id": "47c70b08-ccd6-43e3-b95f-198c9c51d68c",
+        "sensor_type": "SoilPH",
         "point_coordinates": [
             28.15204291764706,
             46.62500277647059
         ]
     },
     {
-        "sensor_id": "ab673c74-99e6-49b3-bb45-fceab3766558",
-        "geohash6": "u8k10x",
-        "geohash8": "u8k10xv4",
+        "sensor_id": "b292f1f0-0337-444f-b2cb-21fe2b44d0e2",
         "sensor_type": "Rain",
         "point_coordinates": [
             28.15384535882353,
@@ -620,59 +496,47 @@
         ]
     },
     {
-        "sensor_id": "ec4044ad-14af-4fa8-9482-21718740179d",
-        "geohash6": "u8k120",
-        "geohash8": "u8k1205c",
-        "sensor_type": "SoilPH",
+        "sensor_id": "9296b2a2-370b-4127-acb0-132f5d44e364",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.13041362352941,
             46.626239705882355
         ]
     },
     {
-        "sensor_id": "920d01cf-0b51-4a90-b0f5-636d3c51f5a7",
-        "geohash6": "u8k120",
-        "geohash8": "u8k120j3",
-        "sensor_type": "Humidity",
+        "sensor_id": "466a388a-3243-473e-a800-d29f961a7f83",
+        "sensor_type": "Light",
         "point_coordinates": [
             28.132216064705883,
             46.626239705882355
         ]
     },
     {
-        "sensor_id": "10bf493f-0fe6-4f3e-a987-da3e065f49af",
-        "geohash6": "u8k120",
-        "geohash8": "u8k120n9",
-        "sensor_type": "Humidity",
+        "sensor_id": "e78d3f44-b445-4f1a-a6bd-f55456fc89fc",
+        "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.134018505882352,
             46.626239705882355
         ]
     },
     {
-        "sensor_id": "80d5972b-d328-44de-8000-2533fb6bfc0d",
-        "geohash6": "u8k120",
-        "geohash8": "u8k120pc",
-        "sensor_type": "Light",
+        "sensor_id": "a1a0d4df-4fd9-46b8-b042-1da65cea9d7c",
+        "sensor_type": "Temperature",
         "point_coordinates": [
             28.13582094705882,
             46.626239705882355
         ]
     },
     {
-        "sensor_id": "7c3aa715-5ba3-4c35-8d6a-a149d47e9fcf",
-        "geohash6": "u8k122",
-        "geohash8": "u8k12211",
-        "sensor_type": "Light",
+        "sensor_id": "5cf49c62-3dce-4e14-861e-d8ae3c32f943",
+        "sensor_type": "Temperature",
         "point_coordinates": [
             28.137623388235294,
             46.626239705882355
         ]
     },
     {
-        "sensor_id": "af870bd0-e60f-4ec2-9afe-e58cc701c508",
-        "geohash6": "u8k122",
-        "geohash8": "u8k12249",
+        "sensor_id": "3a744574-eb5e-4156-9d25-c220a9efd374",
         "sensor_type": "SoilPH",
         "point_coordinates": [
             28.139425829411763,
@@ -680,59 +544,47 @@
         ]
     },
     {
-        "sensor_id": "712d952a-25aa-4409-ae4c-98d78f610b03",
-        "geohash6": "u8k122",
-        "geohash8": "u8k1225c",
-        "sensor_type": "Light",
+        "sensor_id": "765702e4-a37c-4e40-8872-4d47a1dafb53",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.141228270588236,
             46.626239705882355
         ]
     },
     {
-        "sensor_id": "71993f1d-be6d-46d0-a900-92c596d672f3",
-        "geohash6": "u8k122",
-        "geohash8": "u8k122j1",
-        "sensor_type": "Rain",
+        "sensor_id": "f32afaa7-3b9d-4d68-a33a-9b8bb5248cbc",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.143030711764705,
             46.626239705882355
         ]
     },
     {
-        "sensor_id": "13f894db-56db-4391-8d65-5e70ce38dcdd",
-        "geohash6": "u8k122",
-        "geohash8": "u8k122n3",
-        "sensor_type": "SoilPH",
+        "sensor_id": "a35339e5-5479-4810-a6ff-e26a53571335",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.144833152941178,
             46.626239705882355
         ]
     },
     {
-        "sensor_id": "8832137f-c3e1-4fd7-a857-8003eec4ba71",
-        "geohash6": "u8k122",
-        "geohash8": "u8k122pc",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "8689c890-7bec-41ab-ade7-462ec91c5fe1",
+        "sensor_type": "Temperature",
         "point_coordinates": [
             28.146635594117647,
             46.626239705882355
         ]
     },
     {
-        "sensor_id": "01de533b-1572-4c75-958a-494e35d1219c",
-        "geohash6": "u8k128",
-        "geohash8": "u8k12811",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "4ee4c001-4624-4193-abdc-2c2d1d029722",
+        "sensor_type": "Rain",
         "point_coordinates": [
             28.148438035294117,
             46.626239705882355
         ]
     },
     {
-        "sensor_id": "3042f8fd-77c2-4b0b-a531-413531f0085b",
-        "geohash6": "u8k128",
-        "geohash8": "u8k12843",
+        "sensor_id": "fe714900-10a6-40eb-9153-4facc687fa69",
         "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.15024047647059,
@@ -740,129 +592,103 @@
         ]
     },
     {
-        "sensor_id": "c4f3f168-6df9-447c-9aca-5127f971bb22",
-        "geohash6": "u8k128",
-        "geohash8": "u8k12859",
-        "sensor_type": "Humidity",
+        "sensor_id": "6f23bd01-3192-428c-94a7-8a57956bc7d7",
+        "sensor_type": "SoilPH",
         "point_coordinates": [
             28.15204291764706,
             46.626239705882355
         ]
     },
     {
-        "sensor_id": "a106058a-3aea-4ade-b4a3-2c55fe1727cb",
-        "geohash6": "u8k120",
-        "geohash8": "u8k12068",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "1204dd65-e825-4988-9935-b5b2572d355f",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.12861118235294,
             46.627476635294116
         ]
     },
     {
-        "sensor_id": "9b01c61a-37be-47b4-97da-6d4679c2557e",
-        "geohash6": "u8k120",
-        "geohash8": "u8k1207b",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "67dee73f-0f66-40b4-ae75-ab97a8a809dd",
+        "sensor_type": "Temperature",
         "point_coordinates": [
             28.13041362352941,
             46.627476635294116
         ]
     },
     {
-        "sensor_id": "666a9c4d-a5d8-4530-a2b7-8ee3849e1060",
-        "geohash6": "u8k120",
-        "geohash8": "u8k120m2",
-        "sensor_type": "Rain",
+        "sensor_id": "e8cc0cd0-b997-4ec3-b270-a7da78e819de",
+        "sensor_type": "SoilPH",
         "point_coordinates": [
             28.132216064705883,
             46.627476635294116
         ]
     },
     {
-        "sensor_id": "0be54831-cb55-4510-80d7-dc3bad57a12b",
-        "geohash6": "u8k120",
-        "geohash8": "u8k120q8",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "18fd3ed5-e72d-4553-9a6b-c7d98e6ba48b",
+        "sensor_type": "Rain",
         "point_coordinates": [
             28.134018505882352,
             46.627476635294116
         ]
     },
     {
-        "sensor_id": "41f1df13-b1e5-4303-9063-9e9c659bae87",
-        "geohash6": "u8k120",
-        "geohash8": "u8k120rb",
-        "sensor_type": "Rain",
+        "sensor_id": "fee30b89-8a0f-4cfd-9d4e-7ec9ca9898c5",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.13582094705882,
             46.627476635294116
         ]
     },
     {
-        "sensor_id": "861eab9e-cfc7-45ee-a32a-8437e4b5ad71",
-        "geohash6": "u8k122",
-        "geohash8": "u8k12230",
-        "sensor_type": "SoilPH",
+        "sensor_id": "23eda3e8-82f0-46e3-8493-fd5ad6d125d5",
+        "sensor_type": "Light",
         "point_coordinates": [
             28.137623388235294,
             46.627476635294116
         ]
     },
     {
-        "sensor_id": "6ab7580b-c031-4787-b713-b782fff6a6d5",
-        "geohash6": "u8k122",
-        "geohash8": "u8k12268",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "dfd85df4-7c22-49f1-9867-34c41e99ada4",
+        "sensor_type": "Light",
         "point_coordinates": [
             28.139425829411763,
             46.627476635294116
         ]
     },
     {
-        "sensor_id": "0add1c14-4725-47ad-99a5-c7f01c41a896",
-        "geohash6": "u8k122",
-        "geohash8": "u8k1227b",
-        "sensor_type": "Rain",
+        "sensor_id": "2501c057-49a4-4823-9f8b-e9578298adc8",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.141228270588236,
             46.627476635294116
         ]
     },
     {
-        "sensor_id": "1a068d01-af2c-444d-b970-e2928724a3ad",
-        "geohash6": "u8k122",
-        "geohash8": "u8k122m0",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "c3c4e287-8931-4360-bf6f-8b5760695244",
+        "sensor_type": "Temperature",
         "point_coordinates": [
             28.143030711764705,
             46.627476635294116
         ]
     },
     {
-        "sensor_id": "3fbcbc9b-1d11-473e-8834-dd78958533c5",
-        "geohash6": "u8k122",
-        "geohash8": "u8k122q2",
-        "sensor_type": "Rain",
+        "sensor_id": "c9116d4f-134e-4505-a9d6-6c26d91d9844",
+        "sensor_type": "Temperature",
         "point_coordinates": [
             28.144833152941178,
             46.627476635294116
         ]
     },
     {
-        "sensor_id": "04178fb5-fd1a-4981-965b-5f8b0771ea20",
-        "geohash6": "u8k122",
-        "geohash8": "u8k122rb",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "e6fe4d4e-b57c-4128-89e8-de2b5ba1f38a",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.146635594117647,
             46.627476635294116
         ]
     },
     {
-        "sensor_id": "2dfcd009-eefb-45a0-b901-9eea10b3d3f2",
-        "geohash6": "u8k128",
-        "geohash8": "u8k12830",
+        "sensor_id": "2e720205-ea39-4210-a243-d0627d06d5b4",
         "sensor_type": "Rain",
         "point_coordinates": [
             28.148438035294117,
@@ -870,9 +696,7 @@
         ]
     },
     {
-        "sensor_id": "933a2142-b09b-48a9-85a1-b758abd6775f",
-        "geohash6": "u8k128",
-        "geohash8": "u8k12862",
+        "sensor_id": "7ae8244f-a36f-480e-bf91-e1eb63af1274",
         "sensor_type": "Light",
         "point_coordinates": [
             28.15024047647059,
@@ -880,39 +704,31 @@
         ]
     },
     {
-        "sensor_id": "9221837d-9d3f-4144-8a8e-5a5940df150c",
-        "geohash6": "u8k128",
-        "geohash8": "u8k12878",
-        "sensor_type": "Temperature",
+        "sensor_id": "49298610-9c55-4475-8355-5c6296710e85",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.15204291764706,
             46.627476635294116
         ]
     },
     {
-        "sensor_id": "7a5f2e68-75fb-4298-a5ca-f8a5c2c55620",
-        "geohash6": "u8k120",
-        "geohash8": "u8k1206x",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "8a737e7d-a7f7-482b-bbbb-d1d0e951bc32",
+        "sensor_type": "SoilPH",
         "point_coordinates": [
             28.12861118235294,
             46.62871356470588
         ]
     },
     {
-        "sensor_id": "70a536b5-23b5-41a1-ac75-655149b2ce5d",
-        "geohash6": "u8k120",
-        "geohash8": "u8k1207z",
-        "sensor_type": "Rain",
+        "sensor_id": "c1c88e26-2c70-4329-83c7-59fcbfcb9280",
+        "sensor_type": "SoilPH",
         "point_coordinates": [
             28.13041362352941,
             46.62871356470588
         ]
     },
     {
-        "sensor_id": "5417ebf4-3055-4ca1-9de9-034ae65791f8",
-        "geohash6": "u8k120",
-        "geohash8": "u8k120mr",
+        "sensor_id": "daa03913-a7fb-40c6-8538-2949d89b82c5",
         "sensor_type": "Temperature",
         "point_coordinates": [
             28.132216064705883,
@@ -920,59 +736,47 @@
         ]
     },
     {
-        "sensor_id": "3ebbc796-6b07-4b2b-bc24-a36ccad0c1a1",
-        "geohash6": "u8k120",
-        "geohash8": "u8k120qx",
-        "sensor_type": "Rain",
+        "sensor_id": "78738820-2680-458e-8a5f-34073a2a8b45",
+        "sensor_type": "Temperature",
         "point_coordinates": [
             28.134018505882352,
             46.62871356470588
         ]
     },
     {
-        "sensor_id": "953e19df-2b5d-48f3-9f1b-ae9efd2ea90e",
-        "geohash6": "u8k120",
-        "geohash8": "u8k120rz",
-        "sensor_type": "SoilPH",
+        "sensor_id": "f682e2bc-b80b-42b0-bd5a-657f1ebab1ee",
+        "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.13582094705882,
             46.62871356470588
         ]
     },
     {
-        "sensor_id": "a80b6b49-0e27-4137-b68c-a5775f2d4bca",
-        "geohash6": "u8k122",
-        "geohash8": "u8k1223p",
-        "sensor_type": "Temperature",
+        "sensor_id": "76c0d9d1-4708-4eb5-8fcd-a489742759ba",
+        "sensor_type": "Light",
         "point_coordinates": [
             28.137623388235294,
             46.62871356470588
         ]
     },
     {
-        "sensor_id": "44f5890a-4dac-4985-a994-587b21ff5f01",
-        "geohash6": "u8k122",
-        "geohash8": "u8k1226x",
-        "sensor_type": "Temperature",
+        "sensor_id": "b7baae65-8c6b-4db2-867c-87ba1eba54fb",
+        "sensor_type": "SoilPH",
         "point_coordinates": [
             28.139425829411763,
             46.62871356470588
         ]
     },
     {
-        "sensor_id": "05226e77-432b-4058-bd08-deb49be537a0",
-        "geohash6": "u8k122",
-        "geohash8": "u8k1227z",
-        "sensor_type": "Humidity",
+        "sensor_id": "5da2d9df-40ba-4d03-96e3-e9c8c79a9b24",
+        "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.141228270588236,
             46.62871356470588
         ]
     },
     {
-        "sensor_id": "fbbdcf0c-260d-4c46-95ec-fded14194414",
-        "geohash6": "u8k122",
-        "geohash8": "u8k122mp",
+        "sensor_id": "2a7e211f-e906-4c13-b39b-55af36675207",
         "sensor_type": "Humidity",
         "point_coordinates": [
             28.143030711764705,
@@ -980,9 +784,7 @@
         ]
     },
     {
-        "sensor_id": "40aba2a9-1da5-4f1a-aa0f-3e8b3fe1057a",
-        "geohash6": "u8k122",
-        "geohash8": "u8k122qr",
+        "sensor_id": "96721614-dd91-4c41-85a7-dc2ac56b3541",
         "sensor_type": "SoilPH",
         "point_coordinates": [
             28.144833152941178,
@@ -990,9 +792,7 @@
         ]
     },
     {
-        "sensor_id": "cc099dbd-8a89-4f0f-91e0-0139378de704",
-        "geohash6": "u8k122",
-        "geohash8": "u8k122rz",
+        "sensor_id": "393b4111-c323-4e5d-b124-aff1ff8e49a7",
         "sensor_type": "Rain",
         "point_coordinates": [
             28.146635594117647,
@@ -1000,19 +800,15 @@
         ]
     },
     {
-        "sensor_id": "1d0b41fb-d553-41f6-bb31-df7c99eec9e3",
-        "geohash6": "u8k128",
-        "geohash8": "u8k1283p",
-        "sensor_type": "Temperature",
+        "sensor_id": "e1f0751d-2d4f-4b58-9372-470c4fa72cb8",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.148438035294117,
             46.62871356470588
         ]
     },
     {
-        "sensor_id": "e6ea3868-b413-4e51-aa2f-7e7b630b2c9e",
-        "geohash6": "u8k128",
-        "geohash8": "u8k1286r",
+        "sensor_id": "49a4129c-771c-4929-80d8-f47ec1b37fc9",
         "sensor_type": "Humidity",
         "point_coordinates": [
             28.15024047647059,
@@ -1020,9 +816,7 @@
         ]
     },
     {
-        "sensor_id": "85f1311c-fc64-4054-9fd3-6e2b003d2861",
-        "geohash6": "u8k120",
-        "geohash8": "u8k120dx",
+        "sensor_id": "0aee46d8-c451-4c2f-b0da-1d462542acd8",
         "sensor_type": "Light",
         "point_coordinates": [
             28.12861118235294,
@@ -1030,9 +824,7 @@
         ]
     },
     {
-        "sensor_id": "172fa15a-a8f3-43cf-80e9-f51f86441c42",
-        "geohash6": "u8k120",
-        "geohash8": "u8k120ez",
+        "sensor_id": "27a0f61c-09c6-4165-bf82-a44c72930924",
         "sensor_type": "SoilPH",
         "point_coordinates": [
             28.13041362352941,
@@ -1040,19 +832,15 @@
         ]
     },
     {
-        "sensor_id": "c5e9d20c-4ed5-443f-9509-7fc23f481656",
-        "geohash6": "u8k120",
-        "geohash8": "u8k120tr",
-        "sensor_type": "Rain",
+        "sensor_id": "60a9e43a-120d-4b2a-aee2-06c2804cd5a0",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.132216064705883,
             46.629950494117644
         ]
     },
     {
-        "sensor_id": "2e523df2-032a-4b63-9217-36d50367a55b",
-        "geohash6": "u8k120",
-        "geohash8": "u8k120wx",
+        "sensor_id": "39490c8a-6a20-4f4e-9f31-f2fe9bd7e227",
         "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.134018505882352,
@@ -1060,19 +848,15 @@
         ]
     },
     {
-        "sensor_id": "c2d7c891-8038-4279-9d1e-cae61a90fa19",
-        "geohash6": "u8k120",
-        "geohash8": "u8k120xz",
-        "sensor_type": "Light",
+        "sensor_id": "33cee21c-4d62-4fa7-8c85-e6dc1d60e5b0",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.13582094705882,
             46.629950494117644
         ]
     },
     {
-        "sensor_id": "6226f8d4-89dc-4793-8227-1441008f8f51",
-        "geohash6": "u8k122",
-        "geohash8": "u8k1229p",
+        "sensor_id": "e759a884-f22e-42f6-a0ae-0764754afc68",
         "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.137623388235294,
@@ -1080,19 +864,15 @@
         ]
     },
     {
-        "sensor_id": "113d037c-2fc6-4e86-8151-059e564d24c7",
-        "geohash6": "u8k122",
-        "geohash8": "u8k122dx",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "4133a40c-6b95-400e-a702-6434e6e819ab",
+        "sensor_type": "Rain",
         "point_coordinates": [
             28.139425829411763,
             46.629950494117644
         ]
     },
     {
-        "sensor_id": "56702d3f-dd74-4a96-a92e-27165f8d1e63",
-        "geohash6": "u8k122",
-        "geohash8": "u8k122ez",
+        "sensor_id": "b8344994-f4d5-448d-8b91-e574088be7ec",
         "sensor_type": "Rain",
         "point_coordinates": [
             28.141228270588236,
@@ -1100,19 +880,15 @@
         ]
     },
     {
-        "sensor_id": "3c1ef5a8-88bb-49a4-88db-6e3a9346c6e7",
-        "geohash6": "u8k122",
-        "geohash8": "u8k122tp",
-        "sensor_type": "SoilPH",
+        "sensor_id": "c960952f-aa37-4fef-9186-203028529288",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.143030711764705,
             46.629950494117644
         ]
     },
     {
-        "sensor_id": "a9c47342-3d4b-4640-bbc7-b2096c1096ce",
-        "geohash6": "u8k122",
-        "geohash8": "u8k122wr",
+        "sensor_id": "b7942101-96f9-4881-a61e-c382e5ebe7ed",
         "sensor_type": "Light",
         "point_coordinates": [
             28.144833152941178,
@@ -1120,49 +896,39 @@
         ]
     },
     {
-        "sensor_id": "32719c0c-c814-492c-9481-f8b6ad30a31c",
-        "geohash6": "u8k122",
-        "geohash8": "u8k122xz",
-        "sensor_type": "Temperature",
+        "sensor_id": "a8e8e34b-f006-4193-afe5-e2aee90571f8",
+        "sensor_type": "Rain",
         "point_coordinates": [
             28.146635594117647,
             46.629950494117644
         ]
     },
     {
-        "sensor_id": "174d8494-ea15-46d3-ace5-5096a7825cb7",
-        "geohash6": "u8k128",
-        "geohash8": "u8k1289p",
-        "sensor_type": "Humidity",
+        "sensor_id": "64fe1b65-ec68-4f18-9657-1e562dcd51df",
+        "sensor_type": "Temperature",
         "point_coordinates": [
             28.148438035294117,
             46.629950494117644
         ]
     },
     {
-        "sensor_id": "2f82e9fe-705d-4b26-8b5a-61cd33410a55",
-        "geohash6": "u8k128",
-        "geohash8": "u8k128dr",
-        "sensor_type": "Humidity",
+        "sensor_id": "5a802a11-d48d-4c2d-b4e0-963b7f684a0a",
+        "sensor_type": "SoilPH",
         "point_coordinates": [
             28.15024047647059,
             46.629950494117644
         ]
     },
     {
-        "sensor_id": "6659351e-a6fb-486d-b6e9-4c3016643c92",
-        "geohash6": "u8k120",
-        "geohash8": "u8k120cq",
-        "sensor_type": "Light",
+        "sensor_id": "371b2037-c8cb-4e59-b756-d05496520731",
+        "sensor_type": "Temperature",
         "point_coordinates": [
             28.12680874117647,
             46.63118742352941
         ]
     },
     {
-        "sensor_id": "b94535b2-a519-4a15-b54b-eab31204f19e",
-        "geohash6": "u8k120",
-        "geohash8": "u8k120fw",
+        "sensor_id": "c429b0d4-2809-4d48-b309-144e300c15fb",
         "sensor_type": "Light",
         "point_coordinates": [
             28.12861118235294,
@@ -1170,109 +936,87 @@
         ]
     },
     {
-        "sensor_id": "0a8b56c7-b710-4a92-a9fa-47400efc1e81",
-        "geohash6": "u8k120",
-        "geohash8": "u8k120gy",
-        "sensor_type": "Light",
+        "sensor_id": "3d151f7f-f2ef-46c6-a20f-ef8911e24330",
+        "sensor_type": "Rain",
         "point_coordinates": [
             28.13041362352941,
             46.63118742352941
         ]
     },
     {
-        "sensor_id": "c9917d35-8227-4a56-b5b1-08872a60e819",
-        "geohash6": "u8k120",
-        "geohash8": "u8k120vq",
-        "sensor_type": "Light",
+        "sensor_id": "411f0e3d-d60b-4992-b81d-7125d168a75b",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.132216064705883,
             46.63118742352941
         ]
     },
     {
-        "sensor_id": "dec3f6fa-48d1-4907-a36b-361cdf6a4dea",
-        "geohash6": "u8k120",
-        "geohash8": "u8k120yw",
-        "sensor_type": "Humidity",
+        "sensor_id": "d6290d3e-fd7b-41ee-ba73-5a3fcd6644ba",
+        "sensor_type": "Temperature",
         "point_coordinates": [
             28.134018505882352,
             46.63118742352941
         ]
     },
     {
-        "sensor_id": "52dbac5f-864b-4acb-a95a-c4c3ffe36da1",
-        "geohash6": "u8k120",
-        "geohash8": "u8k120zy",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "38564040-2520-4d84-aa59-4949b425e3f0",
+        "sensor_type": "Rain",
         "point_coordinates": [
             28.13582094705882,
             46.63118742352941
         ]
     },
     {
-        "sensor_id": "5f6f2277-5999-4c50-bb22-791153ed196b",
-        "geohash6": "u8k122",
-        "geohash8": "u8k122cn",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "cf1ace05-0fd4-4891-884a-ecc1fa4b5acf",
+        "sensor_type": "Temperature",
         "point_coordinates": [
             28.137623388235294,
             46.63118742352941
         ]
     },
     {
-        "sensor_id": "8e490262-e3ac-4437-bc04-1a5d1301aefb",
-        "geohash6": "u8k122",
-        "geohash8": "u8k122fw",
-        "sensor_type": "Temperature",
+        "sensor_id": "f8777871-8a55-4e0f-8cc6-687d9a4660f5",
+        "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.139425829411763,
             46.63118742352941
         ]
     },
     {
-        "sensor_id": "490efaab-41aa-4a87-9b54-621331f9d7fd",
-        "geohash6": "u8k122",
-        "geohash8": "u8k122gy",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "0778c0f9-a20e-4a7f-8dff-a4980360dd4d",
+        "sensor_type": "Temperature",
         "point_coordinates": [
             28.141228270588236,
             46.63118742352941
         ]
     },
     {
-        "sensor_id": "bc81c1d0-0621-420a-8892-e93f2ee85de5",
-        "geohash6": "u8k122",
-        "geohash8": "u8k122vn",
-        "sensor_type": "Humidity",
+        "sensor_id": "69329091-11c4-4175-80c7-47653f4651cf",
+        "sensor_type": "Light",
         "point_coordinates": [
             28.143030711764705,
             46.63118742352941
         ]
     },
     {
-        "sensor_id": "72251826-74c1-46b3-aa72-2dc42296a589",
-        "geohash6": "u8k122",
-        "geohash8": "u8k122yq",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "92d35b23-eac1-4069-b78e-1ac8496f0b9b",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.144833152941178,
             46.63118742352941
         ]
     },
     {
-        "sensor_id": "c35d3f10-6b25-4704-bf34-5e94ce3b8399",
-        "geohash6": "u8k122",
-        "geohash8": "u8k122zy",
-        "sensor_type": "SoilPH",
+        "sensor_id": "f601c1dd-e484-42c5-9aeb-57f8bf1d8f60",
+        "sensor_type": "Light",
         "point_coordinates": [
             28.146635594117647,
             46.63118742352941
         ]
     },
     {
-        "sensor_id": "bad67939-1e2f-443e-8d66-49b857b9faa4",
-        "geohash6": "u8k128",
-        "geohash8": "u8k128cn",
+        "sensor_id": "9e9da231-6d84-4aad-841a-94d9dfe1f251",
         "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.148438035294117,
@@ -1280,9 +1024,7 @@
         ]
     },
     {
-        "sensor_id": "d2525cf4-1929-4c6a-a735-1d400b99caec",
-        "geohash6": "u8k128",
-        "geohash8": "u8k128fq",
+        "sensor_id": "d180a58c-e451-4fe3-9b49-b8cd6c4d690b",
         "sensor_type": "SoilPH",
         "point_coordinates": [
             28.15024047647059,
@@ -1290,9 +1032,7 @@
         ]
     },
     {
-        "sensor_id": "3cec4677-92d7-4a88-9b66-1a1323c6288d",
-        "geohash6": "u8k121",
-        "geohash8": "u8k1211m",
+        "sensor_id": "af209b1e-d864-441d-b944-d0a1fe4c42de",
         "sensor_type": "Humidity",
         "point_coordinates": [
             28.12680874117647,
@@ -1300,49 +1040,39 @@
         ]
     },
     {
-        "sensor_id": "ebf28498-1c30-479b-98fd-ef28c30d8978",
-        "geohash6": "u8k121",
-        "geohash8": "u8k1214t",
-        "sensor_type": "Humidity",
+        "sensor_id": "3a56b431-37d2-4397-811f-9c1145c692ab",
+        "sensor_type": "SoilPH",
         "point_coordinates": [
             28.12861118235294,
             46.63242435294118
         ]
     },
     {
-        "sensor_id": "57d9f50b-1521-4390-85f5-8a8e6b29f221",
-        "geohash6": "u8k121",
-        "geohash8": "u8k1215v",
-        "sensor_type": "Rain",
+        "sensor_id": "b8a139a6-9912-47dd-941e-6e36cefd293e",
+        "sensor_type": "Light",
         "point_coordinates": [
             28.13041362352941,
             46.63242435294118
         ]
     },
     {
-        "sensor_id": "e6dd1a98-894b-4a65-9529-16d2740c89d3",
-        "geohash6": "u8k121",
-        "geohash8": "u8k121jm",
-        "sensor_type": "Light",
+        "sensor_id": "3ffb16ed-4de8-4e8c-af2b-f1ef4207cf02",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.132216064705883,
             46.63242435294118
         ]
     },
     {
-        "sensor_id": "f4a8e901-63fe-4be2-a2d0-60ef9c45d958",
-        "geohash6": "u8k121",
-        "geohash8": "u8k121nt",
-        "sensor_type": "Light",
+        "sensor_id": "fd1f4534-4041-47dd-a64a-bc3f0861ec23",
+        "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.134018505882352,
             46.63242435294118
         ]
     },
     {
-        "sensor_id": "f985fd0b-a218-44ab-99c2-58621f5cb912",
-        "geohash6": "u8k121",
-        "geohash8": "u8k121pv",
+        "sensor_id": "047bcd8c-af3e-4db6-87f4-12dca620c1df",
         "sensor_type": "Temperature",
         "point_coordinates": [
             28.13582094705882,
@@ -1350,39 +1080,31 @@
         ]
     },
     {
-        "sensor_id": "db8b4c47-88e1-48f1-b6a0-a5036515471a",
-        "geohash6": "u8k123",
-        "geohash8": "u8k1231j",
-        "sensor_type": "Rain",
+        "sensor_id": "2fbb78f5-cded-4dd8-bbcf-908e2e93f736",
+        "sensor_type": "Temperature",
         "point_coordinates": [
             28.137623388235294,
             46.63242435294118
         ]
     },
     {
-        "sensor_id": "ed064c59-cf14-40dd-8de1-4db5d950bf93",
-        "geohash6": "u8k123",
-        "geohash8": "u8k1234t",
-        "sensor_type": "Light",
+        "sensor_id": "1eb92c35-7bb3-43d8-b7c6-d1b514e12444",
+        "sensor_type": "SoilPH",
         "point_coordinates": [
             28.139425829411763,
             46.63242435294118
         ]
     },
     {
-        "sensor_id": "0a18cf21-d004-4db5-8d96-3228a8b68fae",
-        "geohash6": "u8k123",
-        "geohash8": "u8k1235v",
-        "sensor_type": "Humidity",
+        "sensor_id": "13946ba4-1b33-4056-b524-74dc21813f22",
+        "sensor_type": "SoilPH",
         "point_coordinates": [
             28.141228270588236,
             46.63242435294118
         ]
     },
     {
-        "sensor_id": "f78fafde-70d5-48f8-8dda-b2ef2dd4dd3b",
-        "geohash6": "u8k123",
-        "geohash8": "u8k123jj",
+        "sensor_id": "61333632-b2cf-4151-b957-fe76ecc8138d",
         "sensor_type": "Temperature",
         "point_coordinates": [
             28.143030711764705,
@@ -1390,179 +1112,143 @@
         ]
     },
     {
-        "sensor_id": "a39509ed-d583-41a1-af32-255d17dab78f",
-        "geohash6": "u8k123",
-        "geohash8": "u8k123nm",
-        "sensor_type": "Temperature",
+        "sensor_id": "98c459e2-6218-412c-9c97-4c6b2fde3f89",
+        "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.144833152941178,
             46.63242435294118
         ]
     },
     {
-        "sensor_id": "65eb9674-62c8-480f-b533-928d682682cd",
-        "geohash6": "u8k123",
-        "geohash8": "u8k123pv",
-        "sensor_type": "Light",
+        "sensor_id": "ee0d9fb3-8343-4ee2-87cd-174706e5a530",
+        "sensor_type": "SoilPH",
         "point_coordinates": [
             28.146635594117647,
             46.63242435294118
         ]
     },
     {
-        "sensor_id": "eada5639-1b9f-4f7e-935f-a9012d40ce11",
-        "geohash6": "u8k129",
-        "geohash8": "u8k1291j",
-        "sensor_type": "Humidity",
+        "sensor_id": "a4a4646a-3ddc-46a7-b1e4-2ae42935795a",
+        "sensor_type": "Temperature",
         "point_coordinates": [
             28.148438035294117,
             46.63242435294118
         ]
     },
     {
-        "sensor_id": "692531ee-9946-4a2f-ae7f-9a6098e482e2",
-        "geohash6": "u8k121",
-        "geohash8": "u8k1213k",
-        "sensor_type": "Temperature",
+        "sensor_id": "485eb435-0a79-477a-9f38-12fd1bd86978",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.12680874117647,
             46.63366128235294
         ]
     },
     {
-        "sensor_id": "7e710b24-cbd7-4f35-a7c2-9408ac26da6f",
-        "geohash6": "u8k121",
-        "geohash8": "u8k1216s",
-        "sensor_type": "Light",
+        "sensor_id": "a80e931e-e308-4b4e-9280-57fffa3eab37",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.12861118235294,
             46.63366128235294
         ]
     },
     {
-        "sensor_id": "99a0a442-8d90-4c6c-a741-55dc900802de",
-        "geohash6": "u8k121",
-        "geohash8": "u8k1217u",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "79f5fe39-9aa2-4d37-a99f-4b7d79fddc58",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.13041362352941,
             46.63366128235294
         ]
     },
     {
-        "sensor_id": "ab2c8053-dfd3-4c29-819e-538588a4d79c",
-        "geohash6": "u8k121",
-        "geohash8": "u8k121mk",
-        "sensor_type": "Rain",
+        "sensor_id": "bf5c90cb-9dd4-43de-a9a8-cacf2c09f4b2",
+        "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.132216064705883,
             46.63366128235294
         ]
     },
     {
-        "sensor_id": "e24eb95c-7d8f-4948-a702-b3b15ecdaa76",
-        "geohash6": "u8k121",
-        "geohash8": "u8k121qs",
-        "sensor_type": "Temperature",
+        "sensor_id": "a8e6fb77-fb12-4c95-af4b-7076cc04a671",
+        "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.134018505882352,
             46.63366128235294
         ]
     },
     {
-        "sensor_id": "62717836-a71e-47ee-aacc-cd8fa49a2bfd",
-        "geohash6": "u8k121",
-        "geohash8": "u8k121ru",
-        "sensor_type": "SoilPH",
+        "sensor_id": "4e0180f5-55b6-4c9b-af44-be5e71e16d6e",
+        "sensor_type": "Temperature",
         "point_coordinates": [
             28.13582094705882,
             46.63366128235294
         ]
     },
     {
-        "sensor_id": "024b64a1-c688-4367-bf28-f53063068b05",
-        "geohash6": "u8k123",
-        "geohash8": "u8k1233h",
-        "sensor_type": "Rain",
+        "sensor_id": "124b1715-1bec-4bf0-ba68-be2b0796025d",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.137623388235294,
             46.63366128235294
         ]
     },
     {
-        "sensor_id": "13965cee-ee38-4652-818c-4fecf6a7a7a2",
-        "geohash6": "u8k123",
-        "geohash8": "u8k1236s",
-        "sensor_type": "Humidity",
+        "sensor_id": "7474123a-11d3-4902-baff-da3c2b528cf7",
+        "sensor_type": "Light",
         "point_coordinates": [
             28.139425829411763,
             46.63366128235294
         ]
     },
     {
-        "sensor_id": "4436a36e-d748-42db-b915-93ea7e647476",
-        "geohash6": "u8k123",
-        "geohash8": "u8k1237u",
-        "sensor_type": "Temperature",
+        "sensor_id": "f59eeaa5-938a-4dde-b859-ab925bd0d3c3",
+        "sensor_type": "Light",
         "point_coordinates": [
             28.141228270588236,
             46.63366128235294
         ]
     },
     {
-        "sensor_id": "635d4687-6f87-42c2-8822-e9aa52b30ab7",
-        "geohash6": "u8k123",
-        "geohash8": "u8k123mh",
-        "sensor_type": "Rain",
+        "sensor_id": "fa349964-02d6-46bc-a959-bbeebf393a5e",
+        "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.143030711764705,
             46.63366128235294
         ]
     },
     {
-        "sensor_id": "51dcc5f5-4c99-44c0-a763-7ec7c99dac3e",
-        "geohash6": "u8k123",
-        "geohash8": "u8k123qk",
-        "sensor_type": "SoilPH",
+        "sensor_id": "56081a4a-4d5e-4ec9-94c8-e7e86f8e07c1",
+        "sensor_type": "Rain",
         "point_coordinates": [
             28.144833152941178,
             46.63366128235294
         ]
     },
     {
-        "sensor_id": "92df879b-a18b-4038-a4e6-5250defdcdde",
-        "geohash6": "u8k123",
-        "geohash8": "u8k123ru",
-        "sensor_type": "SoilPH",
+        "sensor_id": "13488177-ab3e-41c3-baed-110e47753cfd",
+        "sensor_type": "Rain",
         "point_coordinates": [
             28.146635594117647,
             46.63366128235294
         ]
     },
     {
-        "sensor_id": "151339e6-d982-4568-9155-ebde68ba58f5",
-        "geohash6": "u8k129",
-        "geohash8": "u8k1293h",
-        "sensor_type": "Light",
+        "sensor_id": "9cef89b5-c219-4db6-a717-0f6ead5c66a6",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.148438035294117,
             46.63366128235294
         ]
     },
     {
-        "sensor_id": "36e26752-b707-4fef-9a04-fa3f28157cbb",
-        "geohash6": "u8k121",
-        "geohash8": "u8k121t7",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "6483f482-ebe2-4ac8-b024-6e7ece02db00",
+        "sensor_type": "Light",
         "point_coordinates": [
             28.132216064705883,
             46.63489821176471
         ]
     },
     {
-        "sensor_id": "93996fa2-f93b-4304-a96b-b245bbd9b3e9",
-        "geohash6": "u8k121",
-        "geohash8": "u8k121we",
+        "sensor_id": "1cf062b1-0d02-4fe8-858f-4759db04bf03",
         "sensor_type": "Temperature",
         "point_coordinates": [
             28.134018505882352,
@@ -1570,39 +1256,31 @@
         ]
     },
     {
-        "sensor_id": "c49c1a8f-6aa5-42f6-a5f2-e12b144c22cd",
-        "geohash6": "u8k121",
-        "geohash8": "u8k121xg",
-        "sensor_type": "Rain",
+        "sensor_id": "3eb5339c-ea44-4c5e-b26b-1172dc23580e",
+        "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.13582094705882,
             46.63489821176471
         ]
     },
     {
-        "sensor_id": "14448054-b3d2-42b7-97e8-01ea058bf7fc",
-        "geohash6": "u8k123",
-        "geohash8": "u8k12395",
-        "sensor_type": "Humidity",
+        "sensor_id": "b1c8ce1a-eb1f-45b1-a04c-3f715bd8cdbc",
+        "sensor_type": "Light",
         "point_coordinates": [
             28.137623388235294,
             46.63489821176471
         ]
     },
     {
-        "sensor_id": "a8f056c4-71ae-437c-b567-c3073440f167",
-        "geohash6": "u8k123",
-        "geohash8": "u8k123de",
-        "sensor_type": "Light",
+        "sensor_id": "4d76a925-08ae-4546-979a-13cc00fac7da",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.139425829411763,
             46.63489821176471
         ]
     },
     {
-        "sensor_id": "16c3389c-81a8-48bc-9cbf-d442eeae6546",
-        "geohash6": "u8k123",
-        "geohash8": "u8k123eg",
+        "sensor_id": "c5938fdd-5704-4c07-ab02-dfe8962901ab",
         "sensor_type": "Humidity",
         "point_coordinates": [
             28.141228270588236,
@@ -1610,69 +1288,55 @@
         ]
     },
     {
-        "sensor_id": "8aa85c22-c590-4db8-892a-ddf6866210f9",
-        "geohash6": "u8k123",
-        "geohash8": "u8k123t5",
-        "sensor_type": "Temperature",
+        "sensor_id": "4d118118-33cf-4544-a0b8-50b4dcec1eb0",
+        "sensor_type": "SoilPH",
         "point_coordinates": [
             28.143030711764705,
             46.63489821176471
         ]
     },
     {
-        "sensor_id": "a4d97329-d5eb-4d18-ab85-9bd768dd8788",
-        "geohash6": "u8k123",
-        "geohash8": "u8k123w7",
-        "sensor_type": "Humidity",
+        "sensor_id": "6d9754e2-e606-4275-94ea-7e15c9ba90ac",
+        "sensor_type": "Light",
         "point_coordinates": [
             28.144833152941178,
             46.63489821176471
         ]
     },
     {
-        "sensor_id": "4096ab56-6d1f-4e90-9fac-b96e5a8f3f98",
-        "geohash6": "u8k123",
-        "geohash8": "u8k123xg",
-        "sensor_type": "Temperature",
+        "sensor_id": "f76eb176-45cf-4b6e-bb01-5d07144b9281",
+        "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.146635594117647,
             46.63489821176471
         ]
     },
     {
-        "sensor_id": "171a8cb0-d141-49a5-b8fd-0f91074d1645",
-        "geohash6": "u8k121",
-        "geohash8": "u8k121zg",
-        "sensor_type": "Temperature",
+        "sensor_id": "e75f9666-5a3a-4421-984f-34fe97708b09",
+        "sensor_type": "SoilPH",
         "point_coordinates": [
             28.13582094705882,
             46.636135141176474
         ]
     },
     {
-        "sensor_id": "40dda654-8444-437c-9c60-6d8a64524237",
-        "geohash6": "u8k123",
-        "geohash8": "u8k123c5",
-        "sensor_type": "Temperature",
+        "sensor_id": "1090482e-ccdc-4cbc-8ce1-c800620eae8d",
+        "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.137623388235294,
             46.636135141176474
         ]
     },
     {
-        "sensor_id": "a02e849b-999b-47f8-b75f-23f1090c0a8b",
-        "geohash6": "u8k123",
-        "geohash8": "u8k123fe",
-        "sensor_type": "Light",
+        "sensor_id": "26c41bd9-cce0-4d91-b79a-1e891364660a",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.139425829411763,
             46.636135141176474
         ]
     },
     {
-        "sensor_id": "77fcc38f-7b6d-48f9-972f-5e72569840cd",
-        "geohash6": "u8k123",
-        "geohash8": "u8k123gg",
+        "sensor_id": "cbdc57da-bf7c-4c2f-bad7-4b666d1033b4",
         "sensor_type": "Rain",
         "point_coordinates": [
             28.141228270588236,
@@ -1680,9 +1344,7 @@
         ]
     },
     {
-        "sensor_id": "1d67283a-5023-439b-bcc5-d78d1bb321eb",
-        "geohash6": "u8k123",
-        "geohash8": "u8k123v5",
+        "sensor_id": "b85286f3-6169-46ea-8e65-d0baf8fadff6",
         "sensor_type": "Rain",
         "point_coordinates": [
             28.143030711764705,
@@ -1690,50 +1352,40 @@
         ]
     },
     {
-        "sensor_id": "f9b7ef69-d566-4950-94e9-d306186a603c",
-        "geohash6": "u8k123",
-        "geohash8": "u8k123y7",
-        "sensor_type": "SoilPH",
+        "sensor_id": "f143e091-1489-44c0-8795-c664793f4c4c",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.144833152941178,
             46.636135141176474
         ]
     },
     {
-        "sensor_id": "30976097-4da9-4eb8-b7c5-e6f904807e57",
-        "geohash6": "u8k123",
-        "geohash8": "u8k123zg",
-        "sensor_type": "SoilPH",
+        "sensor_id": "1c33c83c-1158-4383-8b74-4d7a754c1c12",
+        "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.146635594117647,
             46.636135141176474
         ]
     },
     {
-        "sensor_id": "5a1d8119-3006-4af0-a4fd-618e688405c8",
-        "geohash6": "u8k126",
-        "geohash8": "u8k1265f",
-        "sensor_type": "Humidity",
+        "sensor_id": "7ae0f2d2-ad73-45bc-82e2-5d908d2a1bdd",
+        "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.141228270588236,
             46.637372070588235
         ]
     },
     {
-        "sensor_id": "6bd55651-4fdb-4a56-b010-4474384234c4",
-        "geohash6": "u8k126",
-        "geohash8": "u8k126j4",
-        "sensor_type": "Humidity",
+        "sensor_id": "53184b5a-4484-4c66-a2c5-d4114f7f7765",
+        "sensor_type": "Temperature",
         "point_coordinates": [
             28.143030711764705,
             46.637372070588235
         ]
     },
     {
-        "sensor_id": "350a1da8-9cf9-40f8-bb3a-b9c82a3ec266",
-        "geohash6": "u8k126",
-        "geohash8": "u8k126n6",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "26601bfe-0a99-4df8-ade1-45319a8e87d8",
+        "sensor_type": "Temperature",
         "point_coordinates": [
             28.144833152941178,
             46.637372070588235

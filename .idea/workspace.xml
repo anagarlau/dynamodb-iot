@@ -4,20 +4,41 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="71e11198-e2ae-44f7-8201-b5a06e44ffbb" name="Changes" comment="added sensor events service">
-      <change afterPath="$PROJECT_DIR$/playground.py" afterDir="false" />
+    <list default="true" id="71e11198-e2ae-44f7-8201-b5a06e44ffbb" name="Changes" comment="added sensor events service methods for events in time range retrieval (pk design testing)">
+      <change afterPath="$PROJECT_DIR$/utils/handle_error.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/parcels/parcels_generation.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/service/SensorEventService.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/service/SensorEventService.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/service/SensorService.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/service/SensorService.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/service/vis_out/sensorservice/sensors-radius-type.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/service/vis_out/sensorservice/sensors-radius-type.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/service/vis_out/sensorservice/sensors-radius.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/service/vis_out/sensorservice/sensors-radius.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/control_plane/IoTInitService.py" beforeDir="false" afterPath="$PROJECT_DIR$/control_plane/IoTInitService.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/control_plane/crud.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dynamodbgeo/dynamodbgeo/DynamoDBManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/dynamodbgeo/dynamodbgeo/DynamoDBManager.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dynamodbgeo/dynamodbgeo/GeoDataManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/dynamodbgeo/dynamodbgeo/GeoDataManager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dynamodbgeo/dynamodbgeo/GeoDataManagerConfiguration.py" beforeDir="false" afterPath="$PROJECT_DIR$/dynamodbgeo/dynamodbgeo/GeoDataManagerConfiguration.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maps/data/geohash6_info.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/maps/data/plant_type_to_geohashes.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/maps/data/sensor_events_analytics.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/maps/data/sensor_events_analytics.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maps/data/sensors_locations.csv" beforeDir="false" afterPath="$PROJECT_DIR$/maps/data/sensors_locations.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maps/data/sensors_to_json.json" beforeDir="false" afterPath="$PROJECT_DIR$/maps/data/sensors_to_json.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/maps/data/sensorsevents_to_json.json" beforeDir="false" afterPath="$PROJECT_DIR$/maps/data/sensorsevents_to_json.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maps/field_parcels.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/maps/geohash_map.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/maps/geohash_map_7.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/maps/json_batch_writes/plants_batch.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/maps/map_with_polygon.html" beforeDir="false" afterPath="$PROJECT_DIR$/maps/map_with_polygon.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maps/sensor_map.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/playground.py" beforeDir="false" afterPath="$PROJECT_DIR$/playground.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/table_scripts.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/unittests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/csv_util.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/csv_util.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/geomapping.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/polygon_def.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/polygon_def.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/sensor_events/sensor_events_generation.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/sensor_events/sensor_events_generation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/sensor_placing.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/sensors/sensor_placing_generation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/sensors/sensor.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/sensors/sensors.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/sensors/sensors_from_csv.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,12 +110,14 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ana\PycharmProjects\dynamodb\utils\sensors" />
+      <recent name="C:\Users\ana\PycharmProjects\dynamodb\utils\parcels" />
       <recent name="C:\Users\ana\PycharmProjects\dynamodb\utils" />
       <recent name="C:\Users\ana\PycharmProjects\dynamodb\backend" />
       <recent name="C:\Users\ana\PycharmProjects\dynamodb" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.SensorEventService">
+  <component name="RunManager" selected="Python.main">
     <configuration name="IoTInitService" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="dynamodb" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -207,7 +230,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="playground" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="handle_error" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="dynamodb" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -220,7 +243,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/playground.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\ana\PycharmProjects\dynamodb\utils\handle_error.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -229,7 +252,29 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="sensor_events_generation (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="dynamodb" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="sensor_events_generation" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="dynamodb" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -251,45 +296,23 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="table_scripts" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
-      <module name="dynamodb" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\ana\PycharmProjects\dynamodb\table_scripts.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <list>
+      <item itemvalue="Python.handle_error" />
       <item itemvalue="Python.Unnamed" />
-      <item itemvalue="Python.table_scripts" />
       <item itemvalue="Python.crud" />
-      <item itemvalue="Python.playground" />
+      <item itemvalue="Python.sensor_events_generation" />
+      <item itemvalue="Python.main" />
       <item itemvalue="Python.SensorEventService" />
       <item itemvalue="Python.IoTInitService" />
       <item itemvalue="Python.SensorService" />
-      <item itemvalue="Python.sensor_events_generation (1)" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.SensorEventService" />
-        <item itemvalue="Python.IoTInitService" />
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.sensor_events_generation" />
         <item itemvalue="Python.SensorService" />
-        <item itemvalue="Python.playground" />
-        <item itemvalue="Python.sensor_events_generation (1)" />
+        <item itemvalue="Python.IoTInitService" />
+        <item itemvalue="Python.SensorEventService" />
       </list>
     </recent_temporary>
   </component>
@@ -327,7 +350,11 @@
       <workItem from="1702415581446" duration="41000" />
       <workItem from="1702491250531" duration="1074000" />
       <workItem from="1702540024692" duration="11241000" />
-      <workItem from="1702578368648" duration="8878000" />
+      <workItem from="1702578368648" duration="10014000" />
+      <workItem from="1702625058007" duration="22929000" />
+      <workItem from="1702712422296" duration="34418000" />
+      <workItem from="1702763000572" duration="38000" />
+      <workItem from="1702799201057" duration="10663000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -473,7 +500,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702415028909</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="added sensor events service methods for events in time range retrieval (pk design testing)">
+      <option name="closed" value="true" />
+      <created>1702588821152</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1702588821153</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -495,7 +530,8 @@
     <MESSAGE value="added script for generation of mock sensor events" />
     <MESSAGE value="changed hashKey type from N to S for more flexibility" />
     <MESSAGE value="added sensor events service" />
-    <option name="LAST_COMMIT_MESSAGE" value="added sensor events service" />
+    <MESSAGE value="added sensor events service methods for events in time range retrieval (pk design testing)" />
+    <option name="LAST_COMMIT_MESSAGE" value="added sensor events service methods for events in time range retrieval (pk design testing)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -512,14 +548,15 @@
     <SUITE FILE_PATH="coverage/dynamodb$draft.coverage" NAME="draft Coverage Results" MODIFIED="1701964090134" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
     <SUITE FILE_PATH="coverage/dynamodb$TableInitService.coverage" NAME="TableInitService Coverage Results" MODIFIED="1702314428996" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/control_plane" />
     <SUITE FILE_PATH="coverage/dynamodb$table_creation_batch_inserts.coverage" NAME="table_creation_batch_inserts Coverage Results" MODIFIED="1702310102055" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dynamodb_scripts" />
-    <SUITE FILE_PATH="coverage/dynamodb$sensors.coverage" NAME="sensors Coverage Results" MODIFIED="1702374180725" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils/sensors" />
-    <SUITE FILE_PATH="coverage/dynamodb$SensorService.coverage" NAME="SensorService Coverage Results" MODIFIED="1702586887611" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend/service" />
-    <SUITE FILE_PATH="coverage/dynamodb$main.coverage" NAME="main Coverage Results" MODIFIED="1702211588411" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/dynamodb$sensors.coverage" NAME="sensors Coverage Results" MODIFIED="1702803452765" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils/sensors" />
+    <SUITE FILE_PATH="coverage/dynamodb$SensorService.coverage" NAME="SensorService Coverage Results" MODIFIED="1702807708936" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend/service" />
     <SUITE FILE_PATH="coverage/dynamodb$sensor_events_generation__1_.coverage" NAME="sensor_events_generation (1) Coverage Results" MODIFIED="1702554214179" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils/sensor_events" />
+    <SUITE FILE_PATH="coverage/dynamodb$main.coverage" NAME="main Coverage Results" MODIFIED="1702810685235" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/dynamodb$geomapping.coverage" NAME="geomapping Coverage Results" MODIFIED="1701975192635" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
+    <SUITE FILE_PATH="coverage/dynamodb$sensor_events_generation.coverage" NAME="sensor_events_generation Coverage Results" MODIFIED="1702809662687" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils/sensor_events" />
     <SUITE FILE_PATH="coverage/dynamodb$table_scripts__1_.coverage" NAME="table_scripts (1) Coverage Results" MODIFIED="1702063057943" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/dynamodb$crud.coverage" NAME="crud Coverage Results" MODIFIED="1702214322365" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dynamodb_scripts" />
-    <SUITE FILE_PATH="coverage/dynamodb$SensorEventService.coverage" NAME="SensorEventService Coverage Results" MODIFIED="1702587400186" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend/service" />
+    <SUITE FILE_PATH="coverage/dynamodb$SensorEventService.coverage" NAME="SensorEventService Coverage Results" MODIFIED="1702807364524" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend/service" />
     <SUITE FILE_PATH="coverage/dynamodb$playground.coverage" NAME="playground Coverage Results" MODIFIED="1702586374174" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/dynamodb$table_scripts.coverage" NAME="table_scripts Coverage Results" MODIFIED="1702058980643" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/dynamodb$sensor_placing.coverage" NAME="sensor_placing Coverage Results" MODIFIED="1702044040193" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
@@ -528,7 +565,7 @@
     <SUITE FILE_PATH="coverage/dynamodb$sensor_events.coverage" NAME="sensor_events_generation Coverage Results" MODIFIED="1702321834008" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils/sensor_events" />
     <SUITE FILE_PATH="coverage/dynamodb$table_creation_batch_inserts__1_.coverage" NAME="table_creation_batch_inserts (1) Coverage Results" MODIFIED="1702310846677" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dynamodb_test_scripts" />
     <SUITE FILE_PATH="coverage/dynamodb$ReadService.coverage" NAME="SensorServiceScript Coverage Results" MODIFIED="1702312497189" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend/service" />
-    <SUITE FILE_PATH="coverage/dynamodb$IoTInitService.coverage" NAME="IoTInitService Coverage Results" MODIFIED="1702587372009" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/control_plane" />
+    <SUITE FILE_PATH="coverage/dynamodb$IoTInitService.coverage" NAME="IoTInitService Coverage Results" MODIFIED="1702807529373" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/control_plane" />
     <SUITE FILE_PATH="coverage/dynamodb$csv_to_json.coverage" NAME="csv_to_json Coverage Results" MODIFIED="1702211640243" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
   </component>
 </project>

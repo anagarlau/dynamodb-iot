@@ -1,11 +1,12 @@
 import time
 import uuid
 from botocore.exceptions import ClientError
-from dynamodbgeo.dynamodbgeo import GeoDataManagerConfiguration, GeoDataManager, GeoTableUtil, GeoPoint, PutPointInput
+from dynamodbgeo.dynamodbgeo import GeoDataManagerConfiguration, GeoDataManager, GeoTableUtil, GeoPoint, PutPointInput, \
+    S2Manager
 from utils.polygon_def import create_dynamodb_client, hashKeyLength
 from utils.sensor_events.sensor_events_generation import process_events_for_db
-from utils.sensors.sensors import json_to_array, csv_to_json
-from table_scripts import handle_error
+from utils.sensors.sensors_from_csv import json_to_array, csv_to_json
+from utils.handle_error import handle_error
 
 
 class IoTInitService:
@@ -108,26 +109,41 @@ class IoTInitService:
         csv_to_json()
         # Read Sensors from json file
         items = json_to_array()
+        # Process Sensor objects
+        processed_items = []
         for item in items:
             #print(item)
-            PutItemInput = {
-                'TableName': 'IoT',
-                'Item': {
-                    'sensor_id': {'S': item['sensor_id']},
-                    'sensor_type': {'S': item['sensor_type']}
-                    #TODO add maintenance stuff
-                },
-                'ConditionExpression': "attribute_not_exists(hashKey)"
-                # ... Anything else to pass through to `putItem`, eg ConditionExpression
+            geopoint =GeoPoint(item['point_coordinates'][1], item['point_coordinates'][0])
+            geohash = S2Manager().generateGeohash(geopoint)
+            hashKey = S2Manager().generateHashKey(geohash, self.config.hashKeyLength)
+            processed_item = {
+                'PK': str(geohash),
+                'SK': str(geohash),
+                'sensor_type': item['sensor_type'],
+                'geoJson':"{},{}".format(geopoint.getLatitude(), geopoint.getLongitude()),
+                'hash_key': str(hashKey)
             }
-
-            self.geoDataManager.put_Point(PutPointInput(
-                GeoPoint(item['point_coordinates'][1], item['point_coordinates'][0]),
-                # latitude then latitude longitude
-                str(uuid.uuid4()),  # Use this to ensure uniqueness of the hash/range pairs.
-                PutItemInput  # pass the dict here
-            ))
-        print(f'Number of points: {len(items)}')
+            print(processed_item)
+            processed_items.append(processed_item)
+            # PutItemInput = {
+            #     'TableName': 'IoT',
+            #     'Item': {
+            #         'sensor_id': {'S': item['sensor_id']},
+            #         'sensor_type': {'S': item['sensor_type']}
+            #         #TODO add maintenance stuff
+            #     },
+            #     'ConditionExpression': "attribute_not_exists(hashKey)"
+            #     # ... Anything else to pass through to `putItem`, eg ConditionExpression
+            # }
+            #
+            # self.geoDataManager.put_Point(PutPointInput(
+            #     GeoPoint(item['point_coordinates'][1], item['point_coordinates'][0]),
+            #     # latitude then latitude longitude
+            #     str(uuid.uuid4()),  # Use this to ensure uniqueness of the hash/range pairs.
+            #     PutItemInput  # pass the dict here
+            # ))
+        print(f'Number of points: {len(processed_items)}')
+        self.batch_write(items=processed_items)
     def insert_sensor_events(self):
         json_array = process_events_for_db()
         self.batch_write(items=json_array)
@@ -141,7 +157,13 @@ if __name__ == "__main__":
      initService.create_gsi(
          gsi_name=gsi_name,
          gsi_pk='sensor_type',
-         gsi_pk_type='S', gsi_sk='SK', gsi_sk_type='S')
+         gsi_pk_type='S', gsi_sk='PK', gsi_sk_type='S')
+     initService.custom_gsi_waiter(gsi_name)
+     gsi_name = f'GSI_Geohash{initService.config.hashKeyLength}_FullGeohash'
+     initService.create_gsi(
+         gsi_name=gsi_name,
+         gsi_pk='hash_key',
+         gsi_pk_type='S', gsi_sk='PK', gsi_sk_type='S')
      initService.custom_gsi_waiter(gsi_name)
      initService.insert_sensor_events()
      gsi_name = 'GSI_AllSensorEvents_TimeRange'
@@ -149,4 +171,4 @@ if __name__ == "__main__":
          gsi_name=gsi_name,
          gsi_pk='month',
          gsi_pk_type='N', gsi_sk='SK', gsi_sk_type='S')
-     # initService.custom_gsi_waiter(gsi_name)
+     initService.custom_gsi_waiter(gsi_name)

@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_ad2a34e4eada8b3b20ca87d80b54c428 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_ad2a34e4eada8b3b20ca87d80b54c428" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_ad2a34e4eada8b3b20ca87d80b54c428 = L.map(
+                "map_ad2a34e4eada8b3b20ca87d80b54c428",
+                {
+                    center: [46.62913144, 28.136953920000003],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 13,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_53d386209fe01b2958e89e9f6d62dd8b = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_53d386209fe01b2958e89e9f6d62dd8b.addTo(map_ad2a34e4eada8b3b20ca87d80b54c428);
+        
+    
+            var polygon_e3eb8f78a91527c48c635e500c8898d7 = L.polygon(
+                [[46.6334964, 28.1250063], [46.6175812, 28.1334177], [46.6224742, 28.1556478], [46.638609, 28.1456915], [46.6334964, 28.1250063]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "pink", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_ad2a34e4eada8b3b20ca87d80b54c428);
+        
+    
+            var marker_7cf263dba8c6764e2449b59a96f38997 = L.marker(
+                [46.636135141176474, 28.146635594117647],
+                {}
+            ).addTo(map_ad2a34e4eada8b3b20ca87d80b54c428);
+        
+    
+            var icon_cabaf159162188a668ade93986354f70 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "darkblue", "prefix": "glyphicon"}
+            );
+            marker_7cf263dba8c6764e2449b59a96f38997.setIcon(icon_cabaf159162188a668ade93986354f70);
+        
+    
+        var popup_726d1a555398a32694febd3589676464 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_40e3fa4f713feb60935dd054d5f134ec = $(`<div id="html_40e3fa4f713feb60935dd054d5f134ec" style="width: 100.0%; height: 100.0%;">Humidity<br> Sensor: 4668573719650319085</div>`)[0];
+                popup_726d1a555398a32694febd3589676464.setContent(html_40e3fa4f713feb60935dd054d5f134ec);
+            
+        
+
+        marker_7cf263dba8c6764e2449b59a96f38997.bindPopup(popup_726d1a555398a32694febd3589676464)
+        ;
+
+        
+    
+    
+            var marker_54ea274604e79a9c76e4f7f47588b7eb = L.marker(
+                [46.63242435294118, 28.146635594117647],
+                {}
+            ).addTo(map_ad2a34e4eada8b3b20ca87d80b54c428);
+        
+    
+            var icon_157c35e5c2a010af26244b21474666cf = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "darkblue", "prefix": "glyphicon"}
+            );
+            marker_54ea274604e79a9c76e4f7f47588b7eb.setIcon(icon_157c35e5c2a010af26244b21474666cf);
+        
+    
+        var popup_efd0c1c54afc62e930dc5230799f408e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_29ae591ae54a80ae5318c384cd2bdb5e = $(`<div id="html_29ae591ae54a80ae5318c384cd2bdb5e" style="width: 100.0%; height: 100.0%;">Humidity<br> Sensor: 4668573724554560659</div>`)[0];
+                popup_efd0c1c54afc62e930dc5230799f408e.setContent(html_29ae591ae54a80ae5318c384cd2bdb5e);
+            
+        
+
+        marker_54ea274604e79a9c76e4f7f47588b7eb.bindPopup(popup_efd0c1c54afc62e930dc5230799f408e)
+        ;
+
+        
+    
+    
+            var marker_3e016f48418f9f4c107eee146fbaa6e7 = L.marker(
+                [46.63118742352941, 28.144833152941178],
+                {}
+            ).addTo(map_ad2a34e4eada8b3b20ca87d80b54c428);
+        
+    
+            var icon_108341892d934c7cdcdf5c940fb4b45e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "darkblue", "prefix": "glyphicon"}
+            );
+            marker_3e016f48418f9f4c107eee146fbaa6e7.setIcon(icon_108341892d934c7cdcdf5c940fb4b45e);
+        
+    
+        var popup_855d9325de26c3401f5e9b5cd1c6407d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d48a1f383cae7efb3f15f6a1ae2fd30e = $(`<div id="html_d48a1f383cae7efb3f15f6a1ae2fd30e" style="width: 100.0%; height: 100.0%;">Humidity<br> Sensor: 4668573748703968675</div>`)[0];
+                popup_855d9325de26c3401f5e9b5cd1c6407d.setContent(html_d48a1f383cae7efb3f15f6a1ae2fd30e);
+            
+        
+
+        marker_3e016f48418f9f4c107eee146fbaa6e7.bindPopup(popup_855d9325de26c3401f5e9b5cd1c6407d)
+        ;
+
+        
+    
+    
+            var marker_6781f37e088bd0979d81f10a06d2e345 = L.marker(
+                [46.63118742352941, 28.143030711764705],
+                {}
+            ).addTo(map_ad2a34e4eada8b3b20ca87d80b54c428);
+        
+    
+            var icon_cb6d65716320f28362be78cb7aaaa75d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "darkblue", "prefix": "glyphicon"}
+            );
+            marker_6781f37e088bd0979d81f10a06d2e345.setIcon(icon_cb6d65716320f28362be78cb7aaaa75d);
+        
+    
+        var popup_4ad658cb1d0dffb10260626d357fe6bd = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_51e3d3193016fc19f3c033537365ee56 = $(`<div id="html_51e3d3193016fc19f3c033537365ee56" style="width: 100.0%; height: 100.0%;">Humidity<br> Sensor: 4668573749732788539</div>`)[0];
+                popup_4ad658cb1d0dffb10260626d357fe6bd.setContent(html_51e3d3193016fc19f3c033537365ee56);
+            
+        
+
+        marker_6781f37e088bd0979d81f10a06d2e345.bindPopup(popup_4ad658cb1d0dffb10260626d357fe6bd)
+        ;
+
+        
+    
+    
+            var marker_abb1f4d2ad8413d83bc0be4fd0505122 = L.marker(
+                [46.62871356470588, 28.139425829411763],
+                {}
+            ).addTo(map_ad2a34e4eada8b3b20ca87d80b54c428);
+        
+    
+            var icon_027f649a9bd9f27f2f621a6bd12a8ab9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "darkblue", "prefix": "glyphicon"}
+            );
+            marker_abb1f4d2ad8413d83bc0be4fd0505122.setIcon(icon_027f649a9bd9f27f2f621a6bd12a8ab9);
+        
+    
+        var popup_e46a0735200ad3fd02495e6bb4f23fba = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_7b913f6fdc7559ce4e2d3b15494b6fff = $(`<div id="html_7b913f6fdc7559ce4e2d3b15494b6fff" style="width: 100.0%; height: 100.0%;">Humidity<br> Sensor: 4668573753019082077</div>`)[0];
+                popup_e46a0735200ad3fd02495e6bb4f23fba.setContent(html_7b913f6fdc7559ce4e2d3b15494b6fff);
+            
+        
+
+        marker_abb1f4d2ad8413d83bc0be4fd0505122.bindPopup(popup_e46a0735200ad3fd02495e6bb4f23fba)
+        ;
+
+        
+    
+    
+            var marker_6343e1cfbc0d60bb1efc3558e7f07fd4 = L.marker(
+                [46.63118742352941, 28.132216064705883],
+                {}
+            ).addTo(map_ad2a34e4eada8b3b20ca87d80b54c428);
+        
+    
+            var icon_b230ce036bc4d2020769c8a69f4ea21a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "darkblue", "prefix": "glyphicon"}
+            );
+            marker_6343e1cfbc0d60bb1efc3558e7f07fd4.setIcon(icon_b230ce036bc4d2020769c8a69f4ea21a);
+        
+    
+        var popup_c32f4fcec3c633a51d087cdd91b980c7 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5b292ef79b1ec32f556d32be66151a8d = $(`<div id="html_5b292ef79b1ec32f556d32be66151a8d" style="width: 100.0%; height: 100.0%;">Humidity<br> Sensor: 4668573756739251277</div>`)[0];
+                popup_c32f4fcec3c633a51d087cdd91b980c7.setContent(html_5b292ef79b1ec32f556d32be66151a8d);
+            
+        
+
+        marker_6343e1cfbc0d60bb1efc3558e7f07fd4.bindPopup(popup_c32f4fcec3c633a51d087cdd91b980c7)
+        ;
+
+        
+    
+    
+            var marker_54c0ee5e21cf986ddeded516bcc1cabb = L.marker(
+                [46.63242435294118, 28.13582094705882],
+                {}
+            ).addTo(map_ad2a34e4eada8b3b20ca87d80b54c428);
+        
+    
+            var icon_1de4b773cc84d80297d18a747e2e3998 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "darkblue", "prefix": "glyphicon"}
+            );
+            marker_54c0ee5e21cf986ddeded516bcc1cabb.setIcon(icon_1de4b773cc84d80297d18a747e2e3998);
+        
+    
+        var popup_848cc6ee2d696f1671dddb83aaa2d819 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4268466a93adfba25afc69b5a8340ba2 = $(`<div id="html_4268466a93adfba25afc69b5a8340ba2" style="width: 100.0%; height: 100.0%;">Humidity<br> Sensor: 4668573758005640705</div>`)[0];
+                popup_848cc6ee2d696f1671dddb83aaa2d819.setContent(html_4268466a93adfba25afc69b5a8340ba2);
+            
+        
+
+        marker_54c0ee5e21cf986ddeded516bcc1cabb.bindPopup(popup_848cc6ee2d696f1671dddb83aaa2d819)
+        ;
+
+        
+    
+    
+            var marker_2a3ef796a57572b2ca62c93b05ed2153 = L.marker(
+                [46.63366128235294, 28.13582094705882],
+                {}
+            ).addTo(map_ad2a34e4eada8b3b20ca87d80b54c428);
+        
+    
+            var icon_fddb37022bbcbf53a7fa6941134b0503 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "darkblue", "prefix": "glyphicon"}
+            );
+            marker_2a3ef796a57572b2ca62c93b05ed2153.setIcon(icon_fddb37022bbcbf53a7fa6941134b0503);
+        
+    
+        var popup_5aafe9c583877311b15d7a3f6d3b1250 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_34527fbf8b64952331be522c02191ef5 = $(`<div id="html_34527fbf8b64952331be522c02191ef5" style="width: 100.0%; height: 100.0%;">Humidity<br> Sensor: 4668573759658873105</div>`)[0];
+                popup_5aafe9c583877311b15d7a3f6d3b1250.setContent(html_34527fbf8b64952331be522c02191ef5);
+            
+        
+
+        marker_2a3ef796a57572b2ca62c93b05ed2153.bindPopup(popup_5aafe9c583877311b15d7a3f6d3b1250)
+        ;
+
+        
+    
+    
+            var marker_adafbc4077f9f0406d0e3acb14b9a74a = L.marker(
+                [46.63366128235294, 28.137623388235294],
+                {}
+            ).addTo(map_ad2a34e4eada8b3b20ca87d80b54c428);
+        
+    
+            var icon_835b166f962b3afbe92a8609bca21082 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "darkblue", "prefix": "glyphicon"}
+            );
+            marker_adafbc4077f9f0406d0e3acb14b9a74a.setIcon(icon_835b166f962b3afbe92a8609bca21082);
+        
+    
+        var popup_3e02a927ecbe9927cdc0f7e5b5836e34 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_73cebb931158ca8f3a3f611e9da5ba09 = $(`<div id="html_73cebb931158ca8f3a3f611e9da5ba09" style="width: 100.0%; height: 100.0%;">Humidity<br> Sensor: 4668573759943905709</div>`)[0];
+                popup_3e02a927ecbe9927cdc0f7e5b5836e34.setContent(html_73cebb931158ca8f3a3f611e9da5ba09);
+            
+        
+
+        marker_adafbc4077f9f0406d0e3acb14b9a74a.bindPopup(popup_3e02a927ecbe9927cdc0f7e5b5836e34)
+        ;
+
+        
+    
+    
+            var marker_74909def620d205605cef62cc48eb9bf = L.marker(
+                [46.636135141176474, 28.139425829411763],
+                {}
+            ).addTo(map_ad2a34e4eada8b3b20ca87d80b54c428);
+        
+    
+            var icon_5ef05bdef9c3026b1d362ab0444da3dd = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "darkblue", "prefix": "glyphicon"}
+            );
+            marker_74909def620d205605cef62cc48eb9bf.setIcon(icon_5ef05bdef9c3026b1d362ab0444da3dd);
+        
+    
+        var popup_c89bc1141d8bf038bfb908f63afd6c48 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2c61c92e5b64c8bc21fb600344b93f1a = $(`<div id="html_2c61c92e5b64c8bc21fb600344b93f1a" style="width: 100.0%; height: 100.0%;">Humidity<br> Sensor: 4668573766635419525</div>`)[0];
+                popup_c89bc1141d8bf038bfb908f63afd6c48.setContent(html_2c61c92e5b64c8bc21fb600344b93f1a);
+            
+        
+
+        marker_74909def620d205605cef62cc48eb9bf.bindPopup(popup_c89bc1141d8bf038bfb908f63afd6c48)
+        ;
+
+        
+    
+    
+            var marker_babcbc74f5881e17e71d84ae4bb76051 = L.marker(
+                [46.63489821176471, 28.137623388235294],
+                {}
+            ).addTo(map_ad2a34e4eada8b3b20ca87d80b54c428);
+        
+    
+            var icon_368dc519f2759e59407ad61c957297f8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "darkblue", "prefix": "glyphicon"}
+            );
+            marker_babcbc74f5881e17e71d84ae4bb76051.setIcon(icon_368dc519f2759e59407ad61c957297f8);
+        
+    
+        var popup_2b01b0971961768c9fae0b2d1c462e35 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_82fcc6036b5de0939a17645d16c06c2b = $(`<div id="html_82fcc6036b5de0939a17645d16c06c2b" style="width: 100.0%; height: 100.0%;">Humidity<br> Sensor: 4668573769790045807</div>`)[0];
+                popup_2b01b0971961768c9fae0b2d1c462e35.setContent(html_82fcc6036b5de0939a17645d16c06c2b);
+            
+        
+
+        marker_babcbc74f5881e17e71d84ae4bb76051.bindPopup(popup_2b01b0971961768c9fae0b2d1c462e35)
+        ;
+
+        
+    
+    
+            var marker_2cf57cd8a1bb85f41b09626afe139b92 = L.marker(
+                [46.63489821176471, 28.13582094705882],
+                {}
+            ).addTo(map_ad2a34e4eada8b3b20ca87d80b54c428);
+        
+    
+            var icon_305ab02146c4f7edda5b8ead5b29de29 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "darkblue", "prefix": "glyphicon"}
+            );
+            marker_2cf57cd8a1bb85f41b09626afe139b92.setIcon(icon_305ab02146c4f7edda5b8ead5b29de29);
+        
+    
+        var popup_24ff6e541f4466f6a18385736a21417f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4ba81dec031b2e25300a2df59ea34823 = $(`<div id="html_4ba81dec031b2e25300a2df59ea34823" style="width: 100.0%; height: 100.0%;">Humidity<br> Sensor: 4668573770713285211</div>`)[0];
+                popup_24ff6e541f4466f6a18385736a21417f.setContent(html_4ba81dec031b2e25300a2df59ea34823);
+            
+        
+
+        marker_2cf57cd8a1bb85f41b09626afe139b92.bindPopup(popup_24ff6e541f4466f6a18385736a21417f)
+        ;
+
+        
+    
+    
+            var marker_59ec0106c93ae46e4d76e468eb9350b5 = L.marker(
+                [46.63366128235294, 28.132216064705883],
+                {}
+            ).addTo(map_ad2a34e4eada8b3b20ca87d80b54c428);
+        
+    
+            var icon_86e3b48dce6f4e44a43c53db23083006 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "darkblue", "prefix": "glyphicon"}
+            );
+            marker_59ec0106c93ae46e4d76e468eb9350b5.setIcon(icon_86e3b48dce6f4e44a43c53db23083006);
+        
+    
+        var popup_7e3c079685409f51689b713bff8545ad = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_83e882c341cc963787ffebb1317f37bd = $(`<div id="html_83e882c341cc963787ffebb1317f37bd" style="width: 100.0%; height: 100.0%;">Humidity<br> Sensor: 4668573782679966837</div>`)[0];
+                popup_7e3c079685409f51689b713bff8545ad.setContent(html_83e882c341cc963787ffebb1317f37bd);
+            
+        
+
+        marker_59ec0106c93ae46e4d76e468eb9350b5.bindPopup(popup_7e3c079685409f51689b713bff8545ad)
+        ;
+
+        
+    
+    
+            var marker_d8c425076e032925a5d0bd775e222c86 = L.marker(
+                [46.627476635294116, 28.132216064705883],
+                {}
+            ).addTo(map_ad2a34e4eada8b3b20ca87d80b54c428);
+        
+    
+            var icon_a6b0a607c0ce482376b8b4fb7eb65cbe = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "darkblue", "prefix": "glyphicon"}
+            );
+            marker_d8c425076e032925a5d0bd775e222c86.setIcon(icon_a6b0a607c0ce482376b8b4fb7eb65cbe);
+        
+    
+        var popup_0d6cab77f19ba008e480e41ccdb97002 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_07138ee0e4d7ff114d4b53e0187b548d = $(`<div id="html_07138ee0e4d7ff114d4b53e0187b548d" style="width: 100.0%; height: 100.0%;">Humidity<br> Sensor: 4668573800907065941</div>`)[0];
+                popup_0d6cab77f19ba008e480e41ccdb97002.setContent(html_07138ee0e4d7ff114d4b53e0187b548d);
+            
+        
+
+        marker_d8c425076e032925a5d0bd775e222c86.bindPopup(popup_0d6cab77f19ba008e480e41ccdb97002)
+        ;
+
+        
+    
+    
+            var marker_b8c0bdb96ecaca9ee0db87bce4cb1ab2 = L.marker(
+                [46.626239705882355, 28.13041362352941],
+                {}
+            ).addTo(map_ad2a34e4eada8b3b20ca87d80b54c428);
+        
+    
+            var icon_1c3a97a329579ba2d308a0f7655db669 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "darkblue", "prefix": "glyphicon"}
+            );
+            marker_b8c0bdb96ecaca9ee0db87bce4cb1ab2.setIcon(icon_1c3a97a329579ba2d308a0f7655db669);
+        
+    
+        var popup_4e57e43c1e7427989d5b171d0122c8ca = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_623024ea1946895eeaf85af4d6aa49cd = $(`<div id="html_623024ea1946895eeaf85af4d6aa49cd" style="width: 100.0%; height: 100.0%;">Humidity<br> Sensor: 4668573802861078645</div>`)[0];
+                popup_4e57e43c1e7427989d5b171d0122c8ca.setContent(html_623024ea1946895eeaf85af4d6aa49cd);
+            
+        
+
+        marker_b8c0bdb96ecaca9ee0db87bce4cb1ab2.bindPopup(popup_4e57e43c1e7427989d5b171d0122c8ca)
+        ;
+
+        
+    
+    
+            var marker_ebc697942499948e2021dee5032aca99 = L.marker(
+                [46.62129198823529, 28.137623388235294],
+                {}
+            ).addTo(map_ad2a34e4eada8b3b20ca87d80b54c428);
+        
+    
+            var icon_4a611c39cdba8386ef39eb701b42ed28 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "darkblue", "prefix": "glyphicon"}
+            );
+            marker_ebc697942499948e2021dee5032aca99.setIcon(icon_4a611c39cdba8386ef39eb701b42ed28);
+        
+    
+        var popup_a9880848c6bcd6366a7f28861688bc4e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_cf05da11dafd60190a46825b8e53bafe = $(`<div id="html_cf05da11dafd60190a46825b8e53bafe" style="width: 100.0%; height: 100.0%;">Humidity<br> Sensor: 4668573897461677345</div>`)[0];
+                popup_a9880848c6bcd6366a7f28861688bc4e.setContent(html_cf05da11dafd60190a46825b8e53bafe);
+            
+        
+
+        marker_ebc697942499948e2021dee5032aca99.bindPopup(popup_a9880848c6bcd6366a7f28861688bc4e)
+        ;
+
+        
+    
+    
+            var marker_ef69222350658b952cf941db051c271b = L.marker(
+                [46.62129198823529, 28.134018505882352],
+                {}
+            ).addTo(map_ad2a34e4eada8b3b20ca87d80b54c428);
+        
+    
+            var icon_acce5afd85d12eba878e4b8cfd4d5297 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "darkblue", "prefix": "glyphicon"}
+            );
+            marker_ef69222350658b952cf941db051c271b.setIcon(icon_acce5afd85d12eba878e4b8cfd4d5297);
+        
+    
+        var popup_d08f5f9d8223b0a24c95ae1aee9d2af1 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b0082ce3dd080fe1a02b5bbc736ac036 = $(`<div id="html_b0082ce3dd080fe1a02b5bbc736ac036" style="width: 100.0%; height: 100.0%;">Humidity<br> Sensor: 4668573900993613171</div>`)[0];
+                popup_d08f5f9d8223b0a24c95ae1aee9d2af1.setContent(html_b0082ce3dd080fe1a02b5bbc736ac036);
+            
+        
+
+        marker_ef69222350658b952cf941db051c271b.bindPopup(popup_d08f5f9d8223b0a24c95ae1aee9d2af1)
+        ;
+
+        
+    
+    
+            var marker_1320a575c068ae07b7eeba99e8453b64 = L.marker(
+                [46.62252891764706, 28.13582094705882],
+                {}
+            ).addTo(map_ad2a34e4eada8b3b20ca87d80b54c428);
+        
+    
+            var icon_1ee15f4e72e9c768660b2717d7df684d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "darkblue", "prefix": "glyphicon"}
+            );
+            marker_1320a575c068ae07b7eeba99e8453b64.setIcon(icon_1ee15f4e72e9c768660b2717d7df684d);
+        
+    
+        var popup_b065dfa28b71089533541336113b0bb3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_12826fbf9dd222b547cf8872aca335df = $(`<div id="html_12826fbf9dd222b547cf8872aca335df" style="width: 100.0%; height: 100.0%;">Humidity<br> Sensor: 4668573907110587203</div>`)[0];
+                popup_b065dfa28b71089533541336113b0bb3.setContent(html_12826fbf9dd222b547cf8872aca335df);
+            
+        
+
+        marker_1320a575c068ae07b7eeba99e8453b64.bindPopup(popup_b065dfa28b71089533541336113b0bb3)
+        ;
+
+        
+    
+    
+            var marker_c4bd242023cf2102b7e6c0ba81d0eb92 = L.marker(
+                [46.62376584705882, 28.139425829411763],
+                {}
+            ).addTo(map_ad2a34e4eada8b3b20ca87d80b54c428);
+        
+    
+            var icon_818c52e66acdbf936878a3cdd400cac9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "darkblue", "prefix": "glyphicon"}
+            );
+            marker_c4bd242023cf2102b7e6c0ba81d0eb92.setIcon(icon_818c52e66acdbf936878a3cdd400cac9);
+        
+    
+        var popup_ad3603608f7837dbab7caaadc987ee39 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_1bb1046a0a0de2e332dfae6fc7bca569 = $(`<div id="html_1bb1046a0a0de2e332dfae6fc7bca569" style="width: 100.0%; height: 100.0%;">Humidity<br> Sensor: 4668573908691834265</div>`)[0];
+                popup_ad3603608f7837dbab7caaadc987ee39.setContent(html_1bb1046a0a0de2e332dfae6fc7bca569);
+            
+        
+
+        marker_c4bd242023cf2102b7e6c0ba81d0eb92.bindPopup(popup_ad3603608f7837dbab7caaadc987ee39)
+        ;
+
+        
+    
+    
+            var marker_b52539be9f38819221abd7b34a3148a1 = L.marker(
+                [46.62500277647059, 28.134018505882352],
+                {}
+            ).addTo(map_ad2a34e4eada8b3b20ca87d80b54c428);
+        
+    
+            var icon_98350f73929872e61eb397a4f040fb0b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "darkblue", "prefix": "glyphicon"}
+            );
+            marker_b52539be9f38819221abd7b34a3148a1.setIcon(icon_98350f73929872e61eb397a4f040fb0b);
+        
+    
+        var popup_68f098d2adf35c3ae5a4c9fd92297980 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_25d2c6a15407f28e5543c9c4b5423c8d = $(`<div id="html_25d2c6a15407f28e5543c9c4b5423c8d" style="width: 100.0%; height: 100.0%;">Humidity<br> Sensor: 4668573911011055175</div>`)[0];
+                popup_68f098d2adf35c3ae5a4c9fd92297980.setContent(html_25d2c6a15407f28e5543c9c4b5423c8d);
+            
+        
+
+        marker_b52539be9f38819221abd7b34a3148a1.bindPopup(popup_68f098d2adf35c3ae5a4c9fd92297980)
+        ;
+
+        
+    
+    
+            var marker_219eb8433982f83478dd50b2cf143fbe = L.marker(
+                [46.626239705882355, 28.146635594117647],
+                {}
+            ).addTo(map_ad2a34e4eada8b3b20ca87d80b54c428);
+        
+    
+            var icon_4ff7e01c8a2aa90d2b446cc73a8a5774 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "darkblue", "prefix": "glyphicon"}
+            );
+            marker_219eb8433982f83478dd50b2cf143fbe.setIcon(icon_4ff7e01c8a2aa90d2b446cc73a8a5774);
+        
+    
+        var popup_0ae8a47698ee4295fca14cc5af3a62da = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_14faf4bc792a3aa727e22b7ef1083e23 = $(`<div id="html_14faf4bc792a3aa727e22b7ef1083e23" style="width: 100.0%; height: 100.0%;">Humidity<br> Sensor: 4668573917533296583</div>`)[0];
+                popup_0ae8a47698ee4295fca14cc5af3a62da.setContent(html_14faf4bc792a3aa727e22b7ef1083e23);
+            
+        
+
+        marker_219eb8433982f83478dd50b2cf143fbe.bindPopup(popup_0ae8a47698ee4295fca14cc5af3a62da)
+        ;
+
+        
+    
+    
+            var marker_258ea77550dc22e47ae3eee39f7086e0 = L.marker(
+                [46.62500277647059, 28.143030711764705],
+                {}
+            ).addTo(map_ad2a34e4eada8b3b20ca87d80b54c428);
+        
+    
+            var icon_91be17719abebaefcf453e1bc9cc1fd7 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "darkblue", "prefix": "glyphicon"}
+            );
+            marker_258ea77550dc22e47ae3eee39f7086e0.setIcon(icon_91be17719abebaefcf453e1bc9cc1fd7);
+        
+    
+        var popup_4cda16f640360ce1fbd6bc780f185963 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_03572011e3bae256d5f331a9a90f3129 = $(`<div id="html_03572011e3bae256d5f331a9a90f3129" style="width: 100.0%; height: 100.0%;">Humidity<br> Sensor: 4668573918502360527</div>`)[0];
+                popup_4cda16f640360ce1fbd6bc780f185963.setContent(html_03572011e3bae256d5f331a9a90f3129);
+            
+        
+
+        marker_258ea77550dc22e47ae3eee39f7086e0.bindPopup(popup_4cda16f640360ce1fbd6bc780f185963)
+        ;
+
+        
+    
+    
+            var marker_49cfc493a5ed15c211f5e19f0f201d47 = L.marker(
+                [46.62252891764706, 28.143030711764705],
+                {}
+            ).addTo(map_ad2a34e4eada8b3b20ca87d80b54c428);
+        
+    
+            var icon_fef13ec5d98504a46910f46d51b76b71 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "darkblue", "prefix": "glyphicon"}
+            );
+            marker_49cfc493a5ed15c211f5e19f0f201d47.setIcon(icon_fef13ec5d98504a46910f46d51b76b71);
+        
+    
+        var popup_916bf9653462da2b1f1892779b9a8892 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_21dcc53e4c7f2fadcc3a9de25d30f03b = $(`<div id="html_21dcc53e4c7f2fadcc3a9de25d30f03b" style="width: 100.0%; height: 100.0%;">Humidity<br> Sensor: 4668573920417578251</div>`)[0];
+                popup_916bf9653462da2b1f1892779b9a8892.setContent(html_21dcc53e4c7f2fadcc3a9de25d30f03b);
+            
+        
+
+        marker_49cfc493a5ed15c211f5e19f0f201d47.bindPopup(popup_916bf9653462da2b1f1892779b9a8892)
+        ;
+
+        
+    
+    
+            var marker_6471020e74b22d779a825978f7390b8e = L.marker(
+                [46.62252891764706, 28.144833152941178],
+                {}
+            ).addTo(map_ad2a34e4eada8b3b20ca87d80b54c428);
+        
+    
+            var icon_b54fb9a91f79088f31b6b8613cdf8f5a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "darkblue", "prefix": "glyphicon"}
+            );
+            marker_6471020e74b22d779a825978f7390b8e.setIcon(icon_b54fb9a91f79088f31b6b8613cdf8f5a);
+        
+    
+        var popup_5ef59203f64a56e704d2347fc64dac42 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_bcc422de4e5fb6b1761c6c0e0d345f5c = $(`<div id="html_bcc422de4e5fb6b1761c6c0e0d345f5c" style="width: 100.0%; height: 100.0%;">Humidity<br> Sensor: 4668573922080267285</div>`)[0];
+                popup_5ef59203f64a56e704d2347fc64dac42.setContent(html_bcc422de4e5fb6b1761c6c0e0d345f5c);
+            
+        
+
+        marker_6471020e74b22d779a825978f7390b8e.bindPopup(popup_5ef59203f64a56e704d2347fc64dac42)
+        ;
+
+        
+    
+    
+            var marker_5c24837e44f05556dcc663d0b45806b2 = L.marker(
+                [46.62500277647059, 28.146635594117647],
+                {}
+            ).addTo(map_ad2a34e4eada8b3b20ca87d80b54c428);
+        
+    
+            var icon_569fbd5d6180b0a1ac5ed773cbc6b262 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "darkblue", "prefix": "glyphicon"}
+            );
+            marker_5c24837e44f05556dcc663d0b45806b2.setIcon(icon_569fbd5d6180b0a1ac5ed773cbc6b262);
+        
+    
+        var popup_7b96444975bdade88b03eb1a52a88f88 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_779662550ea72cbcd0b3b82ef4d8687f = $(`<div id="html_779662550ea72cbcd0b3b82ef4d8687f" style="width: 100.0%; height: 100.0%;">Humidity<br> Sensor: 4668573924202874533</div>`)[0];
+                popup_7b96444975bdade88b03eb1a52a88f88.setContent(html_779662550ea72cbcd0b3b82ef4d8687f);
+            
+        
+
+        marker_5c24837e44f05556dcc663d0b45806b2.bindPopup(popup_7b96444975bdade88b03eb1a52a88f88)
+        ;
+
+        
+    
+    
+            var marker_b917e253751e68be4ba8d2a7cc01169b = L.marker(
+                [46.62500277647059, 28.15024047647059],
+                {}
+            ).addTo(map_ad2a34e4eada8b3b20ca87d80b54c428);
+        
+    
+            var icon_0bc730db438d62dd70e7f6e047826615 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "darkblue", "prefix": "glyphicon"}
+            );
+            marker_b917e253751e68be4ba8d2a7cc01169b.setIcon(icon_0bc730db438d62dd70e7f6e047826615);
+        
+    
+        var popup_a4db39bdf43637cb836672a0774e543a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b98b58f7fbe54642090ef1fbd6c27ea3 = $(`<div id="html_b98b58f7fbe54642090ef1fbd6c27ea3" style="width: 100.0%; height: 100.0%;">Humidity<br> Sensor: 4668573925534585095</div>`)[0];
+                popup_a4db39bdf43637cb836672a0774e543a.setContent(html_b98b58f7fbe54642090ef1fbd6c27ea3);
+            
+        
+
+        marker_b917e253751e68be4ba8d2a7cc01169b.bindPopup(popup_a4db39bdf43637cb836672a0774e543a)
+        ;
+
+        
+    
+    
+            var marker_292dccab81f8933fe36b60de97caa59a = L.marker(
+                [46.62376584705882, 28.15024047647059],
+                {}
+            ).addTo(map_ad2a34e4eada8b3b20ca87d80b54c428);
+        
+    
+            var icon_4185a5940321a9aded8be7032d6d82fe = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "darkblue", "prefix": "glyphicon"}
+            );
+            marker_292dccab81f8933fe36b60de97caa59a.setIcon(icon_4185a5940321a9aded8be7032d6d82fe);
+        
+    
+        var popup_4131d0d5655575a6eef60243679cc70f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ee3ae89db7957747b4e4629ceaf9a98e = $(`<div id="html_ee3ae89db7957747b4e4629ceaf9a98e" style="width: 100.0%; height: 100.0%;">Humidity<br> Sensor: 4668573927226898593</div>`)[0];
+                popup_4131d0d5655575a6eef60243679cc70f.setContent(html_ee3ae89db7957747b4e4629ceaf9a98e);
+            
+        
+
+        marker_292dccab81f8933fe36b60de97caa59a.bindPopup(popup_4131d0d5655575a6eef60243679cc70f)
+        ;
+
+        
+    
+    
+            var marker_0265a5b6885c3864942ca78d67923343 = L.marker(
+                [46.62252891764706, 28.15204291764706],
+                {}
+            ).addTo(map_ad2a34e4eada8b3b20ca87d80b54c428);
+        
+    
+            var icon_4ef1ace5828f8a4f6e374c9fb1eb02bb = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "darkblue", "prefix": "glyphicon"}
+            );
+            marker_0265a5b6885c3864942ca78d67923343.setIcon(icon_4ef1ace5828f8a4f6e374c9fb1eb02bb);
+        
+    
+        var popup_01b5b220246ca50e3502a0e3d7bd4483 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_1a615f619598075d14325ce6f6b03352 = $(`<div id="html_1a615f619598075d14325ce6f6b03352" style="width: 100.0%; height: 100.0%;">Humidity<br> Sensor: 4668573932591729867</div>`)[0];
+                popup_01b5b220246ca50e3502a0e3d7bd4483.setContent(html_1a615f619598075d14325ce6f6b03352);
+            
+        
+
+        marker_0265a5b6885c3864942ca78d67923343.bindPopup(popup_01b5b220246ca50e3502a0e3d7bd4483)
+        ;
+
+        
+    
+    
+            var marker_cf52f0b139c0c6c3842a09856d9b13be = L.marker(
+                [46.626239705882355, 28.15204291764706],
+                {}
+            ).addTo(map_ad2a34e4eada8b3b20ca87d80b54c428);
+        
+    
+            var icon_393a9df66e69fdfa16088edf49cd5fe6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "darkblue", "prefix": "glyphicon"}
+            );
+            marker_cf52f0b139c0c6c3842a09856d9b13be.setIcon(icon_393a9df66e69fdfa16088edf49cd5fe6);
+        
+    
+        var popup_211828b0cf6a6943d2015dfe5659f9ce = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_58be3f639bfc5499fd5ee69d6c3c0d5b = $(`<div id="html_58be3f639bfc5499fd5ee69d6c3c0d5b" style="width: 100.0%; height: 100.0%;">Humidity<br> Sensor: 4668574109189883749</div>`)[0];
+                popup_211828b0cf6a6943d2015dfe5659f9ce.setContent(html_58be3f639bfc5499fd5ee69d6c3c0d5b);
+            
+        
+
+        marker_cf52f0b139c0c6c3842a09856d9b13be.bindPopup(popup_211828b0cf6a6943d2015dfe5659f9ce)
+        ;
+
+        
+    
+</script>
+</html>
