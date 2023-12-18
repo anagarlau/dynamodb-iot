@@ -109,7 +109,7 @@ def split_in_parcels(polygon, split_points, bearing=193):
 
     plant_polygons = [
         {
-            'area_id': uuid.uuid4(),
+            'parcel_id': f"Chickpeas#{uuid.uuid4()}" if index % 2 == 0 else f"Grapevine#{uuid.uuid4()}",
             'plant_type': 'Chickpeas' if index % 2 == 0 else 'Grapevine',
             'polygon': polygon,
             **plant_specs['Chickpeas' if index % 2 == 0 else 'Grapevine']
@@ -119,7 +119,7 @@ def split_in_parcels(polygon, split_points, bearing=193):
     # print('Dictionary')
     # print(plant_polygons)
     return plant_polygons
-def plot_polygons_on_map(original_polygon, plant_polygons, folium_map=None):
+def plot_polygons_on_map(plant_polygons, original_polygon=polygon,folium_map=None):
     min_lon, min_lat, max_lon, max_lat = original_polygon.bounds
     map_center = [(min_lat + max_lat) / 2, (min_lon + max_lon) / 2]
     if folium_map is None:
@@ -131,12 +131,16 @@ def plot_polygons_on_map(original_polygon, plant_polygons, folium_map=None):
 
     # Add each split polygon to the map with the color according to the plant_type
     for item in plant_polygons:
+        #print("Item", item)
         plant_type = item['plant_type']
         poly = item['polygon']
         color = "#ff7800" if plant_type == 'Chickpeas' else "#0000ff"
 
         folium.Polygon(locations=[(y, x) for x, y in poly.exterior.coords],
-                       color=color, fill=True, fill_opacity=0.5).add_to(folium_map)
+                       color=color,
+                       fill=True,
+                       popup=f"Parcel_id{item['parcel_id']}",
+                       fill_opacity=0.5).add_to(folium_map)
 
     return folium_map
 # Calculate Area for test purposes. Google: 3.32 sq km
@@ -159,54 +163,5 @@ def plot_polygons_on_map(original_polygon, plant_polygons, folium_map=None):
 # print("Area of the polygon in square meters:", round(area_sqkm,2))
 
 #MAP
-
-
-def build_dictionaries_from_crop_assignment(crop_assignment):
-    # Plant specs
-    plant_specs = {
-        'Chickpeas': {
-            'latin_name': 'Cicer arietinum',
-            'family': 'Fabaceae',
-            'optimal_temperature': (20, 25),  # degrees Celsius
-            'optimal_humidity': (30, 50),     # percentage
-            'optimal_soil_ph': (6.0, 7.0),
-            'water_requirements_mm_per_week': 25,  # mm per week
-            'sunlight_requirements_hours_per_day': 8,  # hours per day
-        },
-        'Grapevine': {
-            'latin_name': 'Vitis vinifera',
-            'family': 'Vitaceae',
-            'optimal_temperature': (15, 22),
-            'optimal_humidity': (50, 70),
-            'optimal_soil_ph': (5.5, 6.5),
-            'water_requirements_mm_per_week': 20,
-            'sunlight_requirements_hours_per_day': 6,
-        }
-    }
-
-    plant_type_to_geohashes = {'Chickpeas': {}, 'Grapevine': {}}
-    geohash6_info = {}
-
-    for geohash8, plant in crop_assignment.items():
-        geohash6 = geohash8[:6]
-        # lat_centroid, lon_centroid, lat_err, lon_err = gh.decode_exactly(geohash8)
-        # lat_centroid, lon_centroid, lat_err, lon_err = gh.decode_exactly(geohash6)
-        # p = dynamodbgeo.GeoPoint(lat_centroid, lon_centroid)
-        # print(f"point {p}")
-        # Append geohashes and plant specs to plant_type_to_geohashes dictionary
-        if geohash6 not in plant_type_to_geohashes[plant]:
-            plant_type_to_geohashes[plant][geohash6] = {'specs': plant_specs[plant], 'geohash8': [geohash8]}
-        else:
-            if geohash8 not in plant_type_to_geohashes[plant][geohash6]['geohash8']:
-                plant_type_to_geohashes[plant][geohash6]['geohash8'].append(geohash8)
-
-        # Append geohashes and plant specs to geohash6_info dictionary
-        if geohash6 not in geohash6_info:
-            geohash6_info[geohash6] = {'plant': plant, 'specs': plant_specs[plant], 'geohash8': [geohash8]}
-        else:
-            if geohash8 not in geohash6_info[geohash6]['geohash8']:
-                geohash6_info[geohash6]['geohash8'].append(geohash8)
-    return plant_type_to_geohashes, geohash6_info
-
 
 

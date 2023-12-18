@@ -74,9 +74,10 @@ class SensorEventService:
             # Query variables
             partition_key = 'month'
             sort_key = 'SK'
-            type_key = 'type'
+            type_key = 'data_type'
             items = []
             consumed_capacity = 0
+
 
             # Iterate through each partition key (month)
             for pk in pks:
@@ -93,13 +94,12 @@ class SensorEventService:
                     },
                     'ExpressionAttributeValues': {
                         ':pval': {'N': str(partition_val)},
-                        ':sval': {'S': f'{start_range_unix}#'},
-                        ':eval': {'S': f'{end_range_unix}#zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz'}
+                        ':sval': {'S': f'TimeRange#{start_range_unix}#'},
+                        ':eval': {'S': f'TimeRange#{end_range_unix}#zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz'}
                     },
                     'ReturnConsumedCapacity': 'INDEXES'
                 }
 
-                # Filter expression if sensor_type_filters
                 if sensor_types_filters:
                     type_filter_expressions = []
                     for i, sensor_type in enumerate(sensor_types_filters):
@@ -110,17 +110,16 @@ class SensorEventService:
                     query_params['FilterExpression'] = " OR ".join(type_filter_expressions)
                     query_params['ExpressionAttributeNames'][f"#{type_key}"] = type_key
 
-                # Query
                 response = self.dynamodb.query(**query_params)
-
-                # Collect items and consumed capacity
                 items.extend(response.get('Items', []))
                 consumed_capacity += response.get('ConsumedCapacity')['CapacityUnits']
             print("Number of queries for range is", len(pks))
+            print('Consumed Capacity', consumed_capacity)
+            return items
         except ClientError as e:
             print("Boto3 client error:", e)
             return [], None
-        return items, consumed_capacity
+
 
     def query_sensorevents_by_sensorid_in_time_range(self, sensor_id, start_range, end_range):
         try:
@@ -135,8 +134,8 @@ class SensorEventService:
             consumed_capacity = 0
 
             # Construct sort key range for BETWEEN clause
-            lower_bound = f"{start_range_unix}#"
-            upper_bound = f"{end_range_unix}#zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"
+            lower_bound = f"TimeRange#{start_range_unix}#"
+            upper_bound = f"TimeRange#{end_range_unix}#zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"
 
             # Query the DynamoDB table
             response = self.dynamodb.query(
@@ -154,14 +153,40 @@ class SensorEventService:
                 ReturnConsumedCapacity='TOTAL'
             )
 
-            # Collect items and consumed capacity
             items.extend(response.get('Items', []))
             consumed_capacity += response.get('ConsumedCapacity')['CapacityUnits']
+            print('Consumed Capacity', consumed_capacity)
+            return items
         except ClientError as e:
             print("Boto3 client error:", e)
             return [], None
 
-        return items, consumed_capacity
+
+    def query_latest_n_sensorevents_by_sensorid(self, sensor_id, n):
+        try:
+            items = []
+            consumed_capacity = 0
+
+            # Query the DynamoDB table
+            response = self.dynamodb.query(
+                TableName=self.table_name,
+                KeyConditionExpression=f"PK = :pval AND begins_with(SK, :skval)",
+                ExpressionAttributeValues={
+                    ':pval': {'S': sensor_id},
+                    ':skval': {'S': 'TimeRange#'}
+                },
+                ScanIndexForward=False,  # Query in descending order
+                Limit=n,  # Limit the number of items processed
+                ReturnConsumedCapacity='TOTAL'
+            )
+
+            items.extend(response.get('Items', []))
+            consumed_capacity += response.get('ConsumedCapacity')['CapacityUnits']
+            print('Consumed Capacity', consumed_capacity)
+            return items
+        except ClientError as e:
+            print("Boto3 client error:", e)
+            return [], None
 def main():
     service = SensorEventService()
     #events = await service.get_sensor_events('3cec4677-92d7-4a88-9b66-1a1323c6288d', 'Humidity', 1583276400, 1694123999)
@@ -173,18 +198,20 @@ def main():
     #                                                           '2022-10-16T23:52:35')
     events = service.query_sensorevents_for_entire_field_in_time_range(
         '2020-01-01T04:35:53',
-        '2020-02-07T14:56:50'#,['Humidity', 'Light', 'Temperature']
+        '2020-02-07T14:56:50',['Humidity', 'Light', 'Temperature']
         ) #1.5 for all nb of data points
-    print(len(events[0]))
+    print(len(events))
     print(events[0])
-    print(events[1])
     events = service.query_sensorevents_by_sensorid_in_time_range(
-                 '4668573807723616123',
-                        '2020-01-01T04:35:53',
-                        '2020-01-06T03:39:07')
-    print(len(events[0]))
+                 '57bf26c3-d792-4906-a717-a90c5e400e61',
+                        '2020-01-01T11:51:38',
+                        '2020-02-01T03:51:11')
+    print(len(events))
     print(events[0])
-    print(events[1])
+    events = service.query_latest_n_sensorevents_by_sensorid('57bf26c3-d792-4906-a717-a90c5e400e61',4)
+    print(len(events))
+    for item in events:
+        print(item['SK']['S'])
 
 # Run the async main function
 if __name__ == "__main__":

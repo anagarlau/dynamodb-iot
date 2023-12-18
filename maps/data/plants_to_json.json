@@ -1,0 +1,266 @@
+[
+    {
+        "parcel_id": "Chickpeas#957000a4-6b4a-4ff7-979d-9764d086ca01",
+        "plant_type": "Chickpeas",
+        "latin_name": "Cicer arietinum",
+        "family": "Fabaceae",
+        "optimal_temperature": "(20, 25)",
+        "optimal_humidity": "(30, 50)",
+        "optimal_soil_ph": "(6.0, 7.0)",
+        "water_requirements_mm_per_week": "25",
+        "sunlight_requirements_hours_per_day": "8",
+        "polygon": [
+            [
+                28.126340818452903,
+                46.630971359212296
+            ],
+            [
+                28.1250063,
+                46.6334964
+            ],
+            [
+                28.1456915,
+                46.638609
+            ],
+            [
+                28.147403789345194,
+                46.63583412920193
+            ],
+            [
+                28.126340818452903,
+                46.630971359212296
+            ]
+        ]
+    },
+    {
+        "parcel_id": "Grapevine#e9f3ee81-43f1-491f-bdef-9a64f3b396cb",
+        "plant_type": "Grapevine",
+        "latin_name": "Vitis vinifera",
+        "family": "Vitaceae",
+        "optimal_temperature": "(15, 22)",
+        "optimal_humidity": "(50, 70)",
+        "optimal_soil_ph": "(5.5, 6.5)",
+        "water_requirements_mm_per_week": "20",
+        "sunlight_requirements_hours_per_day": "6",
+        "polygon": [
+            [
+                28.147403789345194,
+                46.63583412920193
+            ],
+            [
+                28.148598815307594,
+                46.63389751571116
+            ],
+            [
+                28.127382995257,
+                46.62899945771284
+            ],
+            [
+                28.126340818452903,
+                46.630971359212296
+            ],
+            [
+                28.147403789345194,
+                46.63583412920193
+            ]
+        ]
+    },
+    {
+        "parcel_id": "Chickpeas#c0076441-b2ad-4853-9469-a32fb116f547",
+        "plant_type": "Chickpeas",
+        "latin_name": "Cicer arietinum",
+        "family": "Fabaceae",
+        "optimal_temperature": "(20, 25)",
+        "optimal_humidity": "(30, 50)",
+        "optimal_soil_ph": "(6.0, 7.0)",
+        "water_requirements_mm_per_week": "25",
+        "sunlight_requirements_hours_per_day": "8",
+        "polygon": [
+            [
+                28.148598815307594,
+                46.63389751571116
+            ],
+            [
+                28.15011237116755,
+                46.63144470481864
+            ],
+            [
+                28.128702960562006,
+                46.62650195291908
+            ],
+            [
+                28.127382995257,
+                46.62899945771284
+            ],
+            [
+                28.148598815307594,
+                46.63389751571116
+            ]
+        ]
+    },
+    {
+        "parcel_id": "Grapevine#cfc9e173-8bcd-4a0a-adc2-79a084227093",
+        "plant_type": "Grapevine",
+        "latin_name": "Vitis vinifera",
+        "family": "Vitaceae",
+        "optimal_temperature": "(15, 22)",
+        "optimal_humidity": "(50, 70)",
+        "optimal_soil_ph": "(5.5, 6.5)",
+        "water_requirements_mm_per_week": "20",
+        "sunlight_requirements_hours_per_day": "6",
+        "polygon": [
+            [
+                28.15011237116755,
+                46.63144470481864
+            ],
+            [
+                28.151110932743343,
+                46.629826474018735
+            ],
+            [
+                28.129573801652075,
+                46.62485423552166
+            ],
+            [
+                28.128702960562006,
+                46.62650195291908
+            ],
+            [
+                28.15011237116755,
+                46.63144470481864
+            ]
+        ]
+    },
+    {
+        "parcel_id": "Chickpeas#b236aa8f-217c-4130-99fb-b06329092470",
+        "plant_type": "Chickpeas",
+        "latin_name": "Cicer arietinum",
+        "family": "Fabaceae",
+        "optimal_temperature": "(20, 25)",
+        "optimal_humidity": "(30, 50)",
+        "optimal_soil_ph": "(6.0, 7.0)",
+        "water_requirements_mm_per_week": "25",
+        "sunlight_requirements_hours_per_day": "8",
+        "polygon": [
+            [
+                28.151110932743343,
+                46.629826474018735
+            ],
+            [
+                28.152237036714528,
+                46.62800155287792
+            ],
+            [
+                28.13055587189548,
+                46.62299606157465
+            ],
+            [
+                28.129573801652075,
+                46.62485423552166
+            ],
+            [
+                28.151110932743343,
+                46.629826474018735
+            ]
+        ]
+    },
+    {
+        "parcel_id": "Grapevine#ed15bf5c-04d9-40d1-b483-b7082cd195f1",
+        "plant_type": "Grapevine",
+        "latin_name": "Vitis vinifera",
+        "family": "Vitaceae",
+        "optimal_temperature": "(15, 22)",
+        "optimal_humidity": "(50, 70)",
+        "optimal_soil_ph": "(5.5, 6.5)",
+        "water_requirements_mm_per_week": "20",
+        "sunlight_requirements_hours_per_day": "6",
+        "polygon": [
+            [
+                28.152237036714528,
+                46.62800155287792
+            ],
+            [
+                28.15327271262589,
+                46.626323176001506
+            ],
+            [
+                28.13145908023182,
+                46.621287102148806
+            ],
+            [
+                28.13055587189548,
+                46.62299606157465
+            ],
+            [
+                28.152237036714528,
+                46.62800155287792
+            ]
+        ]
+    },
+    {
+        "parcel_id": "Chickpeas#3225eba0-4695-48ee-9616-62dc5256b4e2",
+        "plant_type": "Chickpeas",
+        "latin_name": "Cicer arietinum",
+        "family": "Fabaceae",
+        "optimal_temperature": "(20, 25)",
+        "optimal_humidity": "(30, 50)",
+        "optimal_soil_ph": "(6.0, 7.0)",
+        "water_requirements_mm_per_week": "25",
+        "sunlight_requirements_hours_per_day": "8",
+        "polygon": [
+            [
+                28.15327271262589,
+                46.626323176001506
+            ],
+            [
+                28.154372521777837,
+                46.62454086724174
+            ],
+            [
+                28.132418218880815,
+                46.61947231704448
+            ],
+            [
+                28.13145908023182,
+                46.621287102148806
+            ],
+            [
+                28.15327271262589,
+                46.626323176001506
+            ]
+        ]
+    },
+    {
+        "parcel_id": "Grapevine#dcce31f9-ccf6-4f0c-985d-91d8a2276091",
+        "plant_type": "Grapevine",
+        "latin_name": "Vitis vinifera",
+        "family": "Vitaceae",
+        "optimal_temperature": "(15, 22)",
+        "optimal_humidity": "(50, 70)",
+        "optimal_soil_ph": "(5.5, 6.5)",
+        "water_requirements_mm_per_week": "20",
+        "sunlight_requirements_hours_per_day": "6",
+        "polygon": [
+            [
+                28.154372521777837,
+                46.62454086724174
+            ],
+            [
+                28.1556478,
+                46.6224742
+            ],
+            [
+                28.1334177,
+                46.6175812
+            ],
+            [
+                28.132418218880815,
+                46.61947231704448
+            ],
+            [
+                28.154372521777837,
+                46.62454086724174
+            ]
+        ]
+    }
+]

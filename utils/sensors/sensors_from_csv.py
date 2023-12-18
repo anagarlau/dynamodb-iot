@@ -61,7 +61,7 @@ def add_sensor_markers_to_map(sensor_data,map_object=None):
         marker_color = sensor_type_colors.get(sensor_type, 'gray')  # Default to gray if sensor type is not found
         Marker(
             [latitude, longitude],
-            popup=f"{sensor_type}<br> Sensor: {sensor['sensor_id']}",
+            popup=f"{sensor_type}<br> Sensor: {sensor['sensor_id']}<br> Parcel id {sensor['parcel_id']}",
             icon=Icon(color=marker_color)
         ).add_to(map_object)
     return map_object
@@ -74,6 +74,7 @@ def parse_sensor_data(sensor_data):
         sensor_id = item.get('SK', {}).get('S', None)
         sensor_type = item.get('sensor_type', {}).get('S', None)  # Extracting sensor type
         geoJson_str = item.get('geoJson', {}).get('S', None)
+        parcel_id = item.get('parcel_id')
 
         if sensor_id and geoJson_str and sensor_type:
             # Split the string by comma to get the coordinates
@@ -86,7 +87,8 @@ def parse_sensor_data(sensor_data):
                     parsed_data.append({
                         'sensor_id': sensor_id,
                         'sensor_type': sensor_type,  # Including sensor type
-                        'point_coordinates': [longitude,latitude]
+                        'point_coordinates': [longitude,latitude],
+                        'parcel_id': parcel_id
                     })
                 except ValueError:
                     print("Invalid coordinates:", coords)

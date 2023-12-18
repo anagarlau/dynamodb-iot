@@ -1,1394 +1,1568 @@
 [
     {
-        "sensor_id": "3b206f76-b9db-402f-8af2-383ad51cc405",
-        "sensor_type": "Rain",
+        "sensor_id": "1e5a17a4-58f3-42b7-87a3-351659ae5d02",
+        "sensor_type": "Light",
         "point_coordinates": [
             28.134018505882352,
             46.618818129411764
-        ]
+        ],
+        "parcel_id": "Grapevine#dcce31f9-ccf6-4f0c-985d-91d8a2276091"
     },
     {
-        "sensor_id": "629327ad-da94-4b2a-a59f-bebd864da3ce",
-        "sensor_type": "SoilPH",
+        "sensor_id": "3a137721-1a4b-4298-b3e5-07642f724fb2",
+        "sensor_type": "Light",
         "point_coordinates": [
             28.13582094705882,
             46.618818129411764
-        ]
+        ],
+        "parcel_id": "Grapevine#dcce31f9-ccf6-4f0c-985d-91d8a2276091"
     },
     {
-        "sensor_id": "20a89993-192e-47f9-97a8-37c8d1418a46",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "eedffc03-d7bd-4e9e-b991-08223a92ef5a",
+        "sensor_type": "Light",
         "point_coordinates": [
             28.137623388235294,
             46.618818129411764
-        ]
+        ],
+        "parcel_id": "Grapevine#dcce31f9-ccf6-4f0c-985d-91d8a2276091"
     },
     {
-        "sensor_id": "8ea73364-cd67-4b06-b0f0-a76775b3a1e1",
+        "sensor_id": "7cce85ea-d4ff-416e-9536-d2c1d4f5286d",
         "sensor_type": "Temperature",
         "point_coordinates": [
             28.132216064705883,
             46.620055058823525
-        ]
+        ],
+        "parcel_id": "Chickpeas#3225eba0-4695-48ee-9616-62dc5256b4e2"
     },
     {
-        "sensor_id": "99ac51a1-35d0-4e6c-a07c-03ae0082a906",
-        "sensor_type": "Light",
+        "sensor_id": "37842d72-3be1-479f-a33e-a52508c24083",
+        "sensor_type": "SoilPH",
         "point_coordinates": [
             28.134018505882352,
             46.620055058823525
-        ]
+        ],
+        "parcel_id": "Chickpeas#3225eba0-4695-48ee-9616-62dc5256b4e2"
     },
     {
-        "sensor_id": "ec0880cf-1104-42fe-91cf-27767aea8e4c",
-        "sensor_type": "SoilPH",
+        "sensor_id": "b937e4c0-1d6e-45b4-a92b-28308ac67257",
+        "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.13582094705882,
             46.620055058823525
-        ]
+        ],
+        "parcel_id": "Grapevine#dcce31f9-ccf6-4f0c-985d-91d8a2276091"
     },
     {
-        "sensor_id": "4a916a26-5532-43cb-93e8-1fe002bd49a2",
-        "sensor_type": "Rain",
+        "sensor_id": "8d201c38-018f-431e-8e09-4b8e69ff6cd2",
+        "sensor_type": "Temperature",
         "point_coordinates": [
             28.137623388235294,
             46.620055058823525
-        ]
+        ],
+        "parcel_id": "Grapevine#dcce31f9-ccf6-4f0c-985d-91d8a2276091"
     },
     {
-        "sensor_id": "d6e385c4-0809-46cc-b0dc-5bdb15f7c2f0",
+        "sensor_id": "40ae9577-b9b9-4a0f-9ab3-c07727cda651",
+        "sensor_type": "Light",
+        "point_coordinates": [
+            28.139425829411763,
+            46.620055058823525
+        ],
+        "parcel_id": "Grapevine#dcce31f9-ccf6-4f0c-985d-91d8a2276091"
+    },
+    {
+        "sensor_id": "2e2836a1-79eb-4de4-9010-01c101085173",
+        "sensor_type": "Humidity",
+        "point_coordinates": [
+            28.141228270588236,
+            46.620055058823525
+        ],
+        "parcel_id": "Grapevine#dcce31f9-ccf6-4f0c-985d-91d8a2276091"
+    },
+    {
+        "sensor_id": "2a48904f-0848-4098-83dd-215444a8cfff",
+        "sensor_type": "Light",
+        "point_coordinates": [
+            28.143030711764705,
+            46.620055058823525
+        ],
+        "parcel_id": "Grapevine#dcce31f9-ccf6-4f0c-985d-91d8a2276091"
+    },
+    {
+        "sensor_id": "9a86635b-6242-4a78-b377-4ae5923101a6",
+        "sensor_type": "Humidity",
+        "point_coordinates": [
+            28.132216064705883,
+            46.62129198823529
+        ],
+        "parcel_id": "Chickpeas#3225eba0-4695-48ee-9616-62dc5256b4e2"
+    },
+    {
+        "sensor_id": "b63249e3-fa39-41bc-bea5-7b07b5146d73",
+        "sensor_type": "Temperature",
+        "point_coordinates": [
+            28.134018505882352,
+            46.62129198823529
+        ],
+        "parcel_id": "Chickpeas#3225eba0-4695-48ee-9616-62dc5256b4e2"
+    },
+    {
+        "sensor_id": "894b5100-8aaa-4e3f-960a-e6049a57da7a",
+        "sensor_type": "SoilPH",
+        "point_coordinates": [
+            28.13582094705882,
+            46.62129198823529
+        ],
+        "parcel_id": "Chickpeas#3225eba0-4695-48ee-9616-62dc5256b4e2"
+    },
+    {
+        "sensor_id": "1ea98c29-67e3-4dcb-a30b-0c2595ed51ba",
+        "sensor_type": "SoilMoisture",
+        "point_coordinates": [
+            28.137623388235294,
+            46.62129198823529
+        ],
+        "parcel_id": "Chickpeas#3225eba0-4695-48ee-9616-62dc5256b4e2"
+    },
+    {
+        "sensor_id": "fab4b127-722e-49cd-b377-b67807cbb5ff",
         "sensor_type": "Humidity",
         "point_coordinates": [
             28.139425829411763,
-            46.620055058823525
-        ]
+            46.62129198823529
+        ],
+        "parcel_id": "Chickpeas#3225eba0-4695-48ee-9616-62dc5256b4e2"
     },
     {
-        "sensor_id": "b303190d-9676-44ca-9917-7791373c5352",
-        "sensor_type": "Light",
+        "sensor_id": "92976af7-6908-4676-a055-ba1d96186fcd",
+        "sensor_type": "Rain",
         "point_coordinates": [
             28.141228270588236,
-            46.620055058823525
-        ]
+            46.62129198823529
+        ],
+        "parcel_id": "Grapevine#dcce31f9-ccf6-4f0c-985d-91d8a2276091"
     },
     {
-        "sensor_id": "2ae5c660-7c27-4763-8cab-c8fd355fdd22",
+        "sensor_id": "c93ba45c-38f1-469d-b669-358a45599021",
         "sensor_type": "Rain",
         "point_coordinates": [
             28.143030711764705,
-            46.620055058823525
-        ]
-    },
-    {
-        "sensor_id": "4290892c-fdd0-4dce-abc9-ac36275f8d13",
-        "sensor_type": "Temperature",
-        "point_coordinates": [
-            28.132216064705883,
             46.62129198823529
-        ]
+        ],
+        "parcel_id": "Grapevine#dcce31f9-ccf6-4f0c-985d-91d8a2276091"
     },
     {
-        "sensor_id": "6cac881c-e5c6-4f9b-b274-1083dcffdaea",
+        "sensor_id": "92450e06-f4d3-4811-af96-fa795c4594d5",
         "sensor_type": "SoilPH",
-        "point_coordinates": [
-            28.134018505882352,
-            46.62129198823529
-        ]
-    },
-    {
-        "sensor_id": "47f545f0-8e2d-4acd-b608-a1b391a3256c",
-        "sensor_type": "Rain",
-        "point_coordinates": [
-            28.13582094705882,
-            46.62129198823529
-        ]
-    },
-    {
-        "sensor_id": "5b13be38-10bf-4d5c-955e-56e63dfbd14d",
-        "sensor_type": "Light",
-        "point_coordinates": [
-            28.137623388235294,
-            46.62129198823529
-        ]
-    },
-    {
-        "sensor_id": "b1a57fb7-6b10-4800-9e58-d6e993538509",
-        "sensor_type": "Light",
-        "point_coordinates": [
-            28.139425829411763,
-            46.62129198823529
-        ]
-    },
-    {
-        "sensor_id": "372b0c11-e2c5-4bbc-80a9-d5fe6c98147c",
-        "sensor_type": "Light",
-        "point_coordinates": [
-            28.141228270588236,
-            46.62129198823529
-        ]
-    },
-    {
-        "sensor_id": "353dc968-4521-4c31-9b75-e3d7ca438db9",
-        "sensor_type": "Rain",
-        "point_coordinates": [
-            28.143030711764705,
-            46.62129198823529
-        ]
-    },
-    {
-        "sensor_id": "c08f657f-08e7-4dab-82c5-2e4cd460a5fa",
-        "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.144833152941178,
             46.62129198823529
-        ]
+        ],
+        "parcel_id": "Grapevine#dcce31f9-ccf6-4f0c-985d-91d8a2276091"
     },
     {
-        "sensor_id": "79114df5-d8f9-4f10-9d77-6739d6d9113d",
-        "sensor_type": "Humidity",
+        "sensor_id": "0beb2bb4-f84a-451d-b8b6-570f5ccc36a1",
+        "sensor_type": "SoilPH",
         "point_coordinates": [
             28.146635594117647,
             46.62129198823529
-        ]
+        ],
+        "parcel_id": "Grapevine#dcce31f9-ccf6-4f0c-985d-91d8a2276091"
     },
     {
-        "sensor_id": "8ff2f2cf-3b68-4441-a602-d06614110a89",
-        "sensor_type": "Temperature",
+        "sensor_id": "f87f6f17-e6c9-48cb-944e-6c136dd396fc",
+        "sensor_type": "SoilPH",
         "point_coordinates": [
             28.148438035294117,
             46.62129198823529
-        ]
+        ],
+        "parcel_id": "Grapevine#dcce31f9-ccf6-4f0c-985d-91d8a2276091"
     },
     {
-        "sensor_id": "2874fe14-d403-4351-a31b-eca5b134aa6d",
-        "sensor_type": "Light",
+        "sensor_id": "5a153829-2173-48fb-8deb-a570c3d21999",
+        "sensor_type": "Temperature",
         "point_coordinates": [
             28.15024047647059,
             46.62129198823529
-        ]
+        ],
+        "parcel_id": "Grapevine#dcce31f9-ccf6-4f0c-985d-91d8a2276091"
     },
     {
-        "sensor_id": "362e1f6a-2604-4e7d-9269-8f5de59034e3",
-        "sensor_type": "Rain",
+        "sensor_id": "6162e63b-37bd-4515-a99d-a46bd9bdc77d",
+        "sensor_type": "SoilPH",
         "point_coordinates": [
             28.132216064705883,
             46.62252891764706
-        ]
+        ],
+        "parcel_id": "Grapevine#ed15bf5c-04d9-40d1-b483-b7082cd195f1"
     },
     {
-        "sensor_id": "6ab2240f-194c-42c6-9ad6-d36c8de0c2bc",
+        "sensor_id": "3b48534d-f2d9-4c35-a084-63f3188416f6",
         "sensor_type": "Humidity",
         "point_coordinates": [
             28.134018505882352,
             46.62252891764706
-        ]
+        ],
+        "parcel_id": "Grapevine#ed15bf5c-04d9-40d1-b483-b7082cd195f1"
     },
     {
-        "sensor_id": "c5018ac8-3a44-4b34-a0b3-df36c7df1213",
+        "sensor_id": "da749b2c-eede-4f43-8731-86f08b632f94",
         "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.13582094705882,
             46.62252891764706
-        ]
+        ],
+        "parcel_id": "Grapevine#ed15bf5c-04d9-40d1-b483-b7082cd195f1"
     },
     {
-        "sensor_id": "218ce3cb-50d0-460c-9031-5f31782bfcfe",
-        "sensor_type": "Rain",
+        "sensor_id": "2e6d2ab1-b5b2-415a-b977-a01c2b43207f",
+        "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.137623388235294,
             46.62252891764706
-        ]
+        ],
+        "parcel_id": "Chickpeas#3225eba0-4695-48ee-9616-62dc5256b4e2"
     },
     {
-        "sensor_id": "4c965c93-a5bc-412c-ab51-969df3ad6c3f",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "1e5bb0b2-ca4b-4d85-a37b-86562e37eab6",
+        "sensor_type": "Light",
         "point_coordinates": [
             28.139425829411763,
             46.62252891764706
-        ]
+        ],
+        "parcel_id": "Chickpeas#3225eba0-4695-48ee-9616-62dc5256b4e2"
     },
     {
-        "sensor_id": "61685d48-157e-4572-85a0-25de25f231e3",
-        "sensor_type": "Light",
+        "sensor_id": "e5f6b949-29b9-43d4-afa8-17112a5379ce",
+        "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.141228270588236,
             46.62252891764706
-        ]
+        ],
+        "parcel_id": "Chickpeas#3225eba0-4695-48ee-9616-62dc5256b4e2"
     },
     {
-        "sensor_id": "974900be-a582-4913-96a2-408e4555417d",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "fd14aeca-d85e-413f-ab77-066976719f8a",
+        "sensor_type": "Temperature",
         "point_coordinates": [
             28.143030711764705,
             46.62252891764706
-        ]
+        ],
+        "parcel_id": "Chickpeas#3225eba0-4695-48ee-9616-62dc5256b4e2"
     },
     {
-        "sensor_id": "f55e6ffd-eaa5-43e8-9aec-d1d30c28bd72",
+        "sensor_id": "4d1d7280-e541-430e-9323-eceda4e3dfbe",
         "sensor_type": "SoilPH",
         "point_coordinates": [
             28.144833152941178,
             46.62252891764706
-        ]
+        ],
+        "parcel_id": "Chickpeas#3225eba0-4695-48ee-9616-62dc5256b4e2"
     },
     {
-        "sensor_id": "af6458ce-0707-458f-a553-765496c513fb",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "3eca64a4-88d4-46d4-97e9-0c73e678f502",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.146635594117647,
             46.62252891764706
-        ]
+        ],
+        "parcel_id": "Grapevine#dcce31f9-ccf6-4f0c-985d-91d8a2276091"
     },
     {
-        "sensor_id": "dd5238a9-24fb-49d2-8a3b-b653b82a0817",
-        "sensor_type": "Rain",
+        "sensor_id": "8ea67493-855f-4f4e-acdc-05d6cc5cbe1c",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.148438035294117,
             46.62252891764706
-        ]
+        ],
+        "parcel_id": "Grapevine#dcce31f9-ccf6-4f0c-985d-91d8a2276091"
     },
     {
-        "sensor_id": "e2fc1fc8-c191-4cf6-a219-8beea024aaf1",
-        "sensor_type": "Temperature",
+        "sensor_id": "0ee538bb-ef87-41f5-8347-efddef7b0a23",
+        "sensor_type": "Rain",
         "point_coordinates": [
             28.15024047647059,
             46.62252891764706
-        ]
+        ],
+        "parcel_id": "Grapevine#dcce31f9-ccf6-4f0c-985d-91d8a2276091"
     },
     {
-        "sensor_id": "c2dbea4c-9559-43a4-ac11-577f350eab04",
-        "sensor_type": "Humidity",
+        "sensor_id": "dbfea79b-5c17-47d2-b86c-606514726543",
+        "sensor_type": "Rain",
         "point_coordinates": [
             28.15204291764706,
             46.62252891764706
-        ]
+        ],
+        "parcel_id": "Grapevine#dcce31f9-ccf6-4f0c-985d-91d8a2276091"
     },
     {
-        "sensor_id": "7c3fd171-03aa-4c4e-9621-be15593ff279",
+        "sensor_id": "3c2ec8c8-1145-4f2b-a051-f1b64c4e6f55",
         "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.15384535882353,
             46.62252891764706
-        ]
+        ],
+        "parcel_id": "Grapevine#dcce31f9-ccf6-4f0c-985d-91d8a2276091"
     },
     {
-        "sensor_id": "3bdc0bfb-a8e0-48e7-a516-a7fb808f04d6",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "b24f23a9-8016-42b0-be19-f3a07923dd22",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.13041362352941,
             46.62376584705882
-        ]
+        ],
+        "parcel_id": "Chickpeas#b236aa8f-217c-4130-99fb-b06329092470"
     },
     {
-        "sensor_id": "adc10678-7fb6-4ee2-9107-33735f08c00d",
-        "sensor_type": "Humidity",
+        "sensor_id": "a23127de-fe87-4067-8d09-502a0f15bcef",
+        "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.132216064705883,
             46.62376584705882
-        ]
+        ],
+        "parcel_id": "Chickpeas#b236aa8f-217c-4130-99fb-b06329092470"
     },
     {
-        "sensor_id": "2a97bb1b-5aee-41b3-8e23-9014cc1bdb16",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "a20b6bdd-d483-4ec9-a423-879e86ac0b6b",
+        "sensor_type": "Rain",
         "point_coordinates": [
             28.134018505882352,
             46.62376584705882
-        ]
+        ],
+        "parcel_id": "Grapevine#ed15bf5c-04d9-40d1-b483-b7082cd195f1"
     },
     {
-        "sensor_id": "6dbbee07-5be2-4d7a-8240-1c57283c6ff7",
+        "sensor_id": "bf421813-5dd6-403c-8fcf-2d4c46ed359e",
         "sensor_type": "SoilPH",
         "point_coordinates": [
             28.13582094705882,
             46.62376584705882
-        ]
+        ],
+        "parcel_id": "Grapevine#ed15bf5c-04d9-40d1-b483-b7082cd195f1"
     },
     {
-        "sensor_id": "139cbf34-1e3a-4564-80fb-8869fb259bec",
-        "sensor_type": "Humidity",
+        "sensor_id": "c6048f1e-2ddf-4b0e-940c-874ebb405f48",
+        "sensor_type": "Light",
         "point_coordinates": [
             28.137623388235294,
             46.62376584705882
-        ]
+        ],
+        "parcel_id": "Grapevine#ed15bf5c-04d9-40d1-b483-b7082cd195f1"
     },
     {
-        "sensor_id": "5e8163ab-0c00-497f-81da-c253566aea1e",
-        "sensor_type": "Rain",
+        "sensor_id": "ca8df7b7-268a-4c03-bcda-cce1caa63642",
+        "sensor_type": "SoilPH",
         "point_coordinates": [
             28.139425829411763,
             46.62376584705882
-        ]
+        ],
+        "parcel_id": "Grapevine#ed15bf5c-04d9-40d1-b483-b7082cd195f1"
     },
     {
-        "sensor_id": "5bc4a61e-1c8e-4fe8-9b35-13fff9f5d0c2",
-        "sensor_type": "Rain",
+        "sensor_id": "a26cfe8b-dbd8-4c59-a4c0-66a2a269c0d4",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.141228270588236,
             46.62376584705882
-        ]
+        ],
+        "parcel_id": "Grapevine#ed15bf5c-04d9-40d1-b483-b7082cd195f1"
     },
     {
-        "sensor_id": "a2e5471a-ea70-4b96-a6a2-73a5bd37825e",
-        "sensor_type": "Temperature",
+        "sensor_id": "a03db512-31b0-47b6-9b02-d16c075f1694",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.143030711764705,
             46.62376584705882
-        ]
+        ],
+        "parcel_id": "Chickpeas#3225eba0-4695-48ee-9616-62dc5256b4e2"
     },
     {
-        "sensor_id": "0ac80d52-179e-41e0-9df0-146fb7fc974d",
+        "sensor_id": "66e57f3a-6aa2-47f9-9917-e0f02c10aa32",
         "sensor_type": "Humidity",
         "point_coordinates": [
             28.144833152941178,
             46.62376584705882
-        ]
+        ],
+        "parcel_id": "Chickpeas#3225eba0-4695-48ee-9616-62dc5256b4e2"
     },
     {
-        "sensor_id": "085791f8-04bc-4abd-bfea-70b03ae6c0ec",
+        "sensor_id": "57bf26c3-d792-4906-a717-a90c5e400e61",
         "sensor_type": "Rain",
         "point_coordinates": [
             28.146635594117647,
             46.62376584705882
-        ]
+        ],
+        "parcel_id": "Chickpeas#3225eba0-4695-48ee-9616-62dc5256b4e2"
     },
     {
-        "sensor_id": "45db78d2-4421-414f-bec8-d5c68e61c9a2",
-        "sensor_type": "Temperature",
+        "sensor_id": "5746b217-4f7e-46df-9b15-b8e7f18e50bf",
+        "sensor_type": "Rain",
         "point_coordinates": [
             28.148438035294117,
             46.62376584705882
-        ]
+        ],
+        "parcel_id": "Chickpeas#3225eba0-4695-48ee-9616-62dc5256b4e2"
     },
     {
-        "sensor_id": "062ac1e8-1235-44f1-a4ba-15981277a6f0",
-        "sensor_type": "SoilPH",
+        "sensor_id": "7536f40b-aac8-49e5-8c81-66a784e0d2e9",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.15024047647059,
             46.62376584705882
-        ]
+        ],
+        "parcel_id": "Chickpeas#3225eba0-4695-48ee-9616-62dc5256b4e2"
     },
     {
-        "sensor_id": "c55d63fa-6921-47fe-9927-682ba128381f",
-        "sensor_type": "Light",
+        "sensor_id": "c928ea3e-7c84-4f6a-8da5-1514689fbaa6",
+        "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.15204291764706,
             46.62376584705882
-        ]
+        ],
+        "parcel_id": "Grapevine#dcce31f9-ccf6-4f0c-985d-91d8a2276091"
     },
     {
-        "sensor_id": "76d93779-75d4-4d5c-acf6-8033a400de16",
+        "sensor_id": "095b0eef-1505-4817-b80e-3fc029fc09aa",
         "sensor_type": "Temperature",
         "point_coordinates": [
             28.15384535882353,
             46.62376584705882
-        ]
+        ],
+        "parcel_id": "Grapevine#dcce31f9-ccf6-4f0c-985d-91d8a2276091"
     },
     {
-        "sensor_id": "2bd0337e-5ea9-4c93-a0e4-abad69820e99",
-        "sensor_type": "Light",
+        "sensor_id": "d26d6e62-79b4-4102-9b29-d4d1faf70997",
+        "sensor_type": "Temperature",
         "point_coordinates": [
             28.13041362352941,
             46.62500277647059
-        ]
+        ],
+        "parcel_id": "Chickpeas#b236aa8f-217c-4130-99fb-b06329092470"
     },
     {
-        "sensor_id": "46183c07-4b87-418f-8f96-aec756c2e54c",
-        "sensor_type": "SoilPH",
+        "sensor_id": "49eb8e67-619c-4e98-9bb7-f10e799959bb",
+        "sensor_type": "Light",
         "point_coordinates": [
             28.132216064705883,
             46.62500277647059
-        ]
+        ],
+        "parcel_id": "Chickpeas#b236aa8f-217c-4130-99fb-b06329092470"
     },
     {
-        "sensor_id": "3404e9b0-c8c1-48da-b3bb-1b1fa4185a3e",
-        "sensor_type": "Light",
+        "sensor_id": "7e9ecfea-c6c0-4e4c-bf4c-be2b20a38006",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.134018505882352,
             46.62500277647059
-        ]
+        ],
+        "parcel_id": "Chickpeas#b236aa8f-217c-4130-99fb-b06329092470"
     },
     {
-        "sensor_id": "8566d0ba-1f1c-478c-9354-25658526034c",
-        "sensor_type": "SoilPH",
+        "sensor_id": "acd1f126-a358-4a9c-bc34-abb245b2a92a",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.13582094705882,
             46.62500277647059
-        ]
+        ],
+        "parcel_id": "Chickpeas#b236aa8f-217c-4130-99fb-b06329092470"
     },
     {
-        "sensor_id": "0821ec53-fd9c-4c24-b225-1837c43468b2",
-        "sensor_type": "Temperature",
+        "sensor_id": "3ebdb70f-3d8a-4081-a7e3-6c73c0186333",
+        "sensor_type": "Light",
         "point_coordinates": [
             28.137623388235294,
             46.62500277647059
-        ]
+        ],
+        "parcel_id": "Chickpeas#b236aa8f-217c-4130-99fb-b06329092470"
     },
     {
-        "sensor_id": "05896f06-3197-462b-ae4c-ee8c120a5dbb",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "0e50d3c1-e300-4270-8ed2-9ca9765a5cd2",
+        "sensor_type": "Rain",
         "point_coordinates": [
             28.139425829411763,
             46.62500277647059
-        ]
+        ],
+        "parcel_id": "Grapevine#ed15bf5c-04d9-40d1-b483-b7082cd195f1"
     },
     {
-        "sensor_id": "9ab4aba6-14f6-43a1-999f-239a4323d9b4",
+        "sensor_id": "0363b1b1-db4b-4424-87a5-8e2227d450a9",
         "sensor_type": "Rain",
         "point_coordinates": [
             28.141228270588236,
             46.62500277647059
-        ]
+        ],
+        "parcel_id": "Grapevine#ed15bf5c-04d9-40d1-b483-b7082cd195f1"
     },
     {
-        "sensor_id": "6ddb01af-5dff-4ecc-9e89-a9af5808e8cd",
-        "sensor_type": "SoilPH",
+        "sensor_id": "5cde39b0-de0e-480d-a6d4-dde271ab3007",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.143030711764705,
             46.62500277647059
-        ]
+        ],
+        "parcel_id": "Grapevine#ed15bf5c-04d9-40d1-b483-b7082cd195f1"
     },
     {
-        "sensor_id": "41f1d60e-83d0-41c4-8789-7532c1dfce80",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "3bbb1ba8-5883-4c1d-b93c-6d8cf2ce6021",
+        "sensor_type": "Light",
         "point_coordinates": [
             28.144833152941178,
             46.62500277647059
-        ]
+        ],
+        "parcel_id": "Grapevine#ed15bf5c-04d9-40d1-b483-b7082cd195f1"
     },
     {
-        "sensor_id": "acfc4668-9405-4ac9-8269-3c24b418b8f4",
-        "sensor_type": "SoilPH",
+        "sensor_id": "f51bcd88-a1b7-4af2-ad70-6f3132c1bbbe",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.146635594117647,
             46.62500277647059
-        ]
+        ],
+        "parcel_id": "Grapevine#ed15bf5c-04d9-40d1-b483-b7082cd195f1"
     },
     {
-        "sensor_id": "986eb764-efdc-4988-9d09-9fb7a0cd42ab",
-        "sensor_type": "SoilPH",
+        "sensor_id": "136dce58-9352-40e6-81b1-c0cd4684c6f8",
+        "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.148438035294117,
             46.62500277647059
-        ]
+        ],
+        "parcel_id": "Chickpeas#3225eba0-4695-48ee-9616-62dc5256b4e2"
     },
     {
-        "sensor_id": "a9e98c63-f1db-4140-9267-2f69175db9d0",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "90c181e1-27a5-428d-ae2b-e1cf0e6d1d07",
+        "sensor_type": "Light",
         "point_coordinates": [
             28.15024047647059,
             46.62500277647059
-        ]
+        ],
+        "parcel_id": "Chickpeas#3225eba0-4695-48ee-9616-62dc5256b4e2"
     },
     {
-        "sensor_id": "47c70b08-ccd6-43e3-b95f-198c9c51d68c",
-        "sensor_type": "SoilPH",
+        "sensor_id": "402d0347-7756-41bb-8a1b-3b6797391f48",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.15204291764706,
             46.62500277647059
-        ]
+        ],
+        "parcel_id": "Chickpeas#3225eba0-4695-48ee-9616-62dc5256b4e2"
     },
     {
-        "sensor_id": "b292f1f0-0337-444f-b2cb-21fe2b44d0e2",
-        "sensor_type": "Rain",
+        "sensor_id": "cba62ea4-5aed-421b-906c-24b73bc4c641",
+        "sensor_type": "Temperature",
         "point_coordinates": [
             28.15384535882353,
             46.62500277647059
-        ]
+        ],
+        "parcel_id": "Chickpeas#3225eba0-4695-48ee-9616-62dc5256b4e2"
     },
     {
-        "sensor_id": "9296b2a2-370b-4127-acb0-132f5d44e364",
-        "sensor_type": "Humidity",
+        "sensor_id": "4f51a129-4e39-426c-aabc-2907f5c0449e",
+        "sensor_type": "SoilPH",
         "point_coordinates": [
             28.13041362352941,
             46.626239705882355
-        ]
+        ],
+        "parcel_id": "Grapevine#cfc9e173-8bcd-4a0a-adc2-79a084227093"
     },
     {
-        "sensor_id": "466a388a-3243-473e-a800-d29f961a7f83",
-        "sensor_type": "Light",
+        "sensor_id": "13899e6c-d5b2-48c6-840c-756c0050b83d",
+        "sensor_type": "Temperature",
         "point_coordinates": [
             28.132216064705883,
             46.626239705882355
-        ]
+        ],
+        "parcel_id": "Grapevine#cfc9e173-8bcd-4a0a-adc2-79a084227093"
     },
     {
-        "sensor_id": "e78d3f44-b445-4f1a-a6bd-f55456fc89fc",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "b2464c98-00ed-47bc-9432-8bffd8999f5e",
+        "sensor_type": "Light",
         "point_coordinates": [
             28.134018505882352,
             46.626239705882355
-        ]
+        ],
+        "parcel_id": "Grapevine#cfc9e173-8bcd-4a0a-adc2-79a084227093"
     },
     {
-        "sensor_id": "a1a0d4df-4fd9-46b8-b042-1da65cea9d7c",
+        "sensor_id": "54b064d3-ed4b-4cac-b457-287d32119457",
         "sensor_type": "Temperature",
         "point_coordinates": [
             28.13582094705882,
             46.626239705882355
-        ]
+        ],
+        "parcel_id": "Chickpeas#b236aa8f-217c-4130-99fb-b06329092470"
     },
     {
-        "sensor_id": "5cf49c62-3dce-4e14-861e-d8ae3c32f943",
-        "sensor_type": "Temperature",
+        "sensor_id": "6ec5f81e-a9c2-4ca8-a29c-d71c1ff761cf",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.137623388235294,
             46.626239705882355
-        ]
+        ],
+        "parcel_id": "Chickpeas#b236aa8f-217c-4130-99fb-b06329092470"
     },
     {
-        "sensor_id": "3a744574-eb5e-4156-9d25-c220a9efd374",
-        "sensor_type": "SoilPH",
+        "sensor_id": "8b45e358-b4c9-4301-9038-b0e32594e964",
+        "sensor_type": "Temperature",
         "point_coordinates": [
             28.139425829411763,
             46.626239705882355
-        ]
+        ],
+        "parcel_id": "Chickpeas#b236aa8f-217c-4130-99fb-b06329092470"
     },
     {
-        "sensor_id": "765702e4-a37c-4e40-8872-4d47a1dafb53",
-        "sensor_type": "Humidity",
+        "sensor_id": "85b19a7b-d821-438c-b58e-945ff69d954d",
+        "sensor_type": "Light",
         "point_coordinates": [
             28.141228270588236,
             46.626239705882355
-        ]
+        ],
+        "parcel_id": "Chickpeas#b236aa8f-217c-4130-99fb-b06329092470"
     },
     {
-        "sensor_id": "f32afaa7-3b9d-4d68-a33a-9b8bb5248cbc",
+        "sensor_id": "104a55dc-2a0d-4720-aec7-e25459d695fe",
         "sensor_type": "Humidity",
         "point_coordinates": [
             28.143030711764705,
             46.626239705882355
-        ]
+        ],
+        "parcel_id": "Chickpeas#b236aa8f-217c-4130-99fb-b06329092470"
     },
     {
-        "sensor_id": "a35339e5-5479-4810-a6ff-e26a53571335",
-        "sensor_type": "Humidity",
+        "sensor_id": "b5e2e263-ff48-4bf1-ab33-e9ca7858da61",
+        "sensor_type": "Light",
         "point_coordinates": [
             28.144833152941178,
             46.626239705882355
-        ]
+        ],
+        "parcel_id": "Grapevine#ed15bf5c-04d9-40d1-b483-b7082cd195f1"
     },
     {
-        "sensor_id": "8689c890-7bec-41ab-ade7-462ec91c5fe1",
-        "sensor_type": "Temperature",
+        "sensor_id": "bf447c84-3b49-4034-a376-8c810dacaade",
+        "sensor_type": "Light",
         "point_coordinates": [
             28.146635594117647,
             46.626239705882355
-        ]
+        ],
+        "parcel_id": "Grapevine#ed15bf5c-04d9-40d1-b483-b7082cd195f1"
     },
     {
-        "sensor_id": "4ee4c001-4624-4193-abdc-2c2d1d029722",
-        "sensor_type": "Rain",
+        "sensor_id": "1db6383c-b79e-4b93-81aa-8e2e1cab14b5",
+        "sensor_type": "SoilPH",
         "point_coordinates": [
             28.148438035294117,
             46.626239705882355
-        ]
+        ],
+        "parcel_id": "Grapevine#ed15bf5c-04d9-40d1-b483-b7082cd195f1"
     },
     {
-        "sensor_id": "fe714900-10a6-40eb-9153-4facc687fa69",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "a290172c-380d-469f-a684-c5f36123f8a4",
+        "sensor_type": "Light",
         "point_coordinates": [
             28.15024047647059,
             46.626239705882355
-        ]
+        ],
+        "parcel_id": "Grapevine#ed15bf5c-04d9-40d1-b483-b7082cd195f1"
     },
     {
-        "sensor_id": "6f23bd01-3192-428c-94a7-8a57956bc7d7",
-        "sensor_type": "SoilPH",
+        "sensor_id": "ba9ddb3a-9d84-49cc-8448-15ea92e66749",
+        "sensor_type": "Temperature",
         "point_coordinates": [
             28.15204291764706,
             46.626239705882355
-        ]
+        ],
+        "parcel_id": "Grapevine#ed15bf5c-04d9-40d1-b483-b7082cd195f1"
     },
     {
-        "sensor_id": "1204dd65-e825-4988-9935-b5b2572d355f",
-        "sensor_type": "Humidity",
+        "sensor_id": "c8626acf-3ff9-4895-9740-8991256edb7e",
+        "sensor_type": "Light",
         "point_coordinates": [
             28.12861118235294,
             46.627476635294116
-        ]
+        ],
+        "parcel_id": "Chickpeas#c0076441-b2ad-4853-9469-a32fb116f547"
     },
     {
-        "sensor_id": "67dee73f-0f66-40b4-ae75-ab97a8a809dd",
-        "sensor_type": "Temperature",
+        "sensor_id": "4644f152-30a0-42c7-8028-3dd554837c0a",
+        "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.13041362352941,
             46.627476635294116
-        ]
+        ],
+        "parcel_id": "Chickpeas#c0076441-b2ad-4853-9469-a32fb116f547"
     },
     {
-        "sensor_id": "e8cc0cd0-b997-4ec3-b270-a7da78e819de",
+        "sensor_id": "dbef8fb3-ec25-451f-a7ee-a01ca801db74",
         "sensor_type": "SoilPH",
         "point_coordinates": [
             28.132216064705883,
             46.627476635294116
-        ]
+        ],
+        "parcel_id": "Chickpeas#c0076441-b2ad-4853-9469-a32fb116f547"
     },
     {
-        "sensor_id": "18fd3ed5-e72d-4553-9a6b-c7d98e6ba48b",
-        "sensor_type": "Rain",
+        "sensor_id": "b7f521ab-5ab6-4281-a45c-f7ad2d5c090d",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.134018505882352,
             46.627476635294116
-        ]
+        ],
+        "parcel_id": "Grapevine#cfc9e173-8bcd-4a0a-adc2-79a084227093"
     },
     {
-        "sensor_id": "fee30b89-8a0f-4cfd-9d4e-7ec9ca9898c5",
-        "sensor_type": "Humidity",
+        "sensor_id": "c5051f8f-9245-466f-990a-b2748b81bdf1",
+        "sensor_type": "Rain",
         "point_coordinates": [
             28.13582094705882,
             46.627476635294116
-        ]
+        ],
+        "parcel_id": "Grapevine#cfc9e173-8bcd-4a0a-adc2-79a084227093"
     },
     {
-        "sensor_id": "23eda3e8-82f0-46e3-8493-fd5ad6d125d5",
+        "sensor_id": "ef4274c9-dfa2-41c7-a316-683d9b897535",
         "sensor_type": "Light",
         "point_coordinates": [
             28.137623388235294,
             46.627476635294116
-        ]
+        ],
+        "parcel_id": "Grapevine#cfc9e173-8bcd-4a0a-adc2-79a084227093"
     },
     {
-        "sensor_id": "dfd85df4-7c22-49f1-9867-34c41e99ada4",
-        "sensor_type": "Light",
+        "sensor_id": "28aa449c-5eb6-466e-8d54-8bd11f65b626",
+        "sensor_type": "SoilPH",
         "point_coordinates": [
             28.139425829411763,
             46.627476635294116
-        ]
+        ],
+        "parcel_id": "Grapevine#cfc9e173-8bcd-4a0a-adc2-79a084227093"
     },
     {
-        "sensor_id": "2501c057-49a4-4823-9f8b-e9578298adc8",
-        "sensor_type": "Humidity",
+        "sensor_id": "53898631-9ea5-4b4e-8609-17c09c0f2d40",
+        "sensor_type": "SoilPH",
         "point_coordinates": [
             28.141228270588236,
             46.627476635294116
-        ]
+        ],
+        "parcel_id": "Chickpeas#b236aa8f-217c-4130-99fb-b06329092470"
     },
     {
-        "sensor_id": "c3c4e287-8931-4360-bf6f-8b5760695244",
-        "sensor_type": "Temperature",
+        "sensor_id": "20caa60c-6fcd-4785-9088-1370763dccee",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.143030711764705,
             46.627476635294116
-        ]
+        ],
+        "parcel_id": "Chickpeas#b236aa8f-217c-4130-99fb-b06329092470"
     },
     {
-        "sensor_id": "c9116d4f-134e-4505-a9d6-6c26d91d9844",
-        "sensor_type": "Temperature",
+        "sensor_id": "0ea87861-ee4f-48f2-af85-b9f76e706b8f",
+        "sensor_type": "Light",
         "point_coordinates": [
             28.144833152941178,
             46.627476635294116
-        ]
+        ],
+        "parcel_id": "Chickpeas#b236aa8f-217c-4130-99fb-b06329092470"
     },
     {
-        "sensor_id": "e6fe4d4e-b57c-4128-89e8-de2b5ba1f38a",
-        "sensor_type": "Humidity",
+        "sensor_id": "e0ffdb7b-ef30-4f0c-8d95-07370ba034c9",
+        "sensor_type": "Light",
         "point_coordinates": [
             28.146635594117647,
             46.627476635294116
-        ]
+        ],
+        "parcel_id": "Chickpeas#b236aa8f-217c-4130-99fb-b06329092470"
     },
     {
-        "sensor_id": "2e720205-ea39-4210-a243-d0627d06d5b4",
-        "sensor_type": "Rain",
+        "sensor_id": "7547a80a-a979-40e3-91d8-327935f09457",
+        "sensor_type": "Light",
         "point_coordinates": [
             28.148438035294117,
             46.627476635294116
-        ]
+        ],
+        "parcel_id": "Chickpeas#b236aa8f-217c-4130-99fb-b06329092470"
     },
     {
-        "sensor_id": "7ae8244f-a36f-480e-bf91-e1eb63af1274",
-        "sensor_type": "Light",
+        "sensor_id": "84cfedd4-31de-4ce1-8152-eb0536c00624",
+        "sensor_type": "Rain",
         "point_coordinates": [
             28.15024047647059,
             46.627476635294116
-        ]
+        ],
+        "parcel_id": "Grapevine#ed15bf5c-04d9-40d1-b483-b7082cd195f1"
     },
     {
-        "sensor_id": "49298610-9c55-4475-8355-5c6296710e85",
-        "sensor_type": "Humidity",
+        "sensor_id": "7b6d9817-3b04-4227-ad8b-5ca2be01ab66",
+        "sensor_type": "Rain",
         "point_coordinates": [
             28.15204291764706,
             46.627476635294116
-        ]
+        ],
+        "parcel_id": "Grapevine#ed15bf5c-04d9-40d1-b483-b7082cd195f1"
     },
     {
-        "sensor_id": "8a737e7d-a7f7-482b-bbbb-d1d0e951bc32",
+        "sensor_id": "461247b7-8958-42fa-89af-1d6005d04bf4",
         "sensor_type": "SoilPH",
         "point_coordinates": [
             28.12861118235294,
             46.62871356470588
-        ]
+        ],
+        "parcel_id": "Chickpeas#c0076441-b2ad-4853-9469-a32fb116f547"
     },
     {
-        "sensor_id": "c1c88e26-2c70-4329-83c7-59fcbfcb9280",
-        "sensor_type": "SoilPH",
+        "sensor_id": "1ac9c40c-c8c5-43ce-a23a-6d226e0a0e3d",
+        "sensor_type": "Rain",
         "point_coordinates": [
             28.13041362352941,
             46.62871356470588
-        ]
+        ],
+        "parcel_id": "Chickpeas#c0076441-b2ad-4853-9469-a32fb116f547"
     },
     {
-        "sensor_id": "daa03913-a7fb-40c6-8538-2949d89b82c5",
-        "sensor_type": "Temperature",
+        "sensor_id": "6ac530c1-af03-42af-855b-8328526e7d94",
+        "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.132216064705883,
             46.62871356470588
-        ]
+        ],
+        "parcel_id": "Chickpeas#c0076441-b2ad-4853-9469-a32fb116f547"
     },
     {
-        "sensor_id": "78738820-2680-458e-8a5f-34073a2a8b45",
-        "sensor_type": "Temperature",
+        "sensor_id": "decfad7f-cf79-41b2-9752-bfc5827a8c45",
+        "sensor_type": "SoilPH",
         "point_coordinates": [
             28.134018505882352,
             46.62871356470588
-        ]
+        ],
+        "parcel_id": "Chickpeas#c0076441-b2ad-4853-9469-a32fb116f547"
     },
     {
-        "sensor_id": "f682e2bc-b80b-42b0-bd5a-657f1ebab1ee",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "9835f17c-5243-4db5-909f-05f4354de86e",
+        "sensor_type": "Light",
         "point_coordinates": [
             28.13582094705882,
             46.62871356470588
-        ]
+        ],
+        "parcel_id": "Chickpeas#c0076441-b2ad-4853-9469-a32fb116f547"
     },
     {
-        "sensor_id": "76c0d9d1-4708-4eb5-8fcd-a489742759ba",
-        "sensor_type": "Light",
+        "sensor_id": "72a057ba-e11a-4c47-a6ed-a4d9e9665837",
+        "sensor_type": "SoilPH",
         "point_coordinates": [
             28.137623388235294,
             46.62871356470588
-        ]
+        ],
+        "parcel_id": "Chickpeas#c0076441-b2ad-4853-9469-a32fb116f547"
     },
     {
-        "sensor_id": "b7baae65-8c6b-4db2-867c-87ba1eba54fb",
-        "sensor_type": "SoilPH",
+        "sensor_id": "379309f0-8bd8-4e13-a23b-99d7ad7ed7be",
+        "sensor_type": "Temperature",
         "point_coordinates": [
             28.139425829411763,
             46.62871356470588
-        ]
+        ],
+        "parcel_id": "Grapevine#cfc9e173-8bcd-4a0a-adc2-79a084227093"
     },
     {
-        "sensor_id": "5da2d9df-40ba-4d03-96e3-e9c8c79a9b24",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "47905338-c2cd-4743-8500-ec7938d6a67d",
+        "sensor_type": "Light",
         "point_coordinates": [
             28.141228270588236,
             46.62871356470588
-        ]
+        ],
+        "parcel_id": "Grapevine#cfc9e173-8bcd-4a0a-adc2-79a084227093"
     },
     {
-        "sensor_id": "2a7e211f-e906-4c13-b39b-55af36675207",
+        "sensor_id": "b604f5a3-8bde-4787-a3f6-726b06e8f4c2",
         "sensor_type": "Humidity",
         "point_coordinates": [
             28.143030711764705,
             46.62871356470588
-        ]
+        ],
+        "parcel_id": "Grapevine#cfc9e173-8bcd-4a0a-adc2-79a084227093"
     },
     {
-        "sensor_id": "96721614-dd91-4c41-85a7-dc2ac56b3541",
+        "sensor_id": "8acc6f3e-73bf-4e8d-b8a8-e6eaaec7cd93",
         "sensor_type": "SoilPH",
         "point_coordinates": [
             28.144833152941178,
             46.62871356470588
-        ]
+        ],
+        "parcel_id": "Grapevine#cfc9e173-8bcd-4a0a-adc2-79a084227093"
     },
     {
-        "sensor_id": "393b4111-c323-4e5d-b124-aff1ff8e49a7",
-        "sensor_type": "Rain",
+        "sensor_id": "a8de7ae7-ada2-4f69-9261-3f182fa9bacf",
+        "sensor_type": "SoilPH",
         "point_coordinates": [
             28.146635594117647,
             46.62871356470588
-        ]
+        ],
+        "parcel_id": "Chickpeas#b236aa8f-217c-4130-99fb-b06329092470"
     },
     {
-        "sensor_id": "e1f0751d-2d4f-4b58-9372-470c4fa72cb8",
-        "sensor_type": "Humidity",
+        "sensor_id": "5794be7d-f700-45b8-a6d7-f83722c0d663",
+        "sensor_type": "Light",
         "point_coordinates": [
             28.148438035294117,
             46.62871356470588
-        ]
+        ],
+        "parcel_id": "Chickpeas#b236aa8f-217c-4130-99fb-b06329092470"
     },
     {
-        "sensor_id": "49a4129c-771c-4929-80d8-f47ec1b37fc9",
+        "sensor_id": "56205eec-434a-44ac-9898-7e6bc0537d3d",
         "sensor_type": "Humidity",
         "point_coordinates": [
             28.15024047647059,
             46.62871356470588
-        ]
+        ],
+        "parcel_id": "Chickpeas#b236aa8f-217c-4130-99fb-b06329092470"
     },
     {
-        "sensor_id": "0aee46d8-c451-4c2f-b0da-1d462542acd8",
+        "sensor_id": "d15e8e57-cf2e-45d9-8bbe-bf5e77588605",
         "sensor_type": "Light",
         "point_coordinates": [
             28.12861118235294,
             46.629950494117644
-        ]
+        ],
+        "parcel_id": "Grapevine#e9f3ee81-43f1-491f-bdef-9a64f3b396cb"
     },
     {
-        "sensor_id": "27a0f61c-09c6-4165-bf82-a44c72930924",
-        "sensor_type": "SoilPH",
+        "sensor_id": "ee47f747-8d41-4765-94c2-f937bcff8d91",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.13041362352941,
             46.629950494117644
-        ]
+        ],
+        "parcel_id": "Grapevine#e9f3ee81-43f1-491f-bdef-9a64f3b396cb"
     },
     {
-        "sensor_id": "60a9e43a-120d-4b2a-aee2-06c2804cd5a0",
-        "sensor_type": "Humidity",
+        "sensor_id": "0ee5797b-434a-4fa4-98cd-558cde0859a3",
+        "sensor_type": "SoilPH",
         "point_coordinates": [
             28.132216064705883,
             46.629950494117644
-        ]
+        ],
+        "parcel_id": "Chickpeas#c0076441-b2ad-4853-9469-a32fb116f547"
     },
     {
-        "sensor_id": "39490c8a-6a20-4f4e-9f31-f2fe9bd7e227",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "1a15d6fa-cad3-4010-bc25-05c2a54cbab9",
+        "sensor_type": "Temperature",
         "point_coordinates": [
             28.134018505882352,
             46.629950494117644
-        ]
+        ],
+        "parcel_id": "Chickpeas#c0076441-b2ad-4853-9469-a32fb116f547"
     },
     {
-        "sensor_id": "33cee21c-4d62-4fa7-8c85-e6dc1d60e5b0",
-        "sensor_type": "Humidity",
+        "sensor_id": "7cfd75e6-8cc2-4e4a-9dd6-0450dd43fcb4",
+        "sensor_type": "Light",
         "point_coordinates": [
             28.13582094705882,
             46.629950494117644
-        ]
+        ],
+        "parcel_id": "Chickpeas#c0076441-b2ad-4853-9469-a32fb116f547"
     },
     {
-        "sensor_id": "e759a884-f22e-42f6-a0ae-0764754afc68",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "cbd52e27-19c2-45d8-b5af-6181d677f2f6",
+        "sensor_type": "Rain",
         "point_coordinates": [
             28.137623388235294,
             46.629950494117644
-        ]
+        ],
+        "parcel_id": "Chickpeas#c0076441-b2ad-4853-9469-a32fb116f547"
     },
     {
-        "sensor_id": "4133a40c-6b95-400e-a702-6434e6e819ab",
-        "sensor_type": "Rain",
+        "sensor_id": "5a9ce3f0-3d0e-462a-9fc2-7bda60a1a1be",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.139425829411763,
             46.629950494117644
-        ]
+        ],
+        "parcel_id": "Chickpeas#c0076441-b2ad-4853-9469-a32fb116f547"
     },
     {
-        "sensor_id": "b8344994-f4d5-448d-8b91-e574088be7ec",
+        "sensor_id": "286c163d-c513-4f48-936e-89248674d839",
         "sensor_type": "Rain",
         "point_coordinates": [
             28.141228270588236,
             46.629950494117644
-        ]
+        ],
+        "parcel_id": "Chickpeas#c0076441-b2ad-4853-9469-a32fb116f547"
     },
     {
-        "sensor_id": "c960952f-aa37-4fef-9186-203028529288",
-        "sensor_type": "Humidity",
+        "sensor_id": "77a8befb-eea3-42f7-a72b-8af67db37ed9",
+        "sensor_type": "SoilPH",
         "point_coordinates": [
             28.143030711764705,
             46.629950494117644
-        ]
+        ],
+        "parcel_id": "Chickpeas#c0076441-b2ad-4853-9469-a32fb116f547"
     },
     {
-        "sensor_id": "b7942101-96f9-4881-a61e-c382e5ebe7ed",
-        "sensor_type": "Light",
+        "sensor_id": "d713b05c-b3c2-4993-a889-69a111f5c2a7",
+        "sensor_type": "SoilPH",
         "point_coordinates": [
             28.144833152941178,
             46.629950494117644
-        ]
+        ],
+        "parcel_id": "Grapevine#cfc9e173-8bcd-4a0a-adc2-79a084227093"
     },
     {
-        "sensor_id": "a8e8e34b-f006-4193-afe5-e2aee90571f8",
-        "sensor_type": "Rain",
+        "sensor_id": "2da4ddbd-96a5-499f-8555-3d865930d1f0",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.146635594117647,
             46.629950494117644
-        ]
+        ],
+        "parcel_id": "Grapevine#cfc9e173-8bcd-4a0a-adc2-79a084227093"
     },
     {
-        "sensor_id": "64fe1b65-ec68-4f18-9657-1e562dcd51df",
-        "sensor_type": "Temperature",
+        "sensor_id": "988ba8fe-dcb3-4971-9f83-fa7aee22c168",
+        "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.148438035294117,
             46.629950494117644
-        ]
+        ],
+        "parcel_id": "Grapevine#cfc9e173-8bcd-4a0a-adc2-79a084227093"
     },
     {
-        "sensor_id": "5a802a11-d48d-4c2d-b4e0-963b7f684a0a",
-        "sensor_type": "SoilPH",
+        "sensor_id": "a4196097-f5cc-4029-9b71-06f9bc0eb593",
+        "sensor_type": "Light",
         "point_coordinates": [
             28.15024047647059,
             46.629950494117644
-        ]
+        ],
+        "parcel_id": "Grapevine#cfc9e173-8bcd-4a0a-adc2-79a084227093"
     },
     {
-        "sensor_id": "371b2037-c8cb-4e59-b756-d05496520731",
-        "sensor_type": "Temperature",
+        "sensor_id": "c446269f-1952-40f0-93e2-0548bf0b85c2",
+        "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.12680874117647,
             46.63118742352941
-        ]
+        ],
+        "parcel_id": "Chickpeas#957000a4-6b4a-4ff7-979d-9764d086ca01"
     },
     {
-        "sensor_id": "c429b0d4-2809-4d48-b309-144e300c15fb",
-        "sensor_type": "Light",
+        "sensor_id": "3ba3d10a-710f-48fd-8cee-665931ce22b2",
+        "sensor_type": "SoilPH",
         "point_coordinates": [
             28.12861118235294,
             46.63118742352941
-        ]
+        ],
+        "parcel_id": "Grapevine#e9f3ee81-43f1-491f-bdef-9a64f3b396cb"
     },
     {
-        "sensor_id": "3d151f7f-f2ef-46c6-a20f-ef8911e24330",
-        "sensor_type": "Rain",
+        "sensor_id": "d3611e4d-b507-43d6-8274-a7b708532096",
+        "sensor_type": "SoilPH",
         "point_coordinates": [
             28.13041362352941,
             46.63118742352941
-        ]
+        ],
+        "parcel_id": "Grapevine#e9f3ee81-43f1-491f-bdef-9a64f3b396cb"
     },
     {
-        "sensor_id": "411f0e3d-d60b-4992-b81d-7125d168a75b",
-        "sensor_type": "Humidity",
+        "sensor_id": "baee7cd4-9b58-42b7-ae4a-041806743083",
+        "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.132216064705883,
             46.63118742352941
-        ]
+        ],
+        "parcel_id": "Grapevine#e9f3ee81-43f1-491f-bdef-9a64f3b396cb"
     },
     {
-        "sensor_id": "d6290d3e-fd7b-41ee-ba73-5a3fcd6644ba",
-        "sensor_type": "Temperature",
+        "sensor_id": "c938ba5d-806b-45b1-86a5-a0b126f3e2d0",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.134018505882352,
             46.63118742352941
-        ]
+        ],
+        "parcel_id": "Grapevine#e9f3ee81-43f1-491f-bdef-9a64f3b396cb"
     },
     {
-        "sensor_id": "38564040-2520-4d84-aa59-4949b425e3f0",
-        "sensor_type": "Rain",
+        "sensor_id": "cbf7a0c1-824c-4779-9090-c679dd76481f",
+        "sensor_type": "Temperature",
         "point_coordinates": [
             28.13582094705882,
             46.63118742352941
-        ]
+        ],
+        "parcel_id": "Grapevine#e9f3ee81-43f1-491f-bdef-9a64f3b396cb"
     },
     {
-        "sensor_id": "cf1ace05-0fd4-4891-884a-ecc1fa4b5acf",
-        "sensor_type": "Temperature",
+        "sensor_id": "df3cad30-f3b6-47e4-9441-a3becd19c9df",
+        "sensor_type": "Light",
         "point_coordinates": [
             28.137623388235294,
             46.63118742352941
-        ]
+        ],
+        "parcel_id": "Chickpeas#c0076441-b2ad-4853-9469-a32fb116f547"
     },
     {
-        "sensor_id": "f8777871-8a55-4e0f-8cc6-687d9a4660f5",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "cbe19734-bc58-458d-84dc-f65315825116",
+        "sensor_type": "Temperature",
         "point_coordinates": [
             28.139425829411763,
             46.63118742352941
-        ]
+        ],
+        "parcel_id": "Chickpeas#c0076441-b2ad-4853-9469-a32fb116f547"
     },
     {
-        "sensor_id": "0778c0f9-a20e-4a7f-8dff-a4980360dd4d",
-        "sensor_type": "Temperature",
+        "sensor_id": "5fcf5b78-38a1-4f91-981e-d9e0439b79fd",
+        "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.141228270588236,
             46.63118742352941
-        ]
+        ],
+        "parcel_id": "Chickpeas#c0076441-b2ad-4853-9469-a32fb116f547"
     },
     {
-        "sensor_id": "69329091-11c4-4175-80c7-47653f4651cf",
-        "sensor_type": "Light",
+        "sensor_id": "f3c884e3-e198-4dff-b9e6-40ea04168751",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.143030711764705,
             46.63118742352941
-        ]
+        ],
+        "parcel_id": "Chickpeas#c0076441-b2ad-4853-9469-a32fb116f547"
     },
     {
-        "sensor_id": "92d35b23-eac1-4069-b78e-1ac8496f0b9b",
-        "sensor_type": "Humidity",
+        "sensor_id": "5c65b564-6ad0-4260-86a9-aadcc53687f4",
+        "sensor_type": "Rain",
         "point_coordinates": [
             28.144833152941178,
             46.63118742352941
-        ]
+        ],
+        "parcel_id": "Chickpeas#c0076441-b2ad-4853-9469-a32fb116f547"
     },
     {
-        "sensor_id": "f601c1dd-e484-42c5-9aeb-57f8bf1d8f60",
+        "sensor_id": "290d443d-bf2d-4efa-9301-db0ba2802b8f",
         "sensor_type": "Light",
         "point_coordinates": [
             28.146635594117647,
             46.63118742352941
-        ]
+        ],
+        "parcel_id": "Chickpeas#c0076441-b2ad-4853-9469-a32fb116f547"
     },
     {
-        "sensor_id": "9e9da231-6d84-4aad-841a-94d9dfe1f251",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "4081f742-639f-4ea0-bd64-285256c33cf9",
+        "sensor_type": "Temperature",
         "point_coordinates": [
             28.148438035294117,
             46.63118742352941
-        ]
+        ],
+        "parcel_id": "Chickpeas#c0076441-b2ad-4853-9469-a32fb116f547"
     },
     {
-        "sensor_id": "d180a58c-e451-4fe3-9b49-b8cd6c4d690b",
-        "sensor_type": "SoilPH",
+        "sensor_id": "6a6fba33-099b-49d3-8fab-75520ab1b92a",
+        "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.15024047647059,
             46.63118742352941
-        ]
+        ],
+        "parcel_id": "Grapevine#cfc9e173-8bcd-4a0a-adc2-79a084227093"
     },
     {
-        "sensor_id": "af209b1e-d864-441d-b944-d0a1fe4c42de",
-        "sensor_type": "Humidity",
+        "sensor_id": "7c627c03-e82b-483a-83c8-1f507b9515fd",
+        "sensor_type": "Temperature",
         "point_coordinates": [
             28.12680874117647,
             46.63242435294118
-        ]
+        ],
+        "parcel_id": "Chickpeas#957000a4-6b4a-4ff7-979d-9764d086ca01"
     },
     {
-        "sensor_id": "3a56b431-37d2-4397-811f-9c1145c692ab",
-        "sensor_type": "SoilPH",
+        "sensor_id": "d412cdc3-af2f-47a0-8ec3-bcc67c54db63",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.12861118235294,
             46.63242435294118
-        ]
+        ],
+        "parcel_id": "Chickpeas#957000a4-6b4a-4ff7-979d-9764d086ca01"
     },
     {
-        "sensor_id": "b8a139a6-9912-47dd-941e-6e36cefd293e",
-        "sensor_type": "Light",
+        "sensor_id": "cd3cc498-ca60-4a4c-952e-f327139d4daa",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.13041362352941,
             46.63242435294118
-        ]
+        ],
+        "parcel_id": "Chickpeas#957000a4-6b4a-4ff7-979d-9764d086ca01"
     },
     {
-        "sensor_id": "3ffb16ed-4de8-4e8c-af2b-f1ef4207cf02",
+        "sensor_id": "f0c78f84-a69c-4ef6-b82b-7e6719792e06",
         "sensor_type": "Humidity",
         "point_coordinates": [
             28.132216064705883,
             46.63242435294118
-        ]
+        ],
+        "parcel_id": "Chickpeas#957000a4-6b4a-4ff7-979d-9764d086ca01"
     },
     {
-        "sensor_id": "fd1f4534-4041-47dd-a64a-bc3f0861ec23",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "ad4afb01-1c96-43d9-8955-12a9f8e2f9e0",
+        "sensor_type": "Temperature",
         "point_coordinates": [
             28.134018505882352,
             46.63242435294118
-        ]
+        ],
+        "parcel_id": "Grapevine#e9f3ee81-43f1-491f-bdef-9a64f3b396cb"
     },
     {
-        "sensor_id": "047bcd8c-af3e-4db6-87f4-12dca620c1df",
-        "sensor_type": "Temperature",
+        "sensor_id": "1a62c8ab-bf71-4fab-9e29-81e7c63dd5e1",
+        "sensor_type": "Light",
         "point_coordinates": [
             28.13582094705882,
             46.63242435294118
-        ]
+        ],
+        "parcel_id": "Grapevine#e9f3ee81-43f1-491f-bdef-9a64f3b396cb"
     },
     {
-        "sensor_id": "2fbb78f5-cded-4dd8-bbcf-908e2e93f736",
-        "sensor_type": "Temperature",
+        "sensor_id": "0aab0a4e-0f82-45fb-9d15-d2b1329b5a62",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.137623388235294,
             46.63242435294118
-        ]
+        ],
+        "parcel_id": "Grapevine#e9f3ee81-43f1-491f-bdef-9a64f3b396cb"
     },
     {
-        "sensor_id": "1eb92c35-7bb3-43d8-b7c6-d1b514e12444",
-        "sensor_type": "SoilPH",
+        "sensor_id": "065bf365-429f-468f-8b95-23b920b7eecb",
+        "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.139425829411763,
             46.63242435294118
-        ]
+        ],
+        "parcel_id": "Grapevine#e9f3ee81-43f1-491f-bdef-9a64f3b396cb"
     },
     {
-        "sensor_id": "13946ba4-1b33-4056-b524-74dc21813f22",
-        "sensor_type": "SoilPH",
+        "sensor_id": "6385fd38-77da-42b8-a52c-f6a6036fba87",
+        "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.141228270588236,
             46.63242435294118
-        ]
+        ],
+        "parcel_id": "Grapevine#e9f3ee81-43f1-491f-bdef-9a64f3b396cb"
     },
     {
-        "sensor_id": "61333632-b2cf-4151-b957-fe76ecc8138d",
-        "sensor_type": "Temperature",
+        "sensor_id": "cc4e6224-e04b-4cc9-b15b-9b5c7fa5814c",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.143030711764705,
             46.63242435294118
-        ]
+        ],
+        "parcel_id": "Chickpeas#c0076441-b2ad-4853-9469-a32fb116f547"
     },
     {
-        "sensor_id": "98c459e2-6218-412c-9c97-4c6b2fde3f89",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "f4cca5d9-cd94-4615-bf92-10f8ae6b7d95",
+        "sensor_type": "Light",
         "point_coordinates": [
             28.144833152941178,
             46.63242435294118
-        ]
+        ],
+        "parcel_id": "Chickpeas#c0076441-b2ad-4853-9469-a32fb116f547"
     },
     {
-        "sensor_id": "ee0d9fb3-8343-4ee2-87cd-174706e5a530",
+        "sensor_id": "42941a7b-e4a6-4339-9c51-fc33f9db2bd2",
         "sensor_type": "SoilPH",
         "point_coordinates": [
             28.146635594117647,
             46.63242435294118
-        ]
+        ],
+        "parcel_id": "Chickpeas#c0076441-b2ad-4853-9469-a32fb116f547"
     },
     {
-        "sensor_id": "a4a4646a-3ddc-46a7-b1e4-2ae42935795a",
-        "sensor_type": "Temperature",
+        "sensor_id": "246bf5e2-b9bc-4a33-bd77-36808f8ed277",
+        "sensor_type": "SoilPH",
         "point_coordinates": [
             28.148438035294117,
             46.63242435294118
-        ]
+        ],
+        "parcel_id": "Chickpeas#c0076441-b2ad-4853-9469-a32fb116f547"
     },
     {
-        "sensor_id": "485eb435-0a79-477a-9f38-12fd1bd86978",
-        "sensor_type": "Humidity",
+        "sensor_id": "60acb1d3-bf3a-4f25-aa73-c75d0f495a8b",
+        "sensor_type": "SoilPH",
         "point_coordinates": [
             28.12680874117647,
             46.63366128235294
-        ]
+        ],
+        "parcel_id": "Chickpeas#957000a4-6b4a-4ff7-979d-9764d086ca01"
     },
     {
-        "sensor_id": "a80e931e-e308-4b4e-9280-57fffa3eab37",
-        "sensor_type": "Humidity",
+        "sensor_id": "36e7c3d8-457d-4de4-bde1-ad0c037f746a",
+        "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.12861118235294,
             46.63366128235294
-        ]
+        ],
+        "parcel_id": "Chickpeas#957000a4-6b4a-4ff7-979d-9764d086ca01"
     },
     {
-        "sensor_id": "79f5fe39-9aa2-4d37-a99f-4b7d79fddc58",
-        "sensor_type": "Humidity",
+        "sensor_id": "7355152b-19ec-4641-9a22-9150650ea878",
+        "sensor_type": "Temperature",
         "point_coordinates": [
             28.13041362352941,
             46.63366128235294
-        ]
+        ],
+        "parcel_id": "Chickpeas#957000a4-6b4a-4ff7-979d-9764d086ca01"
     },
     {
-        "sensor_id": "bf5c90cb-9dd4-43de-a9a8-cacf2c09f4b2",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "4b87f8f0-b3d5-4053-9ef1-2ff31032838d",
+        "sensor_type": "Rain",
         "point_coordinates": [
             28.132216064705883,
             46.63366128235294
-        ]
+        ],
+        "parcel_id": "Chickpeas#957000a4-6b4a-4ff7-979d-9764d086ca01"
     },
     {
-        "sensor_id": "a8e6fb77-fb12-4c95-af4b-7076cc04a671",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "75672f65-a6b0-433e-b92c-7ba1de65613b",
+        "sensor_type": "SoilPH",
         "point_coordinates": [
             28.134018505882352,
             46.63366128235294
-        ]
+        ],
+        "parcel_id": "Chickpeas#957000a4-6b4a-4ff7-979d-9764d086ca01"
     },
     {
-        "sensor_id": "4e0180f5-55b6-4c9b-af44-be5e71e16d6e",
-        "sensor_type": "Temperature",
+        "sensor_id": "b9fcf184-7436-419d-a357-cf449ebd811b",
+        "sensor_type": "Rain",
         "point_coordinates": [
             28.13582094705882,
             46.63366128235294
-        ]
+        ],
+        "parcel_id": "Chickpeas#957000a4-6b4a-4ff7-979d-9764d086ca01"
     },
     {
-        "sensor_id": "124b1715-1bec-4bf0-ba68-be2b0796025d",
-        "sensor_type": "Humidity",
+        "sensor_id": "6bf0c4f3-3a88-46ad-8f3b-5ae2b39a8aec",
+        "sensor_type": "Temperature",
         "point_coordinates": [
             28.137623388235294,
             46.63366128235294
-        ]
+        ],
+        "parcel_id": "Chickpeas#957000a4-6b4a-4ff7-979d-9764d086ca01"
     },
     {
-        "sensor_id": "7474123a-11d3-4902-baff-da3c2b528cf7",
-        "sensor_type": "Light",
+        "sensor_id": "cbd16793-8f4b-4f9c-95e2-1d6fbb2f3dca",
+        "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.139425829411763,
             46.63366128235294
-        ]
+        ],
+        "parcel_id": "Grapevine#e9f3ee81-43f1-491f-bdef-9a64f3b396cb"
     },
     {
-        "sensor_id": "f59eeaa5-938a-4dde-b859-ab925bd0d3c3",
-        "sensor_type": "Light",
+        "sensor_id": "91804552-7e67-449d-ad85-6f2f0046abe5",
+        "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.141228270588236,
             46.63366128235294
-        ]
+        ],
+        "parcel_id": "Grapevine#e9f3ee81-43f1-491f-bdef-9a64f3b396cb"
     },
     {
-        "sensor_id": "fa349964-02d6-46bc-a959-bbeebf393a5e",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "1dce1615-9977-4825-81e3-6e7e39945aeb",
+        "sensor_type": "Light",
         "point_coordinates": [
             28.143030711764705,
             46.63366128235294
-        ]
+        ],
+        "parcel_id": "Grapevine#e9f3ee81-43f1-491f-bdef-9a64f3b396cb"
     },
     {
-        "sensor_id": "56081a4a-4d5e-4ec9-94c8-e7e86f8e07c1",
-        "sensor_type": "Rain",
+        "sensor_id": "66d8a27c-df01-46eb-97b5-95ff64c35ee6",
+        "sensor_type": "Light",
         "point_coordinates": [
             28.144833152941178,
             46.63366128235294
-        ]
+        ],
+        "parcel_id": "Grapevine#e9f3ee81-43f1-491f-bdef-9a64f3b396cb"
     },
     {
-        "sensor_id": "13488177-ab3e-41c3-baed-110e47753cfd",
+        "sensor_id": "04fc1b1c-8c93-4b32-b5f2-84c84a8e30d8",
         "sensor_type": "Rain",
         "point_coordinates": [
             28.146635594117647,
             46.63366128235294
-        ]
+        ],
+        "parcel_id": "Grapevine#e9f3ee81-43f1-491f-bdef-9a64f3b396cb"
     },
     {
-        "sensor_id": "9cef89b5-c219-4db6-a717-0f6ead5c66a6",
-        "sensor_type": "Humidity",
+        "sensor_id": "89f9a16e-d9da-4f2d-99fb-3e3b6e64234c",
+        "sensor_type": "Rain",
         "point_coordinates": [
             28.148438035294117,
             46.63366128235294
-        ]
+        ],
+        "parcel_id": "Chickpeas#c0076441-b2ad-4853-9469-a32fb116f547"
     },
     {
-        "sensor_id": "6483f482-ebe2-4ac8-b024-6e7ece02db00",
-        "sensor_type": "Light",
+        "sensor_id": "c437bbab-e915-4a5b-80f4-03643c1da238",
+        "sensor_type": "SoilPH",
         "point_coordinates": [
             28.132216064705883,
             46.63489821176471
-        ]
+        ],
+        "parcel_id": "Chickpeas#957000a4-6b4a-4ff7-979d-9764d086ca01"
     },
     {
-        "sensor_id": "1cf062b1-0d02-4fe8-858f-4759db04bf03",
-        "sensor_type": "Temperature",
+        "sensor_id": "44f1fc58-1911-43c8-9937-edf526546d18",
+        "sensor_type": "SoilPH",
         "point_coordinates": [
             28.134018505882352,
             46.63489821176471
-        ]
+        ],
+        "parcel_id": "Chickpeas#957000a4-6b4a-4ff7-979d-9764d086ca01"
     },
     {
-        "sensor_id": "3eb5339c-ea44-4c5e-b26b-1172dc23580e",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "27d9c5f7-f68c-4ccc-9678-d68193ecd3e1",
+        "sensor_type": "Rain",
         "point_coordinates": [
             28.13582094705882,
             46.63489821176471
-        ]
+        ],
+        "parcel_id": "Chickpeas#957000a4-6b4a-4ff7-979d-9764d086ca01"
     },
     {
-        "sensor_id": "b1c8ce1a-eb1f-45b1-a04c-3f715bd8cdbc",
-        "sensor_type": "Light",
+        "sensor_id": "0c778bde-dbd0-4279-abb5-9cbcb2fe0a9b",
+        "sensor_type": "SoilPH",
         "point_coordinates": [
             28.137623388235294,
             46.63489821176471
-        ]
+        ],
+        "parcel_id": "Chickpeas#957000a4-6b4a-4ff7-979d-9764d086ca01"
     },
     {
-        "sensor_id": "4d76a925-08ae-4546-979a-13cc00fac7da",
-        "sensor_type": "Humidity",
+        "sensor_id": "f6fbaf76-2468-4616-b305-7743f548d513",
+        "sensor_type": "SoilPH",
         "point_coordinates": [
             28.139425829411763,
             46.63489821176471
-        ]
+        ],
+        "parcel_id": "Chickpeas#957000a4-6b4a-4ff7-979d-9764d086ca01"
     },
     {
-        "sensor_id": "c5938fdd-5704-4c07-ab02-dfe8962901ab",
-        "sensor_type": "Humidity",
+        "sensor_id": "001597a9-98e6-4f07-a4ed-8311678f9d10",
+        "sensor_type": "Rain",
         "point_coordinates": [
             28.141228270588236,
             46.63489821176471
-        ]
+        ],
+        "parcel_id": "Chickpeas#957000a4-6b4a-4ff7-979d-9764d086ca01"
     },
     {
-        "sensor_id": "4d118118-33cf-4544-a0b8-50b4dcec1eb0",
-        "sensor_type": "SoilPH",
+        "sensor_id": "f3287cb0-8734-4296-b3ec-140028493a2d",
+        "sensor_type": "Temperature",
         "point_coordinates": [
             28.143030711764705,
             46.63489821176471
-        ]
+        ],
+        "parcel_id": "Chickpeas#957000a4-6b4a-4ff7-979d-9764d086ca01"
     },
     {
-        "sensor_id": "6d9754e2-e606-4275-94ea-7e15c9ba90ac",
-        "sensor_type": "Light",
+        "sensor_id": "b1d50433-bbc4-4cd6-b3c9-d8da7ee8c1c1",
+        "sensor_type": "Humidity",
         "point_coordinates": [
             28.144833152941178,
             46.63489821176471
-        ]
+        ],
+        "parcel_id": "Grapevine#e9f3ee81-43f1-491f-bdef-9a64f3b396cb"
     },
     {
-        "sensor_id": "f76eb176-45cf-4b6e-bb01-5d07144b9281",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "18580040-f7e2-49ce-b4fb-842fe331e6c3",
+        "sensor_type": "Temperature",
         "point_coordinates": [
             28.146635594117647,
             46.63489821176471
-        ]
+        ],
+        "parcel_id": "Grapevine#e9f3ee81-43f1-491f-bdef-9a64f3b396cb"
     },
     {
-        "sensor_id": "e75f9666-5a3a-4421-984f-34fe97708b09",
+        "sensor_id": "f0a978fd-eb06-45da-85a2-6015ddedf4ee",
         "sensor_type": "SoilPH",
         "point_coordinates": [
             28.13582094705882,
             46.636135141176474
-        ]
+        ],
+        "parcel_id": "Chickpeas#957000a4-6b4a-4ff7-979d-9764d086ca01"
     },
     {
-        "sensor_id": "1090482e-ccdc-4cbc-8ce1-c800620eae8d",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "f674eafe-8493-4624-9559-a082fb31f4da",
+        "sensor_type": "Light",
         "point_coordinates": [
             28.137623388235294,
             46.636135141176474
-        ]
+        ],
+        "parcel_id": "Chickpeas#957000a4-6b4a-4ff7-979d-9764d086ca01"
     },
     {
-        "sensor_id": "26c41bd9-cce0-4d91-b79a-1e891364660a",
-        "sensor_type": "Humidity",
+        "sensor_id": "646f935f-eab9-4d85-991c-471b89926720",
+        "sensor_type": "Rain",
         "point_coordinates": [
             28.139425829411763,
             46.636135141176474
-        ]
+        ],
+        "parcel_id": "Chickpeas#957000a4-6b4a-4ff7-979d-9764d086ca01"
     },
     {
-        "sensor_id": "cbdc57da-bf7c-4c2f-bad7-4b666d1033b4",
-        "sensor_type": "Rain",
+        "sensor_id": "734568f2-2077-48a6-bcf7-2fb6e5643d88",
+        "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.141228270588236,
             46.636135141176474
-        ]
+        ],
+        "parcel_id": "Chickpeas#957000a4-6b4a-4ff7-979d-9764d086ca01"
     },
     {
-        "sensor_id": "b85286f3-6169-46ea-8e65-d0baf8fadff6",
-        "sensor_type": "Rain",
+        "sensor_id": "0fddd863-d503-48e4-9837-dc1bcd2fe8ef",
+        "sensor_type": "SoilMoisture",
         "point_coordinates": [
             28.143030711764705,
             46.636135141176474
-        ]
+        ],
+        "parcel_id": "Chickpeas#957000a4-6b4a-4ff7-979d-9764d086ca01"
     },
     {
-        "sensor_id": "f143e091-1489-44c0-8795-c664793f4c4c",
-        "sensor_type": "Humidity",
+        "sensor_id": "8d5772b8-3036-4d69-9579-5093b513db72",
+        "sensor_type": "SoilPH",
         "point_coordinates": [
             28.144833152941178,
             46.636135141176474
-        ]
+        ],
+        "parcel_id": "Chickpeas#957000a4-6b4a-4ff7-979d-9764d086ca01"
     },
     {
-        "sensor_id": "1c33c83c-1158-4383-8b74-4d7a754c1c12",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "482f13c7-9631-4ec9-891b-21ad7af0b115",
+        "sensor_type": "SoilPH",
         "point_coordinates": [
             28.146635594117647,
             46.636135141176474
-        ]
+        ],
+        "parcel_id": "Chickpeas#957000a4-6b4a-4ff7-979d-9764d086ca01"
     },
     {
-        "sensor_id": "7ae0f2d2-ad73-45bc-82e2-5d908d2a1bdd",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "2ee0ff57-896b-44b7-bc06-0ef63b4fa63f",
+        "sensor_type": "Light",
         "point_coordinates": [
             28.141228270588236,
             46.637372070588235
-        ]
+        ],
+        "parcel_id": "Chickpeas#957000a4-6b4a-4ff7-979d-9764d086ca01"
     },
     {
-        "sensor_id": "53184b5a-4484-4c66-a2c5-d4114f7f7765",
-        "sensor_type": "Temperature",
+        "sensor_id": "0152f028-a840-4ec0-8d8c-36dd77931784",
+        "sensor_type": "Light",
         "point_coordinates": [
             28.143030711764705,
             46.637372070588235
-        ]
+        ],
+        "parcel_id": "Chickpeas#957000a4-6b4a-4ff7-979d-9764d086ca01"
     },
     {
-        "sensor_id": "26601bfe-0a99-4df8-ade1-45319a8e87d8",
-        "sensor_type": "Temperature",
+        "sensor_id": "70b27154-0d06-4cd7-8faa-6768dbafec81",
+        "sensor_type": "Rain",
         "point_coordinates": [
             28.144833152941178,
             46.637372070588235
-        ]
+        ],
+        "parcel_id": "Chickpeas#957000a4-6b4a-4ff7-979d-9764d086ca01"
     }
 ]

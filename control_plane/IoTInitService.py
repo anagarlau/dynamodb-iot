@@ -3,8 +3,9 @@ import uuid
 from botocore.exceptions import ClientError
 from dynamodbgeo.dynamodbgeo import GeoDataManagerConfiguration, GeoDataManager, GeoTableUtil, GeoPoint, PutPointInput, \
     S2Manager
+from utils.parcels.parcels_from_csv import read_and_process_parcels_from_json
 from utils.polygon_def import create_dynamodb_client, hashKeyLength
-from utils.sensor_events.sensor_events_generation import process_events_for_db
+from utils.sensor_events.sensor_events_generation import process_events_for_db, convert_to_unix_epoch
 from utils.sensors.sensors_from_csv import json_to_array, csv_to_json
 from utils.handle_error import handle_error
 
@@ -112,19 +113,33 @@ class IoTInitService:
         # Process Sensor objects
         processed_items = []
         for item in items:
-            #print(item)
+            print(item)
             geopoint =GeoPoint(item['point_coordinates'][1], item['point_coordinates'][0])
             geohash = S2Manager().generateGeohash(geopoint)
             hashKey = S2Manager().generateHashKey(geohash, self.config.hashKeyLength)
             processed_item = {
-                'PK': str(geohash),
-                'SK': str(geohash),
+                'PK': item['sensor_id'],
+                'SK': f"METADATA#{item['sensor_id']}",
                 'sensor_type': item['sensor_type'],
                 'geoJson':"{},{}".format(geopoint.getLatitude(), geopoint.getLongitude()),
-                'hash_key': str(hashKey)
+                'hash_key': str(hashKey),
+                'geohash': str(geohash),
+                'curr_parcelid': item['parcel_id']
+            }
+            #Tracks location changes
+            sensor_location_event= {
+                'PK': item['sensor_id'],
+                'SK': f"Location#{convert_to_unix_epoch('2020-01-01T04:35:53')}#{item['sensor_id']}",
+                # 'moved_date': '',
+                'sensor_type': item['sensor_type'],
+                'geoJson':"{},{}".format(geopoint.getLatitude(), geopoint.getLongitude()),
+                'hash_key': str(hashKey),
+                'geohash': str(geohash),
+                'id_parcel': item['parcel_id']
             }
             print(processed_item)
             processed_items.append(processed_item)
+            processed_items.append(sensor_location_event)
             # PutItemInput = {
             #     'TableName': 'IoT',
             #     'Item': {
@@ -149,21 +164,28 @@ class IoTInitService:
         self.batch_write(items=json_array)
         print(f"Number of Events: {len(json_array)}")
 
+    def insert_parcels(self):
+        json_array=read_and_process_parcels_from_json()
+        self.batch_write(items=json_array)
+        print(f"Number of Parcels: {len(json_array)}")
+
+
 if __name__ == "__main__":
      initService = IoTInitService()
 
      initService.insert_sensor_points()
-     gsi_name = 'GSI_SensorType_Radius'
+     initService.insert_parcels()
+     gsi_name = 'GSI_Sensor_By_Parcel'
      initService.create_gsi(
          gsi_name=gsi_name,
-         gsi_pk='sensor_type',
+         gsi_pk='curr_parcelid',
          gsi_pk_type='S', gsi_sk='PK', gsi_sk_type='S')
      initService.custom_gsi_waiter(gsi_name)
      gsi_name = f'GSI_Geohash{initService.config.hashKeyLength}_FullGeohash'
      initService.create_gsi(
          gsi_name=gsi_name,
          gsi_pk='hash_key',
-         gsi_pk_type='S', gsi_sk='PK', gsi_sk_type='S')
+         gsi_pk_type='S', gsi_sk='geohash', gsi_sk_type='S')
      initService.custom_gsi_waiter(gsi_name)
      initService.insert_sensor_events()
      gsi_name = 'GSI_AllSensorEvents_TimeRange'
