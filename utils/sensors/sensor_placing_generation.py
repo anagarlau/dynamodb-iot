@@ -1,18 +1,27 @@
 import itertools
 from random import random
 import uuid
+from typing import List
+
 import pygeohash as gh
 from folium import folium, Marker, Icon
 from shapely import Polygon
 from shapely.geometry import Point
 import random
 
+from backend.models.Parcel import Parcel
 from dynamodbgeo.dynamodbgeo import GeoPoint, S2Manager
 
 def find_polygon_for_point(point, polygon_data_list):
     for polygon_data in polygon_data_list:
         if polygon_data['polygon'].contains(point):
             return polygon_data
+    return None
+
+def is_point_in_parcel(point, parcel_list: List[Parcel]):
+    for parcel in parcel_list:
+        if parcel.polygon.contains(point):
+            return parcel
     return None
 
 def create_uniform_sensor_grid(polygon, crop_assignment):

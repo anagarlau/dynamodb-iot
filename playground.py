@@ -11,7 +11,8 @@ from utils.sensor_events.sensor_events_generation import unix_to_iso, calculate_
 #
 # print(unix_to_iso(unix))
 # print(unix_to_iso(fromdate), unix_to_iso(todate))
-# print(unix_to_iso(1577944707))
+# print(convert_to_unix_epoch("2020-03-28T03:37:07"))
+# print(unix_to_iso(convert_to_unix_epoch("2020-03-28T03:37:07")))
 
 start_time = "2021-05-14T22:33:04"
 end_time = "2021-05-20T10:30:00"
@@ -29,14 +30,8 @@ def calculate_pks(start_date_str, end_date_str):
 
     while current_date <= end_date:
         months.append(current_date.strftime("%Y-%m-%dT%H:%M:%S"))
-
-        # For Unix epoch conversion
-        formatted_date = current_date.strftime("%Y-%m-%dT%H:%M:%S")
-        #print(convert_to_unix_epoch(formatted_date))
-
         # Increment current_date
         current_date += relativedelta(months=1)
-
     return months
 
 #print(calculate_pks(start_time, end_time))

@@ -3,12 +3,12 @@ import ast
 from boto3.dynamodb.conditions import Key
 from shapely import Polygon
 
-from backend.models.Area import Area
+from backend.models.Parcel import Parcel
 from dynamodbgeo.dynamodbgeo import GeoDataManagerConfiguration, GeoDataManager, QueryRectangleRequest, GeoPoint
 from utils.polygon_def import create_dynamodb_client, hashKeyLength
 
 
-class AreaService:
+class ParcelService:
     def __init__(self):
         self.dynamodb = create_dynamodb_client()
         self.config = GeoDataManagerConfiguration(self.dynamodb, 'IoT')
@@ -34,7 +34,7 @@ class AreaService:
                 'PK': item.get('PK', {}).get('S', ''),
                 'plant_type': item.get('plant_type', {}).get('S', '')
             }
-            parsed_data.append(Area(**args))
+            parsed_data.append(Parcel(**args))
 
         return parsed_data
     def get_all_parcels_in_field_by_type(self, plant_type):
@@ -81,22 +81,10 @@ class AreaService:
             return self.parse_area_response([item])[0]
         return None
 
-    def get_sensor_events_by_area_in_given_range(self, area: Area, from_date, to_range):
-        min_lon, min_lat, max_lon, max_lat = area.polygon.bounds
-        print(f"Min Point: {min_lat}, {min_lon}")
-        print(f"Max Point: {max_lat}, {max_lon}")
-        response = self.geoDataManager.queryRectangleWithPk(
-            QueryRectangleRequest(
-                GeoPoint(min_lat, min_lon),
-                GeoPoint(max_lat, max_lon), {}))
-        data = response['results']
-        print('>>In Field by type: Total data', len(data), 'with consumed Capacity Units',
-              response['consumed_capacity'])
-        print(data[:1])
-        #return parsed_data
+
 
 if __name__ == "__main__":
-    service = AreaService()
+    service = ParcelService()
     res = service.get_all_parcels_in_field()
     print(res[:1])
     print(len(res))

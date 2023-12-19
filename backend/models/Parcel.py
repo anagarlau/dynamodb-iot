@@ -3,7 +3,7 @@ import ast
 from shapely import Polygon
 
 
-class Area:
+class Parcel:
     def __init__(self, water_requirements_mm_per_week, optimal_humidity, optimal_soil_ph,
                  optimal_temperature, sunlight_requirements_hours_per_day, polygon, SK, details, PK, plant_type):
         self.water_requirements_mm_per_week = int(water_requirements_mm_per_week)
@@ -18,7 +18,7 @@ class Area:
         self.plant_type = plant_type
 
     def __str__(self):
-        return (f"Area(ID: {self.SK}, Type: {self.plant_type}, "
+        return (f"Parcel(ID: {self.SK}, Type: {self.plant_type}, "
                 f"Water Requirements: {self.water_requirements_mm_per_week} mm/week, "
                 f"Optimal Temperature: {self.optimal_temperature} °C, "
                 f"Optimal Humidity: {self.optimal_humidity}%, "
