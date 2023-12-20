@@ -122,7 +122,7 @@ class IoTInitService:
                 print(f"GSI {gsi_name} is now active.")
                 break
             # Wait for a short period before checking again
-            time.sleep(10)
+            time.sleep(5)
         return table_description
 
     def insert_sensor_points(self):
@@ -152,10 +152,10 @@ class IoTInitService:
             }
             # Tracks sensor location history
             sensor_location_event = {
-                'PK': item['sensor_id'],
+                'PK': f"Location#{item['sensor_id']}",
                 'SK': f"Location#{convert_to_unix_epoch('2020-01-01T04:35:53')}#{item['sensor_id']}",
                 # 'moved_date': '',
-                'sensor_type': item['sensor_type'],
+                'sensortype': item['sensor_type'],  # In order for GSI for active in radius by type not to fetch it
                 'geoJson': "{},{}".format(geopoint.getLatitude(), geopoint.getLongitude()),
                 'hash_key': str(hashKey),
                 'geohash': str(geohash),
@@ -205,6 +205,24 @@ if __name__ == "__main__":
         gsi_name=gsi_name,
         gsi_pk='curr_parcelid',
         gsi_pk_type='S', gsi_sk='PK', gsi_sk_type='S')
+    initService.custom_gsi_waiter(gsi_name)
+    gsi_name = 'GSI_Active_Parcels'
+    initService.create_gsi(
+        gsi_name=gsi_name,
+        gsi_pk='active',
+        gsi_pk_type='N', gsi_sk='SK', gsi_sk_type='S') # Bool not supported for partition keys
+    initService.custom_gsi_waiter(gsi_name)
+    # gsi_name = 'GSI_AllSensors_By_Type'
+    # initService.create_gsi(
+    #     gsi_name=gsi_name,
+    #     gsi_pk='sensor_type',
+    #     gsi_pk_type='S', gsi_sk='geohash', gsi_sk_type='S')
+    # initService.custom_gsi_waiter(gsi_name)
+    gsi_name = 'GSI_ActiveSensor_By_Type'
+    initService.create_gsi(
+        gsi_name=gsi_name,
+        gsi_pk='sensor_type',
+        gsi_pk_type='S', gsi_sk='curr_parcelid', gsi_sk_type='S')
     initService.custom_gsi_waiter(gsi_name)
     gsi_name = f'GSI_Geohash{initService.config.hashKeyLength}_FullGeohash'
     initService.create_gsi(

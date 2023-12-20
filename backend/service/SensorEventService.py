@@ -27,6 +27,7 @@ class SensorEventService:
         self.config.hashKeyLength = hashKeyLength
         self.sensor_service=SensorService()
 
+    # TODO refactor
     async def get_sensor_events(self, sensor_id, data_type, unix_from_date, unix_to_date):
         session = aioboto3.Session(
             aws_access_key_id=aws_access_key_id,
@@ -52,7 +53,7 @@ class SensorEventService:
                                                          to_date="2023-09-07T23:59:59"):
         sensor_ids = self.sensor_service.get_sensors_in_radius_acc_to_type(center_point, radius_meters,
                                                                            sensor_type=data_type)
-        #TODO monitor the usage of radius query via response[;]
+
         unix_from_date = convert_to_unix_epoch(from_date)
         unix_to_date = convert_to_unix_epoch(to_date)
 
@@ -148,7 +149,7 @@ class SensorEventService:
                     f"#{sort_key}": sort_key
                 },
                 ExpressionAttributeValues={
-                    ':pval': {'S': sensor_id},
+                    ':pval': {'S': f"Event#{sensor_id}"},
                     ':sval': {'S': lower_bound},
                     ':eval': {'S': upper_bound}
                 },
@@ -174,7 +175,7 @@ class SensorEventService:
                 TableName=self.table_name,
                 KeyConditionExpression=f"PK = :pval AND begins_with(SK, :skval)",
                 ExpressionAttributeValues={
-                    ':pval': {'S': sensor_id},
+                    ':pval': {'S': f"Event#{sensor_id}"},
                     ':skval': {'S': 'TimeRange#'}
                 },
                 ScanIndexForward=False,  # Query in descending order
@@ -299,7 +300,7 @@ def main():
     events = service.query_sensorevents_for_entire_field_in_time_range(
         '2020-01-01T04:35:53',
         '2020-02-07T14:56:50',['Humidity', 'Light', 'Temperature']
-        ) #1.5 for all nb of data points
+        )
     print(len(events))
     print(events[0])
     events = service.query_sensorevents_by_sensorid_in_time_range(

@@ -8,7 +8,7 @@ class SensorLocationHistory:
         self.sensor_id = response_item['PK']['S']
         self.sk = response_item['SK']['S']
         self.parse_placed_at(self.sk)
-        self.sensor_type = response_item['sensor_type']['S']
+        self.sensor_type = response_item['sensortype']['S']
         self.geo_json = response_item['geoJson']['S']
         self.hash_key = response_item['hash_key']['S']
         self.geohash = response_item['geohash']['S']

@@ -174,7 +174,7 @@ def process_events_for_db():
             #Issue:not unique if 2 sensors send the same timestamp! i need a unique identifier
         )
         sensor_event = {
-            'PK': event['sensorId'],
+            'PK': f"Event#{event['sensorId']}",
             'SK': sk_formated,
             'month': start_of_month,
             #'sensor_id': event['sensorId'], #AVOID BLOATED GSI for later access patterns, keep it in the main table

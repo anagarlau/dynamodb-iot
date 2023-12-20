@@ -1,5 +1,7 @@
 import csv
 import json
+import uuid
+from random import random, randint
 
 from shapely import Polygon
 
@@ -34,9 +36,29 @@ def read_and_process_parcels_from_json(json_filepath=jsonFilepath):
         for entry in data:
             if 'polygon' in entry:
                 entry['polygon'] = [tuple(coord) for coord in entry['polygon']]
-            parcel = {
-                'PK': 'Areas',
+            pk = 'PARCEL' # OK because chickpeas are annual plants, grapevines are perennial plants so the partition only grows over years
+            parcel_active = {
+                'PK': pk,
                 'SK': f"{entry['parcel_id']}",
+                'polygon_coord': str(entry['polygon']),
+                'plant_type': entry['plant_type'],
+                'active': 1, # Bool not supported for partition keys
+                'details': {
+                    'latin_name': entry['latin_name'],
+                    'family': entry['family']
+                },
+                'optimal_temperature': entry['optimal_temperature'],
+                'optimal_humidity': entry['optimal_humidity'],
+                'optimal_soil_ph': entry['optimal_soil_ph'],
+                'water_requirements_mm_per_week': entry['water_requirements_mm_per_week'],
+                'sunlight_requirements_hours_per_day': entry['sunlight_requirements_hours_per_day']
+            }
+            plant_types = ['Chickpeas', 'Grapevine']
+            random_index = randint(0, len(plant_types) - 1)
+            random_id = f"{plant_types[random_index]}#{uuid.uuid4()}"
+            parcel_not_active = {
+                'PK': pk,
+                'SK': random_id,
                 'polygon_coord': str(entry['polygon']),
                 'plant_type': entry['plant_type'],
                 'details': {
@@ -49,7 +71,8 @@ def read_and_process_parcels_from_json(json_filepath=jsonFilepath):
                 'water_requirements_mm_per_week': entry['water_requirements_mm_per_week'],
                 'sunlight_requirements_hours_per_day': entry['sunlight_requirements_hours_per_day']
             }
-            database_entries.append(parcel)
+            database_entries.append(parcel_active)
+            database_entries.append(parcel_not_active)
     return database_entries
 
 

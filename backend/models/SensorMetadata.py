@@ -33,7 +33,7 @@ class SensorMetadata:
         sensor_metadata_record = {
             'PK': sensor_id,
             'SK': f"METADATA#{sensor_id}",
-            'sensor_type': self.sensor_type,
+            'sensor_type': self.sensor_type,  # In order for GSI for active in radius by type to fetch it
             'geoJson': self.geoJson,
             'hash_key': str(self.hashkey),
             'geohash': str(self.geohash),
@@ -43,9 +43,9 @@ class SensorMetadata:
 
     def get_sensor_location_event_batch_record(self, sensor_id, parcel_id, timestamp):
         sensor_location_record = {
-            'PK': sensor_id,
+            'PK': f"Location#{sensor_id}",
             'SK': f"Location#{convert_to_unix_epoch(timestamp)}#{sensor_id}",
-            'sensor_type': self.sensor_type,
+            'sensortype': self.sensor_type, # In order for GSI for active in radius by type not to fetch it
             'geoJson': self.geoJson,
             'hash_key': str(self.hashkey),
             'geohash': str(self.geohash),
