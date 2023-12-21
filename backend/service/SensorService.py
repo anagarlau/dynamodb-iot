@@ -2,17 +2,18 @@ import uuid
 from datetime import datetime
 
 from botocore.exceptions import ClientError
-from shapely import Point
+from shapely import Point, Polygon
 
 from backend.service.ParcelService import ParcelService
 from backend.models.SensorDetails import SensorDetails
 from backend.models.SensorEvent import DataType
 from backend.models.SensorLocationHistory import SensorLocationHistory
 from backend.models.SensorMetadata import SensorMetadata
-from dynamodbgeo.dynamodbgeo import GeoDataManagerConfiguration, GeoDataManager, QueryRadiusRequest, GeoPoint
+from dynamodbgeo.dynamodbgeo import GeoDataManagerConfiguration, GeoDataManager, QueryRadiusRequest, GeoPoint, \
+    QueryRectangleRequest
 from utils.sensor_events.sensor_events_generation import convert_to_unix_epoch
 from utils.sensors.sensor_placing_generation import is_point_in_parcel
-from utils.sensors.sensors_from_csv import parse_sensor_data, visualize_results
+from utils.sensors.sensors_from_csv import parse_sensor_data, visualize_results, visualize_results_in_rectangle
 from utils.polygon_def import create_dynamodb_client, hashKeyLength
 
 
@@ -92,7 +93,6 @@ class SensorService:
         return parsed_data
 
     def get_all_active_sensors_in_radius(self, center_point, radius_meters):
-        print("Finding in radius")
         lat, lon = center_point.y, center_point.x
         query_radius_input = {
             'GSI': {
@@ -160,7 +160,7 @@ class SensorService:
                 'PK': {'name': 'hash_key', 'type': 'S'},
                 'SK': {'name': 'geohash', 'type': 'S'}
             },
-            "Filters": 'SK <= :sk_end AND (attribute_not_exists(moved_at) OR (moved_at >= :startDate AND moved_at <= :endDate))',
+            "Filters": "SK <= :sk_end  AND (attribute_not_exists(moved_at) OR (moved_at >= :startDate AND moved_at <= :endDate) OR (moved_at >= :startDate AND moved_at >= :endDate))",
             "ExpressionAttributeValues": {
                 ':startDate': {'N': f"{start_range_unix}"},
                 ':endDate': {'N': f"{end_range_unix}"},
@@ -187,7 +187,42 @@ class SensorService:
         map.save("vis_out/sensorservice/sensors-radius-timerange.html")
         return data
 
-    def get_sensors_in_radius_acc_to_type(self, center_point, radius_meters, sensor_type='Humidity'):
+    def get_active_sensors_in_rectangle_for_time_range(self, polygon_coords, from_date, to_date):
+        start_range_unix = convert_to_unix_epoch(from_date)
+        end_range_unix = convert_to_unix_epoch(to_date)
+        polygon = Polygon(polygon_coords)
+        min_lon, min_lat, max_lon, max_lat = polygon.bounds
+        query_rectangle_input = {
+            'GSI': {
+                'Name': 'GSI_Geohash6_FullGeohash',
+                'PK': {'name': 'hash_key', 'type': 'S'},
+                'SK': {'name': 'geohash', 'type': 'S'}
+            },
+            "Filters": "SK <= :sk_end  AND (attribute_not_exists(moved_at) OR (moved_at >= :startDate AND moved_at <= :endDate) OR (moved_at >= :startDate AND moved_at >= :endDate))",
+            "ExpressionAttributeValues": {
+                ':startDate': {'N': f"{start_range_unix}"},
+                ':endDate': {'N': f"{end_range_unix}"},
+                # ':locationPrefix': {'S': 'Location#'},
+                # ':sk_start': {'S': f"Location#{start_range_unix}#"},
+                ':sk_end': {'S': f"Location#{end_range_unix}#zzzzzzzz"}
+            }
+        }
+        # Rectangle query
+        response = self.geoDataManager.queryRectangle(
+            QueryRectangleRequest(
+                GeoPoint(min_lat, min_lon),
+                GeoPoint(max_lat, max_lon), query_rectangle_input))
+
+        print('Point in polygon',polygon.contains(Point(28.12680874117647,46.63242435294118)))
+        data = parse_sensor_data(response['results'])
+        map = visualize_results_in_rectangle(subpolygon=polygon, sensors=data)
+
+        print('>>Rectangle Time Range: Total data', len(response['results']), 'with consumed Capacity Units',
+              response['consumed_capacity'])
+        map.save("vis_out/sensorservice/sensors-rectangle-timerange.html")
+        #return data
+
+    def get_active_sensors_in_radius_acc_to_type(self, center_point, radius_meters, sensor_type='Humidity'):
         # Prepare the filter expression and attribute values
         lat, lon = center_point.y, center_point.x
         query_radius_input = {
@@ -361,16 +396,20 @@ class SensorService:
 if __name__ == "__main__":
     center_point = Point(28.1250063, 46.6334964)
     sensor_service = SensorService()
+    subpolygon = [(28.1250063, 46.6334964), (28.1256516, 46.6322131), (28.1284625, 46.6330088), (28.127733, 46.6341875), (28.1250063, 46.6334964)]
+    sensor_service.get_active_sensors_in_rectangle_for_time_range(subpolygon,
+                                                               '2023-12-23T00:00:00',
+                                                               '2023-12-18T16:00:00')
     sensor_service.get_all_active_sensors_in_radius(center_point, 200)
-    # sensor_service.get_all_active_sensors_in_field_or_with_optional_parcel_id()
+    sensor_service.get_all_active_sensors_in_field_or_with_optional_parcel_id()
     # sensor_service.get_all_active_sensors_in_field_or_with_optional_parcel_id(
     #     'Chickpeas#3225eba0-4695-48ee-9616-62dc5256b4e2')  # 174
     # sensor_service.get_all_active_sensors_of_type_in_field("Humidity")
-    sensor_service.get_sensors_in_radius_acc_to_type(center_point, 200, "Temperature")
+    sensor_service.get_active_sensors_in_radius_acc_to_type(center_point, 200, "Temperature")
     sensor_service.get_active_sensors_in_radius_for_time_range(center_point,
                                                                200,
-                                                               '2020-01-01T00:00:00',
-                                                               '2025-12-21T16:00:00')
+                                                               '2023-12-23T00:00:00',
+                                                               '2023-12-23T16:00:00')
     # sensor_service.get_all_active_sensors_in_field_or_with_optional_parcel_id(
     #     "Grapevine#dcce31f9-ccf6-4f0c-985d-91d8a2276091")  # 21
     # sensor_service.add_sensor(28.12565, 46.63328, 'SoilMoisture')  # bottom point 28.14247, 46.62179
@@ -383,7 +422,7 @@ if __name__ == "__main__":
     # location_history = sensor_service.get_sensor_location_history("e5352d72-3165-4f93-935f-0ed3ab17a871")
     # print(location_history)
 
-    # sensor_service.move_sensor("7c627c03-e82b-483a-83c8-1f507b9515fd",   28.14247, 46.62179)
+    #sensor_service.move_sensor("7c627c03-e82b-483a-83c8-1f507b9515fd",   28.14247, 46.62179)
     # sensor_service.get_all_active_sensors_in_field_or_with_optional_parcel_id(
     #     "Chickpeas#957000a4-6b4a-4ff7-979d-9764d086ca01")  # 21
     # sensor = sensor_service.get_sensor_details_by_id("1988c59f-782b-4bc8-91a2-5041370b4595")

@@ -1,7 +1,7 @@
 import csv
 import simplejson as json
 
-from folium import Marker, Icon, Circle
+from folium import Marker, Icon, Circle, folium, Polygon
 
 from utils.parcels.parcels_generation import create_map_with_polygon
 from utils.polygon_def import polygon
@@ -96,6 +96,20 @@ def parse_sensor_data(sensor_data):
 
     return parsed_data
 
+def visualize_results_in_rectangle(subpolygon, sensors, color='green',fill_color='red',fill_opacity=0.2):
+    map_object = add_sensor_markers_to_map(sensors)
+    exterior_coords = subpolygon.exterior.coords
+    folium_coords = [(lat, lon) for lon, lat in exterior_coords]
+
+    # Creating and adding the polygon to the Folium map
+    Polygon(
+        locations=folium_coords,
+        color=color,
+        fill=True,
+        fill_color=fill_color,
+        fill_opacity=fill_opacity
+    ).add_to(map_object)
+    return map_object
 
 def visualize_results(center_point, radius, sensors, color='green'):
 

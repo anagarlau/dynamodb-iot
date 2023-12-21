@@ -8,6 +8,7 @@ from botocore.exceptions import ClientError
 from dateutil.relativedelta import relativedelta
 from shapely import Point
 
+from backend.models.SensorEvent import SensorEvent
 from backend.service.SensorService import SensorService
 from dynamodbgeo.dynamodbgeo import GeoDataManager, GeoDataManagerConfiguration
 from playground import calculate_pks
@@ -27,45 +28,53 @@ class SensorEventService:
         self.config.hashKeyLength = hashKeyLength
         self.sensor_service=SensorService()
 
-    # TODO refactor
-    async def get_sensor_events(self, sensor_id, data_type, unix_from_date, unix_to_date):
-        session = aioboto3.Session(
-            aws_access_key_id=aws_access_key_id,
-            aws_secret_access_key=aws_secret_access_key,  # Optional: Only if not set elsewhere
-            region_name=region_name
-        )
-        async with session.client('dynamodb', endpoint_url=endpoint_url) as client:
-            response = await client.query(
-                TableName=self.table_name,
-                KeyConditionExpression='PK = :pk_val and SK between :sk_start and :sk_end',
-                ExpressionAttributeValues={
-                    ':pk_val': {'S': sensor_id},
-                    ':sk_start': {'S': f"{data_type}#{unix_from_date}"},
-                    ':sk_end': {'S': f"{data_type}#{unix_to_date}"}
-                },
-                ReturnConsumedCapacity='INDEXES'
-            )
-            print("Consumed Capacity:", response.get('ConsumedCapacity'))
-            return response['Items']
+    # # TODO refactor
+    # async def get_sensor_events(self, sensor_id, data_type, unix_from_date, unix_to_date):
+    #     session = aioboto3.Session(
+    #         aws_access_key_id=aws_access_key_id,
+    #         aws_secret_access_key=aws_secret_access_key,  # Optional: Only if not set elsewhere
+    #         region_name=region_name
+    #     )
+    #     async with session.client('dynamodb', endpoint_url=endpoint_url) as client:
+    #         response = await client.query(
+    #             TableName=self.table_name,
+    #             KeyConditionExpression='PK = :pk_val and SK between :sk_start and :sk_end',
+    #             ExpressionAttributeValues={
+    #                 ':pk_val': {'S': sensor_id},
+    #                 ':sk_start': {'S': f"{data_type}#{unix_from_date}"},
+    #                 ':sk_end': {'S': f"{data_type}#{unix_to_date}"}
+    #             },
+    #             ReturnConsumedCapacity='INDEXES'
+    #         )
+    #         print("Consumed Capacity:", response.get('ConsumedCapacity'))
+    #         return response['Items']
+    #
+    # async def get_sensors_events_in_radius_per_data_type(self, center_point, radius_meters, data_type='Humidity',
+    #                                                      from_date="2020-03-04T00:00:00",
+    #                                                      to_date="2023-09-07T23:59:59"):
+    #     sensor_ids = self.sensor_service.get_sensors_in_radius_acc_to_type(center_point, radius_meters,
+    #                                                                        sensor_type=data_type)
+    #
+    #     unix_from_date = convert_to_unix_epoch(from_date)
+    #     unix_to_date = convert_to_unix_epoch(to_date)
+    #
+    #     tasks = [self.get_sensor_events(sensor['sensor_id'], data_type, unix_from_date, unix_to_date) for sensor in
+    #              sensor_ids]
+    #     # Nested list
+    #     nested_events = await asyncio.gather(*tasks)
+    #     # Flatten
+    #     all_events = list(chain.from_iterable(nested_events))
+    #     return all_events
 
-    async def get_sensors_events_in_radius_per_data_type(self, center_point, radius_meters, data_type='Humidity',
-                                                         from_date="2020-03-04T00:00:00",
-                                                         to_date="2023-09-07T23:59:59"):
-        sensor_ids = self.sensor_service.get_sensors_in_radius_acc_to_type(center_point, radius_meters,
-                                                                           sensor_type=data_type)
 
-        unix_from_date = convert_to_unix_epoch(from_date)
-        unix_to_date = convert_to_unix_epoch(to_date)
-
-        tasks = [self.get_sensor_events(sensor['sensor_id'], data_type, unix_from_date, unix_to_date) for sensor in
-                 sensor_ids]
-        # Nested list
-        nested_events = await asyncio.gather(*tasks)
-        # Flatten
-        all_events = list(chain.from_iterable(nested_events))
-        return all_events
-
-
+    def add_sensor_event(self, sensor_event_json):
+        try:
+            sensor_event_entry = SensorEvent.from_json(sensor_event_json).to_entity()
+            self.dynamodb.put_item(TableName=self.table_name, Item=sensor_event_entry)
+            return sensor_event_json['sensorId']
+        except ClientError as e:
+            print(e.response['Error']['Message'])
+            return "Error occurred during operation."
 
     def query_sensorevents_for_entire_field_in_time_range(self, start_range, end_range, sensor_types_filters=None):
         try:
@@ -323,6 +332,21 @@ def main():
     ,['Humidity', 'Light', 'Temperature'])
     print(len(events))
     print(events[0])
+    json = {
+        "sensorId": "60acb1d3-bf3a-4f25-aa73-c75d0f495a8b",
+        "metadata": {
+            "location": "(46.63366128235294, 28.12680874117647)",
+            "battery_level": 33,
+            "status": "Maintenance",
+            "parcel_id": "Chickpeas#957000a4-6b4a-4ff7-979d-9764d086ca01"
+        },
+        "data": {
+            "dataType": "SoilPH",
+            "dataPoint": 1,
+            "timestamp": "2023-12-22T16:01:00"
+        }
+    }
+    service.add_sensor_event(json)
 
 # Run the async main function
 if __name__ == "__main__":

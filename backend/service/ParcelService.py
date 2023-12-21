@@ -97,7 +97,7 @@ class ParcelService:
         if item:
             return self.parse_area_response([item])[0]
         return None
-
+    #TODO add timespan active between
     def retire_area(self, parcel_id):
         from backend.service.SensorService import SensorService
         sensor_service = SensorService()
