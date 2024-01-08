@@ -4,10 +4,13 @@ from utils.parcels.parcels_generation import create_map_with_polygon, plot_polyg
 from utils.sensor_events.sensor_events_generation import generate_sensor_events_from_locations_csv_into_json
 from utils.sensors.sensor_placing_generation import create_uniform_sensor_grid, visualize_sensor_locations_on_existing_map
 from utils.sensors.sensors_from_csv import sanity_check_from_csv
+from utils.users_and_roles.user_and_roles_generation import generate_user_data
 
 
 def main():
 
+    #Generate users
+    users_with_roles = generate_user_data()
     # Split the polygon into parcels and assign to crop types randomly
     crop_assignment = split_in_parcels(polygon, split_points)
     # print(polygon)

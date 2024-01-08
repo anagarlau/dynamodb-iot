@@ -19,6 +19,7 @@ class Parcel:
 
     def __str__(self):
         return (f"Parcel(ID: {self.SK}, Type: {self.plant_type}, "
+                f"Polygon: {str(self.polygon)}, "
                 f"Water Requirements: {self.water_requirements_mm_per_week} mm/week, "
                 f"Optimal Temperature: {self.optimal_temperature} °C, "
                 f"Optimal Humidity: {self.optimal_humidity}%, "

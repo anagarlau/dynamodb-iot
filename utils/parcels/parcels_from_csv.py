@@ -1,8 +1,10 @@
 import csv
+import datetime
 import json
 import uuid
 from random import random, randint
 
+import dateutil.utils
 from shapely import Polygon
 
 from utils.parcels.parcels_generation import plot_polygons_on_map
@@ -36,7 +38,7 @@ def read_and_process_parcels_from_json(json_filepath=jsonFilepath):
         for entry in data:
             if 'polygon' in entry:
                 entry['polygon'] = [tuple(coord) for coord in entry['polygon']]
-            pk = 'PARCEL' # OK because chickpeas are annual plants, grapevines are perennial plants so the partition only grows over years
+            pk = 'Parcel' # OK because chickpeas are annual plants, grapevines are perennial plants so the partition only grows over years
             parcel_active = {
                 'PK': pk,
                 'SK': f"{entry['parcel_id']}",
@@ -51,7 +53,9 @@ def read_and_process_parcels_from_json(json_filepath=jsonFilepath):
                 'optimal_humidity': entry['optimal_humidity'],
                 'optimal_soil_ph': entry['optimal_soil_ph'],
                 'water_requirements_mm_per_week': entry['water_requirements_mm_per_week'],
-                'sunlight_requirements_hours_per_day': entry['sunlight_requirements_hours_per_day']
+                'sunlight_requirements_hours_per_day': entry['sunlight_requirements_hours_per_day'],
+                'active_in_year': dateutil.utils.today().year,
+                'active_from': str(datetime.date(dateutil.utils.today().year, 3,15))
             }
             plant_types = ['Chickpeas', 'Grapevine']
             random_index = randint(0, len(plant_types) - 1)
@@ -69,7 +73,10 @@ def read_and_process_parcels_from_json(json_filepath=jsonFilepath):
                 'optimal_humidity': entry['optimal_humidity'],
                 'optimal_soil_ph': entry['optimal_soil_ph'],
                 'water_requirements_mm_per_week': entry['water_requirements_mm_per_week'],
-                'sunlight_requirements_hours_per_day': entry['sunlight_requirements_hours_per_day']
+                'sunlight_requirements_hours_per_day': entry['sunlight_requirements_hours_per_day'],
+                'active_in_year': 2022,
+                'active_from': str(datetime.date(2022,3,15)),
+                'active_to':str(datetime.date(2022,11,15)),
             }
             database_entries.append(parcel_active)
             database_entries.append(parcel_not_active)

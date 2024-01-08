@@ -26,7 +26,10 @@ def list_to_csv_for_sensor_type(filename, list_sensors, sensor_headers):
                 'sensor_id': sensor['sensor_id'],
                 'sensor_type': sensor['sensor_type'],
                 'point_coordinates': Point(sensor['coordinates'][1], sensor['coordinates'][0]),
-                'parcel_id': sensor['parcel_id']
+                'parcel_id': sensor['parcel_id'],
+                'manufacturer': sensor['manufacturer'],
+                'model': sensor['model'],
+                'firmware': sensor['firmware']
             }
             writer.writerow(row)
     sensors_from_csv.csv_to_json()
@@ -37,7 +40,7 @@ def export_data_to_csv(list_sensors, list_plants, path='maps/data'):
                           'water_requirements_mm_per_week', 'sunlight_requirements_hours_per_day', 'polygon']
 
     # Headers for list_sensors
-    sensors_headers = ['sensor_id', 'sensor_type', 'point_coordinates', 'parcel_id']
+    sensors_headers = ['sensor_id', 'sensor_type', 'point_coordinates', 'parcel_id', 'manufacturer', 'model', 'firmware']
 
     # plant_type_to_geohashes to CSV
     list_to_csv_for_plant_type(f'{path}/plant_type_to_parcels.csv', list_plants, plant_type_headers)

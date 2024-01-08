@@ -1,13 +1,18 @@
+import random
 import time
 import uuid
 from botocore.exceptions import ClientError
+
+from backend.models.MaintenanceEnum import MaintenanceType
 from dynamodbgeo.dynamodbgeo import GeoDataManagerConfiguration, GeoDataManager, GeoTableUtil, GeoPoint, PutPointInput, \
     S2Manager
 from utils.parcels.parcels_from_csv import read_and_process_parcels_from_json
 from utils.polygon_def import create_dynamodb_client, hashKeyLength
-from utils.sensor_events.sensor_events_generation import process_events_for_db, convert_to_unix_epoch
+from utils.sensor_events.sensor_events_generation import process_events_for_db, convert_to_unix_epoch, \
+    random_date_string
 from utils.sensors.sensors_from_csv import json_to_array, csv_to_json
 from utils.handle_error import handle_error
+from utils.users_and_roles.user_and_roles_generation import read_users_from_json
 
 
 class IoTInitService:
@@ -133,27 +138,32 @@ class IoTInitService:
         # Read csv into json
         csv_to_json()
         # Read Sensors from json file
-        items = json_to_array()
+        sensor_items = json_to_array()
+        #Read Users from json file
+        user_items = read_users_from_json()
         # Process Sensor objects
         processed_items = []
-        for item in items:
+        for item in sensor_items:
             # print(item)
             geopoint = GeoPoint(item['point_coordinates'][1], item['point_coordinates'][0])
             geohash = S2Manager().generateGeohash(geopoint)
             hashKey = S2Manager().generateHashKey(geohash, self.config.hashKeyLength)
-            processed_item = {
-                'PK': item['sensor_id'],
-                'SK': f"METADATA#{item['sensor_id']}",
+            sensor_details = {
+                'PK': f"Sensor#{item['sensor_id']}",
+                'SK': f"Metadata#{item['sensor_type']}#{item['sensor_id']}",
                 'sensor_type': item['sensor_type'],
                 'geoJson': "{},{}".format(geopoint.getLatitude(), geopoint.getLongitude()),
                 'hash_key': str(hashKey),
                 'geohash': str(geohash),
-                'curr_parcelid': item['parcel_id']
+                'curr_parcelid': item['parcel_id'],
+                'manufacturer': item['manufacturer'],
+                'firmware': item['firmware'],
+                'model': item['model']
             }
             # Tracks sensor location history
             sensor_location_event = {
-                'PK': f"Location#{item['sensor_id']}",
-                'SK': f"Location#{convert_to_unix_epoch('2020-01-01T04:35:53')}#{item['sensor_id']}",
+                'PK': f"Sensor#{item['sensor_id']}",
+                'SK': f"Location#{convert_to_unix_epoch('2020-01-01T04:35:53')}",
                 # 'moved_date': '',
                 'sensortype': item['sensor_type'],  # In order for GSI for active in radius by type not to fetch it
                 'geoJson': "{},{}".format(geopoint.getLatitude(), geopoint.getLongitude()),
@@ -161,9 +171,22 @@ class IoTInitService:
                 'geohash': str(geohash),
                 'id_parcel': item['parcel_id']
             }
-            # print(processed_item)
-            processed_items.append(processed_item)
+            # Maintenance Operations
+            for i in range(random.randint(0, 5)):
+                SK =f"Maintenance#{convert_to_unix_epoch(random_date_string())}"
+                sensor_maintenance = {
+                    'PK': f"Sensor#{item['sensor_id']}",
+                    'SK': SK,
+                    'maintenance_type': MaintenanceType.get_random().value,
+                    'details': 'Maintenance details',
+                    'GSI_PK': random.choice(user_items).get("GSI_SK"),
+                    'GSI_SK': SK
+                }
+                processed_items.append(sensor_maintenance)
+
+            processed_items.append(sensor_details)
             processed_items.append(sensor_location_event)
+        processed_items.extend(user_items)
             # PutItemInput = {
             #     'TableName': 'IoT',
             #     'Item': {
@@ -204,7 +227,7 @@ if __name__ == "__main__":
     initService.create_gsi(
         gsi_name=gsi_name,
         gsi_pk='curr_parcelid',
-        gsi_pk_type='S', gsi_sk='PK', gsi_sk_type='S')
+        gsi_pk_type='S', gsi_sk='SK', gsi_sk_type='S')
     initService.custom_gsi_waiter(gsi_name)
     gsi_name = 'GSI_Active_Parcels'
     initService.create_gsi(
@@ -212,18 +235,24 @@ if __name__ == "__main__":
         gsi_pk='active',
         gsi_pk_type='N', gsi_sk='SK', gsi_sk_type='S') # Bool not supported for partition keys
     initService.custom_gsi_waiter(gsi_name)
+    gsi_name = 'GSI_Users_Roles_Maintenance'
+    initService.create_gsi(
+        gsi_name=gsi_name,
+        gsi_pk='GSI_PK',
+        gsi_pk_type='S', gsi_sk='GSI_SK', gsi_sk_type='S')
+    initService.custom_gsi_waiter(gsi_name)
     # gsi_name = 'GSI_AllSensors_By_Type'
     # initService.create_gsi(
     #     gsi_name=gsi_name,
     #     gsi_pk='sensor_type',
     #     gsi_pk_type='S', gsi_sk='geohash', gsi_sk_type='S')
     # initService.custom_gsi_waiter(gsi_name)
-    gsi_name = 'GSI_ActiveSensor_By_Type'
-    initService.create_gsi(
-        gsi_name=gsi_name,
-        gsi_pk='sensor_type',
-        gsi_pk_type='S', gsi_sk='curr_parcelid', gsi_sk_type='S')
-    initService.custom_gsi_waiter(gsi_name)
+    # gsi_name = 'GSI_ActiveSensor_By_Type'
+    # initService.create_gsi(
+    #     gsi_name=gsi_name,
+    #     gsi_pk='sensor_type',
+    #     gsi_pk_type='S', gsi_sk='curr_parcelid', gsi_sk_type='S')
+    # initService.custom_gsi_waiter(gsi_name)
     gsi_name = f'GSI_Geohash{initService.config.hashKeyLength}_FullGeohash'
     initService.create_gsi(
         gsi_name=gsi_name,

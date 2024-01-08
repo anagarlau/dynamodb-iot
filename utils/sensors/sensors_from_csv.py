@@ -78,11 +78,11 @@ def parse_sensor_data(sensor_data):
         parcel_id = item.get('curr_parcelid') or item.get('id_parcel')
 
         if sensor_id and geoJson_str and sensor_type:
-            # Split the string by comma to get the coordinates
+            # split the string by comma to get the coordinates
             coords = geoJson_str.split(",")
             if len(coords) == 2:
                 try:
-                    # Convert strings to float
+                    # strings to float
                     latitude, longitude = float(coords[0]), float(coords[1])
 
                     parsed_data.append({

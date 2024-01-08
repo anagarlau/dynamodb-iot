@@ -23,7 +23,7 @@ class SensorLocationHistory:
     def parse_placed_at(self, sk):
         # Extract timestamp from SK
         parts = sk.split('#')
-        if len(parts) > 2 and parts[0] == 'Location':
+        if len(parts) >= 2 and parts[0] == 'Location':
             # Convert unix timestamp to ISO date
             try:
                 self.placed_at = unix_to_iso(int(parts[1]))

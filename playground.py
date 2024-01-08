@@ -12,7 +12,8 @@ from utils.sensor_events.sensor_events_generation import unix_to_iso, calculate_
 # print(unix_to_iso(unix))
 # print(unix_to_iso(fromdate), unix_to_iso(todate))
 # print(convert_to_unix_epoch("2020-03-28T03:37:07"))
-# print(unix_to_iso(convert_to_unix_epoch("2020-03-28T03:37:07")))
+print(unix_to_iso(1581289200))
+print(unix_to_iso(1595455200))
 
 start_time = "2021-05-14T22:33:04"
 end_time = "2021-05-20T10:30:00"

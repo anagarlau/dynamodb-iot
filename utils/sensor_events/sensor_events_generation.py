@@ -144,6 +144,12 @@ def convert_to_unix_epoch(timestamp_str):
     unix_epoch = int(time.mktime(dt.timetuple()))
     return unix_epoch # = continuous count of seconds
 
+def random_date_string():
+    start_date = datetime(2020, 1, 1)
+    end_date = datetime.now()
+    random_date = start_date + timedelta(days=random.randint(0, (end_date - start_date).days))
+    return random_date.strftime('%Y-%m-%dT%H:%M:%S')
+
 def get_first_of_month_as_unix_timestamp(timestamp_str):
     return convert_to_unix_epoch(get_start_of_month(timestamp_str))
 

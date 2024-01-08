@@ -28,45 +28,6 @@ class SensorEventService:
         self.config.hashKeyLength = hashKeyLength
         self.sensor_service=SensorService()
 
-    # # TODO refactor
-    # async def get_sensor_events(self, sensor_id, data_type, unix_from_date, unix_to_date):
-    #     session = aioboto3.Session(
-    #         aws_access_key_id=aws_access_key_id,
-    #         aws_secret_access_key=aws_secret_access_key,  # Optional: Only if not set elsewhere
-    #         region_name=region_name
-    #     )
-    #     async with session.client('dynamodb', endpoint_url=endpoint_url) as client:
-    #         response = await client.query(
-    #             TableName=self.table_name,
-    #             KeyConditionExpression='PK = :pk_val and SK between :sk_start and :sk_end',
-    #             ExpressionAttributeValues={
-    #                 ':pk_val': {'S': sensor_id},
-    #                 ':sk_start': {'S': f"{data_type}#{unix_from_date}"},
-    #                 ':sk_end': {'S': f"{data_type}#{unix_to_date}"}
-    #             },
-    #             ReturnConsumedCapacity='INDEXES'
-    #         )
-    #         print("Consumed Capacity:", response.get('ConsumedCapacity'))
-    #         return response['Items']
-    #
-    # async def get_sensors_events_in_radius_per_data_type(self, center_point, radius_meters, data_type='Humidity',
-    #                                                      from_date="2020-03-04T00:00:00",
-    #                                                      to_date="2023-09-07T23:59:59"):
-    #     sensor_ids = self.sensor_service.get_sensors_in_radius_acc_to_type(center_point, radius_meters,
-    #                                                                        sensor_type=data_type)
-    #
-    #     unix_from_date = convert_to_unix_epoch(from_date)
-    #     unix_to_date = convert_to_unix_epoch(to_date)
-    #
-    #     tasks = [self.get_sensor_events(sensor['sensor_id'], data_type, unix_from_date, unix_to_date) for sensor in
-    #              sensor_ids]
-    #     # Nested list
-    #     nested_events = await asyncio.gather(*tasks)
-    #     # Flatten
-    #     all_events = list(chain.from_iterable(nested_events))
-    #     return all_events
-
-
     def add_sensor_event(self, sensor_event_json):
         try:
             sensor_event_entry = SensorEvent.from_json(sensor_event_json).to_entity()
@@ -297,6 +258,10 @@ class SensorEventService:
         except ClientError as e:
             print(f"An error occurred: {e.response['Error']['Message']}")
             return []
+
+    #TODO
+    #def query_events_in_radius_for_currently_active_sensors(self, center_point, radius:
+    #def query_events_in_radius_for_currently_active_sensors_by_sensor_type(self):
 def main():
     service = SensorEventService()
     # events = await service.get_sensor_events('3cec4677-92d7-4a88-9b66-1a1323c6288d', 'Humidity', 1583276400, 1694123999)
@@ -350,5 +315,4 @@ def main():
 
 # Run the async main function
 if __name__ == "__main__":
-    #asyncio.run(main())
     main()
