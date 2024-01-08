@@ -1,10 +1,10 @@
 {
-   "sensorId":"60acb1d3-bf3a-4f25-aa73-c75d0f495a8b",
+   "sensorId":"32c3ecce-6589-445f-8f64-4d7422d4f1bf",
    "metadata":{
-      "location":"(46.63366128235294, 28.12680874117647)",
+      "location":"(46.629950494117644,28.13582094705882)",
       "battery_level":33,
-      "status":"Maintenance",
-      "parcel_id":"Chickpeas#957000a4-6b4a-4ff7-979d-9764d086ca01"
+      "status":"Active",
+      "parcel_id":"Chickpeas#af8ed50d-68c4-4cf9-b04e-bba5432d4b8e"
    },
    "data":{
       "dataType":"SoilPH",
@@ -12,3 +12,4 @@
       "timestamp":"2023-12-21T16:00:00"
    }
 }
+

@@ -3,10 +3,10 @@ from shapely import Point
 
 class SensorDetails:
     def __init__(self, response_item):
-        self.hash_key = response_item['hash_key']['S']
+        self.hash_key =  response_item['hash_key']['S'] if 'hash_key' in response_item.keys() else None
         self.geohash = response_item['geohash']['S']
         self.sk = response_item['SK']['S']
-        self.parcel_id = response_item['curr_parcelid']['S']
+        self.parcel_id = response_item['curr_parcelid']['S'] if 'curr_parcelid' in response_item.keys() else None
         self.sensor_id = response_item['PK']['S'].split("#")[1]
         self.sensor_type = response_item['sensor_type']['S']
         self.manufacturer = response_item['manufacturer']['S']

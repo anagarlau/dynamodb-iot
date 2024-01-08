@@ -72,7 +72,8 @@ def parse_sensor_data(sensor_data):
 
     for item in sensor_data:
         #print(item)
-        sensor_id = item.get('SK', {}).get('S', None)
+        sensor_id = item.get('PK', {}).get('S', None)
+        sensor_sk = item.get('SK', {}).get('S', None)
         sensor_type = item.get('sensor_type', {}).get('S') or item.get('sensortype', {}).get('S')
         geoJson_str = item.get('geoJson', {}).get('S', None)
         parcel_id = item.get('curr_parcelid') or item.get('id_parcel')

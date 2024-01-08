@@ -38,7 +38,7 @@ class SensorMetadata:
     def get_sensor_metadata_record(self, sensor_id, parcel_id):
         sensor_metadata_record = {
             'PK': f"Sensor#{sensor_id}",
-            'SK': f"Metadata#{self.sensor_type}#{sensor_id}",
+            'SK': f"Metadata#{self.sensor_type}#{self.geohash}",
             'sensor_type': self.sensor_type,
             'geoJson': self.geoJson,
             'hash_key': str(self.hashkey),
@@ -53,14 +53,22 @@ class SensorMetadata:
     def get_sensor_location_record(self, sensor_id, parcel_id, timestamp):
         sensor_location_record = {
             'PK': f"Sensor#{sensor_id}",
-            'SK': f"Location#{convert_to_unix_epoch(timestamp)}",
-            'sensortype': self.sensor_type, # In order for GSI for active in radius by type not to fetch it
+            'SK': f"Location#{self.geohash}",
+            'sensortype': self.sensor_type,
             'geoJson': self.geoJson,
             'hash_key': str(self.hashkey),
             'geohash': str(self.geohash),
-            'id_parcel': parcel_id
+            'id_parcel': parcel_id,
+            'placed_at': convert_to_unix_epoch(timestamp)
         }
-        return {key: {'S': str(value)} for key, value in sensor_location_record.items()}
+        formatted_record = {}
+        for key, value in sensor_location_record.items():
+            if key == 'placed_at':  # Store placed_at as a number
+                formatted_record[key] = {'N': str(value)}
+            else:  # Store all other attributes as strings
+                formatted_record[key] = {'S': str(value)}
+
+        return formatted_record
     def __repr__(self):
         return f"Sensor(longitude={self.longitude}, latitude={self.latitude}, sensor_type={self.sensor_type}, location={self.location}, model={self.model}, manufacturer={self.manufacturer}, firmware={self.firmware})"
 

@@ -5,7 +5,7 @@ from shapely import Polygon
 
 class Parcel:
     def __init__(self, water_requirements_mm_per_week, optimal_humidity, optimal_soil_ph,
-                 optimal_temperature, sunlight_requirements_hours_per_day, polygon, SK, details, PK, plant_type):
+                 optimal_temperature, sunlight_requirements_hours_per_day, polygon, SK, details, PK, plant_type, is_active=None):
         self.water_requirements_mm_per_week = int(water_requirements_mm_per_week)
         self.optimal_humidity = tuple(map(float, optimal_humidity.strip("()").split(", ")))
         self.optimal_soil_ph = tuple(map(float, optimal_soil_ph.strip("()").split(", ")))
@@ -16,6 +16,7 @@ class Parcel:
         self.details = details
         self.PK = PK
         self.plant_type = plant_type
+        self.is_active = True if is_active else False
 
     def __str__(self):
         return (f"Parcel(ID: {self.SK}, Type: {self.plant_type}, "

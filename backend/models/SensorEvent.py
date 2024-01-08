@@ -11,6 +11,7 @@ class SensorStatus(Enum):
     BUSY = 'Busy'
     IDLE = 'Idle'
     MAINTENANCE = 'Maintenance'
+    ACTIVE = 'Active'
 
 
 class DataType(Enum):
@@ -69,16 +70,13 @@ class SensorEvent:
             get_first_of_month_as_unix_timestamp
         lat, lon = self.metadata.location
         geoJson = "{},{}".format(lat, lon)
-        # Format SK
         timestamp_str = self.data.timestamp.strftime("%Y-%m-%dT%H:%M:%S")
-        sk_formatted = f"TimeRange#{convert_to_unix_epoch(timestamp_str)}#{self.sensorId}"
-        # Format month
+        sk_formatted = f"Timestamp#{convert_to_unix_epoch(timestamp_str)}"
         start_of_month = get_first_of_month_as_unix_timestamp(self.data.timestamp.strftime("%Y-%m-%dT%H:%M:%S"))
-        # Sensor event DDB entry
         return {
             'PK': {'S': f"Event#{self.sensorId}"},
             'SK': {'S': sk_formatted},
-            'month': {'N': str(start_of_month)},
+            'type_month': {'S': f"{self.data.dataType.value}#{str(start_of_month)}"},
             'data_point': {'N': str(self.data.dataPoint)},
             'geoJson': {'S': geoJson},
             'parcel_id': {'S': self.metadata.parcel_id},

@@ -150,7 +150,7 @@ class IoTInitService:
             hashKey = S2Manager().generateHashKey(geohash, self.config.hashKeyLength)
             sensor_details = {
                 'PK': f"Sensor#{item['sensor_id']}",
-                'SK': f"Metadata#{item['sensor_type']}#{item['sensor_id']}",
+                'SK': f"Metadata#{item['sensor_type']}#{geohash}",
                 'sensor_type': item['sensor_type'],
                 'geoJson': "{},{}".format(geopoint.getLatitude(), geopoint.getLongitude()),
                 'hash_key': str(hashKey),
@@ -163,13 +163,14 @@ class IoTInitService:
             # Tracks sensor location history
             sensor_location_event = {
                 'PK': f"Sensor#{item['sensor_id']}",
-                'SK': f"Location#{convert_to_unix_epoch('2020-01-01T04:35:53')}",
+                'SK': f"Location#{geohash}",
                 # 'moved_date': '',
                 'sensortype': item['sensor_type'],  # In order for GSI for active in radius by type not to fetch it
                 'geoJson': "{},{}".format(geopoint.getLatitude(), geopoint.getLongitude()),
                 'hash_key': str(hashKey),
                 'geohash': str(geohash),
-                'id_parcel': item['parcel_id']
+                'id_parcel': item['parcel_id'],
+                'placed_at':convert_to_unix_epoch('2020-01-01T04:35:53')
             }
             # Maintenance Operations
             for i in range(random.randint(0, 5)):
@@ -258,6 +259,12 @@ if __name__ == "__main__":
         gsi_name=gsi_name,
         gsi_pk='hash_key',
         gsi_pk_type='S', gsi_sk='geohash', gsi_sk_type='S')
+    initService.custom_gsi_waiter(gsi_name)
+    gsi_name = f'GSI_TypeGeohash{initService.config.hashKeyLength}_FullGeohash'
+    initService.create_gsi(
+        gsi_name=gsi_name,
+        gsi_pk='hash_key',
+        gsi_pk_type='S', gsi_sk='SK', gsi_sk_type='S')
     initService.custom_gsi_waiter(gsi_name)
     initService.insert_sensor_events()
     gsi_name = 'GSI_AllSensorEvents_TimeRange'

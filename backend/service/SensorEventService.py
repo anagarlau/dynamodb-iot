@@ -4,7 +4,7 @@ from itertools import chain
 
 import aioboto3
 from boto3.dynamodb.conditions import Key
-from botocore.exceptions import ClientError
+from botocore.exceptions import ClientError, BotoCoreError
 from dateutil.relativedelta import relativedelta
 from shapely import Point
 
@@ -33,9 +33,97 @@ class SensorEventService:
             sensor_event_entry = SensorEvent.from_json(sensor_event_json).to_entity()
             self.dynamodb.put_item(TableName=self.table_name, Item=sensor_event_entry)
             return sensor_event_json['sensorId']
-        except ClientError as e:
-            print(e.response['Error']['Message'])
-            return "Error occurred during operation."
+        except (ClientError, BotoCoreError, Exception) as e:
+            print(f"Error adding sensor event to DB: {e}")
+            return None
+
+    def query_sensorevents_by_sensorid_in_time_range(self, sensor_id, start_range, end_range):
+        try:
+            start_range_unix = convert_to_unix_epoch(start_range)
+            end_range_unix = convert_to_unix_epoch(end_range)
+            last_evaluated_key = None
+            all_items = []
+            consumed_capacity=0
+            while True:
+                if last_evaluated_key:
+                    response = self.dynamodb.query(
+                        TableName=self.table_name,
+                        KeyConditionExpression=f"PK = :pval AND SK BETWEEN :sval AND :eval",
+                        ExpressionAttributeValues={
+                            ':pval': {'S': f"Event#{sensor_id}"},
+                            ':sval': {'S': f"Timestamp#{start_range_unix}"},
+                            ':eval': {'S': f"Timestamp#{end_range_unix}"}
+                        },
+                        ReturnConsumedCapacity='TOTAL',
+                        ExclusiveStartKey=last_evaluated_key
+                    )
+                else:
+                    response = self.dynamodb.query(
+                        TableName=self.table_name,
+                        KeyConditionExpression=f"PK = :pval AND SK BETWEEN :sval AND :eval",
+                        ExpressionAttributeValues={
+                            ':pval': {'S': f"Event#{sensor_id}"},
+                            ':sval': {'S': f"Timestamp#{start_range_unix}"},
+                            ':eval': {'S': f"Timestamp#{end_range_unix}"}
+                        },
+                        ReturnConsumedCapacity='TOTAL'
+                    )
+                consumed_capacity += response.get('ConsumedCapacity')['CapacityUnits']
+                items = response.get('Items', [])
+                all_items.extend(items)
+                print('Consumed Capacity', consumed_capacity)
+                last_evaluated_key = response.get('LastEvaluatedKey')
+                if not last_evaluated_key:
+                    break
+            return all_items
+        except (ClientError, BotoCoreError, Exception) as e:
+            print(f"An error occurred while retrieving sensor events for sensor {sensor_id}:", e)
+            return None
+
+    def query_latest_n_sensorevents_by_sensorid(self, sensor_id, n):
+        try:
+            items = []
+            last_evaluated_key = None
+            remaining_items = n
+            consumed_capacity=0
+            while remaining_items > 0:
+                if last_evaluated_key:
+                    response = self.dynamodb.query(
+                        TableName=self.table_name,
+                        KeyConditionExpression=f"PK = :pval AND begins_with(SK, :skval)",
+                        ExpressionAttributeValues={
+                            ':pval': {'S': f"Event#{sensor_id}"},
+                            ':skval': {'S': 'Timestamp#'}
+                        },
+                        ScanIndexForward=False,
+                        Limit=remaining_items,
+                        ExclusiveStartKey=last_evaluated_key,
+                        ReturnConsumedCapacity='TOTAL'
+                    )
+                else:
+                    response = self.dynamodb.query(
+                        TableName=self.table_name,
+                        KeyConditionExpression=f"PK = :pval AND begins_with(SK, :skval)",
+                        ExpressionAttributeValues={
+                            ':pval': {'S': f"Event#{sensor_id}"},
+                            ':skval': {'S': 'Timestamp#'}
+                        },
+                        ScanIndexForward=False,
+                        Limit=remaining_items,
+                        ReturnConsumedCapacity='TOTAL'
+                    )
+                batch_items = response.get('Items', [])
+                items.extend(batch_items)
+                remaining_items -= len(batch_items)
+                consumed_capacity += response.get('ConsumedCapacity')['CapacityUnits']
+                print('Consumed Capacity', consumed_capacity)
+                last_evaluated_key = response.get('LastEvaluatedKey')
+                if not last_evaluated_key:
+                    break
+            return items
+        except (ClientError, BotoCoreError, Exception) as e:
+            print("Boto3 client error:", e)
+            return [], None
 
     def query_sensorevents_for_entire_field_in_time_range(self, start_range, end_range, sensor_types_filters=None):
         try:
@@ -67,8 +155,8 @@ class SensorEventService:
                     },
                     'ExpressionAttributeValues': {
                         ':pval': {'N': str(partition_val)},
-                        ':sval': {'S': f'TimeRange#{start_range_unix}#'},
-                        ':eval': {'S': f'TimeRange#{end_range_unix}#zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz'}
+                        ':sval': {'S': f'Timestamp#{start_range_unix}#'},
+                        ':eval': {'S': f'Timestamp#{end_range_unix}#zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz'}
                     },
                     'ReturnConsumedCapacity': 'INDEXES'
                 }
@@ -92,75 +180,6 @@ class SensorEventService:
         except ClientError as e:
             print("Boto3 client error:", e)
             return [], None
-
-
-    def query_sensorevents_by_sensorid_in_time_range(self, sensor_id, start_range, end_range):
-        try:
-            # Convert time ranges to Unix epoch
-            start_range_unix = convert_to_unix_epoch(start_range)
-            end_range_unix = convert_to_unix_epoch(end_range)
-
-            # Query parameters
-            partition_key = 'PK'
-            sort_key = 'SK'
-            items = []
-            consumed_capacity = 0
-
-            # Construct sort key range for BETWEEN clause
-            lower_bound = f"TimeRange#{start_range_unix}#"
-            upper_bound = f"TimeRange#{end_range_unix}#zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"
-
-            # Query the DynamoDB table
-            response = self.dynamodb.query(
-                TableName=self.table_name,
-                KeyConditionExpression=f"#{partition_key} = :pval AND #{sort_key} BETWEEN :sval AND :eval",
-                ExpressionAttributeNames={
-                    f"#{partition_key}": partition_key,
-                    f"#{sort_key}": sort_key
-                },
-                ExpressionAttributeValues={
-                    ':pval': {'S': f"Event#{sensor_id}"},
-                    ':sval': {'S': lower_bound},
-                    ':eval': {'S': upper_bound}
-                },
-                ReturnConsumedCapacity='TOTAL'
-            )
-
-            items.extend(response.get('Items', []))
-            consumed_capacity += response.get('ConsumedCapacity')['CapacityUnits']
-            print('Consumed Capacity', consumed_capacity)
-            return items
-        except ClientError as e:
-            print("Boto3 client error:", e)
-            return [], None
-
-
-    def query_latest_n_sensorevents_by_sensorid(self, sensor_id, n):
-        try:
-            items = []
-            consumed_capacity = 0
-
-            # Query the DynamoDB table
-            response = self.dynamodb.query(
-                TableName=self.table_name,
-                KeyConditionExpression=f"PK = :pval AND begins_with(SK, :skval)",
-                ExpressionAttributeValues={
-                    ':pval': {'S': f"Event#{sensor_id}"},
-                    ':skval': {'S': 'TimeRange#'}
-                },
-                ScanIndexForward=False,  # Query in descending order
-                Limit=n,  # Limit the number of items processed
-                ReturnConsumedCapacity='TOTAL'
-            )
-
-            items.extend(response.get('Items', []))
-            consumed_capacity += response.get('ConsumedCapacity')['CapacityUnits']
-            print('Consumed Capacity', consumed_capacity)
-            return items
-        except ClientError as e:
-            print("Boto3 client error:", e)
-            return [], None
-
     def get_previous_month_timestamp(self,current_month_unix_timestamp):
         # Convert current month timestamp to datetime (not necessary here but for reusability purposes)
         current_month_datetime = datetime.fromtimestamp(current_month_unix_timestamp)
@@ -168,7 +187,6 @@ class SensorEventService:
         first_day_of_previous_month = first_day_of_current_month - relativedelta(months=1)
         # First of month as Unix timestamp
         return int(first_day_of_previous_month.timestamp())
-
     def query_latest_n_sensor_events_for_field(self, num_reads):
         try:
             current_datetime_str = datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
@@ -232,8 +250,8 @@ class SensorEventService:
                 },
                 'ExpressionAttributeValues': {
                     ':pid': {'S': parcel_id},
-                    ':start_range': {'S': f"TimeRange#{start_range_unix}#"},
-                    ':end_range': {'S': f"TimeRange#{end_range_unix}#zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"}
+                    ':start_range': {'S': f"Timestamp#{start_range_unix}#"},
+                    ':end_range': {'S': f"Timestamp#{end_range_unix}#zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"}
                 },
                 'ReturnConsumedCapacity': 'TOTAL'
             }
@@ -271,39 +289,39 @@ def main():
     #                                                           'Humidity',
     #                                                           '2021-07-02T16:27:30',
     #                                                           '2022-10-16T23:52:35')
-    events = service.query_sensorevents_for_entire_field_in_time_range(
-        '2020-01-01T04:35:53',
-        '2020-02-07T14:56:50',['Humidity', 'Light', 'Temperature']
-        )
-    print(len(events))
-    print(events[0])
+    # events = service.query_sensorevents_for_entire_field_in_time_range(
+    #     '2020-01-01T04:35:53',
+    #     '2020-02-07T14:56:50',['Humidity', 'Light', 'Temperature']
+    #     )
+    # print(len(events))
+    # print(events[0])
     events = service.query_sensorevents_by_sensorid_in_time_range(
-                 '57bf26c3-d792-4906-a717-a90c5e400e61',
-                        '2020-01-01T11:51:38',
-                        '2020-02-01T03:51:11')
+                 '32c3ecce-6589-445f-8f64-4d7422d4f1bf',
+                        '2022-01-01T11:51:38',
+                        '2024-12-01T03:51:11')
     print(len(events))
     print(events[0])
-    events = service.query_latest_n_sensorevents_by_sensorid('57bf26c3-d792-4906-a717-a90c5e400e61',4)
+    events = service.query_latest_n_sensorevents_by_sensorid('32c3ecce-6589-445f-8f64-4d7422d4f1bf',4)
     print(len(events))
-    for item in events[:1]:
+    for item in events:
         print(item['SK']['S'])
-    events = service.query_latest_n_sensor_events_for_field(100)
-    print(len(events))
-    print(events[0])
-    events = service.query_sensor_events_by_parcelid_in_time_range(
-        'Chickpeas#3225eba0-4695-48ee-9616-62dc5256b4e2',
-        '2020-01-01T11:51:38',
-        '2020-02-01T03:51:11'
-    ,['Humidity', 'Light', 'Temperature'])
-    print(len(events))
-    print(events[0])
+    # events = service.query_latest_n_sensor_events_for_field(100)
+    # print(len(events))
+    # print(events[0])
+    # events = service.query_sensor_events_by_parcelid_in_time_range(
+    #     'Chickpeas#3225eba0-4695-48ee-9616-62dc5256b4e2',
+    #     '2020-01-01T11:51:38',
+    #     '2020-02-01T03:51:11'
+    # ,['Humidity', 'Light', 'Temperature'])
+    # print(len(events))
+    # print(events[0])
     json = {
-        "sensorId": "60acb1d3-bf3a-4f25-aa73-c75d0f495a8b",
+        "sensorId": "32c3ecce-6589-445f-8f64-4d7422d4f1bf",
         "metadata": {
             "location": "(46.63366128235294, 28.12680874117647)",
             "battery_level": 33,
-            "status": "Maintenance",
-            "parcel_id": "Chickpeas#957000a4-6b4a-4ff7-979d-9764d086ca01"
+            "status": "Active",
+            "parcel_id": "Chickpeas#af8ed50d-68c4-4cf9-b04e-bba5432d4b8e"
         },
         "data": {
             "dataType": "SoilPH",

@@ -7,11 +7,12 @@ class SensorLocationHistory:
     def __init__(self, response_item):
         self.sensor_id = response_item['PK']['S']
         self.sk = response_item['SK']['S']
-        self.parse_placed_at(self.sk)
+        print(response_item)
+        self.placed_at=unix_to_iso(int(response_item['placed_at']['N']))
         self.sensor_type = response_item['sensortype']['S']
         self.geo_json = response_item['geoJson']['S']
         self.hash_key = response_item['hash_key']['S']
-        self.geohash = response_item['geohash']['S']
+        self.geohash = response_item['SK']['S'].split('#')[1]
         self.parcel_id = response_item.get('id_parcel', {}).get('S')
         if 'moved_at' in response_item.keys():
             self.moved_at = unix_to_iso(int(response_item['moved_at']['N']))

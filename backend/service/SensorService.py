@@ -64,17 +64,11 @@ class SensorService:
             sensor_id = uuid.uuid4()
             parcel_id = parcel_for_point.SK
             sensor_metadata_record = sensor_metadata.get_sensor_metadata_record(sensor_id, parcel_id)
-            sensor_location_record = sensor_metadata.get_sensor_location_record(sensor_id, parcel_id, datetime.now().strftime("%Y-%m-%dT%H:%M:%S"))
-            condition_expression = {
-                'ConditionCheck': {
-                    'TableName': self.table_name,
-                    'Key': {'PK': {'S': f'Sensor#{sensor_id}'}, 'SK': {'S': f'Metadata#{sensor_id}'}},
-                    'ConditionExpression': 'attribute_not_exists(PK) AND attribute_not_exists(SK)',
-                }
-            }
+            sensor_location_record = sensor_metadata.get_sensor_location_record(sensor_id, parcel_id,
+                                                                                datetime.now().strftime("%Y-%m-%dT%H:%M:%S"))
             transact_items = [
-                condition_expression,
-                {'Put': {'TableName': self.table_name, 'Item': sensor_metadata_record}},
+                {'Put': {'TableName': self.table_name, 'Item': sensor_metadata_record,
+                         'ConditionExpression':'attribute_not_exists(PK) AND attribute_not_exists(SK)'}},
                 {'Put': {'TableName': self.table_name, 'Item': sensor_location_record}}
             ]
             self.dynamodb.transact_write_items(TransactItems=transact_items)
@@ -123,15 +117,15 @@ class SensorService:
         map.save("vis_out/sensorservice/sensors-field-all.html")
         return parsed_data
 
-    def get_all_active_sensors_in_radius(self, center_point, radius_meters):
+    def get_all_active_sensors_in_radius_by_type(self, center_point, radius_meters, sensor_type):
         lat, lon = center_point.y, center_point.x
         query_radius_input = {
             'GSI': {
-                'Name': 'GSI_Geohash6_FullGeohash',
+                'Name': 'GSI_TypeGeohash6_FullGeohash',
                 'PK': {'name': 'hash_key', 'type': 'S'},
-                'SK': {'name': 'geohash', 'type': 'S'}
-            },
-            "Filters": "attribute_exists(curr_parcelid)",
+                'SK': {'name': 'SK', 'value': f"Metadata#{sensor_type}#", 'type': 'S', 'composite': True}
+            }
+            # ,"Filters": "attribute_exists(curr_parcelid)",
             # "ExpressionAttributeValues": {
             #     ':metadataPrefix': {'S': "METADATA#"}
             # }
@@ -155,30 +149,6 @@ class SensorService:
               response['consumed_capacity'])
         map.save("vis_out/sensorservice/sensors-active-radius.html")
         return data
-
-    def get_all_active_sensors_of_type_in_field(self, sensor_type):
-        if not any(sensor_type == member.value for member in DataType):
-            raise ValueError(f"Invalid sensor type: {sensor_type}")
-
-        params = {
-            'TableName': self.table_name,
-            'IndexName': 'GSI_ActiveSensor_By_Type',
-            'KeyConditionExpression': 'sensor_type = :st',
-            'ExpressionAttributeValues': {
-                ':st': {'S': sensor_type}
-            },
-            'ReturnConsumedCapacity': 'TOTAL'
-        }
-
-        response = self.dynamodb.query(**params)
-        total_consumed_capacity = response.get('ConsumedCapacity', {}).get('CapacityUnits', 0)
-        print('>>In Field by type: Total data', len(response['Items']), 'with consumed Capacity Units',
-              total_consumed_capacity)
-        parsed_data = parse_sensor_data(response['Items'])
-        # sensor_ids = [item['sensor_id'].split("#")[1] for item in parsed_data]
-        map = visualize_results(center_point=None, radius=None, sensors=parsed_data)
-        map.save("vis_out/sensorservice/sensors-field-type.html")
-        return parsed_data
 
     def get_active_sensors_in_radius_for_time_range(self, center_point, radius_meters, from_date, to_date):
         start_range_unix = convert_to_unix_epoch(from_date)
@@ -322,7 +292,8 @@ class SensorService:
     def move_sensor(self, sensor_type, sensor_id, new_lon, new_lat):
         # 1: Retrieve the sensor's current location history
         current_location = self.get_sensor_location_history(sensor_id=sensor_id, filter_moved_at=True)
-        print(current_location)
+        sensor_details = self.get_sensor_details_by_id(sensor_id)
+        print(sensor_details)
         if len(current_location) < 1:
             print(f"No location history found for sensor ID: {sensor_id}")
             return None
@@ -342,35 +313,49 @@ class SensorService:
                 'TableName': self.table_name,
                 'Item': {
                     'PK': {'S': f"Sensor#{sensor_id}"},
-                    'SK': {'S': f'Location#{current_time_unix}#{sensor_id}'},
+                    'SK': {'S': f'Location#{geohash}'},
                     'geoJson': {'S': f'{new_lat},{new_lon}'},
                     'hash_key': {'S': str(hashkey)},
                     'geohash': {'S': str(geohash)},
                     'id_parcel': {'S': parcel_for_point.SK},
-                    'sensortype': {'S': current_location[0].sensor_type}
+                    'sensortype': {'S': current_location[0].sensor_type},
+                    'placed_at': {'N': str(current_time_unix)}
                 }
             }
         }
 
-        # Update Current Metadata Record
-        update_metadata_record = {
-            'Update': {
+        # Delete former Metadata Record and create new one with the new data
+        # SKs cannot be updated in DDB
+        delete_old_metadata = {
+            'Delete': {
                 'TableName': self.table_name,
                 'Key': {
                     'PK': {'S': f"Sensor#{sensor_id}"},
-                    'SK': {'S': f'Metadata#{sensor_type}#{sensor_id}'}
-                },
-                'UpdateExpression': 'SET curr_parcelid = :newParcelId, geoJson = :newGeoJson, hash_key = :newHashKey, geohash = :newGeohash',
-                'ExpressionAttributeValues': {
-                    ':newParcelId': {'S': parcel_for_point.SK},
-                    ':newGeoJson': {'S': f'{new_lat},{new_lon}'},
-                    ':newHashKey': {'S': str(hashkey)},
-                    ':newGeohash': {'S': str(geohash)}
+                    'SK': {'S': f'Metadata#{sensor_type}#{current_location[0].geohash}'}
                 }
             }
         }
 
-        # Update Old Location History Record
+        # Insert new Metadata Record
+        new_metadata_record = {
+            'Put': {
+                'TableName': self.table_name,
+                'Item': {
+                    'PK': {'S': f"Sensor#{sensor_id}"},
+                    'SK': {'S': f'Metadata#{sensor_type}#{geohash}'},
+                    'sensor_type': {'S': sensor_type},
+                    'curr_parcelid': {'S': parcel_for_point.SK},
+                    'geoJson': {'S': f'{new_lat},{new_lon}'},
+                    'hash_key': {'S': str(hashkey)},
+                    'geohash': {'S': str(geohash)},
+                    'manufacturer': {'S': sensor_details.manufacturer},
+                    'firmware': {'S': sensor_details.firmware},
+                    'model': {'S': sensor_details.model}
+                }
+            }
+        }
+
+       # Update Old Location History Record
         update_old_location = {
             'Update': {
                 'TableName': self.table_name,
@@ -384,7 +369,7 @@ class SensorService:
                 }
             }
         }
-        transact_items = [new_location_history, update_metadata_record, update_old_location]
+        transact_items = [delete_old_metadata, new_location_history, new_metadata_record, update_old_location]
         try:
             self.dynamodb.transact_write_items(TransactItems=transact_items)
             print(f"Sensor {sensor_id} moved to new location: {new_lat}, {new_lon} in parcel {parcel_for_point.SK}")
@@ -402,9 +387,9 @@ class SensorService:
                 'TableName': self.table_name,
                 'Key': {
                     'PK': {'S': f"Sensor#{sensor_id}"},
-                    'SK': {'S': f'Metadata#{sensor_type}#{sensor_id}'}
+                    'SK': {'S': f'Metadata#{sensor_type}#{current_location[0].geohash}'}
                 },
-                'UpdateExpression': 'REMOVE curr_parcelid'
+                'UpdateExpression': 'REMOVE curr_parcelid, hash_key'
             }
         }
         update_old_location = {
@@ -436,11 +421,12 @@ if __name__ == "__main__":
     sensor_service = SensorService()
     subpolygon = [(28.1250063, 46.6334964), (28.1256516, 46.6322131), (28.1284625, 46.6330088), (28.127733, 46.6341875),
                   (28.1250063, 46.6334964)]
-    sensor_det = sensor_service.get_sensor_details_by_id("1d835be7-5984-4604-8c84-9a99b59201bb")
-    print(sensor_det)
+    sensor_det = sensor_service.get_sensor_details_by_id("5459217a-400a-4102-ad36-f628cd1adbeb")
+    # print(sensor_det)
     sensor_locations = sensor_service.get_sensor_location_history("1d835be7-5984-4604-8c84-9a99b59201bb")
-    print(sensor_locations)
-    # sensor_id=sensor_service.add_sensor(28.12565, 46.63328, {
+    # print(sensor_locations)
+
+    # sensor_id=sensor_service.add_sensor( 28.12595, 46.63357,{
     #     'sensor_type': 'SoilMoisture',
     #     'manufacturer': 'Panasonic',
     #     'model': '12f',
@@ -450,41 +436,10 @@ if __name__ == "__main__":
     # sensor_service.get_active_sensors_in_rectangle_for_time_range(subpolygon,
     #                                                           '2023-12-23T00:00:00',
     #                                                           '2023-12-18T16:00:00')
-    sensor_service.get_all_active_sensors_in_radius(center_point, 200)
-    # sensor_service.get_all_active_sensors_in_field_or_with_optional_parcel_id()
-    #sensor_service.retire_sensor("SoilMoisture","669ba11c-762c-4db2-a56d-ea8e02863200")
-    sensor_service.get_all_active_sensors_in_field_or_with_optional_parcel_id('Chickpeas#13bcb3a9-78c9-461c-99a7-2e18dbe3671a')  # 174
 
-   # sensor_service.move_sensor("SoilPH","50862343-7316-452b-a93d-5346178410b6", 28.14247,46.62179)
-    # sensor_service.get_all_active_sensors_of_type_in_field("Humidity")
-    # sensor_service.get_active_sensors_in_radius_acc_to_type(center_point, 200, "Temperature")
-    # sensor_service.get_active_sensors_in_radius_for_time_range(center_point,
-    # 200,
-    # '2023-12-23T00:00:00',
-    # '2023-12-23T16:00:00')
-    # sensor_service.get_all_active_sensors_in_field_or_with_optional_parcel_id(
-    #     "Grapevine#dcce31f9-ccf6-4f0c-985d-91d8a2276091")  # 21
-    # sensor_service.add_sensor(28.12565, 46.63328, 'SoilMoisture')  # bottom point 28.14247, 46.62179
-    # sensor_service.get_all_active_sensors_in_field_or_with_optional_parcel_id()  # 175
-    # sensor_service.get_all_active_sensors_in_field_or_with_optional_parcel_id(
-    #     "Grapevine#dcce31f9-ccf6-4f0c-985d-91d8a2276091")  # 22
-    # sensor = sensor_service.get_sensor_details_by_id(
-    #     "924bb19d-ea3c-44d8-9980-4ece23fecdde")  # parcelid Grapevine#dcce31f9-ccf6-4f0c-985d-91d8a2276091
-    # print(sensor)
-    # location_history = sensor_service.get_sensor_location_history("e5352d72-3165-4f93-935f-0ed3ab17a871")
-    # print(location_history)
-
-
-    # sensor_service.get_all_active_sensors_in_field_or_with_optional_parcel_id(
-    #     "Chickpeas#957000a4-6b4a-4ff7-979d-9764d086ca01")  # 21
-    # sensor = sensor_service.get_sensor_details_by_id("1988c59f-782b-4bc8-91a2-5041370b4595")
-    # print(sensor)
-    # location_history = sensor_service.get_sensor_location_history("7c627c03-e82b-483a-83c8-1f507b9515fd")
-    # print(location_history)
-    #
-    # sensor_service.get_all_active_sensors_of_type_in_field("Temperature")
-    # sensor_service.get_active_sensors_in_radius_for_time_range(center_point, 200) #2
-    # sensor_service.get_sensors_in_radius_acc_to_type(center_point, 200, sensor_type='Temperature')#1
-    # sensor_service.get_sensors_in_radius_acc_to_type(center_point, 200, sensor_type='SoilPH')#1
-    # sensor_service.add_sensor( 28.14247,46.62179, 'Humidity')
-    # sensor_service.get_all_sensors_with_optional_parcel_id()  # 174
+    sensor_service.get_all_active_sensors_in_field_or_with_optional_parcel_id(sensor_type="Humidity")
+    #sensor_service.retire_sensor("SoilMoisture","a2ac35b9-f32a-43be-a6fa-2aa5f969440e")
+    #sensor_service.move_sensor("SoilMoisture", "a93e5c4f-b143-498c-b4d5-939e513ff2df",   28.15071,46.62401)
+    #sensor_service.retire_sensor("SoilMoisture", "a93e5c4f-b143-498c-b4d5-939e513ff2df")
+    sensor_service.get_all_active_sensors_in_radius_by_type(center_point, 200, 'Temperature')
+   # sensor_service.get_all_active_sensors_in_field_or_with_optional_parcel_id('Chickpeas#13bcb3a9-78c9-461c-99a7-2e18dbe3671a', "Humidity")  # 174

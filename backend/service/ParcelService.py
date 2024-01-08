@@ -144,9 +144,8 @@ class ParcelService:
     def retire_parcel(self, parcel_id):
         from backend.service.SensorService import SensorService
         sensor_service = SensorService()
-        parcel = self.get_parcel_by_id(parcel_id)
         sensors_details = sensor_service.get_all_active_sensors_in_field_or_with_optional_parcel_id(parcel_id)
-        sensor_ids = [sensor['sensor_id'].split("#")[2] for sensor in sensors_details]
+        sensor_ids = [sensor['sensor_id'].split("#")[1] for sensor in sensors_details]
         sensors_location_histories = sensor_service.batch_get_sensor_locations_histories(sensor_ids, True)
         transact_items = []
         transact_items.append({
@@ -169,9 +168,9 @@ class ParcelService:
                     'TableName': self.config.tableName,
                     'Key': {
                         'PK': {'S': f"Sensor#{sensor_id}"},
-                        'SK': {'S': f"Metadata#{value[0].sensor_type}#{sensor_id}"}
+                        'SK': {'S': f"Metadata#{value[0].sensor_type}#{value[0].geohash}"}
                     },
-                    'UpdateExpression': 'REMOVE curr_parcelid'
+                    'UpdateExpression': 'REMOVE curr_parcelid, hash_key'
                 }
             })
             current_date = convert_to_unix_epoch(datetime.now().strftime("%Y-%m-%dT%H:%M:%S"))
@@ -196,33 +195,33 @@ if __name__ == "__main__":
     service = ParcelService()
     res = service.retire_parcel("Chickpeas#13bcb3a9-78c9-461c-99a7-2e18dbe3671a")
     #res = service.get_parcel_by_id("Chickpeas#13bcb3a9-78c9-461c-99a7-2e18dbe3671a")
-    # res = service.get_all_parcels_optionally_by_plant_type()
+    res = service.get_all_parcels_optionally_by_plant_type()
     # print(res[:1])
-    # print(len(res))
-    # res = service.get_all_parcels_optionally_by_plant_type("ChickpeAS")
+    print(len(res))
+    res = service.get_all_parcels_optionally_by_plant_type("ChickpeAS")
     # print(res[:1])
-    # print(len(res))
+    print(len(res))
     # res = service.get_all_active_parcels_in_field()
     # print(res[:1])
     # print(len(res))
-    # res = service.get_all_active_parcels_in_field_optionally_by_plant_type("ChickpeAS")
+    res = service.get_all_active_parcels_in_field_optionally_by_plant_type()
     # print(res[:1])
-    # print(len(res))
-    # parcel = {
-    #     'polygon_coord': [(40.7128, -74.0060), (40.7129, -74.0061), (40.7130, -74.0062), (40.7131, -74.0063)],
-    #     'plant_type': 'Chickpeas',
-    #     'active': 1,  # Optional, can be omitted if not needed
-    #     'details': {
-    #         'latin_name': 'Cicer arietinum',
-    #         'family': 'Fabaceae'
-    #     },
-    #     'optimal_temperature': 20,  # in degrees Celsius
-    #     'optimal_humidity': 60,  # in percentage
-    #     'optimal_soil_ph': 6.5,  # pH level
-    #     'water_requirements_mm_per_week': 25,  # in millimeters
-    #     'sunlight_requirements_hours_per_day': 6  # in hours
-    # }
-    # print(service.add_parcel(parcel))
+    print(len(res))
+    parcel = {
+        'polygon_coord': [(40.7128, -74.0060), (40.7129, -74.0061), (40.7130, -74.0062), (40.7131, -74.0063)],
+        'plant_type': 'Chickpeas',
+        'active': 1,  # Optional, can be omitted if not needed
+        'details': {
+            'latin_name': 'Cicer arietinum',
+            'family': 'Fabaceae'
+        },
+        'optimal_temperature': 20,  # in degrees Celsius
+        'optimal_humidity': 60,  # in percentage
+        'optimal_soil_ph': 6.5,  # pH level
+        'water_requirements_mm_per_week': 25,  # in millimeters
+        'sunlight_requirements_hours_per_day': 6  # in hours
+    }
+    print(service.add_parcel(parcel))
     # res = service.get_all_active_parcels_in_field_by_type("Chickpeas")
     # print(res[:1])
     # print(len(res))
