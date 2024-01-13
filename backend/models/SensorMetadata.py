@@ -38,11 +38,11 @@ class SensorMetadata:
     def get_sensor_metadata_record(self, sensor_id, parcel_id):
         sensor_metadata_record = {
             'PK': f"Sensor#{sensor_id}",
-            'SK': f"Metadata#{self.sensor_type}#{self.geohash}",
+            'SK': f"Metadata#{self.sensor_type}#{sensor_id}",
             'sensor_type': self.sensor_type,
             'geoJson': self.geoJson,
             'hash_key': str(self.hashkey),
-            'geohash': str(self.geohash),
+             'geohash': f"Metadata#{self.sensor_type}#{self.geohash}",
             'curr_parcelid': parcel_id,
             'manufacturer': self.manufacturer,
             'firmware': self.firmware,
@@ -53,11 +53,11 @@ class SensorMetadata:
     def get_sensor_location_record(self, sensor_id, parcel_id, timestamp):
         sensor_location_record = {
             'PK': f"Sensor#{sensor_id}",
-            'SK': f"Location#{self.geohash}",
+            'SK': f"Location#{convert_to_unix_epoch(timestamp)}",
             'sensortype': self.sensor_type,
             'geoJson': self.geoJson,
             'hash_key': str(self.hashkey),
-            'geohash': str(self.geohash),
+            'geohash': f"Location#{self.geohash}",
             'id_parcel': parcel_id,
             'placed_at': convert_to_unix_epoch(timestamp)
         }

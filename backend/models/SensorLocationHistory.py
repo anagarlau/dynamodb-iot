@@ -7,7 +7,6 @@ class SensorLocationHistory:
     def __init__(self, response_item):
         self.sensor_id = response_item['PK']['S']
         self.sk = response_item['SK']['S']
-        print(response_item)
         self.placed_at=unix_to_iso(int(response_item['placed_at']['N']))
         self.sensor_type = response_item['sensortype']['S']
         self.geo_json = response_item['geoJson']['S']

@@ -37,7 +37,6 @@ class MaintenanceService:
         if start_date and end_date:
             start_timestamp = convert_to_unix_epoch(start_date)
             end_timestamp = convert_to_unix_epoch(end_date)
-            print(start_timestamp, end_timestamp)
             params['KeyConditionExpression'] += ' AND #sk BETWEEN :start AND :end'
             params['ExpressionAttributeNames']['#sk'] = 'GSI_SK'
             params['ExpressionAttributeValues'][':start'] = {'S': f"Maintenance#{start_timestamp}"}

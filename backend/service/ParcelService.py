@@ -168,9 +168,9 @@ class ParcelService:
                     'TableName': self.config.tableName,
                     'Key': {
                         'PK': {'S': f"Sensor#{sensor_id}"},
-                        'SK': {'S': f"Metadata#{value[0].sensor_type}#{value[0].geohash}"}
+                        'SK': {'S': f"Metadata#{value[0].sensor_type}#{sensor_id}"}
                     },
-                    'UpdateExpression': 'REMOVE curr_parcelid, hash_key'
+                    'UpdateExpression': 'REMOVE curr_parcelid, hash_key, geohash, geoJson'
                 }
             })
             current_date = convert_to_unix_epoch(datetime.now().strftime("%Y-%m-%dT%H:%M:%S"))
@@ -193,7 +193,7 @@ class ParcelService:
 
 if __name__ == "__main__":
     service = ParcelService()
-    res = service.retire_parcel("Chickpeas#13bcb3a9-78c9-461c-99a7-2e18dbe3671a")
+    res = service.retire_parcel("Chickpeas#be64d111-71cb-4c12-8f50-162577756240")
     #res = service.get_parcel_by_id("Chickpeas#13bcb3a9-78c9-461c-99a7-2e18dbe3671a")
     res = service.get_all_parcels_optionally_by_plant_type()
     # print(res[:1])
@@ -204,7 +204,7 @@ if __name__ == "__main__":
     # res = service.get_all_active_parcels_in_field()
     # print(res[:1])
     # print(len(res))
-    res = service.get_all_active_parcels_in_field_optionally_by_plant_type()
+    res = service.get_all_active_parcels_in_field_optionally_by_plant_type("ChickpeAS")
     # print(res[:1])
     print(len(res))
     parcel = {

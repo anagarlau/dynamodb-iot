@@ -150,11 +150,11 @@ class IoTInitService:
             hashKey = S2Manager().generateHashKey(geohash, self.config.hashKeyLength)
             sensor_details = {
                 'PK': f"Sensor#{item['sensor_id']}",
-                'SK': f"Metadata#{item['sensor_type']}#{geohash}",
+                'SK': f"Metadata#{item['sensor_type']}#{item['sensor_id']}",
                 'sensor_type': item['sensor_type'],
                 'geoJson': "{},{}".format(geopoint.getLatitude(), geopoint.getLongitude()),
                 'hash_key': str(hashKey),
-                'geohash': str(geohash),
+                'geohash': f"Metadata#{item['sensor_type']}#{geohash}",
                 'curr_parcelid': item['parcel_id'],
                 'manufacturer': item['manufacturer'],
                 'firmware': item['firmware'],
@@ -163,12 +163,12 @@ class IoTInitService:
             # Tracks sensor location history
             sensor_location_event = {
                 'PK': f"Sensor#{item['sensor_id']}",
-                'SK': f"Location#{geohash}",
+                'SK': f"Location#{convert_to_unix_epoch('2020-01-01T04:35:53')}",
                 # 'moved_date': '',
-                'sensortype': item['sensor_type'],  # In order for GSI for active in radius by type not to fetch it
+                'sensortype': item['sensor_type'],  # In order for potential GSIs type not to fetch it
                 'geoJson': "{},{}".format(geopoint.getLatitude(), geopoint.getLongitude()),
                 'hash_key': str(hashKey),
-                'geohash': str(geohash),
+                'geohash': f"Location#{geohash}",
                 'id_parcel': item['parcel_id'],
                 'placed_at':convert_to_unix_epoch('2020-01-01T04:35:53')
             }
@@ -264,14 +264,14 @@ if __name__ == "__main__":
     initService.create_gsi(
         gsi_name=gsi_name,
         gsi_pk='hash_key',
-        gsi_pk_type='S', gsi_sk='SK', gsi_sk_type='S')
+        gsi_pk_type='S', gsi_sk='geohash', gsi_sk_type='S')
     initService.custom_gsi_waiter(gsi_name)
     initService.insert_sensor_events()
-    gsi_name = 'GSI_AllSensorEvents_TimeRange'
+    gsi_name = 'GSI_Events_By_Sensor'
     initService.create_gsi(
         gsi_name=gsi_name,
-        gsi_pk='month',
-        gsi_pk_type='N', gsi_sk='SK', gsi_sk_type='S')
+        gsi_pk='s_id',
+        gsi_pk_type='S', gsi_sk='SK', gsi_sk_type='S')
     initService.custom_gsi_waiter(gsi_name)
     gsi_name = 'GSI_AllSensorEvents_Parcel'
     initService.create_gsi(

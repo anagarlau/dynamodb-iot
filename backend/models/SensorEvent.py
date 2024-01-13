@@ -71,12 +71,12 @@ class SensorEvent:
         lat, lon = self.metadata.location
         geoJson = "{},{}".format(lat, lon)
         timestamp_str = self.data.timestamp.strftime("%Y-%m-%dT%H:%M:%S")
-        sk_formatted = f"Timestamp#{convert_to_unix_epoch(timestamp_str)}"
+        sk_formatted = f"Timestamp#{convert_to_unix_epoch(timestamp_str)}#{self.sensorId}"
         start_of_month = get_first_of_month_as_unix_timestamp(self.data.timestamp.strftime("%Y-%m-%dT%H:%M:%S"))
         return {
-            'PK': {'S': f"Event#{self.sensorId}"},
+            'PK': {'S': f"{self.data.dataType.value}#{str(start_of_month)}"},
             'SK': {'S': sk_formatted},
-            'type_month': {'S': f"{self.data.dataType.value}#{str(start_of_month)}"},
+            's_id': {'S': f"Event#{self.sensorId}"},
             'data_point': {'N': str(self.data.dataPoint)},
             'geoJson': {'S': geoJson},
             'parcel_id': {'S': self.metadata.parcel_id},

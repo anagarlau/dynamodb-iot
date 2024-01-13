@@ -173,16 +173,17 @@ def process_events_for_db():
         hashKey = s2_manager.generateHashKey(geohash, hashKeyLength)
         timestamp=event['data']['timestamp']
         start_of_month=get_first_of_month_as_unix_timestamp(timestamp)
-        sk_formated = "{}#{}".format(
+        sk_formated = "{}#{}#{}".format(
              "Timestamp",
-            convert_to_unix_epoch(timestamp)
+            convert_to_unix_epoch(timestamp),
+            event['sensorId']
             #Issue:not unique if 2 sensors send the same timestamp! i need a unique identifier
         )
         sensor_event = {
-            'PK': f"Event#{event['sensorId']}",
+            'PK': f"{event['data']['dataType']}#{start_of_month}",#f"Event#{event['sensorId']}",
             'SK': sk_formated,
-            'type_month': f"{event['data']['dataType']}#{start_of_month}",
-            #'sensor_id': event['sensorId'], #AVOID BLOATED GSI for later access patterns, keep it in the main table
+            #'type_month': f"{event['data']['dataType']}#{start_of_month}",
+            's_id': f"Event#{event['sensorId']}",
             'data_point': event['data']['dataPoint'],
             'geoJson': geoJson,
             'parcel_id': event['metadata']['parcel_id'],

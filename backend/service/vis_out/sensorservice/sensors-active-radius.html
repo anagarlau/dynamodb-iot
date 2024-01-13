@@ -25,7 +25,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_8f8a38901ce5107c739bd11c94b9ebb0 {
+                #map_62c259853f6f088716dcc4d487cc1b47 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -39,14 +39,14 @@
 <body>
     
     
-            <div class="folium-map" id="map_8f8a38901ce5107c739bd11c94b9ebb0" ></div>
+            <div class="folium-map" id="map_62c259853f6f088716dcc4d487cc1b47" ></div>
         
 </body>
 <script>
     
     
-            var map_8f8a38901ce5107c739bd11c94b9ebb0 = L.map(
-                "map_8f8a38901ce5107c739bd11c94b9ebb0",
+            var map_62c259853f6f088716dcc4d487cc1b47 = L.map(
+                "map_62c259853f6f088716dcc4d487cc1b47",
                 {
                     center: [46.62913144, 28.136953920000003],
                     crs: L.CRS.EPSG3857,
@@ -60,85 +60,139 @@
 
         
     
-            var tile_layer_f4fd70a1370f59b94d407cb62ab70f1c = L.tileLayer(
+            var tile_layer_a0fdb858ad37f7dd3ec93af2414bb670 = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
             );
         
     
-            tile_layer_f4fd70a1370f59b94d407cb62ab70f1c.addTo(map_8f8a38901ce5107c739bd11c94b9ebb0);
+            tile_layer_a0fdb858ad37f7dd3ec93af2414bb670.addTo(map_62c259853f6f088716dcc4d487cc1b47);
         
     
-            var polygon_977c43782ff8490bf083beda3247bbb0 = L.polygon(
+            var polygon_decf8cf5c5ed79089966b823851a3d95 = L.polygon(
                 [[46.6334964, 28.1250063], [46.6175812, 28.1334177], [46.6224742, 28.1556478], [46.638609, 28.1456915], [46.6334964, 28.1250063]],
                 {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "pink", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
-            ).addTo(map_8f8a38901ce5107c739bd11c94b9ebb0);
+            ).addTo(map_62c259853f6f088716dcc4d487cc1b47);
         
     
-            var marker_2266d7f7c76936e10bd8b796da237ecf = L.marker(
-                [46.63242435294118, 28.12680874117647],
+            var marker_e5ea11dc48a96bbcb58a99080a9250e7 = L.marker(
+                [46.63342, 28.12663],
                 {}
-            ).addTo(map_8f8a38901ce5107c739bd11c94b9ebb0);
+            ).addTo(map_62c259853f6f088716dcc4d487cc1b47);
         
     
-            var icon_8e689d9573aa9a9edca84a1ad008384b = L.AwesomeMarkers.icon(
+            var icon_55409c28273406076053cd67a618c336 = L.AwesomeMarkers.icon(
                 {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
             );
-            marker_2266d7f7c76936e10bd8b796da237ecf.setIcon(icon_8e689d9573aa9a9edca84a1ad008384b);
+            marker_e5ea11dc48a96bbcb58a99080a9250e7.setIcon(icon_55409c28273406076053cd67a618c336);
         
     
-        var popup_4b55a2ab6f5de14e51b2675bca9dbab1 = L.popup({"maxWidth": "100%"});
+        var popup_6a19111b642f268dd092ae8b52ea5d4d = L.popup({"maxWidth": "100%"});
 
         
             
-                var html_070b902fd4091f7c308a90a7a54a90ee = $(`<div id="html_070b902fd4091f7c308a90a7a54a90ee" style="width: 100.0%; height: 100.0%;">Temperature<br> Sensor: Sensor#8c7bcdb3-c529-43c1-b56f-e04fe8e1827f<br> Parcel id {'S': 'Chickpeas#7cd3dba8-c1b0-40d5-9051-6fa2417e7c66'}</div>`)[0];
-                popup_4b55a2ab6f5de14e51b2675bca9dbab1.setContent(html_070b902fd4091f7c308a90a7a54a90ee);
+                var html_ae2695922dca0e88358eef06e8b873c8 = $(`<div id="html_ae2695922dca0e88358eef06e8b873c8" style="width: 100.0%; height: 100.0%;">Temperature<br> Sensor: Sensor#1d835be7-5984-4604-8c84-9a99b59201bb<br> Parcel id {'S': 'Chickpeas#7cd3dba8-c1b0-40d5-9051-6fa2417e7c66'}</div>`)[0];
+                popup_6a19111b642f268dd092ae8b52ea5d4d.setContent(html_ae2695922dca0e88358eef06e8b873c8);
             
         
 
-        marker_2266d7f7c76936e10bd8b796da237ecf.bindPopup(popup_4b55a2ab6f5de14e51b2675bca9dbab1)
+        marker_e5ea11dc48a96bbcb58a99080a9250e7.bindPopup(popup_6a19111b642f268dd092ae8b52ea5d4d)
         ;
 
         
     
     
-            var marker_32ce140ded4d3b4efbc6984fb5feda03 = L.marker(
+            var marker_2906ff7bedfe6765c409e6d21105ee88 = L.marker(
+                [46.63242435294118, 28.12680874117647],
+                {}
+            ).addTo(map_62c259853f6f088716dcc4d487cc1b47);
+        
+    
+            var icon_3ed71288fec26e4f2763c21180b6577b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_2906ff7bedfe6765c409e6d21105ee88.setIcon(icon_3ed71288fec26e4f2763c21180b6577b);
+        
+    
+        var popup_d62a97efe4fd367deefa675c5404217e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_223f7c7d78dad7bb3d10a4412d9527bb = $(`<div id="html_223f7c7d78dad7bb3d10a4412d9527bb" style="width: 100.0%; height: 100.0%;">Temperature<br> Sensor: Sensor#8c7bcdb3-c529-43c1-b56f-e04fe8e1827f<br> Parcel id {'S': 'Chickpeas#7cd3dba8-c1b0-40d5-9051-6fa2417e7c66'}</div>`)[0];
+                popup_d62a97efe4fd367deefa675c5404217e.setContent(html_223f7c7d78dad7bb3d10a4412d9527bb);
+            
+        
+
+        marker_2906ff7bedfe6765c409e6d21105ee88.bindPopup(popup_d62a97efe4fd367deefa675c5404217e)
+        ;
+
+        
+    
+    
+            var marker_290ee83af7e16c227c04d4bf4d0d6506 = L.marker(
+                [46.63242435294118, 28.12861118235294],
+                {}
+            ).addTo(map_62c259853f6f088716dcc4d487cc1b47);
+        
+    
+            var icon_39f7b254d1c233c9044264286fff5f87 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_290ee83af7e16c227c04d4bf4d0d6506.setIcon(icon_39f7b254d1c233c9044264286fff5f87);
+        
+    
+        var popup_26ec694badee23fd602262f247b35d56 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5af0450d8b18b59e520794e7d5de84df = $(`<div id="html_5af0450d8b18b59e520794e7d5de84df" style="width: 100.0%; height: 100.0%;">Temperature<br> Sensor: Sensor#1e4f61c3-fc87-4aa6-baa6-18edab39528f<br> Parcel id {'S': 'Chickpeas#7cd3dba8-c1b0-40d5-9051-6fa2417e7c66'}</div>`)[0];
+                popup_26ec694badee23fd602262f247b35d56.setContent(html_5af0450d8b18b59e520794e7d5de84df);
+            
+        
+
+        marker_290ee83af7e16c227c04d4bf4d0d6506.bindPopup(popup_26ec694badee23fd602262f247b35d56)
+        ;
+
+        
+    
+    
+            var marker_b33cb688249f4bf2600bdbdacb9071f0 = L.marker(
                 [46.6334964, 28.1250063],
                 {}
-            ).addTo(map_8f8a38901ce5107c739bd11c94b9ebb0);
+            ).addTo(map_62c259853f6f088716dcc4d487cc1b47);
         
     
-        var popup_1ebc1b9ecff1ff448e8b6ee6421bb58f = L.popup({"maxWidth": "100%"});
+        var popup_9b62d38b121af510a0a9275fe4e240f6 = L.popup({"maxWidth": "100%"});
 
         
             
-                var html_df1e82d3d05c79ba0f0e9acb64ca83b7 = $(`<div id="html_df1e82d3d05c79ba0f0e9acb64ca83b7" style="width: 100.0%; height: 100.0%;">Center Point: POINT (28.1250063 46.6334964)</br> 46.633496428.1250063</div>`)[0];
-                popup_1ebc1b9ecff1ff448e8b6ee6421bb58f.setContent(html_df1e82d3d05c79ba0f0e9acb64ca83b7);
+                var html_1f4fee3f0461e0d51d7e112749556528 = $(`<div id="html_1f4fee3f0461e0d51d7e112749556528" style="width: 100.0%; height: 100.0%;">Center Point: POINT (28.1250063 46.6334964)</br> 46.633496428.1250063</div>`)[0];
+                popup_9b62d38b121af510a0a9275fe4e240f6.setContent(html_1f4fee3f0461e0d51d7e112749556528);
             
         
 
-        marker_32ce140ded4d3b4efbc6984fb5feda03.bindPopup(popup_1ebc1b9ecff1ff448e8b6ee6421bb58f)
+        marker_b33cb688249f4bf2600bdbdacb9071f0.bindPopup(popup_9b62d38b121af510a0a9275fe4e240f6)
         ;
 
         
     
     
-            var circle_3cfecbac43a4f36c9be6eca8af669f6f = L.circle(
+            var circle_d532ab427c3d2667534f3d6a8fdde06f = L.circle(
                 [46.6334964, 28.1250063],
-                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 200, "stroke": true, "weight": 3}
-            ).addTo(map_8f8a38901ce5107c739bd11c94b9ebb0);
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 3}
+            ).addTo(map_62c259853f6f088716dcc4d487cc1b47);
         
     
-        var popup_312f51a9fa4d661849848399f56f3a74 = L.popup({"maxWidth": "100%"});
+        var popup_639fbbb563b41468d4c270c52fa52298 = L.popup({"maxWidth": "100%"});
 
         
             
-                var html_52ad4e1a1f8b8a7722c9d2d5c049f539 = $(`<div id="html_52ad4e1a1f8b8a7722c9d2d5c049f539" style="width: 100.0%; height: 100.0%;">Radius: 200 meters</div>`)[0];
-                popup_312f51a9fa4d661849848399f56f3a74.setContent(html_52ad4e1a1f8b8a7722c9d2d5c049f539);
+                var html_231d5b5a92f27053058ae977f8b7eb8b = $(`<div id="html_231d5b5a92f27053058ae977f8b7eb8b" style="width: 100.0%; height: 100.0%;">Radius: 500 meters</div>`)[0];
+                popup_639fbbb563b41468d4c270c52fa52298.setContent(html_231d5b5a92f27053058ae977f8b7eb8b);
             
         
 
-        circle_3cfecbac43a4f36c9be6eca8af669f6f.bindPopup(popup_312f51a9fa4d661849848399f56f3a74)
+        circle_d532ab427c3d2667534f3d6a8fdde06f.bindPopup(popup_639fbbb563b41468d4c270c52fa52298)
         ;
 
         
