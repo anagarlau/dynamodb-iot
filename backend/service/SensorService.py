@@ -1,6 +1,8 @@
 import uuid
 from datetime import datetime
+from typing import Tuple, List
 
+import shapely.geometry.point
 from botocore.exceptions import ClientError, BotoCoreError
 from shapely import Point, Polygon
 
@@ -119,39 +121,35 @@ class SensorService:
         map.save("vis_out/sensorservice/sensors-field-all.html")
         return parsed_data
 
-    def get_all_active_sensors_in_radius_by_type(self, center_point, radius_meters, sensor_type):
-        lat, lon = center_point.y, center_point.x
-        query_radius_input = {
-            'GSI': {
-                'Name': 'GSI_TypeGeohash6_FullGeohash',
-                'PK': {'name': 'hash_key', 'type': 'S'},
-                'SK': {'name': 'geohash', 'value': f"Metadata#{sensor_type}#", 'type': 'S', 'composite': True}
+    def get_all_active_sensors_in_radius_by_type(self, center_point: shapely.geometry.point.Point, radius_meters: float, sensor_type: str):
+        try:
+            lat, lon = center_point.y, center_point.x
+            query_radius_input = {
+                'GSI': {
+                    'Name': 'GSI_TypeGeohash6_FullGeohash',
+                    'PK': {'name': 'hash_key', 'type': 'S'},
+                    'SK': {'name': 'geohash', 'value': f"Metadata#{sensor_type}#", 'type': 'S', 'composite': True}
+                }
             }
-            # ,"Filters": "attribute_exists(curr_parcelid)",
-            # "ExpressionAttributeValues": {
-            #     ':metadataPrefix': {'S': "METADATA#"}
-            # }
-        }  # begins_with(SK, :metadataPrefix) AND
-        # Perform the radius query
-        response = self.geoDataManager.queryRadius(
-            QueryRadiusRequest(
-                GeoPoint(lat, lon),  # center point
-                radius_meters,  # search radius in meters
-                query_radius_input,  # additional filter input
-                sort=True  # sort by distance from the center point
+            response = self.geoDataManager.queryRadius(
+                QueryRadiusRequest(
+                    centerPoint=GeoPoint(lat, lon),
+                    radiusInMeter=radius_meters,
+                    query_input_dict=query_radius_input,
+                    sort=True
+                )
             )
-        )
-
-        data = parse_sensor_data(response['results'])
-        map = visualize_results(center_point, radius_meters, data)
-        sensor_ids = [item['sensor_id'].split("#")[1] for item in data]
-        print(sensor_ids)
-        print(len(sensor_ids))
-        print('>>All Active in radius: Total data', len(data), 'with consumed Capacity Units',
-              response['consumed_capacity'])
-        map.save("vis_out/sensorservice/sensors-active-radius.html")
-        return data
-
+            data_for_map = parse_sensor_data(response['results'])
+            map = visualize_results(center_point, radius_meters, data_for_map)
+            sensor_ids = [item['sensor_id'].split("#")[1] for item in data_for_map]
+            print(sensor_ids)
+            print(len(sensor_ids))
+            print(f"Total active in radius: {len(data_for_map)},consumed Capacity Units {response['consumed_capacity']}")
+            map.save("vis_out/sensorservice/sensors-active-radius.html")
+            return [SensorDetails(item) for item in response['results']]
+        except (BotoCoreError, ClientError, Exception) as error:
+            print(f"An error occurred: {error}")
+            return None
     def get_active_sensors_in_radius_for_time_range(self, center_point, radius_meters, from_date, to_date):
         start_range_unix = convert_to_unix_epoch(from_date)
         end_range_unix = convert_to_unix_epoch(to_date)
@@ -190,40 +188,41 @@ class SensorService:
         map.save("vis_out/sensorservice/sensors-radius-timerange.html")
         return data
 
-    def get_active_sensors_in_rectangle_for_time_range(self, polygon_coords, from_date, to_date):
-        start_range_unix = convert_to_unix_epoch(from_date)
-        end_range_unix = convert_to_unix_epoch(to_date)
-        polygon = Polygon(polygon_coords)
-        min_lon, min_lat, max_lon, max_lat = polygon.bounds
-        query_rectangle_input = {
-            'GSI': {
-                'Name': 'GSI_TypeGeohash6_FullGeohash',
-                'PK': {'name': 'hash_key', 'type': 'S'},
-                'SK': {'name': 'geohash', 'value': f"Location#", 'type': 'S', 'composite': True}
-            },
-            "Filters": "SK <= :sk_end  AND (attribute_not_exists(moved_at) OR (moved_at >= :startDate AND moved_at <= :endDate) OR (moved_at >= :startDate AND moved_at >= :endDate))",
-            "ExpressionAttributeValues": {
-                ':startDate': {'N': f"{start_range_unix}"},
-                ':endDate': {'N': f"{end_range_unix}"},
-                # ':locationPrefix': {'S': 'Location#'},
-                # ':sk_start': {'S': f"Location#{start_range_unix}#"},
-                ':sk_end': {'S': f"Location#{end_range_unix}"}
+    def get_active_sensors_in_rectangle_for_time_range(self, polygon_coords: List[Tuple[float, float]], from_date: str, to_date: str):
+        try:
+            start_range_unix = convert_to_unix_epoch(from_date)
+            end_range_unix = convert_to_unix_epoch(to_date)
+            polygon = Polygon(polygon_coords)
+            min_lon, min_lat, max_lon, max_lat = polygon.bounds
+            query_rectangle_input = {
+                'GSI': {
+                    'Name': 'GSI_TypeGeohash6_FullGeohash',
+                    'PK': {'name': 'hash_key', 'type': 'S'},
+                    'SK': {'name': 'geohash', 'value': f"Location#", 'type': 'S', 'composite': True}
+                },
+                "Filters": "placed_at <= :placementDate  AND "
+                           "(attribute_not_exists(moved_at) "
+                           "OR (moved_at >= :startDate AND moved_at <= :endDate) "
+                           "OR (moved_at >= :startDate AND moved_at >= :endDate))",
+                "ExpressionAttributeValues": {
+                    ':startDate': {'N': f"{start_range_unix}"},
+                    ':endDate': {'N': f"{end_range_unix}"},
+                    ':placementDate': {'N': f"{end_range_unix}"}
+                }
             }
-        }
-        # Rectangle query
-        response = self.geoDataManager.queryRectangle(
-            QueryRectangleRequest(
-                GeoPoint(min_lat, min_lon),
-                GeoPoint(max_lat, max_lon), query_rectangle_input))
-
-        print('Point in polygon', polygon.contains(Point(28.12680874117647, 46.63242435294118)))
-        data = parse_sensor_data(response['results'])
-        map = visualize_results_in_rectangle(subpolygon=polygon, sensors=data)
-
-        print('>>Rectangle Time Range: Total data', len(response['results']), 'with consumed Capacity Units',
-              response['consumed_capacity'])
-        map.save("vis_out/sensorservice/sensors-rectangle-timerange.html")
-        # return data
+            response = self.geoDataManager.queryRectangle(
+                QueryRectangleRequest(
+                    GeoPoint(min_lat, min_lon),
+                    GeoPoint(max_lat, max_lon), query_rectangle_input))
+            data = parse_sensor_data(response['results'])
+            map = visualize_results_in_rectangle(subpolygon=polygon, sensors=data)
+            print(f"Active in Rectagle between {from_date} and {to_date}:{len(response['results'])},"
+                  f"Consumed Capacity Units {response['consumed_capacity']}")
+            map.save("vis_out/sensorservice/sensors-rectangle-timerange.html")
+            return [SensorDetails(item) for item in response['results']]
+        except (ClientError, BotoCoreError, ValueError, Exception) as e:
+            print(f"An error occurred while retrieving active sensors in rectangle: {e}")
+            return None
 
     # Used for active sensors only, hence Filter on moved_at
     def get_sensor_location_history(self, sensor_id, get_last_location=False):
@@ -378,8 +377,13 @@ class SensorService:
 if __name__ == "__main__":
     center_point = Point(28.1250063, 46.6334964)
     sensor_service = SensorService()
-    subpolygon = [(28.1250063, 46.6334964), (28.1256516, 46.6322131), (28.1284625, 46.6330088), (28.127733, 46.6341875),
+    rectangle = [(28.1250063, 46.6334964), (28.1256516, 46.6322131), (28.1285698, 46.6329204), (28.1278188, 46.6341654),
                   (28.1250063, 46.6334964)]
+    sensor_service.get_active_sensors_in_rectangle_for_time_range(
+                                                               polygon_coords=rectangle,
+                                                               from_date='2020-01-12T00:00:00',
+                                                               to_date='2021-01-12T16:00:00')
+
     sensor_det = sensor_service.get_sensor_details_by_id("1d835be7-5984-4604-8c84-9a99b59201bb")
     # print(sensor_det)
     sensor_locations = sensor_service.get_sensor_location_history("04c87369-2e0c-4083-ab9b-808f304e12c3")
@@ -390,15 +394,18 @@ if __name__ == "__main__":
     # sensor_det = sensor_service.update_sensor("5459217a-400a-4102-ad36-f628cd1adbeb", "Chickpeas#1234")
     # print(sensor_det)
 
-    sensor_service.get_active_sensors_in_rectangle_for_time_range(subpolygon,
-                                                              '2023-12-23T00:00:00',
-                                                              '2023-12-18T16:00:00')
+
 
     # sensor_service.get_all_active_sensors_in_field_or_with_optional_parcel_id(sensor_type="Humidity")
     # sensor_service.retire_sensor("SoilMoisture","a2ac35b9-f32a-43be-a6fa-2aa5f969440e")
 
     # sensor_service.retire_sensor("SoilMoisture", "a93e5c4f-b143-498c-b4d5-939e513ff2df")
-    sensor_service.get_all_active_sensors_in_radius_by_type(center_point, 500, 'Temperature')
+
+    sensor_service.get_all_active_sensors_in_radius_by_type(
+        center_point=Point(28.1250063, 46.6334964),
+        radius_meters=500,
+        sensor_type='Temperature')
+
     #sensor_service.get_all_active_sensors_in_field_or_with_optional_parcel_id()  # 174
     # sensor_id=sensor_service.add_sensor( 28.12595, 46.63357,{
     #     'sensor_type': 'SoilMoisture',

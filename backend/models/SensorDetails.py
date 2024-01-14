@@ -8,10 +8,15 @@ class SensorDetails:
         self.sk = response_item['SK']['S']
         self.parcel_id = response_item['curr_parcelid']['S'] if 'curr_parcelid' in response_item.keys() else None
         self.sensor_id = response_item['PK']['S'].split("#")[1]
-        self.sensor_type = response_item['sensor_type']['S']
-        self.manufacturer = response_item['manufacturer']['S']
-        self.model = response_item['model']['S']
-        self.firmware = response_item['firmware']['S']
+        if 'sensor_type' in response_item:
+            self.sensor_type = response_item['sensor_type']['S']
+        elif 'sensortype' in response_item:
+            self.sensor_type = response_item['sensortype']['S']
+        else:
+            self.sensor_type = None
+        self.manufacturer = response_item['manufacturer']['S'] if 'manufacturer' in response_item else None
+        self.model = response_item['model']['S'] if 'model' in response_item else None
+        self.firmware = response_item['firmware']['S'] if 'firmware' in response_item else None
         # Parse geoJson to create a Point
         lat, lon = map(float, response_item['geoJson']['S'].split(','))
         self.location = Point(lon, lat)

@@ -1,7 +1,8 @@
 import csv
 import simplejson as json
 
-from folium import Marker, Icon, Circle, folium, Polygon
+from folium import Marker, Icon, Circle, folium, Polygon, PolyLine, utilities
+from shapely import distance
 
 from utils.parcels.parcels_generation import create_map_with_polygon
 from utils.polygon_def import polygon
@@ -120,7 +121,7 @@ def visualize_results(center_point, radius, sensors, color='green'):
         lat, lon = center_point.y, center_point.x
         Marker(
             location=[center_point.y, center_point.x],
-            popup=f"Center Point: {center_point}</br> {lat}{lon}"
+            popup=f"Center Point:</br> {lat},{lon}"
         ).add_to(map_object)
 
         # Draw a circle around the center point with the given radius
@@ -133,7 +134,6 @@ def visualize_results(center_point, radius, sensors, color='green'):
             fill_opacity=0.2,
             popup=f"Radius: {radius} meters"
         ).add_to(map_object)
-
     return map_object
 
 # Visualize the inserted sensors from the csv file
