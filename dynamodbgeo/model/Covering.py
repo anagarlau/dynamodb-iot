@@ -13,6 +13,7 @@ class Covering:
         for outerRange in self.cellIds:
             hashRange = GeohashRange(
                 outerRange.range_min().id(), outerRange.range_max().id())
+
             current_ranges = hashRange.trySplit(hashKeyLength)
             for current_range in current_ranges:
                 ranges.append(current_range)

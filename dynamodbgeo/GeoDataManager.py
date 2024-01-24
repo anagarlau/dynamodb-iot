@@ -34,15 +34,19 @@ class GeoDataManager:
         """
         ranges = covering.getGeoHashRanges(self.config.hashKeyLength)
         results = []
-        responses =[]
-        #print(f"Currently navigating through {len(ranges)} ranges")
+        consumed_capacity=0
+
+        print("Query Input",geoQueryInput.QueryInput)
         for range in ranges:
+
             hashKey = S2Manager().generateHashKey(range.rangeMin, self.config.hashKeyLength)
+            print("Range, hashKey", range.rangeMin, range.rangeMax, hashKey)
             res = self.dynamoDBManager.queryGeohash(
-                geoQueryInput.QueryInput, str(hashKey), range)
+                geoQueryInput.QueryInput, hashKey, range)
             results.extend(res['data'])
-            responses.append(res['response'])
-        return {'results': results, 'response': responses}
+            consumed_capacity+=res['consumed_capacity']
+            #print('dispatch queries before filtering', len(results))
+        return {'results': results, 'consumed_capacity': consumed_capacity}
 
     def queryRectangle(self, QueryRectangleInput: 'QueryRectangleRequest'):
         latLngRect = S2Util().latLngRectFromQueryRectangleInput(
@@ -51,7 +55,9 @@ class GeoDataManager:
         covering = Covering(
             self.config.S2RegionCoverer().get_covering(latLngRect))
         results = self.dispatchQueries(covering, QueryRectangleInput)
-        return self.filterByRectangle(results, QueryRectangleInput)
+        consumed_capacity = results['consumed_capacity']
+        res = self.filterByRectangle(results['results'], QueryRectangleInput)
+        return {'results': res, 'consumed_capacity': consumed_capacity}
 
     def queryRadius(self, QueryRadiusInput: 'QueryRadiusRequest'):
         latLngRect = S2Util().getBoundingLatLngRectFromQueryRadiusInput(
@@ -74,9 +80,9 @@ class GeoDataManager:
                 tuples.append((centerLatLng.get_distance(
                     latLng).radians * EARTH_RADIUS_METERS, item))
             tuples.sort(key=lambda x: x[0])  # Sort the list by distance (x [0] is the distance)
-            return {'results': [item[1] for item in tuples], 'response': results['response']}
+            return {'results': [item[1] for item in tuples], 'consumed_capacity': results['consumed_capacity']}
         else:
-            return {'results': filtered_results, 'response': results['response']}
+            return {'results': filtered_results, 'consumed_capacity': results['consumed_capacity']}
 
     def filterByRadius(self, ItemList: 'points retrieved from dynamoDB', QueryRadiusInput: 'QueryRadiusRequest'):
         centerLatLng = S2LatLng.from_degrees(QueryRadiusInput.getCenterPoint(
@@ -106,3 +112,4 @@ class GeoDataManager:
             if(latLngRect.contains(latLng)):
                 result.append(item)
         return result
+
