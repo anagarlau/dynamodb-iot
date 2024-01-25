@@ -19,7 +19,7 @@ class DataType(Enum):
     LIGHT = 'Light'
     SOILMOISTURE = 'SoilMoisture'
     HUMIDITY = 'Humidity'
-    RAIN = 'rain'
+    RAIN = 'Rain'
     SOIL_PH = 'SoilPH'
 
 
@@ -40,7 +40,7 @@ class SensorEvent:
 
     class Data:
         def __init__(self, dataType, dataPoint, timestamp):
-            self.dataType = DataType(dataType)
+            self.dataType = DataType(dataType).name.capitalize()
             self.dataPoint = dataPoint
             self.timestamp = timestamp  # Expected to be a datetime object
 
@@ -74,7 +74,7 @@ class SensorEvent:
         sk_formatted = f"Timestamp#{convert_to_unix_epoch(timestamp_str)}#{self.sensorId}"
         start_of_month = get_first_of_month_as_unix_timestamp(self.data.timestamp.strftime("%Y-%m-%dT%H:%M:%S"))
         return {
-            'PK': {'S': f"{self.data.dataType.value}#{str(start_of_month)}"},
+            'PK': {'S': f"{self.data.dataType}#{str(start_of_month)}"},
             'SK': {'S': sk_formatted},
             's_id': {'S': f"Event#{self.sensorId}"},
             'data_point': {'N': str(self.data.dataPoint)},
@@ -82,7 +82,7 @@ class SensorEvent:
             'parcel_id': {'S': self.metadata.parcel_id},
             'battery_level': {'N': str(self.metadata.batteryLevel)},
             'status': {'S': self.metadata.status.value},
-            'data_type': {'S': self.data.dataType.value}
+            'data_type': {'S': self.data.dataType}
         }
     def __repr__(self):
         metadata_repr = (f"Metadata(location={self.metadata.location}, "
@@ -90,7 +90,7 @@ class SensorEvent:
                          f"battery_level={self.metadata.batteryLevel}, "
                          f"status='{self.metadata.status.name}')")
 
-        data_repr = (f"Data(dataType='{self.data.dataType.name}', "
+        data_repr = (f"Data(dataType='{self.data.dataType}', "
                      f"dataPoint={self.data.dataPoint}, "
                      f"timestamp='{self.data.timestamp}')")
 
@@ -106,7 +106,29 @@ class SensorEvent:
                    metadata=json_data['metadata'],
                    data=json_data['data'])
 
-
+    @classmethod
+    def from_entity(cls, entity):
+        sensor_id = entity["s_id"]["S"].split("#")[1]
+        location = entity["geoJson"]["S"]
+        parcel_id = entity["parcel_id"]["S"]
+        battery_level = float(entity["battery_level"]["N"])
+        status = entity["status"]["S"]
+        metadata = {
+            "location": location,
+            "parcel_id": parcel_id,
+            "battery_level": battery_level,
+            "status": status
+        }
+        data_type = entity["data_type"]["S"]
+        data_point = float(entity["data_point"]["N"])
+        from utils.sensor_events.sensor_events_generation import unix_to_iso
+        timestamp = unix_to_iso(int(entity["SK"]["S"].split("#")[1]))
+        data = {
+            "dataType": data_type,
+            "dataPoint": data_point,
+            "timestamp": timestamp
+        }
+        return cls(sensor_id, metadata, data)
 # if __name__ == "__main__":
 #     # sensor_event = SensorEvent(
 #     #     sensorId='60acb1d3-bf3a-4f25-aa73-c75d0f495a8b',

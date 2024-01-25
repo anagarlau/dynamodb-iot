@@ -153,23 +153,24 @@ class SensorService:
     def get_active_sensors_in_radius_for_time_range(self, center_point, radius_meters, from_date, to_date):
         start_range_unix = convert_to_unix_epoch(from_date)
         end_range_unix = convert_to_unix_epoch(to_date)
-
-        lat, lon = center_point.y, center_point.x
         query_radius_input = {
             'GSI': {
-                'Name': 'GSI_Geohash6_FullGeohash',
+                'Name': 'GSI_TypeGeohash6_FullGeohash',
                 'PK': {'name': 'hash_key', 'type': 'S'},
-                'SK': {'name': 'geohash', 'type': 'S'}
+                'SK': {'name': 'geohash', 'value': f"Location#", 'type': 'S', 'composite': True}
             },
-            "Filters": "SK <= :sk_end  AND (attribute_not_exists(moved_at) OR (moved_at >= :startDate AND moved_at <= :endDate) OR (moved_at >= :startDate AND moved_at >= :endDate))",
+            "Filters": "placed_at <= :placementDate  AND "
+                       "(attribute_not_exists(moved_at) "
+                       "OR (moved_at >= :startDate AND moved_at <= :endDate) "
+                       "OR (moved_at >= :startDate AND moved_at >= :endDate))",
             "ExpressionAttributeValues": {
                 ':startDate': {'N': f"{start_range_unix}"},
                 ':endDate': {'N': f"{end_range_unix}"},
-                # ':locationPrefix': {'S': 'Location#'},
-                # ':sk_start': {'S': f"Location#{start_range_unix}#"},
-                ':sk_end': {'S': f"Location#{end_range_unix}#zzzzzzzz"}
+                ':placementDate': {'N': f"{end_range_unix}"}
             }
         }
+
+        lat, lon = center_point.y, center_point.x
         # Perform the radius query
         response = self.geoDataManager.queryRadius(
             QueryRadiusRequest(
@@ -186,7 +187,7 @@ class SensorService:
         print('>>Radius Time Range: Total data', len(response['results']), 'with consumed Capacity Units',
               response['consumed_capacity'])
         map.save("vis_out/sensorservice/sensors-radius-timerange.html")
-        return data
+        return [SensorDetails(item) for item in response['results']]
 
     def get_active_sensors_in_rectangle_for_time_range(self, polygon_coords: List[Tuple[float, float]], from_date: str, to_date: str):
         try:

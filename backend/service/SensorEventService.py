@@ -1,8 +1,10 @@
 import asyncio
 from datetime import datetime, timedelta
 from itertools import chain
+from typing import Tuple, List
 
 import aioboto3
+import shapely
 from boto3.dynamodb.conditions import Key
 from botocore.exceptions import ClientError, BotoCoreError
 from dateutil.relativedelta import relativedelta
@@ -12,8 +14,7 @@ from backend.models.SensorEvent import SensorEvent
 from backend.service.SensorService import SensorService
 from dynamodbgeo.dynamodbgeo import GeoDataManager, GeoDataManagerConfiguration
 from playground import calculate_pks
-from utils.polygon_def import hashKeyLength, create_dynamodb_client, aws_access_key_id, aws_secret_access_key, \
-    region_name, endpoint_url
+from utils.polygon_def import hashKeyLength, create_dynamodb_client
 from utils.sensor_events.sensor_events_generation import convert_to_unix_epoch, get_first_of_month_as_unix_timestamp
 
 
@@ -77,10 +78,10 @@ class SensorEventService:
                 last_evaluated_key = response.get('LastEvaluatedKey')
                 if not last_evaluated_key:
                     break
-            return all_items
+            return [SensorEvent.from_entity(item) for item in all_items]
         except (ClientError, BotoCoreError, Exception) as e:
             print(f"An error occurred while retrieving sensor events for sensor {sensor_id}:", e)
-            return None
+            return []
 
     def query_latest_n_sensorevents_by_sensorid(self, sensor_id, n):
         try:
@@ -145,7 +146,7 @@ class SensorEventService:
                         'TableName': self.table_name,
                         'KeyConditionExpression': f"PK = :pval AND SK BETWEEN :sval AND :eval",
                         'ExpressionAttributeValues': {
-                            ':pval': {'S': f"{data_type.capitalize()}#{first_of_month}"},
+                            ':pval': {'S': f"{data_type}#{first_of_month}"},
                             ':sval': {'S': f'Timestamp#{start_range_unix}#'},
                             ':eval': {'S': f'Timestamp#{end_range_unix}#'}
                         },
@@ -162,7 +163,7 @@ class SensorEventService:
                         break
             print("Number of network calls for range is", network_calls_count)
             print('Consumed Capacity', consumed_capacity)
-            return items
+            return [SensorEvent.from_entity(item) for item in items]
         except (ClientError, BotoCoreError, ValueError, Exception) as e:
             print("Boto3 client error:", e)
             return None
@@ -206,55 +207,113 @@ class SensorEventService:
             return None
 
     #TODO
-    #def query_events_in_radius_for_currently_active_sensors(self, center_point, radius:
-    #def query_events_in_radius_for_currently_active_sensors_by_sensor_type(self):
+    def query_events_in_radius_for_timerange(self,
+                                center_point: shapely.geometry.point.Point,
+                                radius_meters: float,
+                                from_date,
+                                to_date):
+        try:
+            from backend.service.SensorService import SensorService
+            sensor_service = SensorService()
+            active_sensors_in_radius = sensor_service.get_active_sensors_in_radius_for_time_range(center_point, radius_meters, from_date, to_date)
+            total = 0
+            data_by_type = {}
+            for active_sensor in active_sensors_in_radius:
+                sensor_events = self.query_sensorevents_by_sensorid_in_time_range(active_sensor.sensor_id, from_date, to_date)
+                total+=len(sensor_events)
+                print(len(sensor_events))
+                print(active_sensor.sensor_type)
+                if active_sensor.sensor_type not in data_by_type.keys():
+                    data_by_type[active_sensor.sensor_type] = sensor_events
+                else:
+                    data_by_type[active_sensor.sensor_type].extend(sensor_events)
+            print(f"Total {total}")
+            print(data_by_type)
+        except (ClientError, BotoCoreError, Exception) as e:
+            print(f"An error occurred: {e}")
+            return []
+
+    def query_events_in_rectangle_for_timerange(self, polygon_coords: List[Tuple[float, float]], from_date: str, to_date: str):
+        try:
+            from backend.service.SensorService import SensorService
+            sensor_service = SensorService()
+            active_sensors_in_radius = sensor_service.get_active_sensors_in_rectangle_for_time_range(polygon_coords, from_date, to_date)
+            total = 0
+            data_by_type = {}
+            for active_sensor in active_sensors_in_radius:
+                sensor_events = self.query_sensorevents_by_sensorid_in_time_range(active_sensor.sensor_id, from_date, to_date)
+                total+=len(sensor_events)
+                print(len(sensor_events))
+                print(active_sensor.sensor_type)
+                if active_sensor.sensor_type not in data_by_type.keys():
+                    data_by_type[active_sensor.sensor_type] = sensor_events
+                else:
+                    data_by_type[active_sensor.sensor_type].extend(sensor_events)
+            print(f"Total {total}")
+            print(data_by_type)
+        except (ClientError, BotoCoreError, Exception) as e:
+            print(f"An error occurred: {e}")
+            return []
 def main():
     service = SensorEventService()
-    events = service.query_sensor_events_for_field_in_time_range_by_type("2020-01-04T00:39:58", "2022-02-02T06:41:53", "Humidity")
-    print(len(events))
-    # events = await service.get_sensor_events('3cec4677-92d7-4a88-9b66-1a1323c6288d', 'Humidity', 1583276400, 1694123999)
-    # center_point = Point(28.1250063, 46.6334964)
-    # events = await service.get_sensors_events_in_radius_per_data_type(center_point,
-    #                                                           200,
-    #                                                           'Humidity',
-    #                                                           '2021-07-02T16:27:30',
-    #                                                           '2022-10-16T23:52:35')
-    # events = service.query_sensorevents_for_entire_field_in_time_range(
-    #     '2020-01-01T04:35:53',
-    #     '2020-02-07T14:56:50',['Humidity', 'Light', 'Temperature']
-    #     )
-    # print(len(events))
-    # print(events[0])
-    events = service.query_sensorevents_by_sensorid_in_time_range(
-                 '32c3ecce-6589-445f-8f64-4d7422d4f1bf',
-                        '2020-03-16T04:21:21',
-                        '2021-11-27T08:02:50')
-    print(len(events))
-    # print(events[0])
-    events = service.query_latest_n_sensorevents_by_sensorid('32c3ecce-6589-445f-8f64-4d7422d4f1bf',4)
-    print(len(events))
-    for item in events:
-        print(item['SK']['S'])
+    center_point = Point(28.1250063, 46.6334964)
+    service.query_events_in_radius_for_timerange(
+        center_point,
+        500,
+      '2023-01-12T00:00:00',
+        '2023-12-12T16:00:00'    )
+    rectangle = [(28.1250063, 46.6334964), (28.1256516, 46.6322131), (28.1285698, 46.6329204), (28.1278188, 46.6341654),
+                 (28.1250063, 46.6334964)]
+    service.query_events_in_rectangle_for_timerange(
+        polygon_coords=rectangle,
+        from_date='2020-01-12T00:00:00',
+        to_date='2021-01-12T16:00:00')
 
-    json = {
-        "sensorId": "32c3ecce-6589-445f-8f64-4d7422d4f1bf",
-        "metadata": {
-            "location": "(46.63366128235294, 28.12680874117647)",
-            "battery_level": 33,
-            "status": "Active",
-            "parcel_id": "Chickpeas#af8ed50d-68c4-4cf9-b04e-bba5432d4b8e"
-        },
-        "data": {
-            "dataType": "SoilPH",
-            "dataPoint": 1,
-            "timestamp": "2023-12-22T16:01:00"
-        }
-    }
-    service.add_sensor_event(json)
-    events = service.query_sensor_events_by_parcelid_in_time_range("Chickpeas#af8ed50d-68c4-4cf9-b04e-bba5432d4b8e",
-                                                                   "2020-01-07T20:47:52", "2020-01-20T06:16:31",
-                                                                   ["Humidity", "SoilMoisture"])
+    events = service.query_sensor_events_for_field_in_time_range_by_type("2020-03-14T00:00:00", "2020-03-14T23:59:59", "Rain")
     print(len(events))
+    # # events = await service.get_sensor_events('3cec4677-92d7-4a88-9b66-1a1323c6288d', 'Humidity', 1583276400, 1694123999)
+    # # center_point = Point(28.1250063, 46.6334964)
+    # # events = await service.get_sensors_events_in_radius_per_data_type(center_point,
+    # #                                                           200,
+    # #                                                           'Humidity',
+    # #                                                           '2021-07-02T16:27:30',
+    # #                                                           '2022-10-16T23:52:35')
+    # # events = service.query_sensorevents_for_entire_field_in_time_range(
+    # #     '2020-01-01T04:35:53',
+    # #     '2020-02-07T14:56:50',['Humidity', 'Light', 'Temperature']
+    # #     )
+    # # print(len(events))
+    # # print(events[0])
+    # events = service.query_sensorevents_by_sensorid_in_time_range(
+    #              '32c3ecce-6589-445f-8f64-4d7422d4f1bf',
+    #                     '2020-03-16T04:21:21',
+    #                     '2021-11-27T08:02:50')
+    # print(len(events))
+    # # print(events[0])
+    # events = service.query_latest_n_sensorevents_by_sensorid('32c3ecce-6589-445f-8f64-4d7422d4f1bf',4)
+    # print(len(events))
+    # for item in events:
+    #     print(item['SK']['S'])
+    #
+    # json = {
+    #     "sensorId": "32c3ecce-6589-445f-8f64-4d7422d4f1bf",
+    #     "metadata": {
+    #         "location": "(46.63366128235294, 28.12680874117647)",
+    #         "battery_level": 33,
+    #         "status": "Active",
+    #         "parcel_id": "Chickpeas#af8ed50d-68c4-4cf9-b04e-bba5432d4b8e"
+    #     },
+    #     "data": {
+    #         "dataType": "SoilPH",
+    #         "dataPoint": 1,
+    #         "timestamp": "2023-12-22T16:01:00"
+    #     }
+    # }
+    # service.add_sensor_event(json)
+    # events = service.query_sensor_events_by_parcelid_in_time_range("Chickpeas#af8ed50d-68c4-4cf9-b04e-bba5432d4b8e",
+    #                                                                "2020-01-07T20:47:52", "2020-01-20T06:16:31",
+    #                                                                ["Humidity", "SoilMoisture"])
+    # print(len(events))
 # Run the async main function
 if __name__ == "__main__":
     main()
