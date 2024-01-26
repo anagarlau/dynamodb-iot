@@ -1,6 +1,7 @@
 import json
 from enum import Enum
 from datetime import datetime
+from typing import List
 
 
 # from utils.sensor_events.sensor_events_generation import convert_to_unix_epoch, get_first_of_month_as_unix_timestamp
@@ -22,6 +23,13 @@ class DataType(Enum):
     RAIN = 'Rain'
     SOIL_PH = 'SoilPH'
 
+    @classmethod
+    def validate_data_types(self, data_types: List[str]):
+        valid_types = {data_type.value for data_type in DataType}
+        for data_type_str in data_types:
+            if data_type_str not in valid_types:
+                raise ValueError(f"Invalid data type: {data_type_str}")
+
 
 # Sensor Event
 class SensorEvent:
@@ -40,7 +48,7 @@ class SensorEvent:
 
     class Data:
         def __init__(self, dataType, dataPoint, timestamp):
-            self.dataType = DataType(dataType).name.capitalize()
+            self.dataType = DataType(dataType).value
             self.dataPoint = dataPoint
             self.timestamp = timestamp  # Expected to be a datetime object
 
@@ -108,6 +116,7 @@ class SensorEvent:
 
     @classmethod
     def from_entity(cls, entity):
+        pk = entity["PK"]["S"]
         sensor_id = entity["s_id"]["S"].split("#")[1]
         location = entity["geoJson"]["S"]
         parcel_id = entity["parcel_id"]["S"]
@@ -128,7 +137,9 @@ class SensorEvent:
             "dataPoint": data_point,
             "timestamp": timestamp
         }
-        return cls(sensor_id, metadata, data)
+        sensor_event = cls(sensor_id, metadata, data)
+        sensor_event.PK = pk
+        return sensor_event
 # if __name__ == "__main__":
 #     # sensor_event = SensorEvent(
 #     #     sensorId='60acb1d3-bf3a-4f25-aa73-c75d0f495a8b',

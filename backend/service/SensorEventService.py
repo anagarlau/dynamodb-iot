@@ -1,21 +1,20 @@
-import asyncio
-from datetime import datetime, timedelta
-from itertools import chain
-from typing import Tuple, List
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from datetime import datetime
+from typing import Tuple, List, Dict, Optional
 
-import aioboto3
 import shapely
-from boto3.dynamodb.conditions import Key
 from botocore.exceptions import ClientError, BotoCoreError
 from dateutil.relativedelta import relativedelta
 from shapely import Point
 
-from backend.models.SensorEvent import SensorEvent
+from backend.models.AggregateData import AggregateData
+from backend.models.SensorEvent import SensorEvent, DataType
 from backend.service.SensorService import SensorService
 from dynamodbgeo.dynamodbgeo import GeoDataManager, GeoDataManagerConfiguration
 from playground import calculate_pks
 from utils.polygon_def import hashKeyLength, create_dynamodb_client
-from utils.sensor_events.sensor_events_generation import convert_to_unix_epoch, get_first_of_month_as_unix_timestamp
+from utils.sensor_events.sensor_events_generation import convert_to_unix_epoch, get_first_of_month_as_unix_timestamp, \
+    format_date
 
 
 class SensorEventService:
@@ -28,6 +27,9 @@ class SensorEventService:
         self.geoDataManager = GeoDataManager(self.config)
         self.config.hashKeyLength = hashKeyLength
         self.sensor_service=SensorService()
+
+    def add_records(self, records: List[Dict]):
+        self.dynamodb.transact_write_items(TransactItems=records)
 
     def add_sensor_event(self, sensor_event_json):
         try:
@@ -167,7 +169,7 @@ class SensorEventService:
         except (ClientError, BotoCoreError, ValueError, Exception) as e:
             print("Boto3 client error:", e)
             return None
-    def get_previous_month_timestamp(self,current_month_unix_timestamp):
+    def get_previous_month_timestamp(self, current_month_unix_timestamp):
         # Convert current month timestamp to datetime (not necessary here but for reusability purposes)
         current_month_datetime = datetime.fromtimestamp(current_month_unix_timestamp)
         first_day_of_current_month = datetime(current_month_datetime.year, current_month_datetime.month, 1)
@@ -254,23 +256,75 @@ class SensorEventService:
         except (ClientError, BotoCoreError, Exception) as e:
             print(f"An error occurred: {e}")
             return []
+
+    def query_aggregates(self, data_types: List[str] = None, date: str = None, month_year: Optional[Tuple[int, int]] = None):
+        try:
+            if data_types is None:
+                raise ValueError("Missing data_types parameter. Please provide the data types to query by.")
+            if (date is not None and month_year is not None) or (date is None and month_year is None):
+                raise ValueError("Please provide either a date or a month&year, not both or neither.")
+            elif date:
+                print(date)
+                day = format_date(date)
+                first_of_month = get_first_of_month_as_unix_timestamp(day)
+                unix_date = convert_to_unix_epoch(day)
+                print(unix_date)
+                prefix = 'Day'
+            else:
+                month, year = month_year
+                first_of_month = convert_to_unix_epoch(datetime(year, month, 1).strftime("%Y-%m-%dT%H:%M:%S"))
+                prefix = 'Month'
+            DataType.validate_data_types(data_types)
+            items = []
+            consumed_capacity = 0
+            with ThreadPoolExecutor(max_workers=len(data_types)) as executor:
+                futures = []
+                for type in data_types:
+                    query_params = {
+                        'TableName': self.table_name,
+                        'KeyConditionExpression': "PK = :pk_val AND SK = :sk_val",
+                        'ExpressionAttributeValues': {
+                            ':pk_val': {'S': f"{type}#{first_of_month}"},
+                            ':sk_val': {'S': f"Agg#{prefix}#{unix_date if prefix == 'Day' else first_of_month}"}
+                        },
+                        'ReturnConsumedCapacity': 'TOTAL'
+                    }
+                    future = executor.submit(self.dynamodb.query, **query_params)
+                    futures.append(future)
+                for future in as_completed(futures):
+                    response = future.result()
+                    items.extend(response.get('Items', []))
+                    consumed_capacity += response.get('ConsumedCapacity')['CapacityUnits']
+            print('Consumed Capacity', consumed_capacity)
+            return [AggregateData(item) for item in items]
+        except (ClientError, BotoCoreError, Exception) as e:
+            print(f"An error occurred: {e}")
+
+
+
+
+
 def main():
     service = SensorEventService()
+
+    agg = service.query_aggregates(data_types=['Humidity', 'SoilPH', 'Rain', 'Temperature'], date="2020-03-16") #month_year=(3, 2020)
+    print(len(agg))
+
     center_point = Point(28.1250063, 46.6334964)
-    service.query_events_in_radius_for_timerange(
-        center_point,
-        500,
-      '2023-01-12T00:00:00',
-        '2023-12-12T16:00:00'    )
+    # service.query_events_in_radius_for_timerange(
+    #     center_point,
+    #     500,
+    #   '2023-01-12T00:00:00',
+    #     '2023-12-12T16:00:00'    )
     rectangle = [(28.1250063, 46.6334964), (28.1256516, 46.6322131), (28.1285698, 46.6329204), (28.1278188, 46.6341654),
                  (28.1250063, 46.6334964)]
-    service.query_events_in_rectangle_for_timerange(
-        polygon_coords=rectangle,
-        from_date='2020-01-12T00:00:00',
-        to_date='2021-01-12T16:00:00')
-
-    events = service.query_sensor_events_for_field_in_time_range_by_type("2020-03-14T00:00:00", "2020-03-14T23:59:59", "Rain")
-    print(len(events))
+    # service.query_events_in_rectangle_for_timerange(
+    #     polygon_coords=rectangle,
+    #     from_date='2020-01-12T00:00:00',
+    #     to_date='2021-01-12T16:00:00')
+    #
+    # events = service.query_sensor_events_for_field_in_time_range_by_type("2020-03-14T00:00:00", "2020-03-14T23:59:59", "Rain")
+    #print(len(events))
     # # events = await service.get_sensor_events('3cec4677-92d7-4a88-9b66-1a1323c6288d', 'Humidity', 1583276400, 1694123999)
     # # center_point = Point(28.1250063, 46.6334964)
     # # events = await service.get_sensors_events_in_radius_per_data_type(center_point,

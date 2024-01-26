@@ -5,11 +5,11 @@ from dateutil.relativedelta import relativedelta
 from utils.sensor_events.sensor_events_generation import unix_to_iso, calculate_month_diff, get_start_of_month, \
     convert_to_unix_epoch
 
-# unix = 1577833200
+#unix = 1583017200
 # fromdate=1577985948
 # todate=1578508596
 #
-# print(unix_to_iso(unix))
+#print(unix_to_iso(unix))
 # print(unix_to_iso(fromdate), unix_to_iso(todate))
 # print(convert_to_unix_epoch("2020-03-28T03:37:07"))
 # print(unix_to_iso(1581289200))

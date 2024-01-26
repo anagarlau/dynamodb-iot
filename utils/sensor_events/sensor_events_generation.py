@@ -134,6 +134,16 @@ def calculate_month_diff(start_time, end_time):
     return year_diff * 12 + month_diff
 
 
+def format_date(date_str):
+    try:
+        date_obj = datetime.strptime(date_str, "%Y-%m-%d")
+        date_obj = date_obj.replace(hour=0, minute=0, second=0)
+        formatted_date_str = date_obj.strftime("%Y-%m-%dT%H:%M:%S")
+        return formatted_date_str
+    except ValueError:
+        raise ValueError("Invalid date format. Please use the format %Y-%m-%d.")
+
+
 def get_start_of_month(timestamp_str):
     timestamp = datetime.strptime(timestamp_str, "%Y-%m-%dT%H:%M:%S")
     start_of_month = timestamp.replace(day=1, hour=0, minute=0, second=0, microsecond=0)
@@ -188,7 +198,7 @@ def process_events_for_db():
             'geoJson': geoJson,
             'parcel_id': event['metadata']['parcel_id'],
             'battery_level': event['metadata']['batteryLevel'],
-            'status': event['metadata']['status'],
+            #'status': event['metadata']['status'],
             'data_type': event['data']['dataType']
         }
         #print(sensor_event)
