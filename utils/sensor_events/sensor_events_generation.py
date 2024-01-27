@@ -79,8 +79,7 @@ def generate_sensor_events_from_locations_csv_into_json(csv_file_path=csvFilePat
                 "metadata": {
                     "location": point,
                     'parcel_id': row['parcel_id'],
-                    "batteryLevel": battery_level,
-                    "status": random.choice([SensorStatus.BUSY, SensorStatus.IDLE, SensorStatus.MAINTENANCE]).value
+                    "batteryLevel": battery_level
                 },
                 "data": {
                     "dataType": row['sensor_type'],
@@ -93,7 +92,6 @@ def generate_sensor_events_from_locations_csv_into_json(csv_file_path=csvFilePat
                 "location": point,
                 'parcel_id': row['parcel_id'],
                 "batteryLevel": battery_level,
-                "status": random.choice([SensorStatus.BUSY, SensorStatus.IDLE, SensorStatus.MAINTENANCE]).value,
                 "dataType": row['sensor_type'],
                 "dataPoint": data_point,
                 "timestamp": timestamp

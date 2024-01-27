@@ -1,13 +1,12 @@
 import itertools
-from random import random
+import random
 import uuid
+from random import random
 from typing import List
 
-import pygeohash as gh
-from folium import folium, Marker, Icon
+from folium import Marker, Icon
 from shapely import Polygon
 from shapely.geometry import Point
-import random
 
 from backend.models.Parcel import Parcel
 from dynamodbgeo.dynamodbgeo import GeoPoint, S2Manager

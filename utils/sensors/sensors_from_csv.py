@@ -1,8 +1,7 @@
 import csv
-import simplejson as json
 
-from folium import Marker, Icon, Circle, folium, Polygon, PolyLine, utilities
-from shapely import distance
+import simplejson as json
+from folium import Marker, Icon, Circle, Polygon
 
 from utils.parcels.parcels_generation import create_map_with_polygon
 from utils.polygon_def import polygon

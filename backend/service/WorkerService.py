@@ -88,7 +88,7 @@ class WorkerService:
 
 def main():
     worker_service = WorkerService()
-    worker_service.calculate_aggregates_per_period(month_year=(3, 2020)) #date=datetime(2020, 3, 19)
+    worker_service.calculate_aggregates_per_period(date=datetime(2020, 3, 19)) #month_year=(3, 2020)
 
 
 if __name__ == '__main__':
