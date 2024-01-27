@@ -6,18 +6,16 @@ import shapely.geometry.point
 from botocore.exceptions import ClientError, BotoCoreError
 from shapely import Point, Polygon
 
-from backend.models.SensorMaintenance import SensorMaintenance
-from backend.service.ParcelService import ParcelService
 from backend.models.SensorDetails import SensorDetails
-from backend.models.SensorEvent import DataType
 from backend.models.SensorLocationHistory import SensorLocationHistory
 from backend.models.SensorMetadata import SensorMetadata
+from backend.service.ParcelService import ParcelService
 from dynamodbgeo.dynamodbgeo import GeoDataManagerConfiguration, GeoDataManager, QueryRadiusRequest, GeoPoint, \
     QueryRectangleRequest
+from utils.polygon_def import create_dynamodb_client, hashKeyLength
 from utils.sensor_events.sensor_events_generation import convert_to_unix_epoch
 from utils.sensors.sensor_placing_generation import is_point_in_parcel
 from utils.sensors.sensors_from_csv import parse_sensor_data, visualize_results, visualize_results_in_rectangle
-from utils.polygon_def import create_dynamodb_client, hashKeyLength
 
 
 class SensorService:
@@ -332,8 +330,8 @@ class SensorService:
         try:
             self.dynamodb.transact_write_items(TransactItems=transact_items)
             print(f"Sensor {sensor_id} moved to new location: {new_lat}, {new_lon} in parcel {parcel_for_point.SK}")
-        except ClientError as e:
-            print(f"Error moving sensor: {e.response['Error']['Message']}")
+        except (ClientError, BotoCoreError, Exception) as e:
+            print(f"Error moving sensor: {e}")
 
     def retire_sensor(self, sensor_type, sensor_id):
         current_location = self.get_sensor_location_history(sensor_id=sensor_id, get_last_location=True)
@@ -368,8 +366,8 @@ class SensorService:
         try:
             self.dynamodb.transact_write_items(TransactItems=transact_items)
             print(f"Sensor {sensor_type}{sensor_id} retired")
-        except ClientError as e:
-            print(f"Error moving sensor: {e.response['Error']['Message']}")
+        except (ClientError, BotoCoreError, Exception) as e:
+            print(f"Error moving sensor: {e}")
 
     # TODO : update sensor details (SK METADATA)
 

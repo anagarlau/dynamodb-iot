@@ -181,7 +181,8 @@ class IoTInitService:
                     'maintenance_type': MaintenanceType.get_random().value,
                     'details': 'Maintenance details',
                     'GSI_PK': random.choice(user_items).get("GSI_SK"),
-                    'GSI_SK': SK
+                    'GSI_SK': SK,
+                    'concluded_on': random_date_string()
                 }
                 processed_items.append(sensor_maintenance)
 

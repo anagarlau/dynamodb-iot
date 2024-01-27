@@ -40,10 +40,9 @@ class SensorEvent:
             lon = float(lon_str.strip())
             return lat, lon
 
-        def __init__(self, location, parcel_id, battery_level, status):
+        def __init__(self, location, parcel_id, battery_level):
             self.location = self.__convert_location_to_tuple(location)  # Expected to be a tuple (longitude, latitude)
             self.batteryLevel = battery_level
-            self.status = SensorStatus(status)
             self.parcel_id = parcel_id
 
     class Data:
@@ -63,7 +62,6 @@ class SensorEvent:
             "metadata": {
                 "location": self.metadata.location,
                 "battery_level": self.metadata.batteryLevel,
-                "status": self.metadata.status.value,
                 "parcel_id": self.metadata.parcel_id
             },
             "data": {
@@ -89,14 +87,12 @@ class SensorEvent:
             'geoJson': {'S': geoJson},
             'parcel_id': {'S': self.metadata.parcel_id},
             'battery_level': {'N': str(self.metadata.batteryLevel)},
-            'status': {'S': self.metadata.status.value},
             'data_type': {'S': self.data.dataType}
         }
     def __repr__(self):
         metadata_repr = (f"Metadata(location={self.metadata.location}, "
                          f"parcel_id='{self.metadata.parcel_id}', "
-                         f"battery_level={self.metadata.batteryLevel}, "
-                         f"status='{self.metadata.status.name}')")
+                         f"battery_level={self.metadata.batteryLevel}")
 
         data_repr = (f"Data(dataType='{self.data.dataType}', "
                      f"dataPoint={self.data.dataPoint}, "
@@ -121,12 +117,10 @@ class SensorEvent:
         location = entity["geoJson"]["S"]
         parcel_id = entity["parcel_id"]["S"]
         battery_level = float(entity["battery_level"]["N"])
-        status = entity["status"]["S"]
         metadata = {
             "location": location,
             "parcel_id": parcel_id,
-            "battery_level": battery_level,
-            "status": status
+            "battery_level": battery_level
         }
         data_type = entity["data_type"]["S"]
         data_point = float(entity["data_point"]["N"])

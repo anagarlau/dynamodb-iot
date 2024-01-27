@@ -1,3 +1,4 @@
+from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 from typing import Tuple, List, Dict, Optional
@@ -127,7 +128,7 @@ class SensorEventService:
                 last_evaluated_key = response.get('LastEvaluatedKey')
                 if not last_evaluated_key:
                     break
-            return items
+            return [SensorEvent.from_entity(item) for item in items]
         except (ClientError, BotoCoreError, Exception) as e:
             print("Boto3 client error:", e)
             return [], None
@@ -200,10 +201,13 @@ class SensorEventService:
                     type_filter_expressions.append(f"data_type = {type_key_placeholder}")
                 query_params['FilterExpression'] = " OR ".join(type_filter_expressions)
             response = self.dynamodb.query(**query_params)
-            items = response.get('Items', [])
+            items = [SensorEvent.from_entity(item) for item in response.get('Items', [])]
             consumed_capacity = response.get('ConsumedCapacity')['CapacityUnits']
             print('Consumed Capacity', consumed_capacity)
-            return items
+            grouped_items = defaultdict(list)
+            for item in items:
+                grouped_items[item.data.dataType].append(item)
+            return grouped_items
         except (ClientError, BotoCoreError, Exception) as e:
             print(f"An error occurred: {e}")
             return None
@@ -223,14 +227,12 @@ class SensorEventService:
             for active_sensor in active_sensors_in_radius:
                 sensor_events = self.query_sensorevents_by_sensorid_in_time_range(active_sensor.sensor_id, from_date, to_date)
                 total+=len(sensor_events)
-                print(len(sensor_events))
-                print(active_sensor.sensor_type)
                 if active_sensor.sensor_type not in data_by_type.keys():
                     data_by_type[active_sensor.sensor_type] = sensor_events
                 else:
                     data_by_type[active_sensor.sensor_type].extend(sensor_events)
             print(f"Total {total}")
-            print(data_by_type)
+            return data_by_type
         except (ClientError, BotoCoreError, Exception) as e:
             print(f"An error occurred: {e}")
             return []
@@ -245,14 +247,12 @@ class SensorEventService:
             for active_sensor in active_sensors_in_radius:
                 sensor_events = self.query_sensorevents_by_sensorid_in_time_range(active_sensor.sensor_id, from_date, to_date)
                 total+=len(sensor_events)
-                print(len(sensor_events))
-                print(active_sensor.sensor_type)
                 if active_sensor.sensor_type not in data_by_type.keys():
                     data_by_type[active_sensor.sensor_type] = sensor_events
                 else:
                     data_by_type[active_sensor.sensor_type].extend(sensor_events)
             print(f"Total {total}")
-            print(data_by_type)
+            return data_by_type
         except (ClientError, BotoCoreError, Exception) as e:
             print(f"An error occurred: {e}")
             return []
@@ -307,24 +307,25 @@ class SensorEventService:
 def main():
     service = SensorEventService()
 
-    agg = service.query_aggregates(data_types=['Humidity', 'SoilPH', 'Rain', 'Temperature'], date="2020-03-16") #month_year=(3, 2020)
-    print(len(agg))
+    # agg = service.query_aggregates(data_types=['Humidity', 'SoilPH', 'Rain', 'Temperature'], date="2020-03-16") #month_year=(3, 2020)
+    # print(agg)
 
     center_point = Point(28.1250063, 46.6334964)
-    # service.query_events_in_radius_for_timerange(
-    #     center_point,
-    #     500,
-    #   '2023-01-12T00:00:00',
-    #     '2023-12-12T16:00:00'    )
+    events = service.query_events_in_radius_for_timerange(
+        center_point,
+        500,
+      '2023-01-12T00:00:00',
+        '2023-12-12T16:00:00'    )
+    print(events)
     rectangle = [(28.1250063, 46.6334964), (28.1256516, 46.6322131), (28.1285698, 46.6329204), (28.1278188, 46.6341654),
                  (28.1250063, 46.6334964)]
-    # service.query_events_in_rectangle_for_timerange(
-    #     polygon_coords=rectangle,
-    #     from_date='2020-01-12T00:00:00',
-    #     to_date='2021-01-12T16:00:00')
-    #
-    # events = service.query_sensor_events_for_field_in_time_range_by_type("2020-03-14T00:00:00", "2020-03-14T23:59:59", "Rain")
-    #print(len(events))
+    events = service.query_events_in_rectangle_for_timerange(
+        polygon_coords=rectangle,
+        from_date='2020-01-12T00:00:00',
+        to_date='2021-01-12T16:00:00')
+    print(events)
+    events = service.query_sensor_events_for_field_in_time_range_by_type("2020-03-14T00:00:00", "2020-03-14T23:59:59", "Rain")
+    print(events)
     # # events = await service.get_sensor_events('3cec4677-92d7-4a88-9b66-1a1323c6288d', 'Humidity', 1583276400, 1694123999)
     # # center_point = Point(28.1250063, 46.6334964)
     # # events = await service.get_sensors_events_in_radius_per_data_type(center_point,
@@ -367,7 +368,8 @@ def main():
     # events = service.query_sensor_events_by_parcelid_in_time_range("Chickpeas#af8ed50d-68c4-4cf9-b04e-bba5432d4b8e",
     #                                                                "2020-01-07T20:47:52", "2020-01-20T06:16:31",
     #                                                                ["Humidity", "SoilMoisture"])
-    # print(len(events))
+    # for ev in events:
+    #     print(ev, events[ev])
 # Run the async main function
 if __name__ == "__main__":
     main()
