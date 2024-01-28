@@ -56,8 +56,8 @@ class SensorEventService:
                         KeyConditionExpression=f"s_id = :pval AND SK BETWEEN :sval AND :eval",
                         ExpressionAttributeValues={
                             ':pval': {'S': f"Event#{sensor_id}"},
-                            ':sval': {'S': f"Timestamp#{start_range_unix}"},
-                            ':eval': {'S': f"Timestamp#{end_range_unix}"}
+                            ':sval': {'S': f"Event#{start_range_unix}"},
+                            ':eval': {'S': f"Event#{end_range_unix}"}
                         },
                         ReturnConsumedCapacity='TOTAL',
                         ExclusiveStartKey=last_evaluated_key
@@ -69,8 +69,8 @@ class SensorEventService:
                         KeyConditionExpression=f"s_id = :pval AND SK BETWEEN :sval AND :eval",
                         ExpressionAttributeValues={
                             ':pval': {'S': f"Event#{sensor_id}"},
-                            ':sval': {'S': f"Timestamp#{start_range_unix}"},
-                            ':eval': {'S': f"Timestamp#{end_range_unix}"}
+                            ':sval': {'S': f"Event#{start_range_unix}"},
+                            ':eval': {'S': f"Event#{end_range_unix}"}
                         },
                         ReturnConsumedCapacity='TOTAL'
                     )
@@ -97,10 +97,9 @@ class SensorEventService:
                     response = self.dynamodb.query(
                         TableName=self.table_name,
                         IndexName='GSI_Events_By_Sensor',
-                        KeyConditionExpression=f"s_id = :pval AND begins_with(SK, :skval)",
+                        KeyConditionExpression=f"s_id = :pval",
                         ExpressionAttributeValues={
-                            ':pval': {'S': f"Event#{sensor_id}"},
-                            ':skval': {'S': 'Timestamp#'}
+                            ':pval': {'S': f"Event#{sensor_id}"}
                         },
                         ScanIndexForward=False,
                         Limit=remaining_items,
@@ -114,7 +113,7 @@ class SensorEventService:
                         KeyConditionExpression=f"s_id = :pval AND begins_with(SK, :skval)",
                         ExpressionAttributeValues={
                             ':pval': {'S': f"Event#{sensor_id}"},
-                            ':skval': {'S': 'Timestamp#'}
+                            ':skval': {'S': 'Event#'}
                         },
                         ScanIndexForward=False,
                         Limit=remaining_items,
@@ -150,8 +149,8 @@ class SensorEventService:
                         'KeyConditionExpression': f"PK = :pval AND SK BETWEEN :sval AND :eval",
                         'ExpressionAttributeValues': {
                             ':pval': {'S': f"{data_type}#{first_of_month}"},
-                            ':sval': {'S': f'Timestamp#{start_range_unix}#'},
-                            ':eval': {'S': f'Timestamp#{end_range_unix}#'}
+                            ':sval': {'S': f'Event#{start_range_unix}#'},
+                            ':eval': {'S': f'Event#{end_range_unix}#'}
                         },
                         'ReturnConsumedCapacity': 'TOTAL'
                     }
@@ -188,8 +187,8 @@ class SensorEventService:
                 'KeyConditionExpression': "parcel_id = :pid AND SK BETWEEN :start_range AND :end_range",
                 'ExpressionAttributeValues': {
                     ':pid': {'S': parcel_id},
-                    ':start_range': {'S': f"Timestamp#{start_range_unix}#"},
-                    ':end_range': {'S': f"Timestamp#{end_range_unix}#"}
+                    ':start_range': {'S': f"Event#{start_range_unix}#"},
+                    ':end_range': {'S': f"Event#{end_range_unix}#"}
                 },
                 'ReturnConsumedCapacity': 'TOTAL'
             }
@@ -241,9 +240,9 @@ class SensorEventService:
         try:
             from backend.service.SensorService import SensorService
             sensor_service = SensorService()
-            active_sensors_in_radius = sensor_service.get_active_sensors_in_rectangle_for_time_range(polygon_coords, from_date, to_date)
+            active_sensors_in_rectangle = sensor_service.get_active_sensors_in_rectangle_for_time_range(polygon_coords, from_date, to_date)
             data_by_type = {}
-            for active_sensor in active_sensors_in_radius:
+            for active_sensor in active_sensors_in_rectangle:
                 sensor_events = self.query_sensorevents_by_sensorid_in_time_range(active_sensor.sensor_id, from_date, to_date)
                 if active_sensor.sensor_type not in data_by_type.keys():
                     data_by_type[active_sensor.sensor_type] = sensor_events
@@ -344,8 +343,8 @@ def main():
     #                     '2021-11-27T08:02:50')
     # print(len(events))
     # # print(events[0])
-    # events = service.query_latest_n_sensorevents_by_sensorid('32c3ecce-6589-445f-8f64-4d7422d4f1bf',4)
-    # print(len(events))
+    events = service.query_latest_n_sensorevents_by_sensorid('32c3ecce-6589-445f-8f64-4d7422d4f1bf',4)
+    print(len(events))
     # for item in events:
     #     print(item['SK']['S'])
     #

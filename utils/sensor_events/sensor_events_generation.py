@@ -182,7 +182,7 @@ def process_events_for_db():
         timestamp=event['data']['timestamp']
         start_of_month=get_first_of_month_as_unix_timestamp(timestamp)
         sk_formated = "{}#{}#{}".format(
-             "Timestamp",
+             "Event",
             convert_to_unix_epoch(timestamp),
             event['sensorId']
             #Issue:not unique if 2 sensors send the same timestamp! i need a unique identifier

@@ -77,7 +77,7 @@ class SensorEvent:
         lat, lon = self.metadata.location
         geoJson = "{},{}".format(lat, lon)
         timestamp_str = self.data.timestamp.strftime("%Y-%m-%dT%H:%M:%S")
-        sk_formatted = f"Timestamp#{convert_to_unix_epoch(timestamp_str)}#{self.sensorId}"
+        sk_formatted = f"Event#{convert_to_unix_epoch(timestamp_str)}#{self.sensorId}"
         start_of_month = get_first_of_month_as_unix_timestamp(self.data.timestamp.strftime("%Y-%m-%dT%H:%M:%S"))
         return {
             'PK': {'S': f"{self.data.dataType}#{str(start_of_month)}"},
