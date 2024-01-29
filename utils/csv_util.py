@@ -34,7 +34,7 @@ def list_to_csv_for_sensor_type(filename, list_sensors, sensor_headers):
             writer.writerow(row)
     sensors_from_csv.csv_to_json()
 def export_data_to_csv(list_sensors, list_plants, path='maps/data'):
-    # Headers for plant_type_to_geohashes
+    # Headers for plant_type_to_parcels
     plant_type_headers = ['parcel_id', 'plant_type', 'latin_name', 'family',
                           'optimal_temperature', 'optimal_humidity', 'optimal_soil_ph',
                           'water_requirements_mm_per_week', 'sunlight_requirements_hours_per_day', 'polygon']

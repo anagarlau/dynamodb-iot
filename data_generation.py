@@ -9,17 +9,14 @@ from utils.users_and_roles.user_and_roles_generation import generate_user_data
 
 def main():
 
-    #Generate users
+    # Generate users
     users_with_roles = generate_user_data()
     # Split the polygon into parcels and assign to crop types randomly
     crop_assignment = split_in_parcels(polygon, split_points)
-    # print(polygon)
-    # print(len(crop_assignment))
-    # print(crop_assignment)
-    #Create the map with the polygon
+    #Create  map with the polygon
     map_with_polygon = create_map_with_polygon(coordinates)
     map_with_polygon.save("maps/map_with_polygon.html")
-    # # #CREATE SENSOR GRID and place to CSV
+    # Create sensor grid and place to CSV file
     sensor_grid = create_uniform_sensor_grid(polygon, crop_assignment)
     # #Visualize newly generated sensor_grid
     updated_map = visualize_sensor_locations_on_existing_map(sensor_grid, map_with_polygon)

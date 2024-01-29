@@ -1,18 +1,19 @@
-import uuid
+import json
+import random
+from enum import Enum
 
 from faker import Faker
-import json
-from enum import Enum
-import random
+
+from utils.polygon_def import get_project_path
 
 # Filepath for generated user file
-jsonFilepath = 'C:\\Users\\ana\\PycharmProjects\\dynamodb\\maps\\data\\user_and_roles.json'
+jsonFilepath = f"{get_project_path()}\\maps\\data\\user_and_roles.json"
 # Role Enum
 class UserRole(Enum):
-    MANAGER = "Manager"
+#    MANAGER = "Manager"
     AGRONOMIST = "Agronomist"
     DATA_ANALYST = "Data Analyst"
-    FIELD_TECHNICIAN = "Field Technician"
+#    FIELD_TECHNICIAN = "Field Technician"
     ADMIN = "Admin"
 
 

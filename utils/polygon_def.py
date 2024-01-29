@@ -1,9 +1,5 @@
-# Define your polygon coordinates
-# Cf. parcels_generation.py for additional methods
-# to create
-# geohashes of different precisions,
-# fields with parcels and
-# different maps with folium
+import os
+
 import boto3
 from shapely import Polygon, Point
 from geopy.distance import geodesic
@@ -51,3 +47,10 @@ def create_dynamodb_client(resource=False):
     else:
         return boto3.resource(client, region_name=region_name, endpoint_url=endpoint_url,
                                      aws_access_key_id=aws_access_key_id, aws_secret_access_key=aws_secret_access_key)
+
+def get_project_path():
+    current_script_path = os.path.abspath(__file__)
+    project_root = os.path.dirname(os.path.dirname(current_script_path))
+    return project_root
+
+print(get_project_path())

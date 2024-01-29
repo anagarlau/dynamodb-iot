@@ -1,32 +1,12 @@
 import math
-import random
 import uuid
 
-import boto3
-import numpy as np
-from shapely import LineString, Point, MultiLineString, MultiPolygon, GeometryCollection
-from shapely.affinity import rotate
-from shapely.ops import split, unary_union
-
-import dynamodbgeo
-import geohash2
-import geopandas as gpd
 import folium
-import matplotlib.pyplot as plt
-import pygeohash
-from geopy.distance import great_circle
-from pyproj import CRS
-from shapely.geometry import Polygon,box
-import shapely.geometry
-#import geohash as gh
-import geohash2 as gh
-import hashlib
-#from utils.polygon_def import polygon,coordinates
-import matplotlib.pyplot as plt
+from shapely import LineString, GeometryCollection
+from shapely.geometry import Polygon
+from shapely.ops import split
 
-import geohash
-from utils.polygon_def import coordinates, polygon
-
+from utils.polygon_def import polygon
 
 #https://medium.com/bukalapak-data/geolocation-search-optimization-5b2ff11f013b
 
@@ -53,11 +33,9 @@ def create_map_with_polygon(coordinates):
     #folium_map.save("maps/map_with_polygon.html")
     return folium_map
 
-
+# Created with ChatGPT support
 def split_in_parcels(polygon, split_points, bearing=193):
-    """
-    Splits a larger polygon into subareas based on a series of split points, aligned to a given bearing.
-    """
+
     plant_specs = {
         'Chickpeas': {
             'latin_name': 'Cicer arietinum',
@@ -125,11 +103,11 @@ def plot_polygons_on_map(plant_polygons, original_polygon=polygon,folium_map=Non
     if folium_map is None:
         folium_map = folium.Map(location=map_center, zoom_start=12)
 
-    # Add the original polygon to the map with an outline
+
     folium.Polygon(locations=[(y, x) for x, y in original_polygon.exterior.coords],
                    color='black', weight=2, fill_opacity=0).add_to(folium_map)
 
-    # Add each split polygon to the map with the color according to the plant_type
+
     for item in plant_polygons:
         #print("Item", item)
         plant_type = item['plant_type']

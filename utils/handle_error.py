@@ -1,7 +1,3 @@
-import boto3
-from boto3.dynamodb.types import TypeSerializer
-from botocore.exceptions import ClientError, BotoCoreError
-
 ERROR_HELP_STRINGS = {
     # Common Errors
     'InternalServerError': 'Internal Server Error, generally safe to retry with exponential back-off',

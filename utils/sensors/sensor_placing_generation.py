@@ -1,7 +1,6 @@
 import itertools
 import random
 import uuid
-from random import random
 from typing import List
 
 from folium import Marker, Icon
@@ -35,7 +34,7 @@ def create_uniform_sensor_grid(polygon, crop_assignment):
         'Light': 50,
         'SoilMoisture': 50,
         'Humidity': 50,
-        'Rain': 50,
+        'Rain': 20,
         'SoilPH': 50
     }
 
@@ -73,7 +72,6 @@ def create_uniform_sensor_grid(polygon, crop_assignment):
     minx, miny, maxx, maxy = polygon.bounds
     lat_step = (maxy - miny) / grid_size
     lon_step = (maxx - minx) / grid_size
-
     # Weighted list of sensors for random placement
     weighted_sensors = [[sensor] * count for sensor, count in sensor_distribution.items()]
     weighted_sensors = list(itertools.chain.from_iterable(weighted_sensors))

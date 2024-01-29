@@ -4,10 +4,10 @@ import simplejson as json
 from folium import Marker, Icon, Circle, Polygon
 
 from utils.parcels.parcels_generation import create_map_with_polygon
-from utils.polygon_def import polygon
+from utils.polygon_def import polygon, get_project_path
 
-jsonFilepath='C:\\Users\\ana\\PycharmProjects\\dynamodb\\maps\\data\\sensors_to_json.json'
-csvFilePath='C:\\Users\\ana\\PycharmProjects\\dynamodb\\maps\\data\\sensors_locations.csv'
+jsonFilepath=f"{get_project_path()}\\maps\\data\\sensors_to_json.json"
+csvFilePath=f"{get_project_path()}\\maps\\data\\sensors_locations.csv"
 def csv_to_json(csv_filepath=csvFilePath, json_filepath=jsonFilepath):
     # Create a list to store the data
     data_list = []

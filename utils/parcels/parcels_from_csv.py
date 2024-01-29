@@ -8,9 +8,10 @@ import dateutil.utils
 from shapely import Polygon
 
 from utils.parcels.parcels_generation import plot_polygons_on_map
+from utils.polygon_def import get_project_path
 
-jsonFilepath = 'C:\\Users\\ana\\PycharmProjects\\dynamodb\\maps\\data\\plants_to_json.json'
-csvFilePath = 'C:\\Users\\ana\\PycharmProjects\\dynamodb\\maps\\data\\plant_type_to_parcels.csv'
+jsonFilepath = f'{get_project_path()}\\maps\\data\\plants_to_json.json'
+csvFilePath = f'{get_project_path()}\\maps\\data\\plant_type_to_parcels.csv'
 
 
 def csv_to_json(csv_filepath=csvFilePath, json_filepath=jsonFilepath):

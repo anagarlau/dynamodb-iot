@@ -1,17 +1,16 @@
 import random
 import time
-import uuid
+
 from botocore.exceptions import ClientError
 
 from backend.models.MaintenanceEnum import MaintenanceType
-from dynamodbgeo.dynamodbgeo import GeoDataManagerConfiguration, GeoDataManager, GeoTableUtil, GeoPoint, PutPointInput, \
-    S2Manager
+from dynamodbgeo.dynamodbgeo import GeoDataManagerConfiguration, GeoDataManager, GeoTableUtil, GeoPoint, S2Manager
+from utils.handle_error import handle_error
 from utils.parcels.parcels_from_csv import read_and_process_parcels_from_json
 from utils.polygon_def import create_dynamodb_client, hashKeyLength
 from utils.sensor_events.sensor_events_generation import process_events_for_db, convert_to_unix_epoch, \
     random_date_string
 from utils.sensors.sensors_from_csv import json_to_array, csv_to_json
-from utils.handle_error import handle_error
 from utils.users_and_roles.user_and_roles_generation import read_users_from_json
 
 

@@ -1,22 +1,22 @@
-from decimal import Decimal, getcontext, ROUND_HALF_UP
+import random
 import time
+from datetime import datetime, timezone, timedelta
+from decimal import Decimal, getcontext, ROUND_HALF_UP
+
 import pandas as pd
 import simplejson as json
-import random
-from datetime import datetime, timezone, timedelta
 
-from backend.models.SensorEvent import SensorStatus
 from dynamodbgeo.dynamodbgeo import S2Manager, GeoPoint
-from utils.polygon_def import hashKeyLength
+from utils.polygon_def import hashKeyLength, get_project_path
 from utils.sensors.sensors_from_csv import json_to_array
 
 # Script for generation of the mock data and timestamps
 # Generates mock data for sensors csv
 # Creates a json file
 
-jsonFilepath = 'C:\\Users\\ana\\PycharmProjects\\dynamodb\\maps\\data\\sensorsevents_to_json.json'
-csvFilePath = 'C:\\Users\\ana\\PycharmProjects\\dynamodb\\maps\\data\\sensors_locations.csv'
-excelFilepath = 'C:\\Users\\ana\\PycharmProjects\\dynamodb\\maps\\data\\sensor_events_analytics.xlsx'
+jsonFilepath = f"{get_project_path()}\\maps\\data\\sensorsevents_to_json.json"
+csvFilePath = f"{get_project_path()}\\maps\\data\\sensors_locations.csv"
+excelFilepath = f"{get_project_path()}\\maps\\data\\sensor_events_analytics.xlsx"
 
 getcontext().prec = 4  # Set the precision for Decimal operations
 
@@ -72,8 +72,7 @@ def generate_sensor_events_from_locations_csv_into_json(csv_file_path=csvFilePat
 
             battery_level = generate_decimal(0, 100)# Random battery level
             data_point = generate_mock_data(row['sensor_type'])
-            # if str(sensor_id) != row['sensor_id']:
-            #     print("GEOHASH FAILURE")
+
             sensor_event = {
                 "sensorId": str(row['sensor_id']),
                 "metadata": {
@@ -205,7 +204,6 @@ def process_events_for_db():
 
 
 # Call to generate a new batch of sensor events
-#
 #generate_sensor_events_from_locations_csv_into_json()
-# # #test
+# Test
 # process_events_for_db()
