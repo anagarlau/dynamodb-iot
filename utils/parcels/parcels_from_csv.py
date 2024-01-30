@@ -39,7 +39,7 @@ def read_and_process_parcels_from_json(json_filepath=jsonFilepath):
         for entry in data:
             if 'polygon' in entry:
                 entry['polygon'] = [tuple(coord) for coord in entry['polygon']]
-            pk = 'Parcel' # OK because chickpeas are annual plants, grapevines are perennial plants so the partition only grows over years
+            pk = 'Parcel'
             parcel_active = {
                 'PK': pk,
                 'SK': f"{entry['parcel_id']}",
@@ -83,12 +83,22 @@ def read_and_process_parcels_from_json(json_filepath=jsonFilepath):
             database_entries.append(parcel_not_active)
     return database_entries
 
+def read_parcels_from_json(json_filepath=jsonFilepath):
+    csv_to_json()
+    parcels = []
+    with open(json_filepath, 'r', encoding='utf-8') as jsonfile:
+        data = json.load(jsonfile)
+        for entry in data:
+            if 'polygon' in entry:
+                entry['polygon'] = [tuple(coord) for coord in entry['polygon']]
+            parcels.append(entry)
+    return parcels
 
 def sanity_check_parcels():
-    data = read_and_process_parcels_from_json()
+    data = read_parcels_from_json()
     processed = [{**item, 'polygon': Polygon(item['polygon'])} for item in data]
     # print(processed)
     map = plot_polygons_on_map(processed)
-    map.save('test.html')
+    map.save('../../maps/parcels.html')
 
-# sanity_check_parcels()
+#sanity_check_parcels()

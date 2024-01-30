@@ -32,7 +32,28 @@ class DataType(Enum):
 
 
 # Sensor Event
+
 class SensorEvent:
+
+    def to_entity(self):
+        from utils.sensor_events.sensor_events_generation import convert_to_unix_epoch, \
+            get_first_of_month_as_unix_timestamp
+        lat, lon = self.metadata.location
+        geoJson = "{},{}".format(lat, lon)
+        timestamp_str = self.data.timestamp.strftime("%Y-%m-%dT%H:%M:%S")
+        sk_formatted = f"Event#{convert_to_unix_epoch(timestamp_str)}#{self.sensorId}"
+        start_of_month = get_first_of_month_as_unix_timestamp(self.data.timestamp.strftime("%Y-%m-%dT%H:%M:%S"))
+        return {
+            'PK': {'S': f"{self.data.dataType}#{str(start_of_month)}"},
+            'SK': {'S': sk_formatted},
+            's_id': {'S': f"Event#{self.sensorId}"},
+            'data_point': {'N': str(self.data.dataPoint)},
+            'geoJson': {'S': geoJson},
+            'parcel_id': {'S': self.metadata.parcel_id},
+            'battery_level': {'N': str(self.metadata.batteryLevel)},
+            'data_type': {'S': self.data.dataType}
+        }
+
     class Metadata:
         def __convert_location_to_tuple(self, location_str):
             lat_str, lon_str = location_str.strip("()").split(",")
@@ -71,24 +92,7 @@ class SensorEvent:
             }
         }
 
-    def to_entity(self):
-        from utils.sensor_events.sensor_events_generation import convert_to_unix_epoch, \
-            get_first_of_month_as_unix_timestamp
-        lat, lon = self.metadata.location
-        geoJson = "{},{}".format(lat, lon)
-        timestamp_str = self.data.timestamp.strftime("%Y-%m-%dT%H:%M:%S")
-        sk_formatted = f"Event#{convert_to_unix_epoch(timestamp_str)}#{self.sensorId}"
-        start_of_month = get_first_of_month_as_unix_timestamp(self.data.timestamp.strftime("%Y-%m-%dT%H:%M:%S"))
-        return {
-            'PK': {'S': f"{self.data.dataType}#{str(start_of_month)}"},
-            'SK': {'S': sk_formatted},
-            's_id': {'S': f"Event#{self.sensorId}"},
-            'data_point': {'N': str(self.data.dataPoint)},
-            'geoJson': {'S': geoJson},
-            'parcel_id': {'S': self.metadata.parcel_id},
-            'battery_level': {'N': str(self.metadata.batteryLevel)},
-            'data_type': {'S': self.data.dataType}
-        }
+
     def __repr__(self):
         metadata_repr = (f"Metadata(location={self.metadata.location}, "
                          f"parcel_id='{self.metadata.parcel_id}', "

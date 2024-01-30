@@ -29,18 +29,6 @@ class SensorEventService:
         self.config.hashKeyLength = hashKeyLength
         self.sensor_service=SensorService()
 
-    def add_records(self, records: List[Dict]):
-        self.dynamodb.transact_write_items(TransactItems=records)
-
-    def add_sensor_event(self, sensor_event_json):
-        try:
-            sensor_event_entry = SensorEvent.from_json(sensor_event_json).to_entity()
-            self.dynamodb.put_item(TableName=self.table_name, Item=sensor_event_entry)
-            return sensor_event_json['sensorId']
-        except (ClientError, BotoCoreError, Exception) as e:
-            print(f"Error adding sensor event to DB: {e}")
-            return None
-
     def query_sensorevents_by_sensorid_in_time_range(self, sensor_id, start_range, end_range):
         try:
             start_range_unix = convert_to_unix_epoch(start_range)
@@ -85,6 +73,20 @@ class SensorEventService:
         except (ClientError, BotoCoreError, Exception) as e:
             print(f"An error occurred while retrieving sensor events for sensor {sensor_id}:", e)
             return []
+
+    def add_sensor_event(self, sensor_event_json):
+        try:
+            sensor_event_entry = SensorEvent.from_json(sensor_event_json).to_entity()
+            self.dynamodb.put_item(TableName=self.table_name, Item=sensor_event_entry)
+            return sensor_event_json['sensorId']
+        except (ClientError, BotoCoreError, Exception) as e:
+            print(f"Error adding sensor event to DB: {e}")
+            return None
+
+    def add_records(self, records: List[Dict]):
+        self.dynamodb.transact_write_items(TransactItems=records)
+
+
 
     def query_latest_n_sensorevents_by_sensorid(self, sensor_id, n):
         try:
@@ -343,7 +345,7 @@ def main():
     #                     '2021-11-27T08:02:50')
     # print(len(events))
     # # print(events[0])
-    events = service.query_latest_n_sensorevents_by_sensorid('32c3ecce-6589-445f-8f64-4d7422d4f1bf',4)
+    events = service.query_latest_n_sensorevents_by_sensorid('0009fb6d-977d-4771-a11f-edee9b256160',4)
     print(len(events))
     # for item in events:
     #     print(item['SK']['S'])
@@ -353,7 +355,6 @@ def main():
     #     "metadata": {
     #         "location": "(46.63366128235294, 28.12680874117647)",
     #         "battery_level": 33,
-    #         "status": "Active",
     #         "parcel_id": "Chickpeas#af8ed50d-68c4-4cf9-b04e-bba5432d4b8e"
     #     },
     #     "data": {
@@ -362,7 +363,10 @@ def main():
     #         "timestamp": "2023-12-22T16:01:00"
     #     }
     # }
-    # service.add_sensor_event(json)
+    # print(service.add_sensor_event(json))
+    events = service.query_sensorevents_by_sensorid_in_time_range("0009fb6d-977d-4771-a11f-edee9b256160",
+                                                                  "2020-03-07T20:47:52", "2020-03-20T06:16:31")
+    print(events)
     # events = service.query_sensor_events_by_parcelid_in_time_range("Chickpeas#af8ed50d-68c4-4cf9-b04e-bba5432d4b8e",
     #                                                                "2020-01-07T20:47:52", "2020-01-20T06:16:31",
     #                                                                ["Humidity", "SoilMoisture"])

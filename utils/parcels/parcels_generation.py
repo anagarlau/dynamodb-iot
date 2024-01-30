@@ -2,27 +2,20 @@ import math
 import uuid
 
 import folium
-from shapely import LineString, GeometryCollection
+from shapely import LineString, GeometryCollection, Point
 from shapely.geometry import Polygon
 from shapely.ops import split
 
-from utils.polygon_def import polygon
+from utils.polygon_def import polygon, split_points
+
 
 #https://medium.com/bukalapak-data/geolocation-search-optimization-5b2ff11f013b
 
 def create_map_with_polygon(coordinates):
-    # Folium requires coordinates in (latitude, longitude) format
-    # Reverse the coordinates from (longitude, latitude) to (latitude, longitude)
     reversed_coordinates = [(lat, lon) for lon, lat in coordinates]
-
-    # Calculate the centroid of the polygon for the initial map view
     centroid_lat = sum([point[0] for point in reversed_coordinates]) / len(reversed_coordinates)
     centroid_lon = sum([point[1] for point in reversed_coordinates]) / len(reversed_coordinates)
-
-    # Create a map centered around the centroid
     folium_map = folium.Map(location=[centroid_lat, centroid_lon], zoom_start=13)
-
-    # Add the polygon to the map
     folium.Polygon(
         locations=reversed_coordinates,
         color='blue',
@@ -34,8 +27,35 @@ def create_map_with_polygon(coordinates):
     return folium_map
 
 # Created with ChatGPT support
-def split_in_parcels(polygon, split_points, bearing=193):
+def calculate_bearing_from_bbox():
+    # Get the minimum rotated rectangle (MRR) that encloses the polygon
+    mrr = polygon.minimum_rotated_rectangle
 
+    # Extract the coordinates of the MRR
+    mrr_coords = list(mrr.exterior.coords)
+
+    # Calculate the length of the rectangle's sides
+    # The MRR will have 5 coordinates, with the first repeating, so we need only 4
+    edge_lengths = [Point(mrr_coords[i]).distance(Point(mrr_coords[i + 1])) for i in range(4)]
+
+    # Determine the longer edge of the rectangle
+    long_edge_index = edge_lengths.index(max(edge_lengths))
+
+    # Calculate the orientation of the long edge
+    dx = mrr_coords[long_edge_index + 1][0] - mrr_coords[long_edge_index][0]
+    dy = mrr_coords[long_edge_index + 1][1] - mrr_coords[long_edge_index][1]
+
+    # Calculate the angle in radians, and convert to degrees
+    angle_rad = math.atan2(dy, dx)
+    angle_deg = math.degrees(angle_rad)
+
+    # Convert the angle to a bearing
+    bearing = (angle_deg + 360) % 360
+
+    return bearing
+
+# Created with ChatGPT support
+def split_in_parcels():
     plant_specs = {
         'Chickpeas': {
             'latin_name': 'Cicer arietinum',
@@ -58,7 +78,7 @@ def split_in_parcels(polygon, split_points, bearing=193):
     }
     # Sort points by their x-coordinate to ensure the line cuts through the polygon systematically
     sorted_points = sorted(split_points, key=lambda p: p.x)
-
+    bearing = calculate_bearing_from_bbox()
     # Calculate the vector for the bearing
     dx = math.cos(math.radians(bearing))
     dy = math.sin(math.radians(bearing))
@@ -97,19 +117,16 @@ def split_in_parcels(polygon, split_points, bearing=193):
     # print('Dictionary')
     # print(plant_polygons)
     return plant_polygons
+
+
 def plot_polygons_on_map(plant_polygons, original_polygon=polygon,folium_map=None):
     min_lon, min_lat, max_lon, max_lat = original_polygon.bounds
     map_center = [(min_lat + max_lat) / 2, (min_lon + max_lon) / 2]
     if folium_map is None:
         folium_map = folium.Map(location=map_center, zoom_start=12)
-
-
     folium.Polygon(locations=[(y, x) for x, y in original_polygon.exterior.coords],
                    color='black', weight=2, fill_opacity=0).add_to(folium_map)
-
-
     for item in plant_polygons:
-        #print("Item", item)
         plant_type = item['plant_type']
         poly = item['polygon']
         color = "#ff7800" if plant_type == 'Chickpeas' else "#0000ff"
@@ -121,6 +138,10 @@ def plot_polygons_on_map(plant_polygons, original_polygon=polygon,folium_map=Non
                        fill_opacity=0.5).add_to(folium_map)
 
     return folium_map
+
+# pl = split_in_parcels()
+# map = plot_polygons_on_map(pl)
+#map.save("testing.html")
 # Calculate Area for test purposes. Google: 3.32 sq km
 
 # Create a GeoDataFrame

@@ -70,7 +70,7 @@ def generate_sensor_events_from_locations_csv_into_json(csv_file_path=csvFilePat
 
         for timestamp in timestamps:
 
-            battery_level = generate_decimal(0, 100)# Random battery level
+            battery_level = generate_decimal(0, 100)
             data_point = generate_mock_data(row['sensor_type'])
 
             sensor_event = {
@@ -147,9 +147,8 @@ def get_start_of_month(timestamp_str):
     return start_of_month.strftime("%Y-%m-%dT%H:%M:%S")
 def convert_to_unix_epoch(timestamp_str):
     dt = datetime.strptime(timestamp_str, "%Y-%m-%dT%H:%M:%S")
-    # Convert to Unix epoch timestamp
     unix_epoch = int(time.mktime(dt.timetuple()))
-    return unix_epoch # = continuous count of seconds
+    return unix_epoch
 
 def random_date_string():
     start_date = datetime(2020, 1, 1)
@@ -184,7 +183,6 @@ def process_events_for_db():
              "Event",
             convert_to_unix_epoch(timestamp),
             event['sensorId']
-            #Issue:not unique if 2 sensors send the same timestamp! i need a unique identifier
         )
         sensor_event = {
             'PK': f"{event['data']['dataType']}#{start_of_month}",#f"Event#{event['sensorId']}",

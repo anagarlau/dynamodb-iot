@@ -89,11 +89,11 @@ class IoTInitService:
                     'IndexName': gsi_name,
                     'KeySchema': key_schema,
                     'Projection': {
-                        'ProjectionType': 'ALL'  # or 'KEYS_ONLY' or 'INCLUDE'
+                        'ProjectionType': 'ALL'
                     },
                     'ProvisionedThroughput': {
-                        'ReadCapacityUnits': 10,  # Adjust as needed
-                        'WriteCapacityUnits': 10  # Adjust as needed
+                        'ReadCapacityUnits': 10,
+                        'WriteCapacityUnits': 10
                     }
                 }
             }
@@ -129,7 +129,7 @@ class IoTInitService:
             time.sleep(5)
         return table_description
 
-    def insert_sensor_points(self):
+    def insert_sensor_details_locations_and_users(self):
         # Insert all the sensors from csv/json file
         create_table_input = self.table_util.getCreateTableRequest()
         create_table_input["ProvisionedThroughput"]['ReadCapacityUnits'] = 10
@@ -171,7 +171,7 @@ class IoTInitService:
                 'id_parcel': item['parcel_id'],
                 'placed_at':convert_to_unix_epoch('2020-01-01T04:35:53')
             }
-            # Maintenance Operations
+            # Randomly generated Maintenance Operations
             for i in range(random.randint(0, 5)):
                 SK =f"Maintenance#{convert_to_unix_epoch(random_date_string())}"
                 sensor_maintenance = {
@@ -188,23 +188,6 @@ class IoTInitService:
             processed_items.append(sensor_details)
             processed_items.append(sensor_location_event)
         processed_items.extend(user_items)
-            # PutItemInput = {
-            #     'TableName': 'IoT',
-            #     'Item': {
-            #         'sensor_id': {'S': item['sensor_id']},
-            #         'sensor_type': {'S': item['sensor_type']}
-            #         #TODO add maintenance stuff
-            #     },
-            #     'ConditionExpression': "attribute_not_exists(hashKey)"
-            #     # ... Anything else to pass through to `putItem`, eg ConditionExpression
-            # }
-            #
-            # self.geoDataManager.put_Point(PutPointInput(
-            #     GeoPoint(item['point_coordinates'][1], item['point_coordinates'][0]),
-            #     # latitude then latitude longitude
-            #     str(uuid.uuid4()),  # Use this to ensure uniqueness of the hash/range pairs.
-            #     PutItemInput  # pass the dict here
-            # ))
         print(f'Inserted Number of Sensor Points: {len(processed_items)}')
         self.batch_write(items=processed_items)
 
@@ -222,7 +205,7 @@ class IoTInitService:
 if __name__ == "__main__":
     initService = IoTInitService()
     initService.delete_dynamodb_table_if_exists()
-    initService.insert_sensor_points()
+    initService.insert_sensor_details_locations_and_users()
     initService.insert_parcels()
     gsi_name = 'GSI_Sensor_By_Parcel'
     initService.create_gsi(
@@ -242,25 +225,7 @@ if __name__ == "__main__":
         gsi_pk='GSI_PK',
         gsi_pk_type='S', gsi_sk='GSI_SK', gsi_sk_type='S')
     initService.custom_gsi_waiter(gsi_name)
-    # gsi_name = 'GSI_AllSensors_By_Type'
-    # initService.create_gsi(
-    #     gsi_name=gsi_name,
-    #     gsi_pk='sensor_type',
-    #     gsi_pk_type='S', gsi_sk='geohash', gsi_sk_type='S')
-    # initService.custom_gsi_waiter(gsi_name)
-    # gsi_name = 'GSI_ActiveSensor_By_Type'
-    # initService.create_gsi(
-    #     gsi_name=gsi_name,
-    #     gsi_pk='sensor_type',
-    #     gsi_pk_type='S', gsi_sk='curr_parcelid', gsi_sk_type='S')
-    # initService.custom_gsi_waiter(gsi_name)
     gsi_name = f'GSI_Geohash{initService.config.hashKeyLength}_FullGeohash'
-    initService.create_gsi(
-        gsi_name=gsi_name,
-        gsi_pk='hash_key',
-        gsi_pk_type='S', gsi_sk='geohash', gsi_sk_type='S')
-    initService.custom_gsi_waiter(gsi_name)
-    gsi_name = f'GSI_TypeGeohash{initService.config.hashKeyLength}_FullGeohash'
     initService.create_gsi(
         gsi_name=gsi_name,
         gsi_pk='hash_key',

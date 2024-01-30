@@ -34,7 +34,7 @@ def create_uniform_sensor_grid(polygon, crop_assignment):
         'Light': 50,
         'SoilMoisture': 50,
         'Humidity': 50,
-        'Rain': 20,
+        'Rain': 50,
         'SoilPH': 50
     }
 

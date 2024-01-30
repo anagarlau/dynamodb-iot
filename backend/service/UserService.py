@@ -15,6 +15,25 @@ class UserService:
         self.table_name = 'IoT'
         self.gsi_name = 'GSI_Users_Roles_Maintenance'
 
+    def get_users_by_role(self, role):
+        try:
+
+            response = self.dynamodb.query(
+                TableName=self.table_name,
+                IndexName='GSI_Users_Roles_Maintenance',
+                KeyConditionExpression="GSI_PK = :role",
+                ExpressionAttributeValues={":role": {'S': role}},
+                ReturnConsumedCapacity='TOTAL'
+            )
+            consumed_capacity_units = response.get('ConsumedCapacity', {}).get('CapacityUnits')
+            if consumed_capacity_units is not None:
+                print(f"Users by role {role}, Consumed Capacity Units: {consumed_capacity_units}")
+            users_items = response.get('Items')
+            return [User(item) for item in users_items]
+        except (BotoCoreError, ClientError) as error:
+            print(f"An error occurred: {error}")
+            return None
+
     def get_user_details(self, user_email):
         try:
 
@@ -35,24 +54,6 @@ class UserService:
             print(f"An error occurred: {error}")
             return None
 
-    def get_users_by_role(self, role):
-        try:
-
-            response = self.dynamodb.query(
-                TableName=self.table_name,
-                IndexName='GSI_Users_Roles_Maintenance',
-                KeyConditionExpression="GSI_PK = :role",
-                ExpressionAttributeValues={":role": {'S': role}},
-                ReturnConsumedCapacity='TOTAL'
-            )
-            consumed_capacity_units = response.get('ConsumedCapacity', {}).get('CapacityUnits')
-            if consumed_capacity_units is not None:
-                print(f"Users by role {role}, Consumed Capacity Units: {consumed_capacity_units}")
-            users_items = response.get('Items')
-            return [User(item) for item in users_items]
-        except (BotoCoreError, ClientError) as error:
-            print(f"An error occurred: {error}")
-            return None
 
 
 if __name__ == "__main__":

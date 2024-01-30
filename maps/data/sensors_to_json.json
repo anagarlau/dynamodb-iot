@@ -1,1838 +1,2090 @@
 [
     {
-        "sensor_id": "62e6b13b-ff13-44c9-94d4-33e80e28c3db",
-        "sensor_type": "Light",
-        "point_coordinates": [
-            28.13458176875,
-            46.618895437499994
-        ],
-        "parcel_id": "Grapevine#4f6dfdd9-19a0-4adf-ba94-5f6d357c6f27",
-        "manufacturer": "Osram",
-        "model": "LX1",
-        "firmware": "v2.3"
-    },
-    {
-        "sensor_id": "e1d884c4-7420-4dcf-aa93-1936e8d9f60a",
+        "sensor_id": "a5e55ee1-5306-4b5e-91cc-862195374f9c",
         "sensor_type": "SoilMoisture",
         "point_coordinates": [
-            28.1364968625,
-            46.618895437499994
+            28.134018505882352,
+            46.618818129411764
         ],
-        "parcel_id": "Grapevine#4f6dfdd9-19a0-4adf-ba94-5f6d357c6f27",
-        "manufacturer": "Texas Instruments",
-        "model": "SM200",
-        "firmware": "v3.2"
-    },
-    {
-        "sensor_id": "8d72fd1e-80b5-49e0-8c96-5f554eff6916",
-        "sensor_type": "Temperature",
-        "point_coordinates": [
-            28.13841195625,
-            46.618895437499994
-        ],
-        "parcel_id": "Grapevine#4f6dfdd9-19a0-4adf-ba94-5f6d357c6f27",
-        "manufacturer": "Siemens",
-        "model": "TH100",
-        "firmware": "v1.3"
-    },
-    {
-        "sensor_id": "216a7fac-ed0b-4e0c-8b2e-6147dbe4851b",
-        "sensor_type": "Humidity",
-        "point_coordinates": [
-            28.132666675,
-            46.620209675
-        ],
-        "parcel_id": "Chickpeas#0322bda3-d298-4ace-bb19-f76502340e5d",
-        "manufacturer": "Sensirion",
-        "model": "SHT31",
-        "firmware": "v4.0"
-    },
-    {
-        "sensor_id": "74c1c728-49b4-4f61-bd5f-662657b9eb92",
-        "sensor_type": "Light",
-        "point_coordinates": [
-            28.13458176875,
-            46.620209675
-        ],
-        "parcel_id": "Chickpeas#0322bda3-d298-4ace-bb19-f76502340e5d",
-        "manufacturer": "Osram",
-        "model": "LX1",
-        "firmware": "v2.3"
-    },
-    {
-        "sensor_id": "f95cb088-2422-4404-8d41-63e32fdd58b8",
-        "sensor_type": "Humidity",
-        "point_coordinates": [
-            28.1364968625,
-            46.620209675
-        ],
-        "parcel_id": "Grapevine#4f6dfdd9-19a0-4adf-ba94-5f6d357c6f27",
-        "manufacturer": "Sensirion",
-        "model": "SHT31",
-        "firmware": "v4.0"
-    },
-    {
-        "sensor_id": "ebfb511e-5988-473b-a68a-b0792d951f39",
-        "sensor_type": "SoilMoisture",
-        "point_coordinates": [
-            28.13841195625,
-            46.620209675
-        ],
-        "parcel_id": "Grapevine#4f6dfdd9-19a0-4adf-ba94-5f6d357c6f27",
+        "parcel_id": "Grapevine#5da7d24e-c944-408e-91d9-b3882548adfb",
         "manufacturer": "Bosch",
         "model": "SM10",
         "firmware": "v3.0"
     },
     {
-        "sensor_id": "0deaff0d-5650-4ac1-9629-f321d1a58b06",
-        "sensor_type": "Temperature",
-        "point_coordinates": [
-            28.14032705,
-            46.620209675
-        ],
-        "parcel_id": "Grapevine#4f6dfdd9-19a0-4adf-ba94-5f6d357c6f27",
-        "manufacturer": "Siemens",
-        "model": "TH100",
-        "firmware": "v1.3"
-    },
-    {
-        "sensor_id": "57dfbc9e-f340-4ab2-b21e-cd5ac974eec0",
-        "sensor_type": "Humidity",
-        "point_coordinates": [
-            28.14224214375,
-            46.620209675
-        ],
-        "parcel_id": "Grapevine#4f6dfdd9-19a0-4adf-ba94-5f6d357c6f27",
-        "manufacturer": "Sensirion",
-        "model": "SHT31",
-        "firmware": "v4.0"
-    },
-    {
-        "sensor_id": "dc8eccda-8488-4edf-a6dc-292c51584ce0",
-        "sensor_type": "Light",
-        "point_coordinates": [
-            28.1441572375,
-            46.620209675
-        ],
-        "parcel_id": "Grapevine#4f6dfdd9-19a0-4adf-ba94-5f6d357c6f27",
-        "manufacturer": "Philips",
-        "model": "L200",
-        "firmware": "v2.1"
-    },
-    {
-        "sensor_id": "4a0fa309-f9f0-424c-8f79-bf9770e80445",
-        "sensor_type": "Temperature",
-        "point_coordinates": [
-            28.132666675,
-            46.621523912499995
-        ],
-        "parcel_id": "Chickpeas#0322bda3-d298-4ace-bb19-f76502340e5d",
-        "manufacturer": "Honeywell",
-        "model": "T10",
-        "firmware": "v1.2"
-    },
-    {
-        "sensor_id": "ec20dd35-6b83-4de9-9eff-d137d55e9a64",
-        "sensor_type": "SoilPH",
-        "point_coordinates": [
-            28.13458176875,
-            46.621523912499995
-        ],
-        "parcel_id": "Chickpeas#0322bda3-d298-4ace-bb19-f76502340e5d",
-        "manufacturer": "Hanna Instruments",
-        "model": "HI98103",
-        "firmware": "v6.1"
-    },
-    {
-        "sensor_id": "a8516233-03e3-46cc-925d-845574e8cfdf",
-        "sensor_type": "Light",
-        "point_coordinates": [
-            28.1364968625,
-            46.621523912499995
-        ],
-        "parcel_id": "Chickpeas#0322bda3-d298-4ace-bb19-f76502340e5d",
-        "manufacturer": "Osram",
-        "model": "LX1",
-        "firmware": "v2.3"
-    },
-    {
-        "sensor_id": "6de40f33-e6b6-4260-8a79-6b7e64853307",
-        "sensor_type": "SoilPH",
-        "point_coordinates": [
-            28.13841195625,
-            46.621523912499995
-        ],
-        "parcel_id": "Chickpeas#0322bda3-d298-4ace-bb19-f76502340e5d",
-        "manufacturer": "Atlas Scientific",
-        "model": "PH10",
-        "firmware": "v6.0"
-    },
-    {
-        "sensor_id": "46bb80bc-e742-4139-87c4-b31345eb6496",
+        "sensor_id": "86f95db4-455e-4157-9b38-c63bccd9ebe4",
         "sensor_type": "SoilMoisture",
         "point_coordinates": [
-            28.14032705,
-            46.621523912499995
+            28.13582094705882,
+            46.618818129411764
         ],
-        "parcel_id": "Chickpeas#0322bda3-d298-4ace-bb19-f76502340e5d",
+        "parcel_id": "Grapevine#5da7d24e-c944-408e-91d9-b3882548adfb",
         "manufacturer": "Texas Instruments",
         "model": "SM200",
         "firmware": "v3.2"
     },
     {
-        "sensor_id": "2b451106-de8d-425f-861d-96f70e76cb5f",
-        "sensor_type": "Temperature",
-        "point_coordinates": [
-            28.14224214375,
-            46.621523912499995
-        ],
-        "parcel_id": "Grapevine#4f6dfdd9-19a0-4adf-ba94-5f6d357c6f27",
-        "manufacturer": "Siemens",
-        "model": "TH100",
-        "firmware": "v1.3"
-    },
-    {
-        "sensor_id": "09706599-149b-4f65-a9f6-054cb7e2345a",
+        "sensor_id": "4904f142-0dd0-4d7f-bf98-76a73286bd75",
         "sensor_type": "Rain",
         "point_coordinates": [
-            28.1441572375,
-            46.621523912499995
+            28.137623388235294,
+            46.618818129411764
         ],
-        "parcel_id": "Grapevine#4f6dfdd9-19a0-4adf-ba94-5f6d357c6f27",
+        "parcel_id": "Grapevine#5da7d24e-c944-408e-91d9-b3882548adfb",
         "manufacturer": "Davis Instruments",
         "model": "R1",
         "firmware": "v5.0"
     },
     {
-        "sensor_id": "36397fc2-282c-4b84-af15-51e7efdb5716",
+        "sensor_id": "23776b93-8933-46d0-95b2-f125b8df4ba9",
+        "sensor_type": "Light",
+        "point_coordinates": [
+            28.132216064705883,
+            46.620055058823525
+        ],
+        "parcel_id": "Chickpeas#d8c109ba-20aa-46e5-8540-902b78e1e310",
+        "manufacturer": "Osram",
+        "model": "LX1",
+        "firmware": "v2.3"
+    },
+    {
+        "sensor_id": "ca1caeac-21b0-4c9f-91e2-f515da1bf36c",
         "sensor_type": "Humidity",
         "point_coordinates": [
-            28.14607233125,
-            46.621523912499995
+            28.134018505882352,
+            46.620055058823525
         ],
-        "parcel_id": "Grapevine#4f6dfdd9-19a0-4adf-ba94-5f6d357c6f27",
+        "parcel_id": "Chickpeas#d8c109ba-20aa-46e5-8540-902b78e1e310",
+        "manufacturer": "Sensirion",
+        "model": "SHT31",
+        "firmware": "v4.0"
+    },
+    {
+        "sensor_id": "da010577-ff62-4565-b26d-4787c2078010",
+        "sensor_type": "Humidity",
+        "point_coordinates": [
+            28.13582094705882,
+            46.620055058823525
+        ],
+        "parcel_id": "Grapevine#5da7d24e-c944-408e-91d9-b3882548adfb",
+        "manufacturer": "Sensirion",
+        "model": "SHT31",
+        "firmware": "v4.0"
+    },
+    {
+        "sensor_id": "54074af0-bdf0-4b54-98c7-26f904a843f6",
+        "sensor_type": "Light",
+        "point_coordinates": [
+            28.137623388235294,
+            46.620055058823525
+        ],
+        "parcel_id": "Grapevine#5da7d24e-c944-408e-91d9-b3882548adfb",
+        "manufacturer": "Philips",
+        "model": "L200",
+        "firmware": "v2.1"
+    },
+    {
+        "sensor_id": "76c00494-9024-4859-ab40-28b7a0a492e9",
+        "sensor_type": "Humidity",
+        "point_coordinates": [
+            28.139425829411763,
+            46.620055058823525
+        ],
+        "parcel_id": "Grapevine#5da7d24e-c944-408e-91d9-b3882548adfb",
         "manufacturer": "Panasonic",
         "model": "HC2-H-DC",
         "firmware": "v4.1"
     },
     {
-        "sensor_id": "d28f1783-35c7-4f27-b85e-428cc47f3ee9",
+        "sensor_id": "f5fdd68a-85f3-4350-84aa-51e44f401069",
+        "sensor_type": "SoilMoisture",
+        "point_coordinates": [
+            28.141228270588236,
+            46.620055058823525
+        ],
+        "parcel_id": "Grapevine#5da7d24e-c944-408e-91d9-b3882548adfb",
+        "manufacturer": "Bosch",
+        "model": "SM10",
+        "firmware": "v3.0"
+    },
+    {
+        "sensor_id": "a2d41254-313a-4765-9e66-e17f4df572f0",
+        "sensor_type": "SoilMoisture",
+        "point_coordinates": [
+            28.143030711764705,
+            46.620055058823525
+        ],
+        "parcel_id": "Grapevine#5da7d24e-c944-408e-91d9-b3882548adfb",
+        "manufacturer": "Texas Instruments",
+        "model": "SM200",
+        "firmware": "v3.2"
+    },
+    {
+        "sensor_id": "832f2f2c-483d-45e4-b553-94d5ef997158",
         "sensor_type": "Temperature",
         "point_coordinates": [
-            28.147987425,
-            46.621523912499995
+            28.132216064705883,
+            46.62129198823529
         ],
-        "parcel_id": "Grapevine#4f6dfdd9-19a0-4adf-ba94-5f6d357c6f27",
+        "parcel_id": "Chickpeas#d8c109ba-20aa-46e5-8540-902b78e1e310",
         "manufacturer": "Honeywell",
         "model": "T10",
         "firmware": "v1.2"
     },
     {
-        "sensor_id": "15894181-1a8d-48c4-a246-b05fc438e0b9",
-        "sensor_type": "Temperature",
-        "point_coordinates": [
-            28.14990251875,
-            46.621523912499995
-        ],
-        "parcel_id": "Grapevine#4f6dfdd9-19a0-4adf-ba94-5f6d357c6f27",
-        "manufacturer": "Siemens",
-        "model": "TH100",
-        "firmware": "v1.3"
-    },
-    {
-        "sensor_id": "68ebb981-3700-4bf1-873c-af7282152f49",
+        "sensor_id": "dd26e13c-ce26-4893-bb3d-9bf3a2d65dd0",
         "sensor_type": "Rain",
         "point_coordinates": [
-            28.13075158125,
-            46.62283815
+            28.134018505882352,
+            46.62129198823529
         ],
-        "parcel_id": "Grapevine#be1e8faa-93ad-43a2-90c7-8fc91c4970e5",
+        "parcel_id": "Chickpeas#d8c109ba-20aa-46e5-8540-902b78e1e310",
         "manufacturer": "Davis Instruments",
         "model": "R1",
         "firmware": "v5.0"
     },
     {
-        "sensor_id": "36a4c984-adc1-4b30-bf4a-ac01c7baac98",
+        "sensor_id": "0587bef5-4906-4ef0-80a2-dd5146b15d36",
+        "sensor_type": "Light",
+        "point_coordinates": [
+            28.13582094705882,
+            46.62129198823529
+        ],
+        "parcel_id": "Chickpeas#d8c109ba-20aa-46e5-8540-902b78e1e310",
+        "manufacturer": "Philips",
+        "model": "L200",
+        "firmware": "v2.1"
+    },
+    {
+        "sensor_id": "98266067-8854-4b2c-90e6-9ba61149b870",
         "sensor_type": "Humidity",
         "point_coordinates": [
-            28.132666675,
-            46.62283815
+            28.137623388235294,
+            46.62129198823529
         ],
-        "parcel_id": "Grapevine#be1e8faa-93ad-43a2-90c7-8fc91c4970e5",
+        "parcel_id": "Chickpeas#d8c109ba-20aa-46e5-8540-902b78e1e310",
         "manufacturer": "Sensirion",
         "model": "SHT31",
         "firmware": "v4.0"
     },
     {
-        "sensor_id": "53c30bee-6404-46c6-b5be-ce4540ed3523",
+        "sensor_id": "a21a4217-76f7-44f4-8db5-e2bfa86c18aa",
         "sensor_type": "Humidity",
         "point_coordinates": [
-            28.13458176875,
-            46.62283815
+            28.139425829411763,
+            46.62129198823529
         ],
-        "parcel_id": "Grapevine#be1e8faa-93ad-43a2-90c7-8fc91c4970e5",
-        "manufacturer": "Sensirion",
-        "model": "SHT31",
-        "firmware": "v4.0"
-    },
-    {
-        "sensor_id": "c6db47ec-1022-4959-a0bf-8ba17df74959",
-        "sensor_type": "Humidity",
-        "point_coordinates": [
-            28.1364968625,
-            46.62283815
-        ],
-        "parcel_id": "Grapevine#be1e8faa-93ad-43a2-90c7-8fc91c4970e5",
+        "parcel_id": "Chickpeas#d8c109ba-20aa-46e5-8540-902b78e1e310",
         "manufacturer": "Panasonic",
         "model": "HC2-H-DC",
         "firmware": "v4.1"
     },
     {
-        "sensor_id": "c8598d76-2f88-43f9-835c-8cccefe93f36",
-        "sensor_type": "Humidity",
+        "sensor_id": "e31e5c5e-33ea-456f-b81f-5e6f17895fd2",
+        "sensor_type": "Light",
         "point_coordinates": [
-            28.13841195625,
-            46.62283815
+            28.141228270588236,
+            46.62129198823529
         ],
-        "parcel_id": "Chickpeas#0322bda3-d298-4ace-bb19-f76502340e5d",
-        "manufacturer": "Panasonic",
-        "model": "HC2-H-DC",
-        "firmware": "v4.1"
+        "parcel_id": "Grapevine#5da7d24e-c944-408e-91d9-b3882548adfb",
+        "manufacturer": "Philips",
+        "model": "L200",
+        "firmware": "v2.1"
     },
     {
-        "sensor_id": "931e9268-f819-4104-8fcf-33f5e6bedf86",
-        "sensor_type": "Humidity",
-        "point_coordinates": [
-            28.14032705,
-            46.62283815
-        ],
-        "parcel_id": "Chickpeas#0322bda3-d298-4ace-bb19-f76502340e5d",
-        "manufacturer": "Sensirion",
-        "model": "SHT31",
-        "firmware": "v4.0"
-    },
-    {
-        "sensor_id": "57a2b77f-a087-4da2-992c-8602d1f81fa9",
-        "sensor_type": "SoilMoisture",
-        "point_coordinates": [
-            28.14224214375,
-            46.62283815
-        ],
-        "parcel_id": "Chickpeas#0322bda3-d298-4ace-bb19-f76502340e5d",
-        "manufacturer": "Texas Instruments",
-        "model": "SM200",
-        "firmware": "v3.2"
-    },
-    {
-        "sensor_id": "24f195dd-1507-4b74-9b65-4beeb56dd799",
+        "sensor_id": "0f4d71c8-e87d-4272-a161-c8f4bbea253e",
         "sensor_type": "Temperature",
         "point_coordinates": [
-            28.1441572375,
-            46.62283815
+            28.143030711764705,
+            46.62129198823529
         ],
-        "parcel_id": "Chickpeas#0322bda3-d298-4ace-bb19-f76502340e5d",
-        "manufacturer": "Siemens",
-        "model": "TH100",
-        "firmware": "v1.3"
-    },
-    {
-        "sensor_id": "85db40d1-34aa-4dd1-a236-0821e35f0580",
-        "sensor_type": "Temperature",
-        "point_coordinates": [
-            28.14607233125,
-            46.62283815
-        ],
-        "parcel_id": "Chickpeas#0322bda3-d298-4ace-bb19-f76502340e5d",
+        "parcel_id": "Grapevine#5da7d24e-c944-408e-91d9-b3882548adfb",
         "manufacturer": "Honeywell",
         "model": "T10",
         "firmware": "v1.2"
     },
     {
-        "sensor_id": "7eb5e0c2-2dd8-4250-b404-f4f641110b54",
-        "sensor_type": "Temperature",
-        "point_coordinates": [
-            28.147987425,
-            46.62283815
-        ],
-        "parcel_id": "Grapevine#4f6dfdd9-19a0-4adf-ba94-5f6d357c6f27",
-        "manufacturer": "Siemens",
-        "model": "TH100",
-        "firmware": "v1.3"
-    },
-    {
-        "sensor_id": "4dd9dec6-8792-4700-ae85-ec17e5fa038c",
-        "sensor_type": "Rain",
-        "point_coordinates": [
-            28.14990251875,
-            46.62283815
-        ],
-        "parcel_id": "Grapevine#4f6dfdd9-19a0-4adf-ba94-5f6d357c6f27",
-        "manufacturer": "La Crosse Technology",
-        "model": "Rain200",
-        "firmware": "v5.1"
-    },
-    {
-        "sensor_id": "19f8d458-b371-45e6-bdab-8a3103c18624",
-        "sensor_type": "Light",
-        "point_coordinates": [
-            28.1518176125,
-            46.62283815
-        ],
-        "parcel_id": "Grapevine#4f6dfdd9-19a0-4adf-ba94-5f6d357c6f27",
-        "manufacturer": "Philips",
-        "model": "L200",
-        "firmware": "v2.1"
-    },
-    {
-        "sensor_id": "e131323a-7539-42c8-a552-c3cd1dd3ed25",
-        "sensor_type": "Rain",
-        "point_coordinates": [
-            28.15373270625,
-            46.62283815
-        ],
-        "parcel_id": "Grapevine#4f6dfdd9-19a0-4adf-ba94-5f6d357c6f27",
-        "manufacturer": "La Crosse Technology",
-        "model": "Rain200",
-        "firmware": "v5.1"
-    },
-    {
-        "sensor_id": "5942e85e-e4b1-477a-b165-a6044bd176d4",
-        "sensor_type": "Light",
-        "point_coordinates": [
-            28.13075158125,
-            46.6241523875
-        ],
-        "parcel_id": "Chickpeas#79b43bcb-abf2-48b7-8f8e-254f2bc62a0b",
-        "manufacturer": "Osram",
-        "model": "LX1",
-        "firmware": "v2.3"
-    },
-    {
-        "sensor_id": "eef98008-e921-4fb9-b8b2-5a541ef0829d",
-        "sensor_type": "Light",
-        "point_coordinates": [
-            28.132666675,
-            46.6241523875
-        ],
-        "parcel_id": "Chickpeas#79b43bcb-abf2-48b7-8f8e-254f2bc62a0b",
-        "manufacturer": "Osram",
-        "model": "LX1",
-        "firmware": "v2.3"
-    },
-    {
-        "sensor_id": "646aee13-d74a-475b-8295-68f805a4fc30",
+        "sensor_id": "8d34dbc4-3621-482b-a224-69873b3cbdf8",
         "sensor_type": "SoilPH",
         "point_coordinates": [
-            28.13458176875,
-            46.6241523875
+            28.144833152941178,
+            46.62129198823529
         ],
-        "parcel_id": "Chickpeas#79b43bcb-abf2-48b7-8f8e-254f2bc62a0b",
+        "parcel_id": "Grapevine#5da7d24e-c944-408e-91d9-b3882548adfb",
         "manufacturer": "Atlas Scientific",
         "model": "PH10",
         "firmware": "v6.0"
     },
     {
-        "sensor_id": "4c1e6b8a-793b-4c46-8930-aa5b39322ad0",
-        "sensor_type": "Temperature",
-        "point_coordinates": [
-            28.1364968625,
-            46.6241523875
-        ],
-        "parcel_id": "Grapevine#be1e8faa-93ad-43a2-90c7-8fc91c4970e5",
-        "manufacturer": "Siemens",
-        "model": "TH100",
-        "firmware": "v1.3"
-    },
-    {
-        "sensor_id": "06136648-8a5d-4a09-9c2d-5deedfd604a0",
-        "sensor_type": "SoilPH",
-        "point_coordinates": [
-            28.13841195625,
-            46.6241523875
-        ],
-        "parcel_id": "Grapevine#be1e8faa-93ad-43a2-90c7-8fc91c4970e5",
-        "manufacturer": "Atlas Scientific",
-        "model": "PH10",
-        "firmware": "v6.0"
-    },
-    {
-        "sensor_id": "f9224e23-8494-4f14-96ca-71759318daf7",
-        "sensor_type": "Humidity",
-        "point_coordinates": [
-            28.14032705,
-            46.6241523875
-        ],
-        "parcel_id": "Grapevine#be1e8faa-93ad-43a2-90c7-8fc91c4970e5",
-        "manufacturer": "Panasonic",
-        "model": "HC2-H-DC",
-        "firmware": "v4.1"
-    },
-    {
-        "sensor_id": "108ba55b-6935-40cb-b534-f40b4e87706b",
-        "sensor_type": "SoilPH",
-        "point_coordinates": [
-            28.14224214375,
-            46.6241523875
-        ],
-        "parcel_id": "Grapevine#be1e8faa-93ad-43a2-90c7-8fc91c4970e5",
-        "manufacturer": "Atlas Scientific",
-        "model": "PH10",
-        "firmware": "v6.0"
-    },
-    {
-        "sensor_id": "efb65700-5dc4-4f54-96fe-4691217ffd43",
-        "sensor_type": "Light",
-        "point_coordinates": [
-            28.1441572375,
-            46.6241523875
-        ],
-        "parcel_id": "Chickpeas#0322bda3-d298-4ace-bb19-f76502340e5d",
-        "manufacturer": "Philips",
-        "model": "L200",
-        "firmware": "v2.1"
-    },
-    {
-        "sensor_id": "a88df9a6-0efc-4873-8920-fa3aef7ae56b",
-        "sensor_type": "Light",
-        "point_coordinates": [
-            28.14607233125,
-            46.6241523875
-        ],
-        "parcel_id": "Chickpeas#0322bda3-d298-4ace-bb19-f76502340e5d",
-        "manufacturer": "Philips",
-        "model": "L200",
-        "firmware": "v2.1"
-    },
-    {
-        "sensor_id": "e4958850-12c8-4ab5-81ce-e09b4c0f8679",
-        "sensor_type": "SoilMoisture",
-        "point_coordinates": [
-            28.147987425,
-            46.6241523875
-        ],
-        "parcel_id": "Chickpeas#0322bda3-d298-4ace-bb19-f76502340e5d",
-        "manufacturer": "Bosch",
-        "model": "SM10",
-        "firmware": "v3.0"
-    },
-    {
-        "sensor_id": "eeb46925-2ed5-4068-94b7-c9d624d479e9",
-        "sensor_type": "Temperature",
-        "point_coordinates": [
-            28.14990251875,
-            46.6241523875
-        ],
-        "parcel_id": "Chickpeas#0322bda3-d298-4ace-bb19-f76502340e5d",
-        "manufacturer": "Siemens",
-        "model": "TH100",
-        "firmware": "v1.3"
-    },
-    {
-        "sensor_id": "cd06c9bc-533f-41a5-af03-69544370b4e2",
-        "sensor_type": "SoilMoisture",
-        "point_coordinates": [
-            28.1518176125,
-            46.6241523875
-        ],
-        "parcel_id": "Chickpeas#0322bda3-d298-4ace-bb19-f76502340e5d",
-        "manufacturer": "Texas Instruments",
-        "model": "SM200",
-        "firmware": "v3.2"
-    },
-    {
-        "sensor_id": "46dc1088-65f0-435b-a2e9-5e3b277e1f57",
-        "sensor_type": "SoilPH",
-        "point_coordinates": [
-            28.15373270625,
-            46.6241523875
-        ],
-        "parcel_id": "Grapevine#4f6dfdd9-19a0-4adf-ba94-5f6d357c6f27",
-        "manufacturer": "Hanna Instruments",
-        "model": "HI98103",
-        "firmware": "v6.1"
-    },
-    {
-        "sensor_id": "e71e3680-635e-489b-a913-0aaed87f16f8",
-        "sensor_type": "SoilMoisture",
-        "point_coordinates": [
-            28.13075158125,
-            46.625466625
-        ],
-        "parcel_id": "Grapevine#bb53c74e-995b-4028-af53-1918415b312c",
-        "manufacturer": "Texas Instruments",
-        "model": "SM200",
-        "firmware": "v3.2"
-    },
-    {
-        "sensor_id": "b00d8c22-9dbf-41d2-aeda-ceff7bcc3410",
-        "sensor_type": "Light",
-        "point_coordinates": [
-            28.132666675,
-            46.625466625
-        ],
-        "parcel_id": "Chickpeas#79b43bcb-abf2-48b7-8f8e-254f2bc62a0b",
-        "manufacturer": "Osram",
-        "model": "LX1",
-        "firmware": "v2.3"
-    },
-    {
-        "sensor_id": "f536bf7a-4f81-440e-ae1c-1943d7322d89",
-        "sensor_type": "SoilPH",
-        "point_coordinates": [
-            28.13458176875,
-            46.625466625
-        ],
-        "parcel_id": "Chickpeas#79b43bcb-abf2-48b7-8f8e-254f2bc62a0b",
-        "manufacturer": "Hanna Instruments",
-        "model": "HI98103",
-        "firmware": "v6.1"
-    },
-    {
-        "sensor_id": "27ae7751-5660-4ca3-ac3a-78d9dc29d598",
+        "sensor_id": "952b12e6-83bc-4d69-912c-612ba37d3ad6",
         "sensor_type": "Rain",
         "point_coordinates": [
-            28.1364968625,
-            46.625466625
+            28.146635594117647,
+            46.62129198823529
         ],
-        "parcel_id": "Chickpeas#79b43bcb-abf2-48b7-8f8e-254f2bc62a0b",
+        "parcel_id": "Grapevine#5da7d24e-c944-408e-91d9-b3882548adfb",
         "manufacturer": "Davis Instruments",
         "model": "R1",
         "firmware": "v5.0"
     },
     {
-        "sensor_id": "cda5b26f-cff0-4831-ac4f-d25627dc7b9b",
-        "sensor_type": "Temperature",
-        "point_coordinates": [
-            28.13841195625,
-            46.625466625
-        ],
-        "parcel_id": "Chickpeas#79b43bcb-abf2-48b7-8f8e-254f2bc62a0b",
-        "manufacturer": "Siemens",
-        "model": "TH100",
-        "firmware": "v1.3"
-    },
-    {
-        "sensor_id": "0d660fe4-5d9b-4f9c-9d90-8990b1552938",
-        "sensor_type": "SoilPH",
-        "point_coordinates": [
-            28.14032705,
-            46.625466625
-        ],
-        "parcel_id": "Chickpeas#79b43bcb-abf2-48b7-8f8e-254f2bc62a0b",
-        "manufacturer": "Atlas Scientific",
-        "model": "PH10",
-        "firmware": "v6.0"
-    },
-    {
-        "sensor_id": "fe1f18f2-0716-4d74-a152-a27fc1dc8297",
-        "sensor_type": "Light",
-        "point_coordinates": [
-            28.14224214375,
-            46.625466625
-        ],
-        "parcel_id": "Grapevine#be1e8faa-93ad-43a2-90c7-8fc91c4970e5",
-        "manufacturer": "Philips",
-        "model": "L200",
-        "firmware": "v2.1"
-    },
-    {
-        "sensor_id": "c2e1e020-321f-4441-8a75-1af86aec8d25",
-        "sensor_type": "SoilPH",
-        "point_coordinates": [
-            28.1441572375,
-            46.625466625
-        ],
-        "parcel_id": "Grapevine#be1e8faa-93ad-43a2-90c7-8fc91c4970e5",
-        "manufacturer": "Hanna Instruments",
-        "model": "HI98103",
-        "firmware": "v6.1"
-    },
-    {
-        "sensor_id": "476833be-0009-4198-ae5a-c63c6fe88578",
-        "sensor_type": "Light",
-        "point_coordinates": [
-            28.14607233125,
-            46.625466625
-        ],
-        "parcel_id": "Grapevine#be1e8faa-93ad-43a2-90c7-8fc91c4970e5",
-        "manufacturer": "Philips",
-        "model": "L200",
-        "firmware": "v2.1"
-    },
-    {
-        "sensor_id": "0e54af3b-476a-43f4-89db-a5f831fbcc33",
-        "sensor_type": "SoilPH",
-        "point_coordinates": [
-            28.147987425,
-            46.625466625
-        ],
-        "parcel_id": "Grapevine#be1e8faa-93ad-43a2-90c7-8fc91c4970e5",
-        "manufacturer": "Hanna Instruments",
-        "model": "HI98103",
-        "firmware": "v6.1"
-    },
-    {
-        "sensor_id": "8f2511f1-2a12-4c3f-b232-f69726bbcae4",
-        "sensor_type": "Light",
-        "point_coordinates": [
-            28.14990251875,
-            46.625466625
-        ],
-        "parcel_id": "Chickpeas#0322bda3-d298-4ace-bb19-f76502340e5d",
-        "manufacturer": "Osram",
-        "model": "LX1",
-        "firmware": "v2.3"
-    },
-    {
-        "sensor_id": "4c0bb7c6-9347-4dad-978c-8c570004a8f3",
-        "sensor_type": "Light",
-        "point_coordinates": [
-            28.1518176125,
-            46.625466625
-        ],
-        "parcel_id": "Chickpeas#0322bda3-d298-4ace-bb19-f76502340e5d",
-        "manufacturer": "Philips",
-        "model": "L200",
-        "firmware": "v2.1"
-    },
-    {
-        "sensor_id": "13d11aa8-d104-4212-918e-131b28e292a9",
-        "sensor_type": "Light",
-        "point_coordinates": [
-            28.15373270625,
-            46.625466625
-        ],
-        "parcel_id": "Chickpeas#0322bda3-d298-4ace-bb19-f76502340e5d",
-        "manufacturer": "Osram",
-        "model": "LX1",
-        "firmware": "v2.3"
-    },
-    {
-        "sensor_id": "d5d8b01d-14ea-4b31-96b0-9f12d780b633",
-        "sensor_type": "Temperature",
-        "point_coordinates": [
-            28.1288364875,
-            46.6267808625
-        ],
-        "parcel_id": "Chickpeas#a32239e2-8546-4a94-a24d-197d2d2ff2a1",
-        "manufacturer": "Siemens",
-        "model": "TH100",
-        "firmware": "v1.3"
-    },
-    {
-        "sensor_id": "fe3000c3-868c-418f-ba3e-6fa42a706280",
-        "sensor_type": "Temperature",
-        "point_coordinates": [
-            28.13075158125,
-            46.6267808625
-        ],
-        "parcel_id": "Grapevine#bb53c74e-995b-4028-af53-1918415b312c",
-        "manufacturer": "Honeywell",
-        "model": "T10",
-        "firmware": "v1.2"
-    },
-    {
-        "sensor_id": "67cc9a69-f61f-43cc-9a11-c353b11eb2ff",
-        "sensor_type": "Light",
-        "point_coordinates": [
-            28.132666675,
-            46.6267808625
-        ],
-        "parcel_id": "Grapevine#bb53c74e-995b-4028-af53-1918415b312c",
-        "manufacturer": "Osram",
-        "model": "LX1",
-        "firmware": "v2.3"
-    },
-    {
-        "sensor_id": "5b335132-c6da-4eeb-b52b-ff99aade7d6f",
-        "sensor_type": "Temperature",
-        "point_coordinates": [
-            28.13458176875,
-            46.6267808625
-        ],
-        "parcel_id": "Grapevine#bb53c74e-995b-4028-af53-1918415b312c",
-        "manufacturer": "Siemens",
-        "model": "TH100",
-        "firmware": "v1.3"
-    },
-    {
-        "sensor_id": "e3f83362-113f-4218-8d47-c603f6ffa0b4",
+        "sensor_id": "48f98a5d-0c81-44aa-b0a1-7e94c84b47e2",
         "sensor_type": "SoilMoisture",
         "point_coordinates": [
-            28.1364968625,
-            46.6267808625
+            28.148438035294117,
+            46.62129198823529
         ],
-        "parcel_id": "Grapevine#bb53c74e-995b-4028-af53-1918415b312c",
-        "manufacturer": "Texas Instruments",
-        "model": "SM200",
-        "firmware": "v3.2"
-    },
-    {
-        "sensor_id": "09700700-1af4-4c74-bec5-c280c9054664",
-        "sensor_type": "SoilPH",
-        "point_coordinates": [
-            28.13841195625,
-            46.6267808625
-        ],
-        "parcel_id": "Chickpeas#79b43bcb-abf2-48b7-8f8e-254f2bc62a0b",
-        "manufacturer": "Atlas Scientific",
-        "model": "PH10",
-        "firmware": "v6.0"
-    },
-    {
-        "sensor_id": "be32a9f1-2436-4a62-8c11-be7bc0145182",
-        "sensor_type": "SoilPH",
-        "point_coordinates": [
-            28.14032705,
-            46.6267808625
-        ],
-        "parcel_id": "Chickpeas#79b43bcb-abf2-48b7-8f8e-254f2bc62a0b",
-        "manufacturer": "Atlas Scientific",
-        "model": "PH10",
-        "firmware": "v6.0"
-    },
-    {
-        "sensor_id": "2e32c702-d92a-406d-a22e-05f917326c57",
-        "sensor_type": "Humidity",
-        "point_coordinates": [
-            28.14224214375,
-            46.6267808625
-        ],
-        "parcel_id": "Chickpeas#79b43bcb-abf2-48b7-8f8e-254f2bc62a0b",
-        "manufacturer": "Panasonic",
-        "model": "HC2-H-DC",
-        "firmware": "v4.1"
-    },
-    {
-        "sensor_id": "aa9668cb-7c71-443c-bcac-b62a8ca8e658",
-        "sensor_type": "SoilMoisture",
-        "point_coordinates": [
-            28.1441572375,
-            46.6267808625
-        ],
-        "parcel_id": "Chickpeas#79b43bcb-abf2-48b7-8f8e-254f2bc62a0b",
-        "manufacturer": "Texas Instruments",
-        "model": "SM200",
-        "firmware": "v3.2"
-    },
-    {
-        "sensor_id": "aed94e7b-a5b4-424f-9727-8868da1731b7",
-        "sensor_type": "SoilMoisture",
-        "point_coordinates": [
-            28.14607233125,
-            46.6267808625
-        ],
-        "parcel_id": "Chickpeas#79b43bcb-abf2-48b7-8f8e-254f2bc62a0b",
-        "manufacturer": "Texas Instruments",
-        "model": "SM200",
-        "firmware": "v3.2"
-    },
-    {
-        "sensor_id": "ddb8572a-1e27-4cb3-b49a-504690e728bc",
-        "sensor_type": "SoilPH",
-        "point_coordinates": [
-            28.147987425,
-            46.6267808625
-        ],
-        "parcel_id": "Grapevine#be1e8faa-93ad-43a2-90c7-8fc91c4970e5",
-        "manufacturer": "Hanna Instruments",
-        "model": "HI98103",
-        "firmware": "v6.1"
-    },
-    {
-        "sensor_id": "510de5f4-ade9-4962-8e89-347615d4aaee",
-        "sensor_type": "SoilPH",
-        "point_coordinates": [
-            28.14990251875,
-            46.6267808625
-        ],
-        "parcel_id": "Grapevine#be1e8faa-93ad-43a2-90c7-8fc91c4970e5",
-        "manufacturer": "Hanna Instruments",
-        "model": "HI98103",
-        "firmware": "v6.1"
-    },
-    {
-        "sensor_id": "6e480a70-3fb2-455c-ab8f-ce70a70c9328",
-        "sensor_type": "SoilMoisture",
-        "point_coordinates": [
-            28.1518176125,
-            46.6267808625
-        ],
-        "parcel_id": "Grapevine#be1e8faa-93ad-43a2-90c7-8fc91c4970e5",
+        "parcel_id": "Grapevine#5da7d24e-c944-408e-91d9-b3882548adfb",
         "manufacturer": "Bosch",
         "model": "SM10",
         "firmware": "v3.0"
     },
     {
-        "sensor_id": "60aef7e4-147b-4f10-b0d3-216ae829f473",
-        "sensor_type": "SoilMoisture",
-        "point_coordinates": [
-            28.1288364875,
-            46.628095099999996
-        ],
-        "parcel_id": "Chickpeas#a32239e2-8546-4a94-a24d-197d2d2ff2a1",
-        "manufacturer": "Texas Instruments",
-        "model": "SM200",
-        "firmware": "v3.2"
-    },
-    {
-        "sensor_id": "a73e3141-087b-4c26-97ce-bfbe201658e4",
-        "sensor_type": "SoilMoisture",
-        "point_coordinates": [
-            28.13075158125,
-            46.628095099999996
-        ],
-        "parcel_id": "Chickpeas#a32239e2-8546-4a94-a24d-197d2d2ff2a1",
-        "manufacturer": "Bosch",
-        "model": "SM10",
-        "firmware": "v3.0"
-    },
-    {
-        "sensor_id": "304d9b2d-9f1e-463c-aed9-e1ab1381bfec",
+        "sensor_id": "e87bc4e6-9fe4-4fd9-b3a2-1cb76ef68c49",
         "sensor_type": "Temperature",
         "point_coordinates": [
-            28.132666675,
-            46.628095099999996
+            28.15024047647059,
+            46.62129198823529
         ],
-        "parcel_id": "Chickpeas#a32239e2-8546-4a94-a24d-197d2d2ff2a1",
-        "manufacturer": "Siemens",
-        "model": "TH100",
-        "firmware": "v1.3"
-    },
-    {
-        "sensor_id": "ca3c24a3-c818-4b88-9689-2d9a076b8914",
-        "sensor_type": "Temperature",
-        "point_coordinates": [
-            28.13458176875,
-            46.628095099999996
-        ],
-        "parcel_id": "Chickpeas#a32239e2-8546-4a94-a24d-197d2d2ff2a1",
+        "parcel_id": "Grapevine#5da7d24e-c944-408e-91d9-b3882548adfb",
         "manufacturer": "Honeywell",
         "model": "T10",
         "firmware": "v1.2"
     },
     {
-        "sensor_id": "93c4b6e1-8112-4fee-92d5-ba2104c47be1",
-        "sensor_type": "SoilMoisture",
+        "sensor_id": "ccee84ac-8692-4e90-9128-a416ae95e472",
+        "sensor_type": "SoilPH",
         "point_coordinates": [
-            28.1364968625,
-            46.628095099999996
+            28.132216064705883,
+            46.62252891764706
         ],
-        "parcel_id": "Grapevine#bb53c74e-995b-4028-af53-1918415b312c",
-        "manufacturer": "Texas Instruments",
-        "model": "SM200",
-        "firmware": "v3.2"
+        "parcel_id": "Grapevine#4c68324f-fab4-4aa4-965c-5373e2db6c1f",
+        "manufacturer": "Hanna Instruments",
+        "model": "HI98103",
+        "firmware": "v6.1"
     },
     {
-        "sensor_id": "bb8c8da1-a920-4b98-be83-1e53817d6f22",
-        "sensor_type": "Temperature",
+        "sensor_id": "7095eb90-8cda-43a5-9b61-71382204e8f3",
+        "sensor_type": "Humidity",
         "point_coordinates": [
-            28.13841195625,
-            46.628095099999996
+            28.134018505882352,
+            46.62252891764706
         ],
-        "parcel_id": "Grapevine#bb53c74e-995b-4028-af53-1918415b312c",
-        "manufacturer": "Honeywell",
-        "model": "T10",
-        "firmware": "v1.2"
+        "parcel_id": "Grapevine#4c68324f-fab4-4aa4-965c-5373e2db6c1f",
+        "manufacturer": "Panasonic",
+        "model": "HC2-H-DC",
+        "firmware": "v4.1"
     },
     {
-        "sensor_id": "16832f92-55c3-4c23-935f-18ada68ff9f5",
-        "sensor_type": "Light",
+        "sensor_id": "ab3743bd-0a27-4637-8cf7-97e6b6f847b8",
+        "sensor_type": "SoilPH",
         "point_coordinates": [
-            28.14032705,
-            46.628095099999996
+            28.13582094705882,
+            46.62252891764706
         ],
-        "parcel_id": "Grapevine#bb53c74e-995b-4028-af53-1918415b312c",
-        "manufacturer": "Philips",
-        "model": "L200",
-        "firmware": "v2.1"
+        "parcel_id": "Grapevine#4c68324f-fab4-4aa4-965c-5373e2db6c1f",
+        "manufacturer": "Hanna Instruments",
+        "model": "HI98103",
+        "firmware": "v6.1"
     },
     {
-        "sensor_id": "9b30e2d8-5f97-4df0-acc4-4bf5d6d73fd1",
-        "sensor_type": "SoilMoisture",
-        "point_coordinates": [
-            28.14224214375,
-            46.628095099999996
-        ],
-        "parcel_id": "Grapevine#bb53c74e-995b-4028-af53-1918415b312c",
-        "manufacturer": "Texas Instruments",
-        "model": "SM200",
-        "firmware": "v3.2"
-    },
-    {
-        "sensor_id": "338dc486-939d-49c1-a3f8-35a7aaeed0e5",
+        "sensor_id": "bab56cf9-7398-470c-921d-352889e6532c",
         "sensor_type": "Rain",
         "point_coordinates": [
-            28.1441572375,
-            46.628095099999996
+            28.137623388235294,
+            46.62252891764706
         ],
-        "parcel_id": "Chickpeas#79b43bcb-abf2-48b7-8f8e-254f2bc62a0b",
-        "manufacturer": "La Crosse Technology",
-        "model": "Rain200",
-        "firmware": "v5.1"
-    },
-    {
-        "sensor_id": "6a32a920-f586-4bfe-9af4-a7d8d725f785",
-        "sensor_type": "SoilPH",
-        "point_coordinates": [
-            28.14607233125,
-            46.628095099999996
-        ],
-        "parcel_id": "Chickpeas#79b43bcb-abf2-48b7-8f8e-254f2bc62a0b",
-        "manufacturer": "Hanna Instruments",
-        "model": "HI98103",
-        "firmware": "v6.1"
-    },
-    {
-        "sensor_id": "5e89de64-f551-439c-9f3c-47df5a1f8aa3",
-        "sensor_type": "Light",
-        "point_coordinates": [
-            28.147987425,
-            46.628095099999996
-        ],
-        "parcel_id": "Chickpeas#79b43bcb-abf2-48b7-8f8e-254f2bc62a0b",
-        "manufacturer": "Osram",
-        "model": "LX1",
-        "firmware": "v2.3"
-    },
-    {
-        "sensor_id": "8af86b5a-dd83-4149-afc9-be66e6176630",
-        "sensor_type": "Temperature",
-        "point_coordinates": [
-            28.14990251875,
-            46.628095099999996
-        ],
-        "parcel_id": "Chickpeas#79b43bcb-abf2-48b7-8f8e-254f2bc62a0b",
-        "manufacturer": "Siemens",
-        "model": "TH100",
-        "firmware": "v1.3"
-    },
-    {
-        "sensor_id": "0ec9af3c-bbce-4607-b150-f81a31ba05c6",
-        "sensor_type": "Humidity",
-        "point_coordinates": [
-            28.1518176125,
-            46.628095099999996
-        ],
-        "parcel_id": "Chickpeas#79b43bcb-abf2-48b7-8f8e-254f2bc62a0b",
-        "manufacturer": "Panasonic",
-        "model": "HC2-H-DC",
-        "firmware": "v4.1"
-    },
-    {
-        "sensor_id": "d30874c8-dded-47af-bbec-4a578f855809",
-        "sensor_type": "Light",
-        "point_coordinates": [
-            28.1288364875,
-            46.6294093375
-        ],
-        "parcel_id": "Grapevine#042d88f5-b1ef-479a-b5bc-834a85873261",
-        "manufacturer": "Philips",
-        "model": "L200",
-        "firmware": "v2.1"
-    },
-    {
-        "sensor_id": "25846862-32ea-4839-836c-b909807a0803",
-        "sensor_type": "SoilMoisture",
-        "point_coordinates": [
-            28.13075158125,
-            46.6294093375
-        ],
-        "parcel_id": "Chickpeas#a32239e2-8546-4a94-a24d-197d2d2ff2a1",
-        "manufacturer": "Texas Instruments",
-        "model": "SM200",
-        "firmware": "v3.2"
-    },
-    {
-        "sensor_id": "80d805d5-c8c9-4c08-a1ec-990bed0f7dd5",
-        "sensor_type": "Light",
-        "point_coordinates": [
-            28.132666675,
-            46.6294093375
-        ],
-        "parcel_id": "Chickpeas#a32239e2-8546-4a94-a24d-197d2d2ff2a1",
-        "manufacturer": "Philips",
-        "model": "L200",
-        "firmware": "v2.1"
-    },
-    {
-        "sensor_id": "b058af60-4882-4e98-a19e-5150d9605501",
-        "sensor_type": "Humidity",
-        "point_coordinates": [
-            28.13458176875,
-            46.6294093375
-        ],
-        "parcel_id": "Chickpeas#a32239e2-8546-4a94-a24d-197d2d2ff2a1",
-        "manufacturer": "Sensirion",
-        "model": "SHT31",
-        "firmware": "v4.0"
-    },
-    {
-        "sensor_id": "cd2ebef9-c842-4faa-af1d-1d69390d0891",
-        "sensor_type": "Temperature",
-        "point_coordinates": [
-            28.1364968625,
-            46.6294093375
-        ],
-        "parcel_id": "Chickpeas#a32239e2-8546-4a94-a24d-197d2d2ff2a1",
-        "manufacturer": "Honeywell",
-        "model": "T10",
-        "firmware": "v1.2"
-    },
-    {
-        "sensor_id": "5d520916-97f6-4e36-a989-b8d1435be4f3",
-        "sensor_type": "SoilPH",
-        "point_coordinates": [
-            28.13841195625,
-            46.6294093375
-        ],
-        "parcel_id": "Chickpeas#a32239e2-8546-4a94-a24d-197d2d2ff2a1",
-        "manufacturer": "Atlas Scientific",
-        "model": "PH10",
-        "firmware": "v6.0"
-    },
-    {
-        "sensor_id": "a7d131b7-c90b-4bea-b543-6673e6e0dae7",
-        "sensor_type": "SoilMoisture",
-        "point_coordinates": [
-            28.14032705,
-            46.6294093375
-        ],
-        "parcel_id": "Chickpeas#a32239e2-8546-4a94-a24d-197d2d2ff2a1",
-        "manufacturer": "Texas Instruments",
-        "model": "SM200",
-        "firmware": "v3.2"
-    },
-    {
-        "sensor_id": "bf470cf6-fe7c-4fb0-9087-6feeb274f165",
-        "sensor_type": "Temperature",
-        "point_coordinates": [
-            28.14224214375,
-            46.6294093375
-        ],
-        "parcel_id": "Grapevine#bb53c74e-995b-4028-af53-1918415b312c",
-        "manufacturer": "Siemens",
-        "model": "TH100",
-        "firmware": "v1.3"
-    },
-    {
-        "sensor_id": "3d5ececa-c114-4604-9a58-67bab6e49161",
-        "sensor_type": "SoilMoisture",
-        "point_coordinates": [
-            28.1441572375,
-            46.6294093375
-        ],
-        "parcel_id": "Grapevine#bb53c74e-995b-4028-af53-1918415b312c",
-        "manufacturer": "Bosch",
-        "model": "SM10",
-        "firmware": "v3.0"
-    },
-    {
-        "sensor_id": "5bec294d-0b6a-4f84-920f-c58fb7906289",
-        "sensor_type": "SoilPH",
-        "point_coordinates": [
-            28.14607233125,
-            46.6294093375
-        ],
-        "parcel_id": "Grapevine#bb53c74e-995b-4028-af53-1918415b312c",
-        "manufacturer": "Hanna Instruments",
-        "model": "HI98103",
-        "firmware": "v6.1"
-    },
-    {
-        "sensor_id": "f374bb31-abc7-4a27-a5be-0e0d6a74367d",
-        "sensor_type": "Light",
-        "point_coordinates": [
-            28.147987425,
-            46.6294093375
-        ],
-        "parcel_id": "Grapevine#bb53c74e-995b-4028-af53-1918415b312c",
-        "manufacturer": "Philips",
-        "model": "L200",
-        "firmware": "v2.1"
-    },
-    {
-        "sensor_id": "c143247e-ef93-4255-a251-f6aab45e2609",
-        "sensor_type": "SoilPH",
-        "point_coordinates": [
-            28.14990251875,
-            46.6294093375
-        ],
-        "parcel_id": "Chickpeas#79b43bcb-abf2-48b7-8f8e-254f2bc62a0b",
-        "manufacturer": "Hanna Instruments",
-        "model": "HI98103",
-        "firmware": "v6.1"
-    },
-    {
-        "sensor_id": "77a07caf-67b2-41ab-8d67-6d18c363ae45",
-        "sensor_type": "Humidity",
-        "point_coordinates": [
-            28.12692139375,
-            46.630723575
-        ],
-        "parcel_id": "Grapevine#042d88f5-b1ef-479a-b5bc-834a85873261",
-        "manufacturer": "Panasonic",
-        "model": "HC2-H-DC",
-        "firmware": "v4.1"
-    },
-    {
-        "sensor_id": "a2318bce-032e-45b4-8a86-13ecc1e1c8ca",
-        "sensor_type": "Temperature",
-        "point_coordinates": [
-            28.1288364875,
-            46.630723575
-        ],
-        "parcel_id": "Grapevine#042d88f5-b1ef-479a-b5bc-834a85873261",
-        "manufacturer": "Siemens",
-        "model": "TH100",
-        "firmware": "v1.3"
-    },
-    {
-        "sensor_id": "55d316b5-9f11-49df-9d73-6e3d852d82f8",
-        "sensor_type": "Temperature",
-        "point_coordinates": [
-            28.13075158125,
-            46.630723575
-        ],
-        "parcel_id": "Grapevine#042d88f5-b1ef-479a-b5bc-834a85873261",
-        "manufacturer": "Siemens",
-        "model": "TH100",
-        "firmware": "v1.3"
-    },
-    {
-        "sensor_id": "6fc78720-7f35-4263-92ac-f63d6df61df2",
-        "sensor_type": "Humidity",
-        "point_coordinates": [
-            28.132666675,
-            46.630723575
-        ],
-        "parcel_id": "Grapevine#042d88f5-b1ef-479a-b5bc-834a85873261",
-        "manufacturer": "Panasonic",
-        "model": "HC2-H-DC",
-        "firmware": "v4.1"
-    },
-    {
-        "sensor_id": "69b5002b-4fae-41f1-af43-d95948f019eb",
-        "sensor_type": "Humidity",
-        "point_coordinates": [
-            28.13458176875,
-            46.630723575
-        ],
-        "parcel_id": "Grapevine#042d88f5-b1ef-479a-b5bc-834a85873261",
-        "manufacturer": "Panasonic",
-        "model": "HC2-H-DC",
-        "firmware": "v4.1"
-    },
-    {
-        "sensor_id": "c769e73e-1a90-4e01-89bf-9a3a6d6dcb00",
-        "sensor_type": "Rain",
-        "point_coordinates": [
-            28.1364968625,
-            46.630723575
-        ],
-        "parcel_id": "Chickpeas#a32239e2-8546-4a94-a24d-197d2d2ff2a1",
-        "manufacturer": "La Crosse Technology",
-        "model": "Rain200",
-        "firmware": "v5.1"
-    },
-    {
-        "sensor_id": "024fbdc6-f268-4c4e-b52d-3a89f4e7a469",
-        "sensor_type": "SoilPH",
-        "point_coordinates": [
-            28.13841195625,
-            46.630723575
-        ],
-        "parcel_id": "Chickpeas#a32239e2-8546-4a94-a24d-197d2d2ff2a1",
-        "manufacturer": "Hanna Instruments",
-        "model": "HI98103",
-        "firmware": "v6.1"
-    },
-    {
-        "sensor_id": "662867a5-f4e2-4201-92cb-bd1badfdf599",
-        "sensor_type": "Light",
-        "point_coordinates": [
-            28.14032705,
-            46.630723575
-        ],
-        "parcel_id": "Chickpeas#a32239e2-8546-4a94-a24d-197d2d2ff2a1",
-        "manufacturer": "Philips",
-        "model": "L200",
-        "firmware": "v2.1"
-    },
-    {
-        "sensor_id": "f0c91b26-a522-42bd-a512-04c67428dc89",
-        "sensor_type": "SoilPH",
-        "point_coordinates": [
-            28.14224214375,
-            46.630723575
-        ],
-        "parcel_id": "Chickpeas#a32239e2-8546-4a94-a24d-197d2d2ff2a1",
-        "manufacturer": "Atlas Scientific",
-        "model": "PH10",
-        "firmware": "v6.0"
-    },
-    {
-        "sensor_id": "5b2379ca-b795-4332-ab8a-6c4771e10af6",
-        "sensor_type": "Humidity",
-        "point_coordinates": [
-            28.1441572375,
-            46.630723575
-        ],
-        "parcel_id": "Chickpeas#a32239e2-8546-4a94-a24d-197d2d2ff2a1",
-        "manufacturer": "Panasonic",
-        "model": "HC2-H-DC",
-        "firmware": "v4.1"
-    },
-    {
-        "sensor_id": "d00584bd-78bd-4ab6-9a82-9c2fba27fae3",
-        "sensor_type": "Rain",
-        "point_coordinates": [
-            28.14607233125,
-            46.630723575
-        ],
-        "parcel_id": "Chickpeas#a32239e2-8546-4a94-a24d-197d2d2ff2a1",
+        "parcel_id": "Chickpeas#d8c109ba-20aa-46e5-8540-902b78e1e310",
         "manufacturer": "Davis Instruments",
         "model": "R1",
         "firmware": "v5.0"
     },
     {
-        "sensor_id": "7bf472e2-09b4-4c0b-bba7-2c0d3aa4102b",
-        "sensor_type": "Light",
-        "point_coordinates": [
-            28.147987425,
-            46.630723575
-        ],
-        "parcel_id": "Grapevine#bb53c74e-995b-4028-af53-1918415b312c",
-        "manufacturer": "Osram",
-        "model": "LX1",
-        "firmware": "v2.3"
-    },
-    {
-        "sensor_id": "8ba7fef2-5433-4207-b33b-ceafa0dfa1f3",
-        "sensor_type": "SoilMoisture",
-        "point_coordinates": [
-            28.14990251875,
-            46.630723575
-        ],
-        "parcel_id": "Grapevine#bb53c74e-995b-4028-af53-1918415b312c",
-        "manufacturer": "Bosch",
-        "model": "SM10",
-        "firmware": "v3.0"
-    },
-    {
-        "sensor_id": "660f53b4-fc29-4d54-ada2-d570631d52cf",
+        "sensor_id": "5649019e-1cfa-4e1e-8d9b-4d21ca2208e7",
         "sensor_type": "Rain",
         "point_coordinates": [
-            28.12692139375,
-            46.6320378125
+            28.139425829411763,
+            46.62252891764706
         ],
-        "parcel_id": "Chickpeas#711c9bd9-fc17-477b-ad50-a86afb36ae69",
+        "parcel_id": "Chickpeas#d8c109ba-20aa-46e5-8540-902b78e1e310",
         "manufacturer": "La Crosse Technology",
         "model": "Rain200",
         "firmware": "v5.1"
     },
     {
-        "sensor_id": "63a47fae-c5a1-4ef2-9ae0-9c85be8b15ef",
-        "sensor_type": "Light",
+        "sensor_id": "beba7745-0ead-40af-853c-361023fa38c1",
+        "sensor_type": "SoilMoisture",
         "point_coordinates": [
-            28.1288364875,
-            46.6320378125
+            28.141228270588236,
+            46.62252891764706
         ],
-        "parcel_id": "Chickpeas#711c9bd9-fc17-477b-ad50-a86afb36ae69",
-        "manufacturer": "Philips",
-        "model": "L200",
-        "firmware": "v2.1"
+        "parcel_id": "Chickpeas#d8c109ba-20aa-46e5-8540-902b78e1e310",
+        "manufacturer": "Texas Instruments",
+        "model": "SM200",
+        "firmware": "v3.2"
     },
     {
-        "sensor_id": "bf21db42-cf04-4a38-bc4b-a60944f422b9",
-        "sensor_type": "Temperature",
-        "point_coordinates": [
-            28.13075158125,
-            46.6320378125
-        ],
-        "parcel_id": "Chickpeas#711c9bd9-fc17-477b-ad50-a86afb36ae69",
-        "manufacturer": "Honeywell",
-        "model": "T10",
-        "firmware": "v1.2"
-    },
-    {
-        "sensor_id": "9399d62c-10ec-4e22-96f8-9b40a296831c",
+        "sensor_id": "5e898ae6-b78a-4743-8851-344b401ff5d1",
         "sensor_type": "SoilPH",
         "point_coordinates": [
-            28.132666675,
-            46.6320378125
+            28.143030711764705,
+            46.62252891764706
         ],
-        "parcel_id": "Grapevine#042d88f5-b1ef-479a-b5bc-834a85873261",
+        "parcel_id": "Chickpeas#d8c109ba-20aa-46e5-8540-902b78e1e310",
         "manufacturer": "Atlas Scientific",
         "model": "PH10",
         "firmware": "v6.0"
     },
     {
-        "sensor_id": "7b9d41fa-8124-43cb-84fe-c072f2bc1c07",
-        "sensor_type": "SoilMoisture",
-        "point_coordinates": [
-            28.13458176875,
-            46.6320378125
-        ],
-        "parcel_id": "Grapevine#042d88f5-b1ef-479a-b5bc-834a85873261",
-        "manufacturer": "Texas Instruments",
-        "model": "SM200",
-        "firmware": "v3.2"
-    },
-    {
-        "sensor_id": "6ddc4543-7c3a-4e23-89ad-2818f3ec7c2b",
-        "sensor_type": "Light",
-        "point_coordinates": [
-            28.1364968625,
-            46.6320378125
-        ],
-        "parcel_id": "Grapevine#042d88f5-b1ef-479a-b5bc-834a85873261",
-        "manufacturer": "Osram",
-        "model": "LX1",
-        "firmware": "v2.3"
-    },
-    {
-        "sensor_id": "4f5d3c07-4bcb-4cf2-8ab0-ab0ce588d10f",
-        "sensor_type": "Humidity",
-        "point_coordinates": [
-            28.13841195625,
-            46.6320378125
-        ],
-        "parcel_id": "Grapevine#042d88f5-b1ef-479a-b5bc-834a85873261",
-        "manufacturer": "Panasonic",
-        "model": "HC2-H-DC",
-        "firmware": "v4.1"
-    },
-    {
-        "sensor_id": "6723aaa2-8a3a-4ebc-9bd2-1b6433315dc5",
+        "sensor_id": "ca28af21-d9ba-4f85-8045-fe3452177f71",
         "sensor_type": "SoilPH",
         "point_coordinates": [
-            28.14032705,
-            46.6320378125
+            28.144833152941178,
+            46.62252891764706
         ],
-        "parcel_id": "Grapevine#042d88f5-b1ef-479a-b5bc-834a85873261",
+        "parcel_id": "Chickpeas#d8c109ba-20aa-46e5-8540-902b78e1e310",
         "manufacturer": "Hanna Instruments",
         "model": "HI98103",
         "firmware": "v6.1"
     },
     {
-        "sensor_id": "306501fe-9af5-4b4d-a951-2d406760b144",
-        "sensor_type": "Light",
-        "point_coordinates": [
-            28.14224214375,
-            46.6320378125
-        ],
-        "parcel_id": "Chickpeas#a32239e2-8546-4a94-a24d-197d2d2ff2a1",
-        "manufacturer": "Philips",
-        "model": "L200",
-        "firmware": "v2.1"
-    },
-    {
-        "sensor_id": "92d03df9-0d10-43e2-ac86-abf35cfc9590",
-        "sensor_type": "SoilMoisture",
-        "point_coordinates": [
-            28.1441572375,
-            46.6320378125
-        ],
-        "parcel_id": "Chickpeas#a32239e2-8546-4a94-a24d-197d2d2ff2a1",
-        "manufacturer": "Texas Instruments",
-        "model": "SM200",
-        "firmware": "v3.2"
-    },
-    {
-        "sensor_id": "5790d0b1-cf41-4832-9cb1-b62e589ddedb",
-        "sensor_type": "SoilMoisture",
-        "point_coordinates": [
-            28.14607233125,
-            46.6320378125
-        ],
-        "parcel_id": "Chickpeas#a32239e2-8546-4a94-a24d-197d2d2ff2a1",
-        "manufacturer": "Texas Instruments",
-        "model": "SM200",
-        "firmware": "v3.2"
-    },
-    {
-        "sensor_id": "fa6159e3-340e-4650-a925-b194d2cae78f",
-        "sensor_type": "SoilPH",
-        "point_coordinates": [
-            28.147987425,
-            46.6320378125
-        ],
-        "parcel_id": "Chickpeas#a32239e2-8546-4a94-a24d-197d2d2ff2a1",
-        "manufacturer": "Hanna Instruments",
-        "model": "HI98103",
-        "firmware": "v6.1"
-    },
-    {
-        "sensor_id": "a6fc3626-c3e2-4066-a0a7-4cc154b4b548",
-        "sensor_type": "Light",
-        "point_coordinates": [
-            28.12692139375,
-            46.63335205
-        ],
-        "parcel_id": "Chickpeas#711c9bd9-fc17-477b-ad50-a86afb36ae69",
-        "manufacturer": "Osram",
-        "model": "LX1",
-        "firmware": "v2.3"
-    },
-    {
-        "sensor_id": "9cb69864-c851-4661-9ea4-81df10a9e1d5",
-        "sensor_type": "Light",
-        "point_coordinates": [
-            28.1288364875,
-            46.63335205
-        ],
-        "parcel_id": "Chickpeas#711c9bd9-fc17-477b-ad50-a86afb36ae69",
-        "manufacturer": "Osram",
-        "model": "LX1",
-        "firmware": "v2.3"
-    },
-    {
-        "sensor_id": "5d3fdd18-d6a1-4606-95d2-d7cadd1c70e2",
-        "sensor_type": "Humidity",
-        "point_coordinates": [
-            28.13075158125,
-            46.63335205
-        ],
-        "parcel_id": "Chickpeas#711c9bd9-fc17-477b-ad50-a86afb36ae69",
-        "manufacturer": "Sensirion",
-        "model": "SHT31",
-        "firmware": "v4.0"
-    },
-    {
-        "sensor_id": "9781cbe2-6ed9-48b1-ad95-7e1df532e6da",
-        "sensor_type": "Humidity",
-        "point_coordinates": [
-            28.132666675,
-            46.63335205
-        ],
-        "parcel_id": "Chickpeas#711c9bd9-fc17-477b-ad50-a86afb36ae69",
-        "manufacturer": "Panasonic",
-        "model": "HC2-H-DC",
-        "firmware": "v4.1"
-    },
-    {
-        "sensor_id": "3266ce2a-ce07-478d-b4bb-51dd0d9b8411",
-        "sensor_type": "Humidity",
-        "point_coordinates": [
-            28.13458176875,
-            46.63335205
-        ],
-        "parcel_id": "Chickpeas#711c9bd9-fc17-477b-ad50-a86afb36ae69",
-        "manufacturer": "Panasonic",
-        "model": "HC2-H-DC",
-        "firmware": "v4.1"
-    },
-    {
-        "sensor_id": "c5bbb31a-848e-4542-88f5-e5d9c7658109",
-        "sensor_type": "Temperature",
-        "point_coordinates": [
-            28.1364968625,
-            46.63335205
-        ],
-        "parcel_id": "Chickpeas#711c9bd9-fc17-477b-ad50-a86afb36ae69",
-        "manufacturer": "Honeywell",
-        "model": "T10",
-        "firmware": "v1.2"
-    },
-    {
-        "sensor_id": "24c4b94d-5896-4348-8d18-7125aafb906b",
-        "sensor_type": "Light",
-        "point_coordinates": [
-            28.13841195625,
-            46.63335205
-        ],
-        "parcel_id": "Grapevine#042d88f5-b1ef-479a-b5bc-834a85873261",
-        "manufacturer": "Philips",
-        "model": "L200",
-        "firmware": "v2.1"
-    },
-    {
-        "sensor_id": "84472348-6d83-4cc5-861d-218ceddd3a97",
-        "sensor_type": "SoilPH",
-        "point_coordinates": [
-            28.14032705,
-            46.63335205
-        ],
-        "parcel_id": "Grapevine#042d88f5-b1ef-479a-b5bc-834a85873261",
-        "manufacturer": "Hanna Instruments",
-        "model": "HI98103",
-        "firmware": "v6.1"
-    },
-    {
-        "sensor_id": "fcfd857d-b81f-4263-9de6-6bfadeb05c5a",
+        "sensor_id": "7f4f233e-0b6e-4720-b2d6-684d5113bd02",
         "sensor_type": "Rain",
         "point_coordinates": [
-            28.14224214375,
-            46.63335205
+            28.146635594117647,
+            46.62252891764706
         ],
-        "parcel_id": "Grapevine#042d88f5-b1ef-479a-b5bc-834a85873261",
+        "parcel_id": "Grapevine#5da7d24e-c944-408e-91d9-b3882548adfb",
+        "manufacturer": "Davis Instruments",
+        "model": "R1",
+        "firmware": "v5.0"
+    },
+    {
+        "sensor_id": "b0458c0c-7ca0-499c-bb77-feaa2288987a",
+        "sensor_type": "Light",
+        "point_coordinates": [
+            28.148438035294117,
+            46.62252891764706
+        ],
+        "parcel_id": "Grapevine#5da7d24e-c944-408e-91d9-b3882548adfb",
+        "manufacturer": "Philips",
+        "model": "L200",
+        "firmware": "v2.1"
+    },
+    {
+        "sensor_id": "6183da62-8142-4792-a054-e5cb95bd9121",
+        "sensor_type": "Rain",
+        "point_coordinates": [
+            28.15024047647059,
+            46.62252891764706
+        ],
+        "parcel_id": "Grapevine#5da7d24e-c944-408e-91d9-b3882548adfb",
         "manufacturer": "La Crosse Technology",
         "model": "Rain200",
         "firmware": "v5.1"
     },
     {
-        "sensor_id": "08a46099-7703-41b5-8005-6d02c00644e8",
+        "sensor_id": "01a6456f-bf8c-4525-bed7-22807197f807",
+        "sensor_type": "Rain",
+        "point_coordinates": [
+            28.15204291764706,
+            46.62252891764706
+        ],
+        "parcel_id": "Grapevine#5da7d24e-c944-408e-91d9-b3882548adfb",
+        "manufacturer": "Davis Instruments",
+        "model": "R1",
+        "firmware": "v5.0"
+    },
+    {
+        "sensor_id": "24ca9bf0-6866-4a12-be28-36242d066780",
         "sensor_type": "Temperature",
         "point_coordinates": [
-            28.1441572375,
-            46.63335205
+            28.15384535882353,
+            46.62252891764706
         ],
-        "parcel_id": "Grapevine#042d88f5-b1ef-479a-b5bc-834a85873261",
+        "parcel_id": "Grapevine#5da7d24e-c944-408e-91d9-b3882548adfb",
         "manufacturer": "Siemens",
         "model": "TH100",
         "firmware": "v1.3"
     },
     {
-        "sensor_id": "3b02178c-c3ff-4604-91e2-a35c520cedd8",
+        "sensor_id": "4a5c7852-e32f-45eb-80e7-489369e85359",
+        "sensor_type": "Rain",
+        "point_coordinates": [
+            28.13041362352941,
+            46.62376584705882
+        ],
+        "parcel_id": "Chickpeas#b35799e2-0ac7-49b2-9355-f580dc7d3e27",
+        "manufacturer": "La Crosse Technology",
+        "model": "Rain200",
+        "firmware": "v5.1"
+    },
+    {
+        "sensor_id": "61989171-0058-4cb1-985a-4b0a0b1485f0",
         "sensor_type": "Humidity",
         "point_coordinates": [
-            28.14607233125,
-            46.63335205
+            28.132216064705883,
+            46.62376584705882
         ],
-        "parcel_id": "Grapevine#042d88f5-b1ef-479a-b5bc-834a85873261",
-        "manufacturer": "Panasonic",
-        "model": "HC2-H-DC",
-        "firmware": "v4.1"
-    },
-    {
-        "sensor_id": "db1c79fb-50de-4035-9b14-fa19a318ebe0",
-        "sensor_type": "Temperature",
-        "point_coordinates": [
-            28.147987425,
-            46.63335205
-        ],
-        "parcel_id": "Chickpeas#a32239e2-8546-4a94-a24d-197d2d2ff2a1",
-        "manufacturer": "Siemens",
-        "model": "TH100",
-        "firmware": "v1.3"
-    },
-    {
-        "sensor_id": "f1cae977-b575-4f68-86e7-02700ea54805",
-        "sensor_type": "Humidity",
-        "point_coordinates": [
-            28.13075158125,
-            46.6346662875
-        ],
-        "parcel_id": "Chickpeas#711c9bd9-fc17-477b-ad50-a86afb36ae69",
-        "manufacturer": "Panasonic",
-        "model": "HC2-H-DC",
-        "firmware": "v4.1"
-    },
-    {
-        "sensor_id": "f37d4ca8-0ed3-4691-bc26-173834379fd7",
-        "sensor_type": "Humidity",
-        "point_coordinates": [
-            28.132666675,
-            46.6346662875
-        ],
-        "parcel_id": "Chickpeas#711c9bd9-fc17-477b-ad50-a86afb36ae69",
-        "manufacturer": "Panasonic",
-        "model": "HC2-H-DC",
-        "firmware": "v4.1"
-    },
-    {
-        "sensor_id": "51d43e7d-4b4d-401c-99b4-f7c5d70931dc",
-        "sensor_type": "SoilPH",
-        "point_coordinates": [
-            28.13458176875,
-            46.6346662875
-        ],
-        "parcel_id": "Chickpeas#711c9bd9-fc17-477b-ad50-a86afb36ae69",
-        "manufacturer": "Hanna Instruments",
-        "model": "HI98103",
-        "firmware": "v6.1"
-    },
-    {
-        "sensor_id": "7c7bddc7-a964-4a0d-a0d8-23f0e36e34fc",
-        "sensor_type": "Humidity",
-        "point_coordinates": [
-            28.1364968625,
-            46.6346662875
-        ],
-        "parcel_id": "Chickpeas#711c9bd9-fc17-477b-ad50-a86afb36ae69",
+        "parcel_id": "Chickpeas#b35799e2-0ac7-49b2-9355-f580dc7d3e27",
         "manufacturer": "Sensirion",
         "model": "SHT31",
         "firmware": "v4.0"
     },
     {
-        "sensor_id": "9c3bd341-661f-4eba-ad4b-12f0fbc678e0",
+        "sensor_id": "98ba3b55-04a5-41a1-9a7f-37d3a7a92c9d",
+        "sensor_type": "SoilPH",
+        "point_coordinates": [
+            28.134018505882352,
+            46.62376584705882
+        ],
+        "parcel_id": "Chickpeas#b35799e2-0ac7-49b2-9355-f580dc7d3e27",
+        "manufacturer": "Atlas Scientific",
+        "model": "PH10",
+        "firmware": "v6.0"
+    },
+    {
+        "sensor_id": "3f5910e5-7d9d-44f1-813d-4de48141275e",
+        "sensor_type": "Light",
+        "point_coordinates": [
+            28.13582094705882,
+            46.62376584705882
+        ],
+        "parcel_id": "Grapevine#4c68324f-fab4-4aa4-965c-5373e2db6c1f",
+        "manufacturer": "Osram",
+        "model": "LX1",
+        "firmware": "v2.3"
+    },
+    {
+        "sensor_id": "442dd9c5-b538-4c6c-acf5-f5bbdb46fee7",
         "sensor_type": "SoilMoisture",
         "point_coordinates": [
-            28.13841195625,
-            46.6346662875
+            28.137623388235294,
+            46.62376584705882
         ],
-        "parcel_id": "Chickpeas#711c9bd9-fc17-477b-ad50-a86afb36ae69",
+        "parcel_id": "Grapevine#4c68324f-fab4-4aa4-965c-5373e2db6c1f",
         "manufacturer": "Bosch",
         "model": "SM10",
         "firmware": "v3.0"
     },
     {
-        "sensor_id": "7c8e8d26-1102-4bff-8681-f393a7d7f05f",
-        "sensor_type": "Light",
-        "point_coordinates": [
-            28.14032705,
-            46.6346662875
-        ],
-        "parcel_id": "Chickpeas#711c9bd9-fc17-477b-ad50-a86afb36ae69",
-        "manufacturer": "Osram",
-        "model": "LX1",
-        "firmware": "v2.3"
-    },
-    {
-        "sensor_id": "da39c0ea-3655-4cd4-8252-1277e8e8f286",
+        "sensor_id": "1186fb00-10ad-40c8-ab27-6c76bc317f06",
         "sensor_type": "Humidity",
         "point_coordinates": [
-            28.14224214375,
-            46.6346662875
+            28.139425829411763,
+            46.62376584705882
         ],
-        "parcel_id": "Chickpeas#711c9bd9-fc17-477b-ad50-a86afb36ae69",
+        "parcel_id": "Grapevine#4c68324f-fab4-4aa4-965c-5373e2db6c1f",
         "manufacturer": "Sensirion",
         "model": "SHT31",
         "firmware": "v4.0"
     },
     {
-        "sensor_id": "70a9e9df-1686-4bc6-933d-dc1c8d86cd14",
-        "sensor_type": "Temperature",
-        "point_coordinates": [
-            28.1441572375,
-            46.6346662875
-        ],
-        "parcel_id": "Grapevine#042d88f5-b1ef-479a-b5bc-834a85873261",
-        "manufacturer": "Honeywell",
-        "model": "T10",
-        "firmware": "v1.2"
-    },
-    {
-        "sensor_id": "c43f6f8d-d0ed-40c9-ab48-8e64cbbb98bf",
+        "sensor_id": "0be04e16-4bd6-4aa1-b1c6-5e57325230d5",
         "sensor_type": "Rain",
         "point_coordinates": [
-            28.14607233125,
-            46.6346662875
+            28.141228270588236,
+            46.62376584705882
         ],
-        "parcel_id": "Grapevine#042d88f5-b1ef-479a-b5bc-834a85873261",
+        "parcel_id": "Grapevine#4c68324f-fab4-4aa4-965c-5373e2db6c1f",
         "manufacturer": "La Crosse Technology",
         "model": "Rain200",
         "firmware": "v5.1"
     },
     {
-        "sensor_id": "f9c7f511-742d-4298-9dce-aafe82fbe8e8",
-        "sensor_type": "Humidity",
-        "point_coordinates": [
-            28.147987425,
-            46.6346662875
-        ],
-        "parcel_id": "Grapevine#042d88f5-b1ef-479a-b5bc-834a85873261",
-        "manufacturer": "Sensirion",
-        "model": "SHT31",
-        "firmware": "v4.0"
-    },
-    {
-        "sensor_id": "bf1236a7-6803-4e9f-aad6-ce42ca94f757",
-        "sensor_type": "Temperature",
-        "point_coordinates": [
-            28.1364968625,
-            46.635980525
-        ],
-        "parcel_id": "Chickpeas#711c9bd9-fc17-477b-ad50-a86afb36ae69",
-        "manufacturer": "Siemens",
-        "model": "TH100",
-        "firmware": "v1.3"
-    },
-    {
-        "sensor_id": "9b1eb86f-3ae5-42f1-a365-9636682fd418",
-        "sensor_type": "Rain",
-        "point_coordinates": [
-            28.13841195625,
-            46.635980525
-        ],
-        "parcel_id": "Chickpeas#711c9bd9-fc17-477b-ad50-a86afb36ae69",
-        "manufacturer": "La Crosse Technology",
-        "model": "Rain200",
-        "firmware": "v5.1"
-    },
-    {
-        "sensor_id": "d1303ca1-1c10-4241-8af6-250e33e40719",
-        "sensor_type": "SoilMoisture",
-        "point_coordinates": [
-            28.14032705,
-            46.635980525
-        ],
-        "parcel_id": "Chickpeas#711c9bd9-fc17-477b-ad50-a86afb36ae69",
-        "manufacturer": "Texas Instruments",
-        "model": "SM200",
-        "firmware": "v3.2"
-    },
-    {
-        "sensor_id": "23da8745-6e4f-4eae-ac54-99aa3922b05b",
-        "sensor_type": "Temperature",
-        "point_coordinates": [
-            28.14224214375,
-            46.635980525
-        ],
-        "parcel_id": "Chickpeas#711c9bd9-fc17-477b-ad50-a86afb36ae69",
-        "manufacturer": "Siemens",
-        "model": "TH100",
-        "firmware": "v1.3"
-    },
-    {
-        "sensor_id": "b4fdc878-4bbb-41be-a3fa-541327b7068a",
+        "sensor_id": "8f41154b-f525-4ed7-8053-937846b78e3e",
         "sensor_type": "Light",
         "point_coordinates": [
-            28.1441572375,
-            46.635980525
+            28.143030711764705,
+            46.62376584705882
         ],
-        "parcel_id": "Chickpeas#711c9bd9-fc17-477b-ad50-a86afb36ae69",
+        "parcel_id": "Chickpeas#d8c109ba-20aa-46e5-8540-902b78e1e310",
         "manufacturer": "Osram",
         "model": "LX1",
         "firmware": "v2.3"
     },
     {
-        "sensor_id": "2615e9b8-47a7-45a9-bf64-12f1fb53e6b4",
-        "sensor_type": "Temperature",
+        "sensor_id": "8d621a55-8320-4dde-a14a-5219a2b4be7f",
+        "sensor_type": "Light",
         "point_coordinates": [
-            28.14607233125,
-            46.635980525
+            28.144833152941178,
+            46.62376584705882
         ],
-        "parcel_id": "Chickpeas#711c9bd9-fc17-477b-ad50-a86afb36ae69",
-        "manufacturer": "Honeywell",
-        "model": "T10",
-        "firmware": "v1.2"
+        "parcel_id": "Chickpeas#d8c109ba-20aa-46e5-8540-902b78e1e310",
+        "manufacturer": "Osram",
+        "model": "LX1",
+        "firmware": "v2.3"
     },
     {
-        "sensor_id": "da523a12-6139-4e53-89b4-9bcdc053783d",
+        "sensor_id": "6629f787-1494-4cfb-b9f3-57259f820a6c",
+        "sensor_type": "SoilPH",
+        "point_coordinates": [
+            28.146635594117647,
+            46.62376584705882
+        ],
+        "parcel_id": "Chickpeas#d8c109ba-20aa-46e5-8540-902b78e1e310",
+        "manufacturer": "Hanna Instruments",
+        "model": "HI98103",
+        "firmware": "v6.1"
+    },
+    {
+        "sensor_id": "fc716891-5041-4685-9320-a561ca5e0fcf",
+        "sensor_type": "Humidity",
+        "point_coordinates": [
+            28.148438035294117,
+            46.62376584705882
+        ],
+        "parcel_id": "Chickpeas#d8c109ba-20aa-46e5-8540-902b78e1e310",
+        "manufacturer": "Panasonic",
+        "model": "HC2-H-DC",
+        "firmware": "v4.1"
+    },
+    {
+        "sensor_id": "3ff9e971-d80c-4015-ba8f-617bfb3e0fa7",
+        "sensor_type": "Temperature",
+        "point_coordinates": [
+            28.15024047647059,
+            46.62376584705882
+        ],
+        "parcel_id": "Chickpeas#d8c109ba-20aa-46e5-8540-902b78e1e310",
+        "manufacturer": "Siemens",
+        "model": "TH100",
+        "firmware": "v1.3"
+    },
+    {
+        "sensor_id": "fc702da7-b770-44a9-ab66-910d70cde4c0",
+        "sensor_type": "Temperature",
+        "point_coordinates": [
+            28.15204291764706,
+            46.62376584705882
+        ],
+        "parcel_id": "Grapevine#5da7d24e-c944-408e-91d9-b3882548adfb",
+        "manufacturer": "Siemens",
+        "model": "TH100",
+        "firmware": "v1.3"
+    },
+    {
+        "sensor_id": "4b31ae93-f8d5-4ce9-a86e-8f85cdf437b9",
+        "sensor_type": "SoilPH",
+        "point_coordinates": [
+            28.15384535882353,
+            46.62376584705882
+        ],
+        "parcel_id": "Grapevine#5da7d24e-c944-408e-91d9-b3882548adfb",
+        "manufacturer": "Hanna Instruments",
+        "model": "HI98103",
+        "firmware": "v6.1"
+    },
+    {
+        "sensor_id": "9ac70a01-34ba-4a7b-aead-ff961f1f1860",
+        "sensor_type": "Light",
+        "point_coordinates": [
+            28.13041362352941,
+            46.62500277647059
+        ],
+        "parcel_id": "Grapevine#75aa8aa3-c073-49d6-a1f0-1a1905734585",
+        "manufacturer": "Osram",
+        "model": "LX1",
+        "firmware": "v2.3"
+    },
+    {
+        "sensor_id": "5226f769-981c-4da5-bff8-4ea8956a9981",
+        "sensor_type": "Temperature",
+        "point_coordinates": [
+            28.132216064705883,
+            46.62500277647059
+        ],
+        "parcel_id": "Chickpeas#b35799e2-0ac7-49b2-9355-f580dc7d3e27",
+        "manufacturer": "Siemens",
+        "model": "TH100",
+        "firmware": "v1.3"
+    },
+    {
+        "sensor_id": "b6ea8848-28ed-4d80-a8f5-4ac86ce73e76",
+        "sensor_type": "Rain",
+        "point_coordinates": [
+            28.134018505882352,
+            46.62500277647059
+        ],
+        "parcel_id": "Chickpeas#b35799e2-0ac7-49b2-9355-f580dc7d3e27",
+        "manufacturer": "Davis Instruments",
+        "model": "R1",
+        "firmware": "v5.0"
+    },
+    {
+        "sensor_id": "068044f8-5047-4c64-a36f-d21c5133262d",
+        "sensor_type": "Light",
+        "point_coordinates": [
+            28.13582094705882,
+            46.62500277647059
+        ],
+        "parcel_id": "Chickpeas#b35799e2-0ac7-49b2-9355-f580dc7d3e27",
+        "manufacturer": "Philips",
+        "model": "L200",
+        "firmware": "v2.1"
+    },
+    {
+        "sensor_id": "befece32-87c7-47c0-ae8e-9184f911fd2b",
+        "sensor_type": "Light",
+        "point_coordinates": [
+            28.137623388235294,
+            46.62500277647059
+        ],
+        "parcel_id": "Chickpeas#b35799e2-0ac7-49b2-9355-f580dc7d3e27",
+        "manufacturer": "Philips",
+        "model": "L200",
+        "firmware": "v2.1"
+    },
+    {
+        "sensor_id": "da292532-78ff-43d8-9c66-87fcfe10a664",
+        "sensor_type": "Light",
+        "point_coordinates": [
+            28.139425829411763,
+            46.62500277647059
+        ],
+        "parcel_id": "Grapevine#4c68324f-fab4-4aa4-965c-5373e2db6c1f",
+        "manufacturer": "Osram",
+        "model": "LX1",
+        "firmware": "v2.3"
+    },
+    {
+        "sensor_id": "4ab3a838-f902-4bf0-8380-7f1a117cac4d",
+        "sensor_type": "Temperature",
+        "point_coordinates": [
+            28.141228270588236,
+            46.62500277647059
+        ],
+        "parcel_id": "Grapevine#4c68324f-fab4-4aa4-965c-5373e2db6c1f",
+        "manufacturer": "Siemens",
+        "model": "TH100",
+        "firmware": "v1.3"
+    },
+    {
+        "sensor_id": "6d33b422-eb75-4494-8723-ed1db4786d3c",
+        "sensor_type": "Humidity",
+        "point_coordinates": [
+            28.143030711764705,
+            46.62500277647059
+        ],
+        "parcel_id": "Grapevine#4c68324f-fab4-4aa4-965c-5373e2db6c1f",
+        "manufacturer": "Panasonic",
+        "model": "HC2-H-DC",
+        "firmware": "v4.1"
+    },
+    {
+        "sensor_id": "e4e54e78-c0dc-49fa-81f6-e34fcd6349d7",
         "sensor_type": "SoilMoisture",
         "point_coordinates": [
-            28.14224214375,
-            46.637294762500005
+            28.144833152941178,
+            46.62500277647059
         ],
-        "parcel_id": "Chickpeas#711c9bd9-fc17-477b-ad50-a86afb36ae69",
+        "parcel_id": "Grapevine#4c68324f-fab4-4aa4-965c-5373e2db6c1f",
+        "manufacturer": "Bosch",
+        "model": "SM10",
+        "firmware": "v3.0"
+    },
+    {
+        "sensor_id": "b86b3ef5-8244-4321-b74a-40df1f3425b1",
+        "sensor_type": "Light",
+        "point_coordinates": [
+            28.146635594117647,
+            46.62500277647059
+        ],
+        "parcel_id": "Grapevine#4c68324f-fab4-4aa4-965c-5373e2db6c1f",
+        "manufacturer": "Osram",
+        "model": "LX1",
+        "firmware": "v2.3"
+    },
+    {
+        "sensor_id": "e99f6648-f879-417b-b2fc-b68bd567794d",
+        "sensor_type": "SoilMoisture",
+        "point_coordinates": [
+            28.148438035294117,
+            46.62500277647059
+        ],
+        "parcel_id": "Chickpeas#d8c109ba-20aa-46e5-8540-902b78e1e310",
         "manufacturer": "Texas Instruments",
         "model": "SM200",
         "firmware": "v3.2"
     },
     {
-        "sensor_id": "21fa221b-c135-4e18-9469-4f479a73a8f0",
+        "sensor_id": "9d97275b-34fa-4ea3-b24f-147d5d4220be",
+        "sensor_type": "SoilPH",
+        "point_coordinates": [
+            28.15024047647059,
+            46.62500277647059
+        ],
+        "parcel_id": "Chickpeas#d8c109ba-20aa-46e5-8540-902b78e1e310",
+        "manufacturer": "Atlas Scientific",
+        "model": "PH10",
+        "firmware": "v6.0"
+    },
+    {
+        "sensor_id": "a01e4657-a687-41be-ab31-3a304389957f",
+        "sensor_type": "SoilPH",
+        "point_coordinates": [
+            28.15204291764706,
+            46.62500277647059
+        ],
+        "parcel_id": "Chickpeas#d8c109ba-20aa-46e5-8540-902b78e1e310",
+        "manufacturer": "Atlas Scientific",
+        "model": "PH10",
+        "firmware": "v6.0"
+    },
+    {
+        "sensor_id": "d534b717-f02e-4918-92b0-a3b7a146a19c",
+        "sensor_type": "Light",
+        "point_coordinates": [
+            28.15384535882353,
+            46.62500277647059
+        ],
+        "parcel_id": "Chickpeas#d8c109ba-20aa-46e5-8540-902b78e1e310",
+        "manufacturer": "Osram",
+        "model": "LX1",
+        "firmware": "v2.3"
+    },
+    {
+        "sensor_id": "ffcb0b92-3fc3-4f04-8575-10c9dc4456ab",
+        "sensor_type": "Rain",
+        "point_coordinates": [
+            28.13041362352941,
+            46.626239705882355
+        ],
+        "parcel_id": "Grapevine#75aa8aa3-c073-49d6-a1f0-1a1905734585",
+        "manufacturer": "Davis Instruments",
+        "model": "R1",
+        "firmware": "v5.0"
+    },
+    {
+        "sensor_id": "bf115990-1ca7-428a-bb09-8340f9dbfb06",
         "sensor_type": "Humidity",
         "point_coordinates": [
-            28.1441572375,
-            46.637294762500005
+            28.132216064705883,
+            46.626239705882355
         ],
-        "parcel_id": "Chickpeas#711c9bd9-fc17-477b-ad50-a86afb36ae69",
+        "parcel_id": "Grapevine#75aa8aa3-c073-49d6-a1f0-1a1905734585",
+        "manufacturer": "Panasonic",
+        "model": "HC2-H-DC",
+        "firmware": "v4.1"
+    },
+    {
+        "sensor_id": "da239db7-d7b0-4569-b020-0d45fbbf443b",
+        "sensor_type": "Temperature",
+        "point_coordinates": [
+            28.134018505882352,
+            46.626239705882355
+        ],
+        "parcel_id": "Grapevine#75aa8aa3-c073-49d6-a1f0-1a1905734585",
+        "manufacturer": "Siemens",
+        "model": "TH100",
+        "firmware": "v1.3"
+    },
+    {
+        "sensor_id": "e2879455-0ee8-4108-99f4-3117f8488eb9",
+        "sensor_type": "Humidity",
+        "point_coordinates": [
+            28.13582094705882,
+            46.626239705882355
+        ],
+        "parcel_id": "Chickpeas#b35799e2-0ac7-49b2-9355-f580dc7d3e27",
         "manufacturer": "Sensirion",
         "model": "SHT31",
         "firmware": "v4.0"
     },
     {
-        "sensor_id": "0143708d-f6eb-4ed9-be56-5d46aeeeaf7f",
+        "sensor_id": "e493a85f-1923-4c1e-a8e1-db4fd8c15e0a",
+        "sensor_type": "Light",
+        "point_coordinates": [
+            28.137623388235294,
+            46.626239705882355
+        ],
+        "parcel_id": "Chickpeas#b35799e2-0ac7-49b2-9355-f580dc7d3e27",
+        "manufacturer": "Osram",
+        "model": "LX1",
+        "firmware": "v2.3"
+    },
+    {
+        "sensor_id": "8a19bd17-5967-4c3d-9137-a95ee1f3bbed",
+        "sensor_type": "SoilPH",
+        "point_coordinates": [
+            28.139425829411763,
+            46.626239705882355
+        ],
+        "parcel_id": "Chickpeas#b35799e2-0ac7-49b2-9355-f580dc7d3e27",
+        "manufacturer": "Atlas Scientific",
+        "model": "PH10",
+        "firmware": "v6.0"
+    },
+    {
+        "sensor_id": "c48e451b-58f4-459a-8a30-094e935c3214",
+        "sensor_type": "Temperature",
+        "point_coordinates": [
+            28.141228270588236,
+            46.626239705882355
+        ],
+        "parcel_id": "Chickpeas#b35799e2-0ac7-49b2-9355-f580dc7d3e27",
+        "manufacturer": "Siemens",
+        "model": "TH100",
+        "firmware": "v1.3"
+    },
+    {
+        "sensor_id": "ff9b0d5c-5d55-4423-8695-9f96a60c1d1c",
+        "sensor_type": "Rain",
+        "point_coordinates": [
+            28.143030711764705,
+            46.626239705882355
+        ],
+        "parcel_id": "Chickpeas#b35799e2-0ac7-49b2-9355-f580dc7d3e27",
+        "manufacturer": "Davis Instruments",
+        "model": "R1",
+        "firmware": "v5.0"
+    },
+    {
+        "sensor_id": "c640c4df-dbd8-43ce-97d2-f9610d23603e",
         "sensor_type": "Humidity",
         "point_coordinates": [
-            28.14607233125,
-            46.637294762500005
+            28.144833152941178,
+            46.626239705882355
         ],
-        "parcel_id": "Chickpeas#711c9bd9-fc17-477b-ad50-a86afb36ae69",
+        "parcel_id": "Grapevine#4c68324f-fab4-4aa4-965c-5373e2db6c1f",
         "manufacturer": "Sensirion",
         "model": "SHT31",
         "firmware": "v4.0"
+    },
+    {
+        "sensor_id": "e1d16613-c2b6-4e39-a057-299ae0984554",
+        "sensor_type": "Rain",
+        "point_coordinates": [
+            28.146635594117647,
+            46.626239705882355
+        ],
+        "parcel_id": "Grapevine#4c68324f-fab4-4aa4-965c-5373e2db6c1f",
+        "manufacturer": "La Crosse Technology",
+        "model": "Rain200",
+        "firmware": "v5.1"
+    },
+    {
+        "sensor_id": "e0c141a8-73b0-4b1a-9da6-5e2d099ceaa8",
+        "sensor_type": "Light",
+        "point_coordinates": [
+            28.148438035294117,
+            46.626239705882355
+        ],
+        "parcel_id": "Grapevine#4c68324f-fab4-4aa4-965c-5373e2db6c1f",
+        "manufacturer": "Osram",
+        "model": "LX1",
+        "firmware": "v2.3"
+    },
+    {
+        "sensor_id": "99a327c8-37a1-4508-9f8c-01368918df89",
+        "sensor_type": "SoilMoisture",
+        "point_coordinates": [
+            28.15024047647059,
+            46.626239705882355
+        ],
+        "parcel_id": "Grapevine#4c68324f-fab4-4aa4-965c-5373e2db6c1f",
+        "manufacturer": "Texas Instruments",
+        "model": "SM200",
+        "firmware": "v3.2"
+    },
+    {
+        "sensor_id": "b71d79df-1b29-4883-871c-84667d544524",
+        "sensor_type": "Temperature",
+        "point_coordinates": [
+            28.15204291764706,
+            46.626239705882355
+        ],
+        "parcel_id": "Grapevine#4c68324f-fab4-4aa4-965c-5373e2db6c1f",
+        "manufacturer": "Honeywell",
+        "model": "T10",
+        "firmware": "v1.2"
+    },
+    {
+        "sensor_id": "083776b5-2982-4156-a269-b820ca4f168d",
+        "sensor_type": "Rain",
+        "point_coordinates": [
+            28.12861118235294,
+            46.627476635294116
+        ],
+        "parcel_id": "Chickpeas#4808e5c6-0350-421d-94ca-09ca2cfc44e0",
+        "manufacturer": "Davis Instruments",
+        "model": "R1",
+        "firmware": "v5.0"
+    },
+    {
+        "sensor_id": "0009fb6d-977d-4771-a11f-edee9b256160",
+        "sensor_type": "SoilPH",
+        "point_coordinates": [
+            28.13041362352941,
+            46.627476635294116
+        ],
+        "parcel_id": "Chickpeas#4808e5c6-0350-421d-94ca-09ca2cfc44e0",
+        "manufacturer": "Atlas Scientific",
+        "model": "PH10",
+        "firmware": "v6.0"
+    },
+    {
+        "sensor_id": "353ce654-884e-48c7-989c-d38315150a97",
+        "sensor_type": "Light",
+        "point_coordinates": [
+            28.132216064705883,
+            46.627476635294116
+        ],
+        "parcel_id": "Chickpeas#4808e5c6-0350-421d-94ca-09ca2cfc44e0",
+        "manufacturer": "Osram",
+        "model": "LX1",
+        "firmware": "v2.3"
+    },
+    {
+        "sensor_id": "9b8b3aee-c48f-4374-b02d-f4f67b838c5a",
+        "sensor_type": "SoilMoisture",
+        "point_coordinates": [
+            28.134018505882352,
+            46.627476635294116
+        ],
+        "parcel_id": "Grapevine#75aa8aa3-c073-49d6-a1f0-1a1905734585",
+        "manufacturer": "Texas Instruments",
+        "model": "SM200",
+        "firmware": "v3.2"
+    },
+    {
+        "sensor_id": "9ae4fd2e-068a-48a0-a9e8-78dc08ddd7cb",
+        "sensor_type": "Temperature",
+        "point_coordinates": [
+            28.13582094705882,
+            46.627476635294116
+        ],
+        "parcel_id": "Grapevine#75aa8aa3-c073-49d6-a1f0-1a1905734585",
+        "manufacturer": "Siemens",
+        "model": "TH100",
+        "firmware": "v1.3"
+    },
+    {
+        "sensor_id": "a311ef40-e622-4f22-90bf-b9d9b4cd64be",
+        "sensor_type": "Rain",
+        "point_coordinates": [
+            28.137623388235294,
+            46.627476635294116
+        ],
+        "parcel_id": "Grapevine#75aa8aa3-c073-49d6-a1f0-1a1905734585",
+        "manufacturer": "Davis Instruments",
+        "model": "R1",
+        "firmware": "v5.0"
+    },
+    {
+        "sensor_id": "2fe9d0e1-3ed4-412b-9009-d918fec3d95c",
+        "sensor_type": "Humidity",
+        "point_coordinates": [
+            28.139425829411763,
+            46.627476635294116
+        ],
+        "parcel_id": "Grapevine#75aa8aa3-c073-49d6-a1f0-1a1905734585",
+        "manufacturer": "Sensirion",
+        "model": "SHT31",
+        "firmware": "v4.0"
+    },
+    {
+        "sensor_id": "a0f4331b-7090-4d44-b562-6de56201eea0",
+        "sensor_type": "Temperature",
+        "point_coordinates": [
+            28.141228270588236,
+            46.627476635294116
+        ],
+        "parcel_id": "Chickpeas#b35799e2-0ac7-49b2-9355-f580dc7d3e27",
+        "manufacturer": "Honeywell",
+        "model": "T10",
+        "firmware": "v1.2"
+    },
+    {
+        "sensor_id": "11495698-0915-4a24-9db8-49515ec63d26",
+        "sensor_type": "SoilMoisture",
+        "point_coordinates": [
+            28.143030711764705,
+            46.627476635294116
+        ],
+        "parcel_id": "Chickpeas#b35799e2-0ac7-49b2-9355-f580dc7d3e27",
+        "manufacturer": "Bosch",
+        "model": "SM10",
+        "firmware": "v3.0"
+    },
+    {
+        "sensor_id": "ee0bff9c-7e89-48d6-94fc-13791d47de7f",
+        "sensor_type": "SoilPH",
+        "point_coordinates": [
+            28.144833152941178,
+            46.627476635294116
+        ],
+        "parcel_id": "Chickpeas#b35799e2-0ac7-49b2-9355-f580dc7d3e27",
+        "manufacturer": "Atlas Scientific",
+        "model": "PH10",
+        "firmware": "v6.0"
+    },
+    {
+        "sensor_id": "7d5fe939-3e2d-46ea-bd41-46c8609f6051",
+        "sensor_type": "Light",
+        "point_coordinates": [
+            28.146635594117647,
+            46.627476635294116
+        ],
+        "parcel_id": "Chickpeas#b35799e2-0ac7-49b2-9355-f580dc7d3e27",
+        "manufacturer": "Osram",
+        "model": "LX1",
+        "firmware": "v2.3"
+    },
+    {
+        "sensor_id": "02145f1c-1fa6-4329-a5d6-0992163e0f5e",
+        "sensor_type": "SoilMoisture",
+        "point_coordinates": [
+            28.148438035294117,
+            46.627476635294116
+        ],
+        "parcel_id": "Chickpeas#b35799e2-0ac7-49b2-9355-f580dc7d3e27",
+        "manufacturer": "Texas Instruments",
+        "model": "SM200",
+        "firmware": "v3.2"
+    },
+    {
+        "sensor_id": "d89cb3d6-d658-49a4-932b-dabc25abab1d",
+        "sensor_type": "SoilMoisture",
+        "point_coordinates": [
+            28.15024047647059,
+            46.627476635294116
+        ],
+        "parcel_id": "Grapevine#4c68324f-fab4-4aa4-965c-5373e2db6c1f",
+        "manufacturer": "Texas Instruments",
+        "model": "SM200",
+        "firmware": "v3.2"
+    },
+    {
+        "sensor_id": "cc1cb0b1-4868-46f0-9433-49a08262c216",
+        "sensor_type": "SoilMoisture",
+        "point_coordinates": [
+            28.15204291764706,
+            46.627476635294116
+        ],
+        "parcel_id": "Grapevine#4c68324f-fab4-4aa4-965c-5373e2db6c1f",
+        "manufacturer": "Bosch",
+        "model": "SM10",
+        "firmware": "v3.0"
+    },
+    {
+        "sensor_id": "6f7da27e-1be4-4c1c-8f5c-8fd859d121a9",
+        "sensor_type": "Humidity",
+        "point_coordinates": [
+            28.12861118235294,
+            46.62871356470588
+        ],
+        "parcel_id": "Chickpeas#4808e5c6-0350-421d-94ca-09ca2cfc44e0",
+        "manufacturer": "Panasonic",
+        "model": "HC2-H-DC",
+        "firmware": "v4.1"
+    },
+    {
+        "sensor_id": "719936f3-e969-4433-b9c7-42eb036a7f52",
+        "sensor_type": "Temperature",
+        "point_coordinates": [
+            28.13041362352941,
+            46.62871356470588
+        ],
+        "parcel_id": "Chickpeas#4808e5c6-0350-421d-94ca-09ca2cfc44e0",
+        "manufacturer": "Honeywell",
+        "model": "T10",
+        "firmware": "v1.2"
+    },
+    {
+        "sensor_id": "95ab2f20-4d17-4784-a43f-245fc1b782fc",
+        "sensor_type": "Humidity",
+        "point_coordinates": [
+            28.132216064705883,
+            46.62871356470588
+        ],
+        "parcel_id": "Chickpeas#4808e5c6-0350-421d-94ca-09ca2cfc44e0",
+        "manufacturer": "Panasonic",
+        "model": "HC2-H-DC",
+        "firmware": "v4.1"
+    },
+    {
+        "sensor_id": "eaa1caaa-e281-45a7-b879-12e55f1939d3",
+        "sensor_type": "Light",
+        "point_coordinates": [
+            28.134018505882352,
+            46.62871356470588
+        ],
+        "parcel_id": "Chickpeas#4808e5c6-0350-421d-94ca-09ca2cfc44e0",
+        "manufacturer": "Osram",
+        "model": "LX1",
+        "firmware": "v2.3"
+    },
+    {
+        "sensor_id": "642a6e57-18d0-4fd5-93c4-63def430fb3f",
+        "sensor_type": "SoilPH",
+        "point_coordinates": [
+            28.13582094705882,
+            46.62871356470588
+        ],
+        "parcel_id": "Chickpeas#4808e5c6-0350-421d-94ca-09ca2cfc44e0",
+        "manufacturer": "Hanna Instruments",
+        "model": "HI98103",
+        "firmware": "v6.1"
+    },
+    {
+        "sensor_id": "93e637cc-50cc-4e3e-950f-5a75b2687d44",
+        "sensor_type": "Light",
+        "point_coordinates": [
+            28.137623388235294,
+            46.62871356470588
+        ],
+        "parcel_id": "Chickpeas#4808e5c6-0350-421d-94ca-09ca2cfc44e0",
+        "manufacturer": "Osram",
+        "model": "LX1",
+        "firmware": "v2.3"
+    },
+    {
+        "sensor_id": "7894434e-367a-4399-961a-fbfab41e4462",
+        "sensor_type": "Light",
+        "point_coordinates": [
+            28.139425829411763,
+            46.62871356470588
+        ],
+        "parcel_id": "Grapevine#75aa8aa3-c073-49d6-a1f0-1a1905734585",
+        "manufacturer": "Philips",
+        "model": "L200",
+        "firmware": "v2.1"
+    },
+    {
+        "sensor_id": "7e349292-aac3-4ed7-859a-c14b8704ac43",
+        "sensor_type": "SoilPH",
+        "point_coordinates": [
+            28.141228270588236,
+            46.62871356470588
+        ],
+        "parcel_id": "Grapevine#75aa8aa3-c073-49d6-a1f0-1a1905734585",
+        "manufacturer": "Hanna Instruments",
+        "model": "HI98103",
+        "firmware": "v6.1"
+    },
+    {
+        "sensor_id": "d96f484f-d093-4e55-90c7-fd7ac7c0a283",
+        "sensor_type": "SoilMoisture",
+        "point_coordinates": [
+            28.143030711764705,
+            46.62871356470588
+        ],
+        "parcel_id": "Grapevine#75aa8aa3-c073-49d6-a1f0-1a1905734585",
+        "manufacturer": "Texas Instruments",
+        "model": "SM200",
+        "firmware": "v3.2"
+    },
+    {
+        "sensor_id": "e804ab75-42b8-4b6f-bdfa-99612f15b2cc",
+        "sensor_type": "SoilPH",
+        "point_coordinates": [
+            28.144833152941178,
+            46.62871356470588
+        ],
+        "parcel_id": "Grapevine#75aa8aa3-c073-49d6-a1f0-1a1905734585",
+        "manufacturer": "Atlas Scientific",
+        "model": "PH10",
+        "firmware": "v6.0"
+    },
+    {
+        "sensor_id": "61a1060d-290b-4352-b241-40cebc1d7ecc",
+        "sensor_type": "SoilMoisture",
+        "point_coordinates": [
+            28.146635594117647,
+            46.62871356470588
+        ],
+        "parcel_id": "Chickpeas#b35799e2-0ac7-49b2-9355-f580dc7d3e27",
+        "manufacturer": "Texas Instruments",
+        "model": "SM200",
+        "firmware": "v3.2"
+    },
+    {
+        "sensor_id": "428530cf-5f88-4bf5-9d09-22d7bdfc82f5",
+        "sensor_type": "Rain",
+        "point_coordinates": [
+            28.148438035294117,
+            46.62871356470588
+        ],
+        "parcel_id": "Chickpeas#b35799e2-0ac7-49b2-9355-f580dc7d3e27",
+        "manufacturer": "La Crosse Technology",
+        "model": "Rain200",
+        "firmware": "v5.1"
+    },
+    {
+        "sensor_id": "38641b7f-b639-440a-bc88-7bb4e9c71e1f",
+        "sensor_type": "SoilMoisture",
+        "point_coordinates": [
+            28.15024047647059,
+            46.62871356470588
+        ],
+        "parcel_id": "Chickpeas#b35799e2-0ac7-49b2-9355-f580dc7d3e27",
+        "manufacturer": "Texas Instruments",
+        "model": "SM200",
+        "firmware": "v3.2"
+    },
+    {
+        "sensor_id": "3f211861-19a4-44a5-bb57-e791941e0f49",
+        "sensor_type": "Temperature",
+        "point_coordinates": [
+            28.12861118235294,
+            46.629950494117644
+        ],
+        "parcel_id": "Grapevine#39208447-74d8-4c3b-841f-2e598df9f1e3",
+        "manufacturer": "Siemens",
+        "model": "TH100",
+        "firmware": "v1.3"
+    },
+    {
+        "sensor_id": "d0002281-dabb-4c33-b210-d59700e2b6fc",
+        "sensor_type": "SoilMoisture",
+        "point_coordinates": [
+            28.13041362352941,
+            46.629950494117644
+        ],
+        "parcel_id": "Grapevine#39208447-74d8-4c3b-841f-2e598df9f1e3",
+        "manufacturer": "Bosch",
+        "model": "SM10",
+        "firmware": "v3.0"
+    },
+    {
+        "sensor_id": "e44db44c-1a28-4d58-aebe-aa7563a7738e",
+        "sensor_type": "Rain",
+        "point_coordinates": [
+            28.132216064705883,
+            46.629950494117644
+        ],
+        "parcel_id": "Chickpeas#4808e5c6-0350-421d-94ca-09ca2cfc44e0",
+        "manufacturer": "La Crosse Technology",
+        "model": "Rain200",
+        "firmware": "v5.1"
+    },
+    {
+        "sensor_id": "1fce69e0-ef54-411e-863c-55cb2a25fd42",
+        "sensor_type": "Humidity",
+        "point_coordinates": [
+            28.134018505882352,
+            46.629950494117644
+        ],
+        "parcel_id": "Chickpeas#4808e5c6-0350-421d-94ca-09ca2cfc44e0",
+        "manufacturer": "Sensirion",
+        "model": "SHT31",
+        "firmware": "v4.0"
+    },
+    {
+        "sensor_id": "4f71d4cf-e1a4-4e64-a9c5-b5c2c962acff",
+        "sensor_type": "Temperature",
+        "point_coordinates": [
+            28.13582094705882,
+            46.629950494117644
+        ],
+        "parcel_id": "Chickpeas#4808e5c6-0350-421d-94ca-09ca2cfc44e0",
+        "manufacturer": "Siemens",
+        "model": "TH100",
+        "firmware": "v1.3"
+    },
+    {
+        "sensor_id": "8394e3d8-243e-4fc1-9cca-f262f25a4096",
+        "sensor_type": "SoilMoisture",
+        "point_coordinates": [
+            28.137623388235294,
+            46.629950494117644
+        ],
+        "parcel_id": "Chickpeas#4808e5c6-0350-421d-94ca-09ca2cfc44e0",
+        "manufacturer": "Texas Instruments",
+        "model": "SM200",
+        "firmware": "v3.2"
+    },
+    {
+        "sensor_id": "6a1cea76-aa90-45d6-ba34-825fe8917173",
+        "sensor_type": "SoilMoisture",
+        "point_coordinates": [
+            28.139425829411763,
+            46.629950494117644
+        ],
+        "parcel_id": "Chickpeas#4808e5c6-0350-421d-94ca-09ca2cfc44e0",
+        "manufacturer": "Bosch",
+        "model": "SM10",
+        "firmware": "v3.0"
+    },
+    {
+        "sensor_id": "6999af6f-ca9a-4ee2-b87d-744b6d2ecaf7",
+        "sensor_type": "Temperature",
+        "point_coordinates": [
+            28.141228270588236,
+            46.629950494117644
+        ],
+        "parcel_id": "Chickpeas#4808e5c6-0350-421d-94ca-09ca2cfc44e0",
+        "manufacturer": "Honeywell",
+        "model": "T10",
+        "firmware": "v1.2"
+    },
+    {
+        "sensor_id": "f9f9f0ab-4697-4add-bc47-c88adf4cabae",
+        "sensor_type": "Light",
+        "point_coordinates": [
+            28.143030711764705,
+            46.629950494117644
+        ],
+        "parcel_id": "Chickpeas#4808e5c6-0350-421d-94ca-09ca2cfc44e0",
+        "manufacturer": "Philips",
+        "model": "L200",
+        "firmware": "v2.1"
+    },
+    {
+        "sensor_id": "861f6362-9674-4808-9c03-1ad0928ccdb2",
+        "sensor_type": "Light",
+        "point_coordinates": [
+            28.144833152941178,
+            46.629950494117644
+        ],
+        "parcel_id": "Grapevine#75aa8aa3-c073-49d6-a1f0-1a1905734585",
+        "manufacturer": "Osram",
+        "model": "LX1",
+        "firmware": "v2.3"
+    },
+    {
+        "sensor_id": "dc9dd3ea-b39d-4bef-81e9-75fc060eb132",
+        "sensor_type": "Humidity",
+        "point_coordinates": [
+            28.146635594117647,
+            46.629950494117644
+        ],
+        "parcel_id": "Grapevine#75aa8aa3-c073-49d6-a1f0-1a1905734585",
+        "manufacturer": "Panasonic",
+        "model": "HC2-H-DC",
+        "firmware": "v4.1"
+    },
+    {
+        "sensor_id": "b412016a-8f6f-4d4c-b698-cc61eacfb84a",
+        "sensor_type": "Rain",
+        "point_coordinates": [
+            28.148438035294117,
+            46.629950494117644
+        ],
+        "parcel_id": "Grapevine#75aa8aa3-c073-49d6-a1f0-1a1905734585",
+        "manufacturer": "La Crosse Technology",
+        "model": "Rain200",
+        "firmware": "v5.1"
+    },
+    {
+        "sensor_id": "464ff17a-8786-4aa4-a0f5-cbadb2ee4439",
+        "sensor_type": "SoilPH",
+        "point_coordinates": [
+            28.15024047647059,
+            46.629950494117644
+        ],
+        "parcel_id": "Grapevine#75aa8aa3-c073-49d6-a1f0-1a1905734585",
+        "manufacturer": "Atlas Scientific",
+        "model": "PH10",
+        "firmware": "v6.0"
+    },
+    {
+        "sensor_id": "9495f6ea-1fee-4001-8158-f1dde9470bcf",
+        "sensor_type": "Humidity",
+        "point_coordinates": [
+            28.12680874117647,
+            46.63118742352941
+        ],
+        "parcel_id": "Chickpeas#6d662a6b-2587-4276-8494-55e40b21dddf",
+        "manufacturer": "Sensirion",
+        "model": "SHT31",
+        "firmware": "v4.0"
+    },
+    {
+        "sensor_id": "5f667220-1f88-4a94-9fea-2483a741dc86",
+        "sensor_type": "SoilPH",
+        "point_coordinates": [
+            28.12861118235294,
+            46.63118742352941
+        ],
+        "parcel_id": "Grapevine#39208447-74d8-4c3b-841f-2e598df9f1e3",
+        "manufacturer": "Hanna Instruments",
+        "model": "HI98103",
+        "firmware": "v6.1"
+    },
+    {
+        "sensor_id": "9bde2354-4b30-4c55-8af3-920af1080de7",
+        "sensor_type": "SoilPH",
+        "point_coordinates": [
+            28.13041362352941,
+            46.63118742352941
+        ],
+        "parcel_id": "Grapevine#39208447-74d8-4c3b-841f-2e598df9f1e3",
+        "manufacturer": "Hanna Instruments",
+        "model": "HI98103",
+        "firmware": "v6.1"
+    },
+    {
+        "sensor_id": "a7b33a26-31fc-408a-8d18-f26c6cd87119",
+        "sensor_type": "Light",
+        "point_coordinates": [
+            28.132216064705883,
+            46.63118742352941
+        ],
+        "parcel_id": "Grapevine#39208447-74d8-4c3b-841f-2e598df9f1e3",
+        "manufacturer": "Philips",
+        "model": "L200",
+        "firmware": "v2.1"
+    },
+    {
+        "sensor_id": "ed003bce-e51f-40b3-bb76-8b49657d2762",
+        "sensor_type": "Temperature",
+        "point_coordinates": [
+            28.134018505882352,
+            46.63118742352941
+        ],
+        "parcel_id": "Grapevine#39208447-74d8-4c3b-841f-2e598df9f1e3",
+        "manufacturer": "Honeywell",
+        "model": "T10",
+        "firmware": "v1.2"
+    },
+    {
+        "sensor_id": "2c7947c1-d9a5-4dc6-81a7-9659b4851c70",
+        "sensor_type": "Rain",
+        "point_coordinates": [
+            28.13582094705882,
+            46.63118742352941
+        ],
+        "parcel_id": "Grapevine#39208447-74d8-4c3b-841f-2e598df9f1e3",
+        "manufacturer": "Davis Instruments",
+        "model": "R1",
+        "firmware": "v5.0"
+    },
+    {
+        "sensor_id": "da1bf845-5f8d-4622-b265-835eb044dbbc",
+        "sensor_type": "Rain",
+        "point_coordinates": [
+            28.137623388235294,
+            46.63118742352941
+        ],
+        "parcel_id": "Chickpeas#4808e5c6-0350-421d-94ca-09ca2cfc44e0",
+        "manufacturer": "Davis Instruments",
+        "model": "R1",
+        "firmware": "v5.0"
+    },
+    {
+        "sensor_id": "21c34583-4c05-4701-a6df-ecbcb6008a8a",
+        "sensor_type": "SoilMoisture",
+        "point_coordinates": [
+            28.139425829411763,
+            46.63118742352941
+        ],
+        "parcel_id": "Chickpeas#4808e5c6-0350-421d-94ca-09ca2cfc44e0",
+        "manufacturer": "Texas Instruments",
+        "model": "SM200",
+        "firmware": "v3.2"
+    },
+    {
+        "sensor_id": "c146908e-2650-4f5a-b04a-3a87dfeda6da",
+        "sensor_type": "Rain",
+        "point_coordinates": [
+            28.141228270588236,
+            46.63118742352941
+        ],
+        "parcel_id": "Chickpeas#4808e5c6-0350-421d-94ca-09ca2cfc44e0",
+        "manufacturer": "La Crosse Technology",
+        "model": "Rain200",
+        "firmware": "v5.1"
+    },
+    {
+        "sensor_id": "99d36ca6-27f2-47a3-9ba4-04d34980a798",
+        "sensor_type": "Temperature",
+        "point_coordinates": [
+            28.143030711764705,
+            46.63118742352941
+        ],
+        "parcel_id": "Chickpeas#4808e5c6-0350-421d-94ca-09ca2cfc44e0",
+        "manufacturer": "Siemens",
+        "model": "TH100",
+        "firmware": "v1.3"
+    },
+    {
+        "sensor_id": "057e0d19-d4b0-4180-bbd8-f8f87fa8b94c",
+        "sensor_type": "Humidity",
+        "point_coordinates": [
+            28.144833152941178,
+            46.63118742352941
+        ],
+        "parcel_id": "Chickpeas#4808e5c6-0350-421d-94ca-09ca2cfc44e0",
+        "manufacturer": "Panasonic",
+        "model": "HC2-H-DC",
+        "firmware": "v4.1"
+    },
+    {
+        "sensor_id": "73e914f4-98a1-40bc-9c38-dcde06ecb8ef",
+        "sensor_type": "Humidity",
+        "point_coordinates": [
+            28.146635594117647,
+            46.63118742352941
+        ],
+        "parcel_id": "Chickpeas#4808e5c6-0350-421d-94ca-09ca2cfc44e0",
+        "manufacturer": "Panasonic",
+        "model": "HC2-H-DC",
+        "firmware": "v4.1"
+    },
+    {
+        "sensor_id": "09c269ba-4253-40f8-9b3f-7ae24612bb59",
+        "sensor_type": "Light",
+        "point_coordinates": [
+            28.148438035294117,
+            46.63118742352941
+        ],
+        "parcel_id": "Grapevine#75aa8aa3-c073-49d6-a1f0-1a1905734585",
+        "manufacturer": "Osram",
+        "model": "LX1",
+        "firmware": "v2.3"
+    },
+    {
+        "sensor_id": "e1bbd612-34c7-4c8a-ad61-dce9fed4840e",
+        "sensor_type": "Humidity",
+        "point_coordinates": [
+            28.15024047647059,
+            46.63118742352941
+        ],
+        "parcel_id": "Grapevine#75aa8aa3-c073-49d6-a1f0-1a1905734585",
+        "manufacturer": "Sensirion",
+        "model": "SHT31",
+        "firmware": "v4.0"
+    },
+    {
+        "sensor_id": "b7dd1424-8fb0-45bc-8623-7fb37386261d",
+        "sensor_type": "SoilMoisture",
+        "point_coordinates": [
+            28.12680874117647,
+            46.63242435294118
+        ],
+        "parcel_id": "Chickpeas#6d662a6b-2587-4276-8494-55e40b21dddf",
+        "manufacturer": "Texas Instruments",
+        "model": "SM200",
+        "firmware": "v3.2"
+    },
+    {
+        "sensor_id": "f349915d-edd1-4fa2-9692-840f16954122",
+        "sensor_type": "SoilMoisture",
+        "point_coordinates": [
+            28.12861118235294,
+            46.63242435294118
+        ],
+        "parcel_id": "Chickpeas#6d662a6b-2587-4276-8494-55e40b21dddf",
+        "manufacturer": "Texas Instruments",
+        "model": "SM200",
+        "firmware": "v3.2"
+    },
+    {
+        "sensor_id": "3a9474fe-8d50-4916-967c-0020555e8738",
+        "sensor_type": "SoilPH",
+        "point_coordinates": [
+            28.13041362352941,
+            46.63242435294118
+        ],
+        "parcel_id": "Chickpeas#6d662a6b-2587-4276-8494-55e40b21dddf",
+        "manufacturer": "Hanna Instruments",
+        "model": "HI98103",
+        "firmware": "v6.1"
+    },
+    {
+        "sensor_id": "5280dbc4-4e74-424f-b67c-b6783423e197",
+        "sensor_type": "Light",
+        "point_coordinates": [
+            28.132216064705883,
+            46.63242435294118
+        ],
+        "parcel_id": "Chickpeas#6d662a6b-2587-4276-8494-55e40b21dddf",
+        "manufacturer": "Osram",
+        "model": "LX1",
+        "firmware": "v2.3"
+    },
+    {
+        "sensor_id": "c94a702f-70b2-49bc-aca9-9a3eeb4d55f4",
+        "sensor_type": "Temperature",
+        "point_coordinates": [
+            28.134018505882352,
+            46.63242435294118
+        ],
+        "parcel_id": "Grapevine#39208447-74d8-4c3b-841f-2e598df9f1e3",
+        "manufacturer": "Siemens",
+        "model": "TH100",
+        "firmware": "v1.3"
+    },
+    {
+        "sensor_id": "51dd7809-b43c-4dbd-b316-c27d5ab44540",
+        "sensor_type": "SoilMoisture",
+        "point_coordinates": [
+            28.13582094705882,
+            46.63242435294118
+        ],
+        "parcel_id": "Grapevine#39208447-74d8-4c3b-841f-2e598df9f1e3",
+        "manufacturer": "Texas Instruments",
+        "model": "SM200",
+        "firmware": "v3.2"
+    },
+    {
+        "sensor_id": "d2c37b60-68a6-4fe6-a40e-c34c7a638325",
+        "sensor_type": "Humidity",
+        "point_coordinates": [
+            28.137623388235294,
+            46.63242435294118
+        ],
+        "parcel_id": "Grapevine#39208447-74d8-4c3b-841f-2e598df9f1e3",
+        "manufacturer": "Sensirion",
+        "model": "SHT31",
+        "firmware": "v4.0"
+    },
+    {
+        "sensor_id": "1291ebea-b621-4fa4-8df3-d61083ab172c",
+        "sensor_type": "Humidity",
+        "point_coordinates": [
+            28.139425829411763,
+            46.63242435294118
+        ],
+        "parcel_id": "Grapevine#39208447-74d8-4c3b-841f-2e598df9f1e3",
+        "manufacturer": "Panasonic",
+        "model": "HC2-H-DC",
+        "firmware": "v4.1"
+    },
+    {
+        "sensor_id": "1b168e9e-9a22-4c76-b2c6-be7d99e4928e",
+        "sensor_type": "Temperature",
+        "point_coordinates": [
+            28.141228270588236,
+            46.63242435294118
+        ],
+        "parcel_id": "Grapevine#39208447-74d8-4c3b-841f-2e598df9f1e3",
+        "manufacturer": "Siemens",
+        "model": "TH100",
+        "firmware": "v1.3"
+    },
+    {
+        "sensor_id": "f75a38f8-e6d9-4e4d-9256-7942ce864fa1",
+        "sensor_type": "Light",
+        "point_coordinates": [
+            28.143030711764705,
+            46.63242435294118
+        ],
+        "parcel_id": "Chickpeas#4808e5c6-0350-421d-94ca-09ca2cfc44e0",
+        "manufacturer": "Philips",
+        "model": "L200",
+        "firmware": "v2.1"
+    },
+    {
+        "sensor_id": "b7808cf3-e4bb-47ef-9417-05fd2dba14b5",
+        "sensor_type": "Rain",
+        "point_coordinates": [
+            28.144833152941178,
+            46.63242435294118
+        ],
+        "parcel_id": "Chickpeas#4808e5c6-0350-421d-94ca-09ca2cfc44e0",
+        "manufacturer": "Davis Instruments",
+        "model": "R1",
+        "firmware": "v5.0"
+    },
+    {
+        "sensor_id": "448583ab-b6ea-43d4-b7e8-898c5ecc5a34",
+        "sensor_type": "Humidity",
+        "point_coordinates": [
+            28.146635594117647,
+            46.63242435294118
+        ],
+        "parcel_id": "Chickpeas#4808e5c6-0350-421d-94ca-09ca2cfc44e0",
+        "manufacturer": "Panasonic",
+        "model": "HC2-H-DC",
+        "firmware": "v4.1"
+    },
+    {
+        "sensor_id": "011cc668-b00e-4a76-8474-1da374e9c7c7",
+        "sensor_type": "SoilMoisture",
+        "point_coordinates": [
+            28.148438035294117,
+            46.63242435294118
+        ],
+        "parcel_id": "Chickpeas#4808e5c6-0350-421d-94ca-09ca2cfc44e0",
+        "manufacturer": "Bosch",
+        "model": "SM10",
+        "firmware": "v3.0"
+    },
+    {
+        "sensor_id": "69fd190a-8bd4-450c-8161-263b4212dcbe",
+        "sensor_type": "Light",
+        "point_coordinates": [
+            28.12680874117647,
+            46.63366128235294
+        ],
+        "parcel_id": "Chickpeas#6d662a6b-2587-4276-8494-55e40b21dddf",
+        "manufacturer": "Osram",
+        "model": "LX1",
+        "firmware": "v2.3"
+    },
+    {
+        "sensor_id": "7a1bdf4c-d673-45dc-886b-71f3119cd7d2",
+        "sensor_type": "SoilMoisture",
+        "point_coordinates": [
+            28.12861118235294,
+            46.63366128235294
+        ],
+        "parcel_id": "Chickpeas#6d662a6b-2587-4276-8494-55e40b21dddf",
+        "manufacturer": "Bosch",
+        "model": "SM10",
+        "firmware": "v3.0"
+    },
+    {
+        "sensor_id": "19062ebf-ee80-416c-be8f-17fd1b34156e",
+        "sensor_type": "SoilPH",
+        "point_coordinates": [
+            28.13041362352941,
+            46.63366128235294
+        ],
+        "parcel_id": "Chickpeas#6d662a6b-2587-4276-8494-55e40b21dddf",
+        "manufacturer": "Hanna Instruments",
+        "model": "HI98103",
+        "firmware": "v6.1"
+    },
+    {
+        "sensor_id": "2232f872-97ae-4313-9f9d-838c5d54376a",
+        "sensor_type": "SoilMoisture",
+        "point_coordinates": [
+            28.132216064705883,
+            46.63366128235294
+        ],
+        "parcel_id": "Chickpeas#6d662a6b-2587-4276-8494-55e40b21dddf",
+        "manufacturer": "Texas Instruments",
+        "model": "SM200",
+        "firmware": "v3.2"
+    },
+    {
+        "sensor_id": "537fa89c-a3d1-4d31-b43c-88322968aaf0",
+        "sensor_type": "Humidity",
+        "point_coordinates": [
+            28.134018505882352,
+            46.63366128235294
+        ],
+        "parcel_id": "Chickpeas#6d662a6b-2587-4276-8494-55e40b21dddf",
+        "manufacturer": "Sensirion",
+        "model": "SHT31",
+        "firmware": "v4.0"
+    },
+    {
+        "sensor_id": "6415ff74-47d4-4bf4-b95d-831894764f1a",
+        "sensor_type": "Light",
+        "point_coordinates": [
+            28.13582094705882,
+            46.63366128235294
+        ],
+        "parcel_id": "Chickpeas#6d662a6b-2587-4276-8494-55e40b21dddf",
+        "manufacturer": "Osram",
+        "model": "LX1",
+        "firmware": "v2.3"
+    },
+    {
+        "sensor_id": "8ad3910d-ca92-4418-a52f-15aa6117ae18",
+        "sensor_type": "SoilPH",
+        "point_coordinates": [
+            28.137623388235294,
+            46.63366128235294
+        ],
+        "parcel_id": "Chickpeas#6d662a6b-2587-4276-8494-55e40b21dddf",
+        "manufacturer": "Atlas Scientific",
+        "model": "PH10",
+        "firmware": "v6.0"
+    },
+    {
+        "sensor_id": "32e9c853-ee83-4dc0-83aa-23ea347d70ea",
+        "sensor_type": "Temperature",
+        "point_coordinates": [
+            28.139425829411763,
+            46.63366128235294
+        ],
+        "parcel_id": "Grapevine#39208447-74d8-4c3b-841f-2e598df9f1e3",
+        "manufacturer": "Honeywell",
+        "model": "T10",
+        "firmware": "v1.2"
+    },
+    {
+        "sensor_id": "ad15b2cd-c3be-44cc-a43a-d4f5baece538",
+        "sensor_type": "Light",
+        "point_coordinates": [
+            28.141228270588236,
+            46.63366128235294
+        ],
+        "parcel_id": "Grapevine#39208447-74d8-4c3b-841f-2e598df9f1e3",
+        "manufacturer": "Philips",
+        "model": "L200",
+        "firmware": "v2.1"
+    },
+    {
+        "sensor_id": "95ad24e8-447e-4a8f-a37d-cdaae9dbc745",
+        "sensor_type": "Light",
+        "point_coordinates": [
+            28.143030711764705,
+            46.63366128235294
+        ],
+        "parcel_id": "Grapevine#39208447-74d8-4c3b-841f-2e598df9f1e3",
+        "manufacturer": "Philips",
+        "model": "L200",
+        "firmware": "v2.1"
+    },
+    {
+        "sensor_id": "1a240c48-5713-4eea-8d45-9cd37a2d720d",
+        "sensor_type": "Humidity",
+        "point_coordinates": [
+            28.144833152941178,
+            46.63366128235294
+        ],
+        "parcel_id": "Grapevine#39208447-74d8-4c3b-841f-2e598df9f1e3",
+        "manufacturer": "Panasonic",
+        "model": "HC2-H-DC",
+        "firmware": "v4.1"
+    },
+    {
+        "sensor_id": "e344e4bc-3b53-4129-9baf-d2fc8b6bd281",
+        "sensor_type": "Light",
+        "point_coordinates": [
+            28.146635594117647,
+            46.63366128235294
+        ],
+        "parcel_id": "Grapevine#39208447-74d8-4c3b-841f-2e598df9f1e3",
+        "manufacturer": "Osram",
+        "model": "LX1",
+        "firmware": "v2.3"
+    },
+    {
+        "sensor_id": "dda48e67-ede4-4dae-8b05-ac8454f02c1b",
+        "sensor_type": "SoilMoisture",
+        "point_coordinates": [
+            28.148438035294117,
+            46.63366128235294
+        ],
+        "parcel_id": "Chickpeas#4808e5c6-0350-421d-94ca-09ca2cfc44e0",
+        "manufacturer": "Bosch",
+        "model": "SM10",
+        "firmware": "v3.0"
+    },
+    {
+        "sensor_id": "a4b45620-903c-4d91-b24c-05ff70a9ca22",
+        "sensor_type": "SoilPH",
+        "point_coordinates": [
+            28.132216064705883,
+            46.63489821176471
+        ],
+        "parcel_id": "Chickpeas#6d662a6b-2587-4276-8494-55e40b21dddf",
+        "manufacturer": "Hanna Instruments",
+        "model": "HI98103",
+        "firmware": "v6.1"
+    },
+    {
+        "sensor_id": "57fda292-d05c-4a41-88a6-15831a5ba0c9",
+        "sensor_type": "SoilMoisture",
+        "point_coordinates": [
+            28.134018505882352,
+            46.63489821176471
+        ],
+        "parcel_id": "Chickpeas#6d662a6b-2587-4276-8494-55e40b21dddf",
+        "manufacturer": "Texas Instruments",
+        "model": "SM200",
+        "firmware": "v3.2"
+    },
+    {
+        "sensor_id": "5cce2d8d-586d-43bd-97ea-c2498cd68b59",
+        "sensor_type": "Rain",
+        "point_coordinates": [
+            28.13582094705882,
+            46.63489821176471
+        ],
+        "parcel_id": "Chickpeas#6d662a6b-2587-4276-8494-55e40b21dddf",
+        "manufacturer": "Davis Instruments",
+        "model": "R1",
+        "firmware": "v5.0"
+    },
+    {
+        "sensor_id": "f3b93cf1-ff33-45d6-b2ec-a88562de6492",
+        "sensor_type": "SoilPH",
+        "point_coordinates": [
+            28.137623388235294,
+            46.63489821176471
+        ],
+        "parcel_id": "Chickpeas#6d662a6b-2587-4276-8494-55e40b21dddf",
+        "manufacturer": "Atlas Scientific",
+        "model": "PH10",
+        "firmware": "v6.0"
+    },
+    {
+        "sensor_id": "83328838-5449-473a-83e8-8ec5bf39a93b",
+        "sensor_type": "Rain",
+        "point_coordinates": [
+            28.139425829411763,
+            46.63489821176471
+        ],
+        "parcel_id": "Chickpeas#6d662a6b-2587-4276-8494-55e40b21dddf",
+        "manufacturer": "Davis Instruments",
+        "model": "R1",
+        "firmware": "v5.0"
+    },
+    {
+        "sensor_id": "e201a100-613f-43cd-8d75-36c5480fbc61",
+        "sensor_type": "Temperature",
+        "point_coordinates": [
+            28.141228270588236,
+            46.63489821176471
+        ],
+        "parcel_id": "Chickpeas#6d662a6b-2587-4276-8494-55e40b21dddf",
+        "manufacturer": "Siemens",
+        "model": "TH100",
+        "firmware": "v1.3"
+    },
+    {
+        "sensor_id": "3d9c5e18-df0d-4bf7-b68f-a29a8383056f",
+        "sensor_type": "Light",
+        "point_coordinates": [
+            28.143030711764705,
+            46.63489821176471
+        ],
+        "parcel_id": "Grapevine#39208447-74d8-4c3b-841f-2e598df9f1e3",
+        "manufacturer": "Philips",
+        "model": "L200",
+        "firmware": "v2.1"
+    },
+    {
+        "sensor_id": "55100056-d709-4fc7-ba51-ed3a19fd386d",
+        "sensor_type": "Temperature",
+        "point_coordinates": [
+            28.144833152941178,
+            46.63489821176471
+        ],
+        "parcel_id": "Grapevine#39208447-74d8-4c3b-841f-2e598df9f1e3",
+        "manufacturer": "Honeywell",
+        "model": "T10",
+        "firmware": "v1.2"
+    },
+    {
+        "sensor_id": "63639858-5be8-45e3-8feb-ef5d65e8ad01",
+        "sensor_type": "SoilPH",
+        "point_coordinates": [
+            28.146635594117647,
+            46.63489821176471
+        ],
+        "parcel_id": "Grapevine#39208447-74d8-4c3b-841f-2e598df9f1e3",
+        "manufacturer": "Atlas Scientific",
+        "model": "PH10",
+        "firmware": "v6.0"
+    },
+    {
+        "sensor_id": "e9859cf8-9e3a-4994-a535-b5abb485fd7e",
+        "sensor_type": "Light",
+        "point_coordinates": [
+            28.13582094705882,
+            46.636135141176474
+        ],
+        "parcel_id": "Chickpeas#6d662a6b-2587-4276-8494-55e40b21dddf",
+        "manufacturer": "Philips",
+        "model": "L200",
+        "firmware": "v2.1"
+    },
+    {
+        "sensor_id": "7da1a551-4bbc-4c9c-b4f0-84d0212b9ce1",
+        "sensor_type": "Temperature",
+        "point_coordinates": [
+            28.137623388235294,
+            46.636135141176474
+        ],
+        "parcel_id": "Chickpeas#6d662a6b-2587-4276-8494-55e40b21dddf",
+        "manufacturer": "Honeywell",
+        "model": "T10",
+        "firmware": "v1.2"
+    },
+    {
+        "sensor_id": "1860d07c-ba47-4eb1-a516-e39ced244403",
+        "sensor_type": "Humidity",
+        "point_coordinates": [
+            28.139425829411763,
+            46.636135141176474
+        ],
+        "parcel_id": "Chickpeas#6d662a6b-2587-4276-8494-55e40b21dddf",
+        "manufacturer": "Sensirion",
+        "model": "SHT31",
+        "firmware": "v4.0"
+    },
+    {
+        "sensor_id": "2afe1d3e-c9f2-4224-91cb-353eb9bccc32",
+        "sensor_type": "Light",
+        "point_coordinates": [
+            28.141228270588236,
+            46.636135141176474
+        ],
+        "parcel_id": "Chickpeas#6d662a6b-2587-4276-8494-55e40b21dddf",
+        "manufacturer": "Philips",
+        "model": "L200",
+        "firmware": "v2.1"
+    },
+    {
+        "sensor_id": "d760c595-b0f4-4769-b173-33447e5de341",
+        "sensor_type": "Light",
+        "point_coordinates": [
+            28.143030711764705,
+            46.636135141176474
+        ],
+        "parcel_id": "Chickpeas#6d662a6b-2587-4276-8494-55e40b21dddf",
+        "manufacturer": "Osram",
+        "model": "LX1",
+        "firmware": "v2.3"
+    },
+    {
+        "sensor_id": "b2bb2b9d-3650-46f4-b074-bc34458592b4",
+        "sensor_type": "Temperature",
+        "point_coordinates": [
+            28.144833152941178,
+            46.636135141176474
+        ],
+        "parcel_id": "Chickpeas#6d662a6b-2587-4276-8494-55e40b21dddf",
+        "manufacturer": "Honeywell",
+        "model": "T10",
+        "firmware": "v1.2"
+    },
+    {
+        "sensor_id": "b8243286-ac22-4175-97c8-dcc9ec391343",
+        "sensor_type": "Rain",
+        "point_coordinates": [
+            28.146635594117647,
+            46.636135141176474
+        ],
+        "parcel_id": "Chickpeas#6d662a6b-2587-4276-8494-55e40b21dddf",
+        "manufacturer": "La Crosse Technology",
+        "model": "Rain200",
+        "firmware": "v5.1"
+    },
+    {
+        "sensor_id": "c635037b-af91-477a-839a-9d73158def20",
+        "sensor_type": "Humidity",
+        "point_coordinates": [
+            28.141228270588236,
+            46.637372070588235
+        ],
+        "parcel_id": "Chickpeas#6d662a6b-2587-4276-8494-55e40b21dddf",
+        "manufacturer": "Sensirion",
+        "model": "SHT31",
+        "firmware": "v4.0"
+    },
+    {
+        "sensor_id": "7dc40c57-7291-4365-a010-3c79a71c200d",
+        "sensor_type": "Humidity",
+        "point_coordinates": [
+            28.143030711764705,
+            46.637372070588235
+        ],
+        "parcel_id": "Chickpeas#6d662a6b-2587-4276-8494-55e40b21dddf",
+        "manufacturer": "Sensirion",
+        "model": "SHT31",
+        "firmware": "v4.0"
+    },
+    {
+        "sensor_id": "b13a98f8-b384-47ea-adf0-7cf7d365df93",
+        "sensor_type": "SoilPH",
+        "point_coordinates": [
+            28.144833152941178,
+            46.637372070588235
+        ],
+        "parcel_id": "Chickpeas#6d662a6b-2587-4276-8494-55e40b21dddf",
+        "manufacturer": "Atlas Scientific",
+        "model": "PH10",
+        "firmware": "v6.0"
     }
 ]

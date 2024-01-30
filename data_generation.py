@@ -12,7 +12,7 @@ def main():
     # Generate users
     users_with_roles = generate_user_data()
     # Split the polygon into parcels and assign to crop types randomly
-    crop_assignment = split_in_parcels(polygon, split_points)
+    crop_assignment = split_in_parcels()
     #Create  map with the polygon
     map_with_polygon = create_map_with_polygon(coordinates)
     map_with_polygon.save("maps/map_with_polygon.html")
