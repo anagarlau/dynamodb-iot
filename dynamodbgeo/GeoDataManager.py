@@ -35,17 +35,13 @@ class GeoDataManager:
         ranges = covering.getGeoHashRanges(self.config.hashKeyLength)
         results = []
         consumed_capacity=0
-
-        print("Query Input",geoQueryInput.QueryInput)
         for range in ranges:
 
             hashKey = S2Manager().generateHashKey(range.rangeMin, self.config.hashKeyLength)
-            print("Range, hashKey", range.rangeMin, range.rangeMax, hashKey)
             res = self.dynamoDBManager.queryGeohash(
                 geoQueryInput.QueryInput, hashKey, range)
             results.extend(res['data'])
             consumed_capacity+=res['consumed_capacity']
-            #print('dispatch queries before filtering', len(results))
         return {'results': results, 'consumed_capacity': consumed_capacity}
 
     def queryRectangle(self, QueryRectangleInput: 'QueryRectangleRequest'):

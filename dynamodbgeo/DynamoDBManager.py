@@ -38,7 +38,6 @@ class DynamoDBManager:
             hashKeyValue=queryInput['GSI']['PK']['value'] if 'value' in queryInput['GSI']['PK'].keys() else hashKeyValue
             max = f"{queryInput['GSI']['SK']['value']}{max}" if queryInput['GSI']['SK']['composite'] else max
             min = f"{queryInput['GSI']['SK']['value']}{min}" if queryInput['GSI']['SK']['composite'] else min
-            print("min, max", min, max)
         #params['ReturnConsumedCapacity'] = 'INDEXES'
         # As eyConditionExpressions must only contain one condition per key, customer passing KeyConditionExpression will be replaced automatically
         params['KeyConditionExpression'] = pk_name + ' = :hashKey and ' + sk_name + ' between :geohashMin and :geohashMax'
@@ -59,12 +58,8 @@ class DynamoDBManager:
                     sk_type: max}, ':geohashMin': {sk_type: min}}
 
         params['ReturnConsumedCapacity'] = 'TOTAL'
-        print(params)
-
         response = self.config.dynamoDBClient.query(**params)
-        #print(response)
         data = response['Items']
-        print(len(data))
         while 'LastEvaluatedKey' in response:
             params['ExclusiveStartKey'] = response['LastEvaluatedKey']
             response = self.config.dynamoDBClient.query(**params)
