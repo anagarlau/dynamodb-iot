@@ -6,7 +6,7 @@ from decimal import Decimal, getcontext, ROUND_HALF_UP
 import pandas as pd
 import simplejson as json
 
-from dynamodbgeo.dynamodbgeo import S2Manager, GeoPoint
+from dynamodbgeo import S2Manager, GeoPoint
 from utils.polygon_def import hashKeyLength, get_project_path
 from utils.sensors.sensors_from_csv import json_to_array
 

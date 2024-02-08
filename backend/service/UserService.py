@@ -1,7 +1,7 @@
 from botocore.exceptions import BotoCoreError, ClientError
 
 from backend.models.User import User
-from dynamodbgeo.dynamodbgeo import GeoDataManagerConfiguration, GeoDataManager
+from dynamodbgeo import GeoDataManagerConfiguration, GeoDataManager
 from utils.polygon_def import create_dynamodb_client, hashKeyLength
 
 class UserService:

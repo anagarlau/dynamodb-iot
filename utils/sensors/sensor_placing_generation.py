@@ -8,7 +8,7 @@ from shapely import Polygon
 from shapely.geometry import Point
 
 from backend.models.Parcel import Parcel
-from dynamodbgeo.dynamodbgeo import GeoPoint, S2Manager
+from dynamodbgeo import GeoPoint, S2Manager
 
 
 def find_polygon_for_point(point, polygon_data_list):
@@ -24,7 +24,7 @@ def is_point_in_parcel(point, parcel_list: List[Parcel]):
             return parcel
     return None
 
-
+# Created with ChatGPT support
 def create_uniform_sensor_grid(polygon, crop_assignment):
     processed_crop_assignments = [{**item, 'polygon': Polygon(item['polygon'])} for item in crop_assignment]
     # print("crop assignment dict")

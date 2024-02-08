@@ -8,7 +8,7 @@ from botocore.exceptions import BotoCoreError, ClientError
 from shapely import Polygon
 
 from backend.models.Parcel import Parcel
-from dynamodbgeo.dynamodbgeo import GeoDataManagerConfiguration, GeoDataManager, QueryRectangleRequest, GeoPoint
+from dynamodbgeo import GeoDataManagerConfiguration, GeoDataManager, QueryRectangleRequest, GeoPoint
 from utils import polygon_def
 from utils.polygon_def import create_dynamodb_client, hashKeyLength
 from utils.sensor_events.sensor_events_generation import convert_to_unix_epoch

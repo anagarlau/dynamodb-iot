@@ -6,6 +6,9 @@ from utils.sensors.sensor_placing_generation import create_uniform_sensor_grid, 
 from utils.sensors.sensors_from_csv import sanity_check_from_csv
 from utils.users_and_roles.user_and_roles_generation import generate_user_data
 
+'''
+Data generation script 
+'''
 
 def main():
 

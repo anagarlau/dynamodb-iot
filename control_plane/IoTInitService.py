@@ -4,7 +4,7 @@ import time
 from botocore.exceptions import ClientError
 
 from backend.models.MaintenanceEnum import MaintenanceType
-from dynamodbgeo.dynamodbgeo import GeoDataManagerConfiguration, GeoDataManager, GeoTableUtil, GeoPoint, S2Manager
+from dynamodbgeo import GeoDataManagerConfiguration, GeoDataManager, GeoTableUtil, GeoPoint, S2Manager
 from utils.handle_error import handle_error
 from utils.parcels.parcels_from_csv import read_and_process_parcels_from_json
 from utils.polygon_def import create_dynamodb_client, hashKeyLength
