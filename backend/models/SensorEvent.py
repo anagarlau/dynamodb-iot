@@ -3,6 +3,8 @@ from enum import Enum
 from datetime import datetime
 from typing import List
 
+from dateutil import parser
+
 
 # from utils.sensor_events.sensor_events_generation import convert_to_unix_epoch, get_first_of_month_as_unix_timestamp
 
@@ -40,9 +42,9 @@ class SensorEvent:
             get_first_of_month_as_unix_timestamp
         lat, lon = self.metadata.location
         geoJson = "{},{}".format(lat, lon)
-        timestamp_str = self.data.timestamp.strftime("%Y-%m-%dT%H:%M:%S")
+        timestamp_str = self.data.timestamp
         sk_formatted = f"Event#{convert_to_unix_epoch(timestamp_str)}#{self.sensorId}"
-        start_of_month = get_first_of_month_as_unix_timestamp(self.data.timestamp.strftime("%Y-%m-%dT%H:%M:%S"))
+        start_of_month = get_first_of_month_as_unix_timestamp(self.data.timestamp)
         return {
             'PK': {'S': f"{self.data.dataType}#{str(start_of_month)}"},
             'SK': {'S': sk_formatted},
@@ -70,7 +72,7 @@ class SensorEvent:
         def __init__(self, dataType, dataPoint, timestamp):
             self.dataType = DataType(dataType).value
             self.dataPoint = dataPoint
-            self.timestamp = timestamp  # Expected to be a datetime object
+            self.timestamp = parser.parse(timestamp).strftime("%Y-%m-%dT%H:%M:%S")
 
     def __init__(self, sensorId, metadata, data):
         self.sensorId = sensorId
@@ -86,7 +88,7 @@ class SensorEvent:
                 "parcel_id": self.metadata.parcel_id
             },
             "data": {
-                "dataType": self.data.dataType.value,
+                "dataType": self.data.dataType,
                 "dataPoint": self.data.dataPoint,
                 "timestamp": self.data.timestamp if self.data.timestamp else None
             }
@@ -138,36 +140,4 @@ class SensorEvent:
         sensor_event = cls(sensor_id, metadata, data)
         sensor_event.PK = pk
         return sensor_event
-# if __name__ == "__main__":
-#     # sensor_event = SensorEvent(
-#     #     sensorId='60acb1d3-bf3a-4f25-aa73-c75d0f495a8b',
-#     #     metadata={
-#     #         'location': '(46.63366128235294,28.12680874117647)',
-#     #         'battery_level': 33,
-#     #         'status': 'Maintenance',
-#     #         'parcel_id': 'Chickpeas#957000a4-6b4a-4ff7-979d-9764d086ca01'
-#     #     },
-#     #     data={
-#     #         'dataType': 'SoilPH',
-#     #         'dataPoint': 1,
-#     #         'timestamp': '2023-12-21T16:00:00'
-#     #     }
-#     # )
-#     # # print(sensor_event.to_entity())
-#     # # print(sensor_event.to_json())
-#     # json = {
-#     #     "sensorId": "60acb1d3-bf3a-4f25-aa73-c75d0f495a8b",
-#     #     "metadata": {
-#     #         "location": "(46.63366128235294, 28.12680874117647)",
-#     #         "battery_level": 33,
-#     #         "status": "Maintenance",
-#     #         "parcel_id": "Chickpeas#957000a4-6b4a-4ff7-979d-9764d086ca01"
-#     #     },
-#     #     "data": {
-#     #         "dataType": "SoilPH",
-#     #         "dataPoint": 1,
-#     #         "timestamp": "2023-12-21T16:00:00"
-#     #     }
-#     # }
-#     # print(json)
-#     # print(SensorEvent.from_json(json).to_entity())
+
