@@ -1,14 +1,12 @@
-import ast
 import uuid
 from datetime import datetime
 
 import dateutil.utils
-from boto3.dynamodb.conditions import Key
 from botocore.exceptions import BotoCoreError, ClientError
 from shapely import Polygon
 
 from backend.models.Parcel import Parcel
-from dynamodbgeo import GeoDataManagerConfiguration, GeoDataManager, QueryRectangleRequest, GeoPoint
+from dynamodbgeo import GeoDataManagerConfiguration, GeoDataManager
 from utils import polygon_def
 from utils.polygon_def import create_dynamodb_client, hashKeyLength
 from utils.sensor_events.sensor_events_generation import convert_to_unix_epoch
@@ -207,21 +205,19 @@ class ParcelService:
 
 if __name__ == "__main__":
     service = ParcelService()
+
     # res = service.get_all_parcels_optionally_by_plant_type()
-    # print(len(res))
+    # print("All parcels", len(res))
     # res = service.get_all_parcels_optionally_by_plant_type("ChickpeAS")
-    # print(len(res))
-
-    res = service.get_parcel_by_id("Chickpeas#b35799e2-0ac7-49b2-9355-f580dc7d3e27")
+    # print("All parcels by plant", len(res))
+    #
+    # res = service.get_parcel_by_id("Chickpeas#b35799e2-0ac7-49b2-9355-f580dc7d3e27")
+    # print(res)
+    # res = service.get_all_active_parcels_in_field_optionally_by_plant_type()
     # print(res[:1])
-    #print(res)
-    #res = service.get_all_active_parcels_in_field_optionally_by_plant_type()
-    # print(res[:1])
-    #print(len(res))
-
-
     # print(len(res))
-    # # res = service.get_all_active_parcels_in_field()
+    # res = service.get_all_active_parcels_in_field()
+    # print(len(res))
     # parcel = {
     #     'polygon_coord': [(40.7128, -74.0060), (40.7129, -74.0061), (40.7130, -74.0062), (40.7131, -74.0063)],
     #     'plant_type': 'Chickpeas',
@@ -237,5 +233,5 @@ if __name__ == "__main__":
     #     'sunlight_requirements_hours_per_day': 6  # in hours
     # }
     # print(service.add_parcel(parcel))
-    res = service.retire_parcel("Chickpeas#b35799e2-0ac7-49b2-9355-f580dc7d3e27")
+    # res = service.retire_parcel("Chickpeas#b35799e2-0ac7-49b2-9355-f580dc7d3e27")
 

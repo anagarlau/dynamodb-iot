@@ -58,7 +58,7 @@ class UserService:
 
 if __name__ == "__main__":
     user_service = UserService()
-    user_details = user_service.get_user_details("jennifer10@example.net")
+    user_details = user_service.get_user_details("carlyjones@example.com")
     print(user_details)
     users_by_role = user_service.get_users_by_role("Admin")
     print(len(users_by_role))

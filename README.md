@@ -14,6 +14,12 @@ The project contains two branches:
 - Installed dependencies in the main project `requirements.txt` (Run `pip install -r requirements.txt`)
 - Installed adjusted `dynamodbgeo` in folder `dynamodbgeo` (Run `pip install -e .\dynamodbgeo\`)
 
+## Quickstart Data Insertion
+
+ The database can quickly be populated using the `control_plane/IoTInitService.py` class. This script sets up the IoT table, creates 6 GSIs, and inserts pre-defined data as well as randomly generated maintenance entries. 
+ Refer to the "Data Insertion" section below for more details.
+
+
 ## Data Generation
 
 - Geodata is based on the polygon definition in `utils/polygon_def.py` where the parameters for the local setup of the DynamoDB client can also be found. 

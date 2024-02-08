@@ -153,8 +153,10 @@ def convert_to_unix_epoch(timestamp_str):
 def random_date_string():
     start_date = datetime(2020, 1, 1)
     end_date = datetime.now()
-    random_date = start_date + timedelta(days=random.randint(0, (end_date - start_date).days))
-    return random_date.strftime('%Y-%m-%dT%H:%M:%S')
+    random_day = start_date + timedelta(days=random.randint(0, (end_date - start_date).days))
+    random_date_with_min = random_day + timedelta(minutes=random.randint(0, 59))
+    random_date_with_sec = random_date_with_min + timedelta(seconds=random.randint(0, 59))
+    return random_date_with_sec.strftime('%Y-%m-%dT%H:%M:%S')
 
 def get_first_of_month_as_unix_timestamp(timestamp_str):
     return convert_to_unix_epoch(get_start_of_month(timestamp_str))

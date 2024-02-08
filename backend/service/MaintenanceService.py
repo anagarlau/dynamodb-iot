@@ -165,9 +165,9 @@ class MaintenanceService:
 
 if __name__ == "__main__":
     maintenance_service = MaintenanceService()
-    # maintenance_operation = maintenance_service.get_latest_n_maintenance_operations_for_sensor("a7b33a26-31fc-408a-8d18-f26c6cd87119", 5)
-    # print(len(maintenance_operation))
-    # maintenance_service.schedule_sensor_maintenance("a7b33a26-31fc-408a-8d18-f26c6cd87119",
+    maintenance_operations = maintenance_service.get_latest_n_maintenance_operations_for_sensor("69fd190a-8bd4-450c-8161-263b4212dcbe", 5)
+    print(len(maintenance_operations))
+    # maintenance_service.schedule_sensor_maintenance("69fd190a-8bd4-450c-8161-263b4212dcbe",
     #                                                 "Light",
     #                                                 "foxpaul@example.net")
     # maintenance_service.put_sensor_into_maintenance(
@@ -177,12 +177,12 @@ if __name__ == "__main__":
     #                        "2024-03-19T00:00:00",
     #                        MaintenanceType.get_random().value))
 
-    #maintenance_service.conclude_maintenance_operation("a7b33a26-31fc-408a-8d18-f26c6cd87119", "Light")
+    #maintenance_service.conclude_maintenance_operation("69fd190a-8bd4-450c-8161-263b4212dcbe", "Light")
     # print(maintenance_operation)
-    # operations = maintenance_service.get_maintenance_operations_by_user("foxpaul@example.net")
-    # print(len(operations))
-    sensors_in_maintenance=maintenance_service.get_sensors_scheduled_or_in_maintenance(from_date="2024-03-19T00:00:00", to_date="2024-03-29T00:00:00")
-    # print(sensors_in_maintenance)
+    operations = maintenance_service.get_maintenance_operations_by_user("carlyjones@example.com")
+    print(len(operations))
+    sensors_in_maintenance=maintenance_service.get_sensors_scheduled_or_in_maintenance()
+    print(sensors_in_maintenance)
     #operations = maintenance_service.get_maintenance_operations_by_user("foxpaul@example.net", "2024-02-10T00:00:00","2024-07-23T00:00:00")
     # for op in operations:
     #     print(op)
