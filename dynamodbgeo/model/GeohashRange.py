@@ -3,7 +3,7 @@
 import os
 import sys
 
-from dynamodbgeo.dynamodbgeo import GeoDataManagerConfiguration, S2Manager
+from dynamodbgeo import GeoDataManagerConfiguration, S2Manager
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
