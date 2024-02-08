@@ -317,7 +317,7 @@ def main():
     #         metadata=json['metadata'],
     #         data=json['data'])))
 
-    agg = service.query_aggregates(data_types=['Humidity', 'SoilPH', 'Rain', 'Temperature', 'SoilMoisture'], month_year=(3, 2020)) #date="2020-03-22"
+    agg = service.query_aggregates(data_types=['Humidity', 'SoilPH', 'Rain', 'Temperature', 'SoilMoisture'],date="2020-03-22") # month_year=(3, 2020)
     print(agg)
 
     center_point = Point(28.1250063, 46.6334964)

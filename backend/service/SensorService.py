@@ -378,8 +378,8 @@ if __name__ == "__main__":
                   (28.1250063, 46.6334964)]
     sensor_service = SensorService()
     sensor_service.get_all_currently_active_sensors_in_radius_by_type(center_point, 500, "SoilMoisture")
-    #sensor_det = sensor_service.get_sensor_details_by_id("a7b33a26-31fc-408a-8d18-f26c6cd87119")
-    #print(sensor_det)
+    sensor_det = sensor_service.get_sensor_details_by_id("c0db5e4b-58e8-4a48-a065-e13749aecb4d")
+    print(sensor_det)
 
     # sensor_id=sensor_service.add_sensor( 28.12595, 46.63357,{
     #     'sensor_type': 'SoilMoisture',
@@ -392,16 +392,16 @@ if __name__ == "__main__":
     # res = sensor_service.get_all_active_sensors_in_field_or_with_optional_parcel_id()
     # print(len(res))
 
-    #location_history = sensor_service.get_sensor_location_history("03d50768-c5b0-425e-ae63-e009a95599d7")
-    #print(location_history)
+    location_history = sensor_service.get_sensor_location_history("057e0d19-d4b0-4180-bbd8-f8f87fa8b94c")
+    print(len(location_history))
 
-    #sensor_service.move_sensor("SoilMoisture","03d50768-c5b0-425e-ae63-e009a95599d7", 28.1285698, 46.6329204)
-    #sensor_service.retire_sensor("SoilMoisture","03d50768-c5b0-425e-ae63-e009a95599d7")
+    #sensor_service.move_sensor("SoilMoisture","b7dd1424-8fb0-45bc-8623-7fb37386261d", 28.1285698, 46.6329204)
+    sensor_service.retire_sensor("SoilMoisture","b7dd1424-8fb0-45bc-8623-7fb37386261d")
 
     ev = sensor_service.get_active_sensors_in_rectangle_for_time_range(
                                                                polygon_coords=rectangle,
                                                                from_date='2020-01-12T00:00:00',
-                                                               to_date='2025-01-12T16:00:00')
+                                                               to_date='2024-10-12T16:00:00')
     print(len(ev))
     #
     # sensor_service.get_all_currently_active_sensors_in_radius_by_type(center_point, 200, "SoilMoisture")
