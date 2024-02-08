@@ -120,12 +120,9 @@ class IoTInitService:
                     if gsi["IndexName"] == gsi_name:
                         gsi_status = gsi["IndexStatus"]
                         break
-
-            # Check if GSI is active
             if gsi_status == "ACTIVE":
                 print(f"GSI {gsi_name} is now active.")
                 break
-            # Wait for a short period before checking again
             time.sleep(5)
         return table_description
 

@@ -20,6 +20,10 @@ class SensorDetails:
         # Parse geoJson to create a Point
         lat, lon = map(float, response_item['geoJson']['S'].split(','))
         self.location = Point(lon, lat)
+        if 'GSI_PK' in response_item:
+            self.gsi_pk = response_item['GSI_PK']['S']
+        if 'GSI_SK' in response_item:
+            self.gsi_sk =  response_item['GSI_SK']['S']
 
     def __repr__(self):
         return (f"SensorDetails(SensorID={self.sensor_id}, SK={self.sk}, SensorType={self.sensor_type}, "

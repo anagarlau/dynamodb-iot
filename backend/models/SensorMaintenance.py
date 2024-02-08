@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from utils.sensor_events.sensor_events_generation import convert_to_unix_epoch
+from utils.sensor_events.sensor_events_generation import convert_to_unix_epoch, unix_to_iso
 
 
 class SensorMaintenance:
@@ -43,6 +43,22 @@ class SensorMaintenance:
                 }
             }
         }
+    @classmethod
+    def generate_scheduled_maintenance_record(cls, table_name, sensor_id, sensor_type, user_email):
+        return {
+            'Update': {
+                'TableName': table_name,
+                'Key': {
+                    'PK': {'S': f"Sensor#{sensor_id}"},
+                     'SK': {'S': f'Metadata#{sensor_type}#{sensor_id}'}
+                },
+                'UpdateExpression': 'SET GSI_PK = :gsi_pk, GSI_SK = :gsi_sk',
+                'ExpressionAttributeValues': {
+                    ':gsi_pk': {'S': 'PlannedMaintenance'},
+                    ':gsi_sk': {'S': f"User#{user_email}#{convert_to_unix_epoch(datetime.now().strftime('%Y-%m-%dT%H:%M:%S'))}"}
+                }
+            }
+        }
 
 class MaintenanceDetails:
     def __init__(self, sensor_id, sensor_type, user_email, start_timestamp, maintenance_type, concluded_at = None):
@@ -68,14 +84,14 @@ class MaintenanceDetails:
                 'UpdateExpression': 'SET GSI_PK = :gsi_pk, GSI_SK = :gsi_sk',
                 'ExpressionAttributeValues': {
                     ':gsi_pk': {'S': 'Maintenance'},
-                    ':gsi_sk': {'S': self.PK}
+                    ':gsi_sk': {'S': self.SK}
                 }
             }
         }
 
 
-    def generate_new_maintenance_record(self, table_name):
-        return {
+    def generate_new_maintenance_record(self, table_name, sensor_details):
+        item = {
             'Put': {
                 'TableName': table_name,
                 'Item': {
@@ -88,6 +104,10 @@ class MaintenanceDetails:
                 }
             }
         }
+        if  hasattr(sensor_details, 'gsi_sk') and sensor_details.gsi_sk is not None and sensor_details.gsi_sk.startswith("User"):
+            item['Put']['Item']['assigned_to'] = {'S': f"{sensor_details.gsi_sk.split('#')[1]}"}
+            item['Put']['Item']['assigned_at'] = {'S': f"{unix_to_iso(int(sensor_details.gsi_sk.split('#')[2]))}"}
+        return item
 
     def __repr__(self):
         return f"Maintenance Details: PK={self.PK}, SK={self.SK}, maintenance_type={self.maintenance_type}, details={self.details}, GSI_PK={self.GSI_PK}, GSI_SK={self.GSI_SK}, concluded_on={self.concluded_on}"

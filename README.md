@@ -27,12 +27,13 @@ The project contains two branches:
 
 - Pre-existing data (in `maps/data`) can be inserted using the script in the IoTInitService class (`control_plane/IoTInitService.py`).  
 - The script creates the IoT table and 6 GSIs.
-- Maintenance entries are randomly created in the IoTInitService. Entries for sensors currently in Maintenance or PlannedMaintenance are not included and have to be inserted manually using `backend/service/MaintenanceService.py`.
+- Maintenance entries are randomly created in the IoTInitService and sometimes contain duplicates in which case IoTInitService should be re-run 
+- Entries for sensors currently in Maintenance or PlannedMaintenance are not included and have to be inserted manually using `backend/service/MaintenanceService.py`.
 - Aggregate data can be inserted using the mock Worker in `backend/service/WorkerService.py`.
 - `backend/service/vis_out/sensorservice` contains visual output of methods in SensorService.py in the form of folium maps
 
 ## Notes on AI Support
 
-Splitting the fields into subpolygons (parcels) was achieved with ChatGPT support starting from the author's idea of splitting based on set points and then rotating according to a calculated bearing. See `parcels_generation.py` and [Google Maps](https://www.google.com/maps/d/edit?mid=1zJrRQ74tlJzs8GSxvTNt5PcW9Bfs-nM&usp=sharing).
+Splitting the fields into subpolygons (parcels) was achieved with ChatGPT support starting from the author's idea of splitting based on set points and then rotating the subpolygons according to a calculated bearing. See `parcels_generation.py` and [Google Maps](https://www.google.com/maps/d/edit?mid=1zJrRQ74tlJzs8GSxvTNt5PcW9Bfs-nM&usp=sharing).
 
 ChatGPT supported with trigonometry skills the author unfortunately lacks. ChatGPT also supported the efforts to create a weighted sensor grid in `sensor_placing_generation.py`. The relevant methods are marked as such.

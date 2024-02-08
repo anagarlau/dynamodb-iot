@@ -1,7 +1,7 @@
 from shapely import Point
 
 from backend.models.SensorEvent import DataType
-from dynamodbgeo.dynamodbgeo import GeoPoint, S2Manager
+from dynamodbgeo import GeoPoint, S2Manager
 from utils.polygon_def import hashKeyLength
 from utils.sensor_events.sensor_events_generation import convert_to_unix_epoch
 

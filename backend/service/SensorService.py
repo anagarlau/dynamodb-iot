@@ -10,7 +10,7 @@ from backend.models.SensorDetails import SensorDetails
 from backend.models.SensorLocationHistory import SensorLocationHistory
 from backend.models.SensorMetadata import SensorMetadata
 from backend.service.ParcelService import ParcelService
-from dynamodbgeo.dynamodbgeo import GeoDataManagerConfiguration, GeoDataManager, QueryRadiusRequest, GeoPoint, \
+from dynamodbgeo import GeoDataManagerConfiguration, GeoDataManager, QueryRadiusRequest, GeoPoint, \
     QueryRectangleRequest
 from utils.polygon_def import create_dynamodb_client, hashKeyLength
 from utils.sensor_events.sensor_events_generation import convert_to_unix_epoch
@@ -29,7 +29,8 @@ class SensorService:
         self.table_name = 'IoT'
         self.parcel_service = ParcelService()
 
-    def get_active_sensors_in_rectangle_for_time_range(self, polygon_coords: List[Tuple[float, float]], from_date: str, to_date: str):
+    def get_active_sensors_in_rectangle_for_time_range(self, polygon_coords: List[Tuple[float, float]], from_date: str,
+                                                       to_date: str):
         try:
             start_range_unix = convert_to_unix_epoch(from_date)
             end_range_unix = convert_to_unix_epoch(to_date)
@@ -62,8 +63,8 @@ class SensorService:
         except (ClientError, BotoCoreError, ValueError, Exception) as e:
             print(f"An error occurred while retrieving active sensors in rectangle: {e}")
             return []
-
-    def get_all_currently_active_sensors_in_radius_by_type(self, center_point: shapely.geometry.point.Point, radius_meters: float, sensor_type: str):
+    def get_all_currently_active_sensors_in_radius_by_type(self, center_point: shapely.geometry.point.Point,
+                                                           radius_meters: float, sensor_type: str):
         try:
             lat, lon = center_point.y, center_point.x
             query_radius_input = {
@@ -83,13 +84,17 @@ class SensorService:
             )
             data_for_map = parse_sensor_data(response['results'])
             map = visualize_results(center_point, radius_meters, data_for_map)
-            sensor_ids = [item['sensor_id'].split("#")[1] for item in data_for_map]
-            print(f"Total active in radius: {len(data_for_map)},consumed Capacity Units {response['consumed_capacity']}")
+            print(
+                f"Total active in radius: {len(data_for_map)},consumed Capacity Units {response['consumed_capacity']}")
             map.save("vis_out/sensorservice/sensors-active-radius.html")
             return [SensorDetails(item) for item in response['results']]
         except (BotoCoreError, ClientError, Exception) as error:
             print(f"An error occurred: {error}")
             return []
+
+
+
+
 
     def get_sensor_location_history(self, sensor_id, get_last_location=False):
         params = {
@@ -275,7 +280,7 @@ class SensorService:
         data = parse_sensor_data(response['results'])
         map = visualize_results(center_point, radius_meters, data)
 
-        print('>>Radius Time Range: Total data', len(response['results']), 'with consumed Capacity Units',
+        print('Radius Time Range: Total data', len(response['results']), 'with consumed Capacity Units',
               response['consumed_capacity'])
         map.save("vis_out/sensorservice/sensors-radius-timerange.html")
         return [SensorDetails(item) for item in response['results']]
@@ -372,6 +377,7 @@ if __name__ == "__main__":
     rectangle = [(28.1250063, 46.6334964), (28.1256516, 46.6322131), (28.1285698, 46.6329204), (28.1278188, 46.6341654),
                   (28.1250063, 46.6334964)]
     sensor_service = SensorService()
+    sensor_service.get_all_currently_active_sensors_in_radius_by_type(center_point, 500, "SoilMoisture")
     #sensor_det = sensor_service.get_sensor_details_by_id("a7b33a26-31fc-408a-8d18-f26c6cd87119")
     #print(sensor_det)
 
@@ -383,18 +389,21 @@ if __name__ == "__main__":
     # })
     # print(sensor_id)
 
-    res = sensor_service.get_all_active_sensors_in_field_or_with_optional_parcel_id()
-    print(len(res))
+    # res = sensor_service.get_all_active_sensors_in_field_or_with_optional_parcel_id()
+    # print(len(res))
+
     #location_history = sensor_service.get_sensor_location_history("03d50768-c5b0-425e-ae63-e009a95599d7")
     #print(location_history)
+
     #sensor_service.move_sensor("SoilMoisture","03d50768-c5b0-425e-ae63-e009a95599d7", 28.1285698, 46.6329204)
     #sensor_service.retire_sensor("SoilMoisture","03d50768-c5b0-425e-ae63-e009a95599d7")
-    sensor_service.get_active_sensors_in_rectangle_for_time_range(
+
+    ev = sensor_service.get_active_sensors_in_rectangle_for_time_range(
                                                                polygon_coords=rectangle,
                                                                from_date='2020-01-12T00:00:00',
                                                                to_date='2025-01-12T16:00:00')
-
-
-    sensor_service.get_all_currently_active_sensors_in_radius_by_type(center_point, 200, "SoilMoisture")
+    print(len(ev))
+    #
+    # sensor_service.get_all_currently_active_sensors_in_radius_by_type(center_point, 200, "SoilMoisture")
 
 
